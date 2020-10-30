@@ -1,0 +1,10 @@
+/home/tavlin/Documents/MA_Plotting/build/CMakeFiles/install/strip.dir
+/home/tavlin/Documents/MA_Plotting/build/CMakeFiles/install/local.dir
+/home/tavlin/Documents/MA_Plotting/build/CMakeFiles/install.dir
+/home/tavlin/Documents/MA_Plotting/build/CMakeFiles/testLib.dir
+/home/tavlin/Documents/MA_Plotting/build/CMakeFiles/libB.dir
+/home/tavlin/Documents/MA_Plotting/build/CMakeFiles/list_install_components.dir
+/home/tavlin/Documents/MA_Plotting/build/CMakeFiles/plot.dir
+/home/tavlin/Documents/MA_Plotting/build/CMakeFiles/edit_cache.dir
+/home/tavlin/Documents/MA_Plotting/build/CMakeFiles/libC.dir
+/home/tavlin/Documents/MA_Plotting/build/CMakeFiles/rebuild_cache.dir
