@@ -3,7 +3,7 @@ project(MA_Plotting CXX)
 add_executable(plot src/main.cxx)
 
 add_library(testLib SHARED /home/tavlin/C_Headers/CommonHeader.h /home/tavlin/C_Headers/Plotting_Patrick.h /home/tavlin/Documents/git/Header/Plot.h)
-add_library(libB SHARED include/YieldScaling.hpp include/PeakComp.hpp include/BeforeScaling.hpp include/FitAfterScaling.hpp include/SameEventToBackgroundRatio.hpp include/Peaks.hpp include/OnlyPeaks.hpp include/ScaleWithUncer.hpp include/Yields.hpp include/Chi2Test.hpp)
+add_library(libB SHARED include/test.hpp include/YieldScaling.hpp include/SignificanceMC.hpp include/YieldsData.hpp include/PeakComp.hpp include/BeforeScaling.hpp include/FitAfterScaling.hpp include/SameEventToBackgroundRatio.hpp include/Peaks.hpp include/OnlyPeaks.hpp include/ScaleWithUncer.hpp include/Yields.hpp include/Chi2Test.hpp include/QAPlots.hpp)
 add_library(libC SHARED include/plotting.hpp)
 set_target_properties(testLib PROPERTIES LINKER_LANGUAGE CXX)
 set_target_properties(libB PROPERTIES LINKER_LANGUAGE CXX)

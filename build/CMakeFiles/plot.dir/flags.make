@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/tavlin/alice/sw/ubuntu1804_x86-64/ROOT/v6-20-02-alice7-7/include
+CXX_INCLUDES = -I/home/tavlin/alice/sw/ubuntu1804_x86-64/ROOT/v6-20-08-alice1-5/include
 
 CXX_FLAGS =   -std=c++11 -pipe -fsigned-char -pthread -O3 -march=native -ftree-vectorize -ffast-math -DNODEBUG -ggdb
 

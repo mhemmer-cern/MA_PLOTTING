@@ -34,7 +34,7 @@ SquarePlot FitAfterScalig(TH1D* &SE, TH1D* &Background1, TH1D* &Background2, TH1
   SquarePlot square = SquarePlot(main, minv_str, count_str);
   square.SetMode(Plot::Thesis);
   square.SetStyle(colors, markers, sizes);
-  // square.SetRanges(0.0, 1.6, , 0);
+  square.SetRanges(0.0, 1.6, SE->GetMinimum(), SE->GetMaximum());
   return square;
 
 }

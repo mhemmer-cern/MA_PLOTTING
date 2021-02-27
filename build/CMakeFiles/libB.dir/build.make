@@ -84,24 +84,24 @@ libB_EXTERNAL_OBJECTS =
 
 liblibB.so: CMakeFiles/libB.dir/build.make
 liblibB.so: libtestLib.so
-liblibB.so: /home/tavlin/alice/sw/ubuntu1804_x86-64/ROOT/v6-20-02-alice7-7/lib/libCore.so
-liblibB.so: /home/tavlin/alice/sw/ubuntu1804_x86-64/ROOT/v6-20-02-alice7-7/lib/libImt.so
-liblibB.so: /home/tavlin/alice/sw/ubuntu1804_x86-64/ROOT/v6-20-02-alice7-7/lib/libRIO.so
-liblibB.so: /home/tavlin/alice/sw/ubuntu1804_x86-64/ROOT/v6-20-02-alice7-7/lib/libNet.so
-liblibB.so: /home/tavlin/alice/sw/ubuntu1804_x86-64/ROOT/v6-20-02-alice7-7/lib/libHist.so
-liblibB.so: /home/tavlin/alice/sw/ubuntu1804_x86-64/ROOT/v6-20-02-alice7-7/lib/libGraf.so
-liblibB.so: /home/tavlin/alice/sw/ubuntu1804_x86-64/ROOT/v6-20-02-alice7-7/lib/libGraf3d.so
-liblibB.so: /home/tavlin/alice/sw/ubuntu1804_x86-64/ROOT/v6-20-02-alice7-7/lib/libGpad.so
-liblibB.so: /home/tavlin/alice/sw/ubuntu1804_x86-64/ROOT/v6-20-02-alice7-7/lib/libROOTDataFrame.so
-liblibB.so: /home/tavlin/alice/sw/ubuntu1804_x86-64/ROOT/v6-20-02-alice7-7/lib/libTree.so
-liblibB.so: /home/tavlin/alice/sw/ubuntu1804_x86-64/ROOT/v6-20-02-alice7-7/lib/libTreePlayer.so
-liblibB.so: /home/tavlin/alice/sw/ubuntu1804_x86-64/ROOT/v6-20-02-alice7-7/lib/libRint.so
-liblibB.so: /home/tavlin/alice/sw/ubuntu1804_x86-64/ROOT/v6-20-02-alice7-7/lib/libPostscript.so
-liblibB.so: /home/tavlin/alice/sw/ubuntu1804_x86-64/ROOT/v6-20-02-alice7-7/lib/libMatrix.so
-liblibB.so: /home/tavlin/alice/sw/ubuntu1804_x86-64/ROOT/v6-20-02-alice7-7/lib/libPhysics.so
-liblibB.so: /home/tavlin/alice/sw/ubuntu1804_x86-64/ROOT/v6-20-02-alice7-7/lib/libMathCore.so
-liblibB.so: /home/tavlin/alice/sw/ubuntu1804_x86-64/ROOT/v6-20-02-alice7-7/lib/libThread.so
-liblibB.so: /home/tavlin/alice/sw/ubuntu1804_x86-64/ROOT/v6-20-02-alice7-7/lib/libMultiProc.so
+liblibB.so: /home/tavlin/alice/sw/ubuntu1804_x86-64/ROOT/v6-20-08-alice1-5/lib/libCore.so
+liblibB.so: /home/tavlin/alice/sw/ubuntu1804_x86-64/ROOT/v6-20-08-alice1-5/lib/libImt.so
+liblibB.so: /home/tavlin/alice/sw/ubuntu1804_x86-64/ROOT/v6-20-08-alice1-5/lib/libRIO.so
+liblibB.so: /home/tavlin/alice/sw/ubuntu1804_x86-64/ROOT/v6-20-08-alice1-5/lib/libNet.so
+liblibB.so: /home/tavlin/alice/sw/ubuntu1804_x86-64/ROOT/v6-20-08-alice1-5/lib/libHist.so
+liblibB.so: /home/tavlin/alice/sw/ubuntu1804_x86-64/ROOT/v6-20-08-alice1-5/lib/libGraf.so
+liblibB.so: /home/tavlin/alice/sw/ubuntu1804_x86-64/ROOT/v6-20-08-alice1-5/lib/libGraf3d.so
+liblibB.so: /home/tavlin/alice/sw/ubuntu1804_x86-64/ROOT/v6-20-08-alice1-5/lib/libGpad.so
+liblibB.so: /home/tavlin/alice/sw/ubuntu1804_x86-64/ROOT/v6-20-08-alice1-5/lib/libROOTDataFrame.so
+liblibB.so: /home/tavlin/alice/sw/ubuntu1804_x86-64/ROOT/v6-20-08-alice1-5/lib/libTree.so
+liblibB.so: /home/tavlin/alice/sw/ubuntu1804_x86-64/ROOT/v6-20-08-alice1-5/lib/libTreePlayer.so
+liblibB.so: /home/tavlin/alice/sw/ubuntu1804_x86-64/ROOT/v6-20-08-alice1-5/lib/libRint.so
+liblibB.so: /home/tavlin/alice/sw/ubuntu1804_x86-64/ROOT/v6-20-08-alice1-5/lib/libPostscript.so
+liblibB.so: /home/tavlin/alice/sw/ubuntu1804_x86-64/ROOT/v6-20-08-alice1-5/lib/libMatrix.so
+liblibB.so: /home/tavlin/alice/sw/ubuntu1804_x86-64/ROOT/v6-20-08-alice1-5/lib/libPhysics.so
+liblibB.so: /home/tavlin/alice/sw/ubuntu1804_x86-64/ROOT/v6-20-08-alice1-5/lib/libMathCore.so
+liblibB.so: /home/tavlin/alice/sw/ubuntu1804_x86-64/ROOT/v6-20-08-alice1-5/lib/libThread.so
+liblibB.so: /home/tavlin/alice/sw/ubuntu1804_x86-64/ROOT/v6-20-08-alice1-5/lib/libMultiProc.so
 liblibB.so: CMakeFiles/libB.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/tavlin/Documents/MA_Plotting/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Linking CXX shared library liblibB.so"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/libB.dir/link.txt --verbose=$(VERBOSE)

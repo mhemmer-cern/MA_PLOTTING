@@ -10,7 +10,7 @@ void ScaleWithUncer(TH1D* &hist, TGraphErrors* &g, TF1* &f){
     Double_t uncer = 0.0;
     uncer += pow(hist->GetBinError(bin)*f->Eval(hist->GetBinCenter(bin) ), 2.);
     uncer += pow(hist->GetBinContent(bin)*g->GetErrorX(bin-1), 2.);
-    uncer = sqrt(uncer);
+    uncer = TMath::Sqrt(uncer);
     hist->SetBinContent(bin, content);
     hist->SetBinError(bin, uncer);
 

@@ -3,14 +3,14 @@
 #include "/home/tavlin/Documents/git/Header/Plot.h"
 
 void YieldScaling(TObjArray* array, Double_t NEVENTS){
-  const Int_t nBinsPt = 11;                                                     // pT binning
-  Double_t arrPtBinning[nBinsPt]        = { 2.0, 5.0, 8.0, 12.0, 16.0,
-    20.0, 24.0, 28.0, 32.0, 40.0,
-    50.0};
+  const Int_t nBinsPt = 7;                                                        // pT binning
+  Double_t arrPtBinning[nBinsPt] =
+  {  8.0, 12.0, 16.0, 20.0, 24.0,
+    28.0, 32.0};
 
 
   // --- Scale that bad boi ----------------------------------------------------
-  for (int hist = 0; hist < array->GetEntriesFast(); hist++)
+  for (int hist = 0; hist < array->GetEntries(); hist++)
   {
     TH1D* h1 = (TH1D*) array->At(hist);
     h1->Scale(1./(2.*M_PI*NEVENTS*0.084*1.6), "width");

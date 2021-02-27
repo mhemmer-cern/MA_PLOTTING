@@ -62,7 +62,7 @@ file(INSTALL DESTINATION "/home/tavlin/Documents/MA_Plotting/install" TYPE EXECU
      NOT IS_SYMLINK "$ENV{DESTDIR}/home/tavlin/Documents/MA_Plotting/install/plot")
     file(RPATH_CHANGE
          FILE "$ENV{DESTDIR}/home/tavlin/Documents/MA_Plotting/install/plot"
-         OLD_RPATH "/home/tavlin/Documents/MA_Plotting/build:/home/tavlin/alice/sw/ubuntu1804_x86-64/ROOT/v6-20-02-alice7-7/lib:"
+         OLD_RPATH "/home/tavlin/Documents/MA_Plotting/build:/home/tavlin/alice/sw/ubuntu1804_x86-64/ROOT/v6-20-08-alice1-5/lib:"
          NEW_RPATH "")
     if(CMAKE_INSTALL_DO_STRIP)
       execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}/home/tavlin/Documents/MA_Plotting/install/plot")
@@ -90,7 +90,7 @@ file(INSTALL DESTINATION "/home/tavlin/Documents/MA_Plotting/lib" TYPE SHARED_LI
      NOT IS_SYMLINK "$ENV{DESTDIR}/home/tavlin/Documents/MA_Plotting/lib/libtestLib.so")
     file(RPATH_CHANGE
          FILE "$ENV{DESTDIR}/home/tavlin/Documents/MA_Plotting/lib/libtestLib.so"
-         OLD_RPATH "/home/tavlin/alice/sw/ubuntu1804_x86-64/ROOT/v6-20-02-alice7-7/lib:"
+         OLD_RPATH "/home/tavlin/alice/sw/ubuntu1804_x86-64/ROOT/v6-20-08-alice1-5/lib:"
          NEW_RPATH "")
     if(CMAKE_INSTALL_DO_STRIP)
       execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}/home/tavlin/Documents/MA_Plotting/lib/libtestLib.so")
@@ -121,7 +121,7 @@ file(INSTALL DESTINATION "/home/tavlin/Documents/MA_Plotting/lib" TYPE SHARED_LI
      NOT IS_SYMLINK "$ENV{DESTDIR}/home/tavlin/Documents/MA_Plotting/lib/liblibB.so")
     file(RPATH_CHANGE
          FILE "$ENV{DESTDIR}/home/tavlin/Documents/MA_Plotting/lib/liblibB.so"
-         OLD_RPATH "/home/tavlin/Documents/MA_Plotting/build:/home/tavlin/alice/sw/ubuntu1804_x86-64/ROOT/v6-20-02-alice7-7/lib:"
+         OLD_RPATH "/home/tavlin/Documents/MA_Plotting/build:/home/tavlin/alice/sw/ubuntu1804_x86-64/ROOT/v6-20-08-alice1-5/lib:"
          NEW_RPATH "")
     if(CMAKE_INSTALL_DO_STRIP)
       execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}/home/tavlin/Documents/MA_Plotting/lib/liblibB.so")
@@ -152,7 +152,7 @@ file(INSTALL DESTINATION "/home/tavlin/Documents/MA_Plotting/lib" TYPE SHARED_LI
      NOT IS_SYMLINK "$ENV{DESTDIR}/home/tavlin/Documents/MA_Plotting/lib/liblibC.so")
     file(RPATH_CHANGE
          FILE "$ENV{DESTDIR}/home/tavlin/Documents/MA_Plotting/lib/liblibC.so"
-         OLD_RPATH "/home/tavlin/Documents/MA_Plotting/build:/home/tavlin/alice/sw/ubuntu1804_x86-64/ROOT/v6-20-02-alice7-7/lib:"
+         OLD_RPATH "/home/tavlin/Documents/MA_Plotting/build:/home/tavlin/alice/sw/ubuntu1804_x86-64/ROOT/v6-20-08-alice1-5/lib:"
          NEW_RPATH "")
     if(CMAKE_INSTALL_DO_STRIP)
       execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}/home/tavlin/Documents/MA_Plotting/lib/liblibC.so")

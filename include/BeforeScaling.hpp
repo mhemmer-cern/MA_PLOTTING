@@ -8,19 +8,19 @@ SquarePlot BeforeScaling(TH1D* &SE, TH1D* &Background, TPaveText* lSys){
   // --- Create TObjArrays -----------------------------------------------------
 
   TObjArray* main = new TObjArray();
-  Background->SetMaximum(Background->GetMaximum()*1.5);
   main->Add(Background);
   main->Add(SE);
 
   // --- Legends ---------------------------------------------------------------
 
   main->Add(lSys);
-  TLegend* l = Legend(main, "same event\n background", "lp lp").GetLegendPointer();
+  TLegend* l = Legend(main, "background\n same event", "lp lp").GetLegendPointer();
+  l->SetFillStyle(0);
 
   // --- Marker ----------------------------------------------------------------
 
-  vector<Color_t> colors = {kBlack, kRed-2};
-  vector<Style_t> markers = {kFullCircle, kFullSquare};
+  vector<Color_t> colors = {kRed-2, kBlack};
+  vector<Style_t> markers = {kFullSquare, kFullCircle};
   vector<Size_t>  sizes = {2., 2.};
 
   // --- Canvasses -------------------------------------------------------------
@@ -31,7 +31,7 @@ SquarePlot BeforeScaling(TH1D* &SE, TH1D* &Background, TPaveText* lSys){
   SquarePlot square = SquarePlot(main, minv_str, count_str);
   square.SetMode(Plot::Thesis);
   square.SetStyle(colors, markers, sizes);
-  // square.SetRanges(0.0, 1.6, , 0);
+  square.SetRanges(0.0, 1.6, SE->GetMinimum(), Background->GetMaximum()*1.8);
   return square;
 
 }

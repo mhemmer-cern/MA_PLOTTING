@@ -4,27 +4,42 @@
 #include "TFractionFitter.h"
 #include <vector>
 
-SquarePlot PeakComp(TH1D* &TruePeak, TH1D* &TrueReco, TH1D* &DataReco, TH1D* &TrueDiff, TPaveText* lSys){
+SquarePlot PeakComp(TH1D* &hTruePeak, TH1D* &hTrueReco, TH1D* &DataReco, TPaveText* lSys, TString legstring){
   // --- Create TObjArrays -----------------------------------------------------
 
+  TH1D* TruePeak = (TH1D*) hTruePeak->Clone("TruePeak");
+  TH1D* TrueReco = (TH1D*) hTrueReco->Clone("TrueReco");
+
+  Double_t scale = DataReco->Integral(TruePeak->FindBin(0.7), TruePeak->FindBin(0.85))/TruePeak->Integral(TruePeak->FindBin(0.7), TruePeak->FindBin(0.85));
+  TruePeak->Scale(scale);
+  scale = DataReco->Integral(TrueReco->FindBin(0.7), TrueReco->FindBin(0.85))/TrueReco->Integral(TrueReco->FindBin(0.7), TrueReco->FindBin(0.85));
+  TrueReco->Scale(scale);
+
+  // TH1D* TrueDiff = (TH1D*) hTruePeak->Clone("TrueDiff");
+  // TrueDiff->Add(TruePeak, TrueReco, 1, -1);
+  // for (int i = 0; i < TrueDiff->GetNbinsX(); i++) {
+  //   TrueDiff->SetBinContent(i, fabs(TrueDiff->GetBinContent(i)));
+  // }
+
+
   TObjArray* main = new TObjArray();
-  TruePeak->SetMaximum(TruePeak->GetMaximum()*3.0);
-  TruePeak->SetMinimum(-0.1*TruePeak->GetMaximum());
+  DataReco->SetMaximum(DataReco->GetMaximum()*0.6);
+  DataReco->SetMinimum(-0.1*DataReco->GetMaximum());
+  main->Add(DataReco);
   main->Add(TruePeak);
   main->Add(TrueReco);
-  main->Add(DataReco);
-  main->Add(TrueDiff);
+  // main->Add(TrueDiff);
 
   // --- Legends ---------------------------------------------------------------
 
   main->Add(lSys);
-  TLegend* l = Legend(main, "MC truth\n MC reconstructed\n data signal\n |MC rec - MC truth|", "lp lp lp lp").GetLegendPointer();
+  TLegend* l = Legend(main, legstring.Data(), "lp lp lp").GetLegendPointer();
 
   // --- Marker ----------------------------------------------------------------
 
-  vector<Color_t> colors = {kRed-2, kBlue+3, kBlack, kGreen-3};
-  vector<Style_t> markers = {kFullSquare, kOpenSquare, kFullCircle, kOpenDiamond};
-  vector<Size_t>  sizes = {2., 2., 2., 3.};
+  vector<Color_t> colors = {kBlack, kBlue+3, kRed-2};
+  vector<Style_t> markers = {kFullCircle, kOpenSquare, kFullSquare};
+  vector<Size_t>  sizes = {2., 2., 2.};
 
   // --- Canvasses -------------------------------------------------------------
 
@@ -32,7 +47,7 @@ SquarePlot PeakComp(TH1D* &TruePeak, TH1D* &TrueReco, TH1D* &DataReco, TH1D* &Tr
 
   SquarePlot square = SquarePlot(main, minv_str, count_str);
   square.SetMode(Plot::Thesis);
-  square.SetRanges(0.4, 1.2, TruePeak->GetMinimum(), TruePeak->GetMaximum());
+  square.SetRanges(0.4, 1.2, DataReco->GetMinimum(), DataReco->GetMaximum()*2.);
   square.SetStyle(colors, markers, sizes);
   return square;
 

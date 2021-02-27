@@ -10,7 +10,7 @@ set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "/home/tavlin/alice/sw/ubuntu1804_x86-64/ROOT/v6-20-02-alice7-7/include"
+  "/home/tavlin/alice/sw/ubuntu1804_x86-64/ROOT/v6-20-08-alice1-5/include"
   )
 
 # Targets to which this target links.
