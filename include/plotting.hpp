@@ -23,6 +23,24 @@ void plotting()
   gStyle->SetPalette(109);                                                      // violet blue palette much cooler then standard
   TGaxis::SetMaxDigits(3);
 
+  const Int_t nBinsPt_EG1 = 7;                                                  // pT binning for EG 1
+  Double_t arrPtBinning_EG1[nBinsPt_EG1] =
+  {  8.0, 12.0, 16.0, 20.0, 24.0,
+    28.0, 32.0};
+
+  Int_t arrRebinning_EG1[nBinsPt_EG1-1]=
+  {2, 2, 2, 2, 3,
+  3};
+
+
+  const Int_t nBinsPt_EG2 = 7;                                                  // pT binning for EG 1
+  Double_t arrPtBinning_EG2[nBinsPt_EG2] =
+  {  8.0, 12.0, 16.0, 20.0, 24.0,
+    28.0, 32.0};
+
+  Int_t arrRebinning_EG2[nBinsPt_EG2-1]=
+  {2, 2, 2, 2, 3,
+  3};
   /****************************************************************************/
   /*                                                                          */
   /*                      Read the data from thed ata files                   */
@@ -478,6 +496,12 @@ void plotting()
   TList* TrueFileMCOmegaTGPSPS_EG2             = (TList*) CutNumberListMCOmegaTGPSPS_EG2->FindObject("0008e113_00200009327000008250400000_411791206f032230000_01631031000000d0_0v631031000000d0 True histograms");
   TList* TrueFileMCOmegaTGPSPlusPS_EG2         = (TList*) CutNumberListMCOmegaTGPSPlusPS_EG2->FindObject("0008e113_00200009327000008250400000_411791206f032230000_01631031000000d0_0x631031000000d0 True histograms");
 
+  // MC/Gen File EG1
+  TList* MCFileMCOmegaRotPS_EG1              = (TList*) CutNumberListMCOmegaRotPS_EG1->FindObject("0008d113_00200009327000008250400000_411791206f032230000_01631031000000d0_0r631031000000d0 MC histograms");
+
+  // MC/Gen File EG2
+  TList* MCFileMCOmegaRotPS_EG2              = (TList*) CutNumberListMCOmegaRotPS_EG2->FindObject("0008e113_00200009327000008250400000_411791206f032230000_01631031000000d0_0r631031000000d0 MC histograms");
+
 
   // EG1 SameEvent and background
   // SameEvent doesn't change between different background schemes, so there is only one
@@ -514,6 +538,17 @@ void plotting()
   TH2D* h2_Background_MCOmegaTGPSPlusPS_EG2 = (TH2D*) ESDFileMCOmegaTGPSPlusPS_EG2->FindObject("ESD_Mother_SwappingBack_InvMass_Pt");
   h2_Background_MCOmegaTGPSPlusPS_EG2->SetName("h2_Background_MCOmegaTGPSPlusPS_EG2");
   h2_Background_MCOmegaTGPSPlusPS_EG2->Sumw2();
+
+  // MC/Gen Histograms----------------------------------------------------------
+  // EG1
+  TH2D* h2_OmegaInAcc_MC_EG1   = (TH2D*) MCFileMCOmegaRotPS_EG1->FindObject("MC_OmegaInAcc_InvMass_Pt"); // for acceptance and efficiency
+  h2_OmegaInAcc_MC_EG1->SetName("h2_OmegaInAcc_MC_EG1");
+  h2_OmegaInAcc_MC_EG1->Sumw2();
+
+  //EG2
+  TH2D* h2_OmegaInAcc_MC_EG2   = (TH2D*) MCFileMCOmegaRotPS_EG2->FindObject("MC_OmegaInAcc_InvMass_Pt"); // for acceptance and efficiency
+  h2_OmegaInAcc_MC_EG2->SetName("h2_OmegaInAcc_MC_EG2");
+  h2_OmegaInAcc_MC_EG2->Sumw2();
 
   // QA Plots ------------------------------------------------------------------
 
