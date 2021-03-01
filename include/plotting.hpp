@@ -797,33 +797,48 @@ void plotting()
   // TGPSPlus omega with PhotonSelection and Amanteros Podolanski like cut
   //
   // ---------------------------------------------------------------------------
-
   // HARDCODED!
+  //Files
   TFile* FMCOmegaPSAP_EG1                     = SafelyOpenRootfile("/mnt/wwn-0x50000395b2b85149-part1/PreparedData2/2020_12_04_pp13TeV/OmegaToPiZeroGamma_2087.root");
   TFile* FMCOmegaPSAP_EG2                     = SafelyOpenRootfile("/mnt/wwn-0x50000395b2b85149-part1/PreparedData2/2020_12_04_pp13TeV/OmegaToPiZeroGamma_2077.root");
 
+  // First Upper List
   TList* UpperListMCOmegaPSAP_EG1             = (TList*) FMCOmegaPSAP_EG1->Get("OmegaToPiZeroGamma_2087");
   TList* UpperListMCOmegaPSAP_EG2             = (TList*) FMCOmegaPSAP_EG2->Get("OmegaToPiZeroGamma_2077");
 
 
+  // Cut Number List EG1
   TList* CutNumberListMCOmegaTGPSPlusAPPS1Sigma_EG1 = (TList*) UpperListMCOmegaPSAP_EG1->FindObject("0008d113_00200009327000008250400000_411791206f032230000_01631031000000d0_0x631031010000d0");
   TList* CutNumberListMCOmegaTGPSPlusAPPS2Sigma_EG1 = (TList*) UpperListMCOmegaPSAP_EG1->FindObject("0008d113_00200009327000008250400000_411791206f032230000_01631031000000d0_0x631031020000d0");
   TList* CutNumberListMCOmegaTGPSPlusAPPS3Sigma_EG1 = (TList*) UpperListMCOmegaPSAP_EG1->FindObject("0008d113_00200009327000008250400000_411791206f032230000_01631031000000d0_0x631031030000d0");
 
+  // Cut Number List EG2
   TList* CutNumberListMCOmegaTGPSPlusAPPS1Sigma_EG2 = (TList*) UpperListMCOmegaPSAP_EG2->FindObject("0008e113_00200009327000008250400000_411791206f032230000_01631031000000d0_0x631031010000d0");
   TList* CutNumberListMCOmegaTGPSPlusAPPS2Sigma_EG2 = (TList*) UpperListMCOmegaPSAP_EG2->FindObject("0008e113_00200009327000008250400000_411791206f032230000_01631031000000d0_0x631031020000d0");
   TList* CutNumberListMCOmegaTGPSPlusAPPS3Sigma_EG2 = (TList*) UpperListMCOmegaPSAP_EG2->FindObject("0008e113_00200009327000008250400000_411791206f032230000_01631031000000d0_0x631031030000d0");
 
+  // ESD File EG1
   TList* ESDFileMCOmegaTGPSPlusAPPS1Sigma_EG1       = (TList*) CutNumberListMCOmegaTGPSPlusAPPS1Sigma_EG1->FindObject("0008d113_00200009327000008250400000_411791206f032230000_01631031000000d0_0x631031010000d0 ESD histograms");
   TList* ESDFileMCOmegaTGPSPlusAPPS2Sigma_EG1       = (TList*) CutNumberListMCOmegaTGPSPlusAPPS2Sigma_EG1->FindObject("0008d113_00200009327000008250400000_411791206f032230000_01631031000000d0_0x631031020000d0 ESD histograms");
   TList* ESDFileMCOmegaTGPSPlusAPPS3Sigma_EG1       = (TList*) CutNumberListMCOmegaTGPSPlusAPPS3Sigma_EG1->FindObject("0008d113_00200009327000008250400000_411791206f032230000_01631031000000d0_0x631031030000d0 ESD histograms");
 
+  // ESD File EG2
   TList* ESDFileMCOmegaTGPSPlusAPPS1Sigma_EG2       = (TList*) CutNumberListMCOmegaTGPSPlusAPPS1Sigma_EG2->FindObject("0008e113_00200009327000008250400000_411791206f032230000_01631031000000d0_0x631031010000d0 ESD histograms");
   TList* ESDFileMCOmegaTGPSPlusAPPS2Sigma_EG2       = (TList*) CutNumberListMCOmegaTGPSPlusAPPS2Sigma_EG2->FindObject("0008e113_00200009327000008250400000_411791206f032230000_01631031000000d0_0x631031020000d0 ESD histograms");
   TList* ESDFileMCOmegaTGPSPlusAPPS3Sigma_EG2       = (TList*) CutNumberListMCOmegaTGPSPlusAPPS3Sigma_EG2->FindObject("0008e113_00200009327000008250400000_411791206f032230000_01631031000000d0_0x631031030000d0 ESD histograms");
 
+  // True File EG1
+  TList* TrueFileMCOmegaTGPSPlusAPPS1Sigma_EG1       = (TList*) CutNumberListMCOmegaTGPSPlusAPPS1Sigma_EG1->FindObject("0008d113_00200009327000008250400000_411791206f032230000_01631031000000d0_0x631031010000d0 True histograms");
+  TList* TrueFileMCOmegaTGPSPlusAPPS2Sigma_EG1       = (TList*) CutNumberListMCOmegaTGPSPlusAPPS2Sigma_EG1->FindObject("0008d113_00200009327000008250400000_411791206f032230000_01631031000000d0_0x631031020000d0 True histograms");
+  TList* TrueFileMCOmegaTGPSPlusAPPS3Sigma_EG1       = (TList*) CutNumberListMCOmegaTGPSPlusAPPS3Sigma_EG1->FindObject("0008d113_00200009327000008250400000_411791206f032230000_01631031000000d0_0x631031030000d0 True histograms");
 
-  // EG1 SameEvent and background 1 sigma
+  // True File EG2
+  TList* TrueFileMCOmegaTGPSPlusAPPS1Sigma_EG2       = (TList*) CutNumberListMCOmegaTGPSPlusAPPS1Sigma_EG2->FindObject("0008e113_00200009327000008250400000_411791206f032230000_01631031000000d0_0x631031010000d0 True histograms");
+  TList* TrueFileMCOmegaTGPSPlusAPPS2Sigma_EG2       = (TList*) CutNumberListMCOmegaTGPSPlusAPPS2Sigma_EG2->FindObject("0008e113_00200009327000008250400000_411791206f032230000_01631031000000d0_0x631031020000d0 True histograms");
+  TList* TrueFileMCOmegaTGPSPlusAPPS3Sigma_EG2       = (TList*) CutNumberListMCOmegaTGPSPlusAPPS3Sigma_EG2->FindObject("0008e113_00200009327000008250400000_411791206f032230000_01631031000000d0_0x631031030000d0 True histograms");
+
+
+  // EG1 SameEvent and background and True Signal (omega and Pi0) 1 sigma
   TH2D* h2_SameEvent_MCOmegaTGPSPlusAPPS1Sigma_EG1  = (TH2D*) ESDFileMCOmegaTGPSPlusAPPS1Sigma_EG1->FindObject("ESD_Mother_InvMass_Pt");
   h2_SameEvent_MCOmegaTGPSPlusAPPS1Sigma_EG1->SetName("h2_SameEvent_MCOmegaTGPSPlusAPPS1Sigma_EG1");
   h2_SameEvent_MCOmegaTGPSPlusAPPS1Sigma_EG1->Sumw2();
@@ -832,16 +847,32 @@ void plotting()
   h2_Background_MCOmegaTGPSPlusAPPS1Sigma_EG1->SetName("h2_Background_MCOmegaTGPSPlusAPPS1Sigma_EG1");
   h2_Background_MCOmegaTGPSPlusAPPS1Sigma_EG1->Sumw2();
 
-  // EG1 SameEvent and background 2 sigma
+  TH2D* h2_TrueOmega_MCOmegaTGPSPlusAPPS1Sigma_EG1 = (TH2D*) TrueFileMCOmegaTGPSPlusAPPS1Sigma_EG1->FindObject("True_Omega_InvMass_Pt");
+  h2_TrueOmega_MCOmegaTGPSPlusAPPS1Sigma_EG1->SetName("h2_TrueOmega_MCOmegaTGPSPlusAPPS1Sigma_EG1");
+  h2_TrueOmega_MCOmegaTGPSPlusAPPS1Sigma_EG1->Sumw2();
+
+  TH2D* h2_TruePi0_MCOmegaTGPSPlusAPPS1Sigma_EG1 = (TH2D*) TrueFileMCOmegaTGPSPlusAPPS1Sigma_EG1->FindObject("True_Pi0FromOmega_InvMass_Pt");
+  h2_TruePi0_MCOmegaTGPSPlusAPPS1Sigma_EG1->SetName("h2_TruePi0_MCOmegaTGPSPlusAPPS1Sigma_EG1");
+  h2_TruePi0_MCOmegaTGPSPlusAPPS1Sigma_EG1->Sumw2();
+
+  // EG1 SameEvent and background and True Signal (omega and Pi0) 2 sigma
   TH2D* h2_SameEvent_MCOmegaTGPSPlusAPPS2Sigma_EG1  = (TH2D*) ESDFileMCOmegaTGPSPlusAPPS2Sigma_EG1->FindObject("ESD_Mother_InvMass_Pt");
   h2_SameEvent_MCOmegaTGPSPlusAPPS2Sigma_EG1->SetName("h2_SameEvent_MCOmegaTGPSPlusAPPS2Sigma_EG1");
   h2_SameEvent_MCOmegaTGPSPlusAPPS2Sigma_EG1->Sumw2();
 
-  TH2D* h2_Background_MCOmegaTGPSPlusAPPS2Sigma_EG1 = (TH2D*) ESDFileMCOmegaTGPSPlusAPPS1Sigma_EG1->FindObject("ESD_Mother_SwappingBack_InvMass_Pt");
+  TH2D* h2_Background_MCOmegaTGPSPlusAPPS2Sigma_EG1 = (TH2D*) ESDFileMCOmegaTGPSPlusAPPS2Sigma_EG1->FindObject("ESD_Mother_SwappingBack_InvMass_Pt");
   h2_Background_MCOmegaTGPSPlusAPPS2Sigma_EG1->SetName("h2_Background_MCOmegaTGPSPlusAPPS2Sigma_EG1");
   h2_Background_MCOmegaTGPSPlusAPPS2Sigma_EG1->Sumw2();
 
-  // EG1 SameEvent and background 3 sigma
+  TH2D* h2_TrueOmega_MCOmegaTGPSPlusAPPS2Sigma_EG1 = (TH2D*) TrueFileMCOmegaTGPSPlusAPPS2Sigma_EG1->FindObject("True_Omega_InvMass_Pt");
+  h2_TrueOmega_MCOmegaTGPSPlusAPPS2Sigma_EG1->SetName("h2_TrueOmega_MCOmegaTGPSPlusAPPS2Sigma_EG1");
+  h2_TrueOmega_MCOmegaTGPSPlusAPPS2Sigma_EG1->Sumw2();
+
+  TH2D* h2_TruePi0_MCOmegaTGPSPlusAPPS2Sigma_EG1 = (TH2D*) TrueFileMCOmegaTGPSPlusAPPS2Sigma_EG1->FindObject("True_Pi0FromOmega_InvMass_Pt");
+  h2_TruePi0_MCOmegaTGPSPlusAPPS2Sigma_EG1->SetName("h2_TruePi0_MCOmegaTGPSPlusAPPS2Sigma_EG1");
+  h2_TruePi0_MCOmegaTGPSPlusAPPS2Sigma_EG1->Sumw2();
+
+  // EG1 SameEvent and background and True Signal (omega and Pi0) 3 sigma
   TH2D* h2_SameEvent_MCOmegaTGPSPlusAPPS3Sigma_EG1  = (TH2D*) ESDFileMCOmegaTGPSPlusAPPS3Sigma_EG1->FindObject("ESD_Mother_InvMass_Pt");
   h2_SameEvent_MCOmegaTGPSPlusAPPS3Sigma_EG1->SetName("h2_SameEvent_MCOmegaTGPSPlusAPPS3Sigma_EG1");
   h2_SameEvent_MCOmegaTGPSPlusAPPS3Sigma_EG1->Sumw2();
@@ -850,8 +881,16 @@ void plotting()
   h2_Background_MCOmegaTGPSPlusAPPS3Sigma_EG1->SetName("h2_Background_MCOmegaTGPSPlusAPPS3Sigma_EG1");
   h2_Background_MCOmegaTGPSPlusAPPS3Sigma_EG1->Sumw2();
 
+  TH2D* h2_TrueOmega_MCOmegaTGPSPlusAPPS3Sigma_EG1 = (TH2D*) TrueFileMCOmegaTGPSPlusAPPS3Sigma_EG1->FindObject("True_Omega_InvMass_Pt");
+  h2_TrueOmega_MCOmegaTGPSPlusAPPS3Sigma_EG1->SetName("h2_TrueOmega_MCOmegaTGPSPlusAPPS3Sigma_EG1");
+  h2_TrueOmega_MCOmegaTGPSPlusAPPS3Sigma_EG1->Sumw2();
 
-  // EG2 SameEvent and background 1 sigma
+  TH2D* h2_TruePi0_MCOmegaTGPSPlusAPPS3Sigma_EG1 = (TH2D*) TrueFileMCOmegaTGPSPlusAPPS3Sigma_EG1->FindObject("True_Pi0FromOmega_InvMass_Pt");
+  h2_TruePi0_MCOmegaTGPSPlusAPPS3Sigma_EG1->SetName("h2_TruePi0_MCOmegaTGPSPlusAPPS3Sigma_EG1");
+  h2_TruePi0_MCOmegaTGPSPlusAPPS3Sigma_EG1->Sumw2();
+
+
+  // EG2 SameEvent and background and True Signal (omega and Pi0) 1 sigma
   TH2D* h2_SameEvent_MCOmegaTGPSPlusAPPS1Sigma_EG2  = (TH2D*) ESDFileMCOmegaTGPSPlusAPPS1Sigma_EG2->FindObject("ESD_Mother_InvMass_Pt");
   h2_SameEvent_MCOmegaTGPSPlusAPPS1Sigma_EG2->SetName("h2_SameEvent_MCOmegaTGPSPlusAPPS1Sigma_EG2");
   h2_SameEvent_MCOmegaTGPSPlusAPPS1Sigma_EG2->Sumw2();
@@ -860,16 +899,32 @@ void plotting()
   h2_Background_MCOmegaTGPSPlusAPPS1Sigma_EG2->SetName("h2_Background_MCOmegaTGPSPlusAPPS1Sigma_EG2");
   h2_Background_MCOmegaTGPSPlusAPPS1Sigma_EG2->Sumw2();
 
-  // EG2 SameEvent and background 2 sigma
+  TH2D* h2_TrueOmega_MCOmegaTGPSPlusAPPS1Sigma_EG2 = (TH2D*) TrueFileMCOmegaTGPSPlusAPPS1Sigma_EG2->FindObject("True_Omega_InvMass_Pt");
+  h2_TrueOmega_MCOmegaTGPSPlusAPPS1Sigma_EG2->SetName("h2_TrueOmega_MCOmegaTGPSPlusAPPS1Sigma_EG2");
+  h2_TrueOmega_MCOmegaTGPSPlusAPPS1Sigma_EG2->Sumw2();
+
+  TH2D* h2_TruePi0_MCOmegaTGPSPlusAPPS1Sigma_EG2 = (TH2D*) TrueFileMCOmegaTGPSPlusAPPS1Sigma_EG2->FindObject("True_Pi0FromOmega_InvMass_Pt");
+  h2_TruePi0_MCOmegaTGPSPlusAPPS1Sigma_EG2->SetName("h2_TruePi0_MCOmegaTGPSPlusAPPS1Sigma_EG2");
+  h2_TruePi0_MCOmegaTGPSPlusAPPS1Sigma_EG2->Sumw2();
+
+  // EG2 SameEvent and background and True Signal (omega and Pi0) 2 sigma
   TH2D* h2_SameEvent_MCOmegaTGPSPlusAPPS2Sigma_EG2  = (TH2D*) ESDFileMCOmegaTGPSPlusAPPS2Sigma_EG2->FindObject("ESD_Mother_InvMass_Pt");
   h2_SameEvent_MCOmegaTGPSPlusAPPS2Sigma_EG2->SetName("h2_SameEvent_MCOmegaTGPSPlusAPPS2Sigma_EG2");
   h2_SameEvent_MCOmegaTGPSPlusAPPS2Sigma_EG2->Sumw2();
 
-  TH2D* h2_Background_MCOmegaTGPSPlusAPPS2Sigma_EG2 = (TH2D*) ESDFileMCOmegaTGPSPlusAPPS1Sigma_EG2->FindObject("ESD_Mother_SwappingBack_InvMass_Pt");
+  TH2D* h2_Background_MCOmegaTGPSPlusAPPS2Sigma_EG2 = (TH2D*) ESDFileMCOmegaTGPSPlusAPPS2Sigma_EG2->FindObject("ESD_Mother_SwappingBack_InvMass_Pt");
   h2_Background_MCOmegaTGPSPlusAPPS2Sigma_EG2->SetName("h2_Background_MCOmegaTGPSPlusAPPS2Sigma_EG2");
   h2_Background_MCOmegaTGPSPlusAPPS2Sigma_EG2->Sumw2();
 
-  // EG2 SameEvent and background 3 sigma
+  TH2D* h2_TrueOmega_MCOmegaTGPSPlusAPPS2Sigma_EG2 = (TH2D*) TrueFileMCOmegaTGPSPlusAPPS2Sigma_EG2->FindObject("True_Omega_InvMass_Pt");
+  h2_TrueOmega_MCOmegaTGPSPlusAPPS2Sigma_EG2->SetName("h2_TrueOmega_MCOmegaTGPSPlusAPPS2Sigma_EG2");
+  h2_TrueOmega_MCOmegaTGPSPlusAPPS2Sigma_EG2->Sumw2();
+
+  TH2D* h2_TruePi0_MCOmegaTGPSPlusAPPS2Sigma_EG2 = (TH2D*) TrueFileMCOmegaTGPSPlusAPPS2Sigma_EG2->FindObject("True_Pi0FromOmega_InvMass_Pt");
+  h2_TruePi0_MCOmegaTGPSPlusAPPS2Sigma_EG2->SetName("h2_TruePi0_MCOmegaTGPSPlusAPPS2Sigma_EG2");
+  h2_TruePi0_MCOmegaTGPSPlusAPPS2Sigma_EG2->Sumw2();
+
+  // EG2 SameEvent and background and True Signal (omega and Pi0) 3 sigma
   TH2D* h2_SameEvent_MCOmegaTGPSPlusAPPS3Sigma_EG2  = (TH2D*) ESDFileMCOmegaTGPSPlusAPPS3Sigma_EG2->FindObject("ESD_Mother_InvMass_Pt");
   h2_SameEvent_MCOmegaTGPSPlusAPPS3Sigma_EG2->SetName("h2_SameEvent_MCOmegaTGPSPlusAPPS3Sigma_EG2");
   h2_SameEvent_MCOmegaTGPSPlusAPPS3Sigma_EG2->Sumw2();
@@ -878,6 +933,14 @@ void plotting()
   h2_Background_MCOmegaTGPSPlusAPPS3Sigma_EG2->SetName("h2_Background_MCOmegaTGPSPlusAPPS3Sigma_EG2");
   h2_Background_MCOmegaTGPSPlusAPPS3Sigma_EG2->Sumw2();
 
+  TH2D* h2_TrueOmega_MCOmegaTGPSPlusAPPS3Sigma_EG2 = (TH2D*) TrueFileMCOmegaTGPSPlusAPPS3Sigma_EG2->FindObject("True_Omega_InvMass_Pt");
+  h2_TrueOmega_MCOmegaTGPSPlusAPPS3Sigma_EG2->SetName("h2_TrueOmega_MCOmegaTGPSPlusAPPS3Sigma_EG2");
+  h2_TrueOmega_MCOmegaTGPSPlusAPPS3Sigma_EG2->Sumw2();
+
+  TH2D* h2_TruePi0_MCOmegaTGPSPlusAPPS3Sigma_EG2 = (TH2D*) TrueFileMCOmegaTGPSPlusAPPS3Sigma_EG2->FindObject("True_Pi0FromOmega_InvMass_Pt");
+  h2_TruePi0_MCOmegaTGPSPlusAPPS3Sigma_EG2->SetName("h2_TruePi0_MCOmegaTGPSPlusAPPS3Sigma_EG2");
+  h2_TruePi0_MCOmegaTGPSPlusAPPS3Sigma_EG2->Sumw2();
+
 
   // ---------------------------------------------------------------------------
   //
@@ -885,20 +948,11 @@ void plotting()
   //
   // ---------------------------------------------------------------------------
 
-  TString ts_truefile      = event_cut_str + "_" + photonconv_cut_str + "_" + cluster_cut_str + "_" + pion_cut_string + "_" + omega_cut_string + " True histograms";
-  const char* cs_truefile  = ts_truefile.Data();
-  TList* TRUEFile                = (TList*) CutNumberList->FindObject(cs_truefile);
-
-  TH2D* True_Omega_InvMass_Pt   = (TH2D*) TRUEFile->FindObject("True_Omega_InvMass_Pt");
-  True_Omega_InvMass_Pt->Sumw2();
-
   // QA Plots
   // TH2D* True_OmegaRestPi0_CosAngle_Pt = (TH2D*) TRUEFile->FindObject("True_OmegaRestPi0_CosAngle_Pt");
   // True_OmegaRestPi0_CosAngle_Pt->Sumw2();
   TH2D* True_Dalitz_Gamma1Gamma2_Gamma0Gamma1 = (TH2D*) TRUEFile->FindObject("True_Dalitz_Gamma1Gamma2_Gamma0Gamma1");
   True_Dalitz_Gamma1Gamma2_Gamma0Gamma1->Sumw2();
-  TH2D* True_Pi0FromOmega_InvMass_Pt = (TH2D*) TRUEFile->FindObject("True_Pi0FromOmega_InvMass_Pt");
-  True_Pi0FromOmega_InvMass_Pt->Sumw2();
 
   // ---------------------------------------------------------------------------
   //
