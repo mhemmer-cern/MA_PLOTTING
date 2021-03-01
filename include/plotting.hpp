@@ -1116,6 +1116,22 @@ void plotting()
 
   // ---------------------------------------------------------------------------
   //
+  // Pythia Simulation for Acceptance/Effi
+  //
+  // ---------------------------------------------------------------------------
+  TFile* FPYTHIA     = SafelyOpenRootfile("~/Documents/Sim/Omega.root");
+
+  // MC/Gen Histograms----------------------------------------------------------
+  TH2D* h2_OmegaGen_PYTHIA   = (TH2D*) FPYTHIA->Get("MC_OmegaInvMass_Pt"); // for acceptance
+  h2_OmegaGen_PYTHIA->SetName("h2_OmegaGen_PYTHIA");
+  h2_OmegaGen_PYTHIA->Sumw2();
+
+  TH2D* h2_OmegaInAcc_PYTHIA   = (TH2D*) FPYTHIA->Get("MC_OmegaInAcc_InvMass_Pt"); // for acceptance and efficiency
+  h2_OmegaInAcc_PYTHIA->SetName("h2_OmegaInAcc_PYTHIA");
+  h2_OmegaInAcc_PYTHIA->Sumw2()
+
+  // ---------------------------------------------------------------------------
+  //
   // Get the true signal 2D histogram
   //
   // ---------------------------------------------------------------------------
