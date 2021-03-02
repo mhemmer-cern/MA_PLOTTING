@@ -1150,7 +1150,7 @@ void plotting()
 
   // ---------------------------------------------------------------------------
   //
-  // Data Histogramm
+  // Data 1D Histogramm
   //
   // ---------------------------------------------------------------------------
 
@@ -1216,6 +1216,11 @@ void plotting()
   TH1D* h1_Background_DataOmegaTGPSPlusAPPS3Sigma_EG2 = nullptr;
 
 
+  // ---------------------------------------------------------------------------
+  //
+  // MC 1D Histogramm
+  //
+  // ---------------------------------------------------------------------------
 
   TH1D* h1_SameEvent_MCOmegaPS_EG1                  = nullptr;
   TH1D* h1_Background_MCOmegaRotPS_EG1              = nullptr;
@@ -1227,6 +1232,8 @@ void plotting()
   TH1D* h1_Background_MCOmegaTGPSPlusPS_EG2         = nullptr;
   TH1D* h1_OmegaInAcc_MC_EG1                        = nullptr;
   TH1D* h1_OmegaInAcc_MC_EG2                        = nullptr;
+  TH1D* h2_OmegaGen_PYTHIA                          = nullptr;
+  TH1D* h2_OmegaInAcc_PYTHIA                        = nullptr;
   TH1D* h1_Dalitz_MCOmegaRotPS_EG1                  = nullptr;
   TH1D* h1_Dalitz_MCOmegaTGPSPS_EG1                 = nullptr;
   TH1D* h1_Dalitz_MCOmegaTGPSPlusPS_EG1             = nullptr;
@@ -1423,9 +1430,11 @@ void plotting()
   fBack4wGaus->SetParLimits(1, 0.7, 0.85);
   fBack4wGaus->SetParLimits(2, 0.01, 0.15);
 
-  /*
-   ** Raw Yields - declaration
-   */
+  /****************************************************************************/
+  /*                                                                          */
+  /*                           Preparing Yield histos                         */
+  /*                                                                          */
+  /****************************************************************************/
   TH1D* hRawYield_pol1      = new TH1D("hRawYield_pol1",      "", nBinsPt-1, arrPtBinning);
   TH1D* hRawYield_pol2      = new TH1D("hRawYield_pol2",      "", nBinsPt-1, arrPtBinning);
   TH1D* hRawYield_pol3      = new TH1D("hRawYield_pol3",      "", nBinsPt-1, arrPtBinning);
