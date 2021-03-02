@@ -1144,9 +1144,15 @@ void plotting()
 
   /****************************************************************************/
   /*                                                                          */
-  /*                 Preparing 1D histos which will be plotted                */
+  /*             Preparing 1D histo pointer which will be plotted             */
   /*                                                                          */
   /****************************************************************************/
+
+  // ---------------------------------------------------------------------------
+  //
+  // Data Histogramm
+  //
+  // ---------------------------------------------------------------------------
 
   TH1D* h1_SameEvent_DataOmegaPS_EG1                  = nullptr;
   TH1D* h1_Background_DataOmegaRotPS_EG1              = nullptr;
@@ -1208,6 +1214,115 @@ void plotting()
   TH1D* h1_Background_DataOmegaTGPSPlusAPPS2Sigma_EG2 = nullptr;
   TH1D* h1_SameEvent_DataOmegaTGPSPlusAPPS3Sigma_EG2  = nullptr;
   TH1D* h1_Background_DataOmegaTGPSPlusAPPS3Sigma_EG2 = nullptr;
+
+
+
+  TH1D* h1_SameEvent_MCOmegaPS_EG1                  = nullptr;
+  TH1D* h1_Background_MCOmegaRotPS_EG1              = nullptr;
+  TH1D* h1_Background_MCOmegaTGPSPS_EG1             = nullptr;
+  TH1D* h1_Background_MCOmegaTGPSPlusPS_EG1         = nullptr;
+  TH1D* h1_SameEvent_MCOmegaPS_EG2                  = nullptr;
+  TH1D* h1_Background_MCOmegaRotPS_EG2              = nullptr;
+  TH1D* h1_Background_MCOmegaTGPSPS_EG2             = nullptr;
+  TH1D* h1_Background_MCOmegaTGPSPlusPS_EG2         = nullptr;
+  TH1D* h1_OmegaInAcc_MC_EG1                        = nullptr;
+  TH1D* h1_OmegaInAcc_MC_EG2                        = nullptr;
+  TH1D* h1_Dalitz_MCOmegaRotPS_EG1                  = nullptr;
+  TH1D* h1_Dalitz_MCOmegaTGPSPS_EG1                 = nullptr;
+  TH1D* h1_Dalitz_MCOmegaTGPSPlusPS_EG1             = nullptr;
+  TH1D* h1_DalitzBack_MCOmegaRotPS_EG1              = nullptr;
+  TH1D* h1_DalitzBack_MCOmegaTGPSPS_EG1             = nullptr;
+  TH1D* h1_DalitzBack_MCOmegaTGPSPlusPS_EG1         = nullptr;
+  TH1D* h1_TrueDalitz_MCOmegaRotPS_EG1              = nullptr;
+  TH1D* h1_TrueDalitz_MCOmegaTGPSPS_EG1             = nullptr;
+  TH1D* h1_TrueDalitz_MCOmegaTGPSPlusPS_EG1         = nullptr;
+  TH1D* h1_Dalitz_MCOmegaRotPS_EG2                  = nullptr;
+  TH1D* h1_Dalitz_MCOmegaTGPSPS_EG2                 = nullptr;
+  TH1D* h1_Dalitz_MCOmegaTGPSPlusPS_EG2             = nullptr;
+  TH1D* h1_DalitzBack_MCOmegaTGPSPlusPS_EG2         = nullptr;
+  TH1D* h1_DalitzBack_MCOmegaTGPSPS_EG2             = nullptr;
+  TH1D* h1_DalitzBack_MCOmegaTGPSPlusPS_EG2         = nullptr;
+  TH1D* h1_TrueDalitz_MCOmegaRotPS_EG2              = nullptr;
+  TH1D* h1_TrueDalitz_MCOmegaTGPSPS_EG2             = nullptr;
+  TH1D* h1_TrueDalitz_MCOmegaTGPSPlusPS_EG2         = nullptr;
+  TH1D* h1_Background_MCPi0RotPS_EG1                = nullptr;
+  TH1D* h1_Background_MCPi0TGPSPlusPS_EG1           = nullptr;
+  TH1D* h1_TrueOmega_MCPi0RotPS_EG1                 = nullptr;
+  TH1D* h1_TruePi0_MCPi0RotPS_EG1                   = nullptr;
+  TH1D* h1_TrueOmega_MCPi0TGPSPlusPS_EG1            = nullptr;
+  TH1D* h1_TruePi0_MCPi0TGPSPlusPS_EG1              = nullptr;
+  TH1D* h1_Background_MCPi0RotPS_EG2                = nullptr;
+  TH1D* h1_Background_MCPi0TGPSPlusPS_EG2           = nullptr;
+  TH1D* h1_TrueOmega_MCPi0RotPS_EG2                 = nullptr;
+  TH1D* h1_TruePi0_MCPi0RotPS_EG2                   = nullptr;
+  TH1D* h1_TrueOmega_MCPi0TGPSPlusPS_EG2            = nullptr;
+  TH1D* h1_TruePi0_MCPi0TGPSPlusPS_EG2              = nullptr;
+  TH1D* h1_DalitzBack_MCPi0RotPS_EG1                = nullptr;
+  TH1D* h1_DalitzBack_MCPi0TGPSPlusPS_EG1           = nullptr;
+  TH1D* h1_TrueDalitz_MCPi0RotPS_EG1                = nullptr;
+  TH1D* h1_TrueDalitz_MCPi0TGPSPlusPS_EG1           = nullptr;
+  TH1D* h1_DalitzBack_MCPi0RotPS_EG2                = nullptr;
+  TH1D* h1_DalitzBack_MCPi0TGPSPlusPS_EG2           = nullptr;
+  TH1D* h1_TrueDalitz_MCPi0RotPS_EG2                = nullptr;
+  TH1D* h1_TrueDalitz_MCPi0TGPSPlusPS_EG2           = nullptr;
+  TH1D* h1_SameEvent_MCOmegaWOPS_EG1                = nullptr;
+  TH1D* h1_Background_MCOmegaRotWOPS_EG1            = nullptr;
+  TH1D* h1_Background_MCOmegaTGPSWOPS_EG1           = nullptr;
+  TH1D* h1_Background_MCOmegaTGPSPlusWOPS_EG1       = nullptr;
+  TH1D* h1_TrueOmega_MCOmegaRotWOPS_EG1             = nullptr;
+  TH1D* h1_TruePi0_MCOmegaRotWOPS_EG1               = nullptr;
+  TH1D* h1_TrueOmega_MCOmegaTGPSWOPS_EG1            = nullptr;
+  TH1D* h1_TruePi0_MCOmegaTGPSWOPS_EG1              = nullptr;
+  TH1D* h1_TrueOmega_MCOmegaTGPSPlusWOPS_EG1        = nullptr;
+  TH1D* h1_TruePi0_MCOmegaTGPSPlusWOPS_EG1          = nullptr;
+  TH1D* h1_SameEvent_MCOmegaWOPS_EG2                = nullptr;
+  TH1D* h1_Background_MCOmegaRotWOPS_EG2            = nullptr;
+  TH1D* h1_Background_MCOmegaTGPSWOPS_EG2           = nullptr;
+  TH1D* h1_Background_MCOmegaTGPSPlusWOPS_EG2       = nullptr;
+  TH1D* h1_TrueOmega_MCOmegaRotWOPS_EG2             = nullptr;
+  TH1D* h1_TruePi0_MCOmegaRotWOPS_EG2               = nullptr;
+  TH1D* h1_TrueOmega_MCOmegaTGPSWOPS_EG2            = nullptr;
+  TH1D* h1_TruePi0_MCOmegaTGPSWOPS_EG2              = nullptr;
+  TH1D* h1_TrueOmega_MCOmegaTGPSPlusWOPS_EG2        = nullptr;
+  TH1D* h1_TruePi0_MCOmegaTGPSPlusWOPS_EG2          = nullptr;
+  TH1D* h1_Dalitz_MCOmegaRotWOPS_EG1                = nullptr;
+  TH1D* h1_Dalitz_MCOmegaTGPSWOPS_EG1               = nullptr;
+  TH1D* h1_Dalitz_MCOmegaTGPSPlusWOPS_EG1           = nullptr;
+  TH1D* h1_DalitzBack_MCOmegaRotWOPS_EG1            = nullptr;
+  TH1D* h1_DalitzBack_MCOmegaTGPSWOPS_EG1           = nullptr;
+  TH1D* h1_DalitzBack_MCOmegaTGPSPlusWOPS_EG1       = nullptr;
+  TH1D* h1_TrueDalitz_MCWOPS_EG1                    = nullptr;
+  TH1D* h1_Dalitz_MCOmegaRotWOPS_EG2                = nullptr;
+  TH1D* h1_Dalitz_MCOmegaTGPSWOPS_EG2               = nullptr;
+  TH1D* h1_Dalitz_MCOmegaTGPSPlusWOPS_EG2           = nullptr;
+  TH1D* h1_DalitzBack_MCOmegaRotWOPS_EG2            = nullptr;
+  TH1D* h1_DalitzBack_MCOmegaTGPSWOPS_EG2           = nullptr;
+  TH1D* h1_DalitzBack_MCOmegaTGPSPlusWOPS_EG2       = nullptr;
+  TH1D* h1_TrueDalitz_MCWOPS_EG2                    = nullptr;
+  TH1D* h1_SameEvent_MCOmegaTGPSPlusAPPS1Sigma_EG1  = nullptr;
+  TH1D* h1_Background_MCOmegaTGPSPlusAPPS1Sigma_EG1 = nullptr;
+  TH1D* h1_TrueOmega_MCOmegaTGPSPlusAPPS1Sigma_EG1  = nullptr;
+  TH1D* h1_TruePi0_MCOmegaTGPSPlusAPPS1Sigma_EG1    = nullptr;
+  TH1D* h1_SameEvent_MCOmegaTGPSPlusAPPS2Sigma_EG1  = nullptr;
+  TH1D* h1_Background_MCOmegaTGPSPlusAPPS2Sigma_EG1 = nullptr;
+  TH1D* h1_TrueOmega_MCOmegaTGPSPlusAPPS2Sigma_EG1  = nullptr;
+  TH1D* h1_TruePi0_MCOmegaTGPSPlusAPPS2Sigma_EG1    = nullptr;
+  TH1D* h1_SameEvent_MCOmegaTGPSPlusAPPS3Sigma_EG1  = nullptr;
+  TH1D* h1_Background_MCOmegaTGPSPlusAPPS3Sigma_EG1 = nullptr;
+  TH1D* h1_TrueOmega_MCOmegaTGPSPlusAPPS3Sigma_EG1  = nullptr;
+  TH1D* h1_TruePi0_MCOmegaTGPSPlusAPPS3Sigma_EG1    = nullptr;
+  TH1D* h1_SameEvent_MCOmegaTGPSPlusAPPS1Sigma_EG2  = nullptr;
+  TH1D* h1_Background_MCOmegaTGPSPlusAPPS1Sigma_EG2 = nullptr;
+  TH1D* h1_TrueOmega_MCOmegaTGPSPlusAPPS1Sigma_EG2  = nullptr;
+  TH1D* h1_TruePi0_MCOmegaTGPSPlusAPPS1Sigma_EG2    = nullptr;
+  TH1D* h1_SameEvent_MCOmegaTGPSPlusAPPS2Sigma_EG2  = nullptr;
+  TH1D* h1_Background_MCOmegaTGPSPlusAPPS2Sigma_EG2 = nullptr;
+  TH1D* h1_TrueOmega_MCOmegaTGPSPlusAPPS2Sigma_EG2  = nullptr;
+  TH1D* h1_TruePi0_MCOmegaTGPSPlusAPPS2Sigma_EG2    = nullptr;
+  TH1D* h1_SameEvent_MCOmegaTGPSPlusAPPS3Sigma_EG2  = nullptr;
+  TH1D* h1_Background_MCOmegaTGPSPlusAPPS3Sigma_EG2 = nullptr;
+  TH1D* h1_TrueOmega_MCOmegaTGPSPlusAPPS3Sigma_EG2  = nullptr;
+  TH1D* h1_TruePi0_MCOmegaTGPSPlusAPPS3Sigma_EG2    = nullptr;
 
   TH1D* h1_ESD_Mother_InvMass_Pt      = nullptr;
   TH1D* h1_ESD_Backgr_InvMass_Pt      = nullptr;
