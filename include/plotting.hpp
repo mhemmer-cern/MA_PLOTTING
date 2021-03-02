@@ -1142,72 +1142,72 @@ void plotting()
   TH2D* True_Dalitz_Gamma1Gamma2_Gamma0Gamma1 = (TH2D*) TRUEFile->FindObject("True_Dalitz_Gamma1Gamma2_Gamma0Gamma1");
   True_Dalitz_Gamma1Gamma2_Gamma0Gamma1->Sumw2();
 
-  // ---------------------------------------------------------------------------
-  //
-  // Get the MC 2D histogram
-  //
-  // ---------------------------------------------------------------------------
-
-  TFile* pythia_file     = SafelyOpenRootfile("~/Documents/Sim/Omega.root");
-
-  TString ts_mcfile      = event_cut_str + "_" + photonconv_cut_str + "_" + cluster_cut_str + "_" + pion_cut_string + "_" + omega_cut_string + " MC histograms";
-  const char* cs_mcfile  = ts_mcfile.Data();
-  TList* MCFile                = (TList*) CutNumberList->FindObject(cs_mcfile);
-
-  TH2D* MC_OmegaInvMass_Pt   = (TH2D*) pythia_file->Get("MC_OmegaInvMass_Pt"); // for acceptance
-  MC_OmegaInvMass_Pt->Sumw2();
-
-  TH2D* MC_OmegaInAcc_InvMass_Pt_Pythia   = (TH2D*) pythia_file->Get("MC_OmegaInAcc_InvMass_Pt"); // for acceptance and efficiency
-  MC_OmegaInAcc_InvMass_Pt_Pythia->Sumw2();
-
-  TH2D* MC_OmegaInAcc_InvMass_Pt   = (TH2D*) MCFile->FindObject("MC_OmegaInAcc_InvMass_Pt"); // for acceptance and efficiency
-  MC_OmegaInAcc_InvMass_Pt->Sumw2();
-
-
-
-
   /****************************************************************************/
   /*                                                                          */
   /*                 Preparing 1D histos which will be plotted                */
   /*                                                                          */
   /****************************************************************************/
 
-  TFile* Pi0MeanFile      = SafelyOpenRootfile("/mnt/wwn-0x50000395b2b85149-part1/PreparedData2/data_EMCAL-EMCALResultsFullCorrection_PP.root");
-  TList* Pi013TeV         =  (TList*) Pi0MeanFile->Get("Pi013TeV");
-
-  TH1D* hPi0MeanData   = nullptr;
-  TH1D* hPi0MeanMC     = nullptr;
-  TH1D* hPi0SigmaData  = nullptr;
-  TH1D* hPi0SigmaMC    = nullptr;
-
-  if(event_cut_str.CompareTo("0008d113") )                                      // EG1
-  {
-    hPi0MeanData   = (TH1D*) Pi013TeV->FindObject("Pi0_Mass_data_EG1");
-    hPi0MeanMC     = (TH1D*) Pi013TeV->FindObject("Pi0_Mass_MC_EG1");
-    hPi0SigmaData  = (TH1D*) Pi013TeV->FindObject("Pi0_Width_data_EG1");
-    hPi0SigmaMC    = (TH1D*) Pi013TeV->FindObject("Pi0_Width_MC_EG1");
-  }
-
-  if(event_cut_str.CompareTo("0008e113") )                                      // EG2
-  {
-    hPi0MeanData   = (TH1D*) Pi013TeV->FindObject("Pi0_Mass_data_EG2");
-    hPi0MeanMC     = (TH1D*) Pi013TeV->FindObject("Pi0_Mass_MC_EG2");
-    hPi0SigmaData  = (TH1D*) Pi013TeV->FindObject("Pi0_Width_data_EG2");
-    hPi0SigmaMC    = (TH1D*) Pi013TeV->FindObject("Pi0_Width_MC_EG2");
-  }
-
-  // Int_t N_PI0MEAN = hPi0MeanMC->GetNbinsX();
-  // Double_t pt_PI0Mean[N_PI0MEAN] = {};
-  // Double_t min_PI0Mean[N_PI0MEAN] = {};
-  // Double_t pt_PI0Sigma[N_PI0MEAN] = {};
-  // Double_t min_PI0Sigma[N_PI0MEAN] = {};
-
-  // for (int bin = 0; bin < N_PI0MEAN; bin++) {
-  //   pt_PI0Mean[bin] = hPi0MeanMC->GetXaxis()->GetBinCenter()
-  //   min_PI0Mean[bin] = hPi0MeanMC
-  //   pt_PI0Sigma[bin] = hPi0SigmaMC
-  //   min_PI0Sigma[bin] = hPi0SigmaMC
-  // }
+  TH1D* h1_SameEvent_DataOmegaPS_EG1                  = nullptr;
+  TH1D* h1_Background_DataOmegaRotPS_EG1              = nullptr;
+  TH1D* h1_Background_DataOmegaTGPSPS_EG1             = nullptr;
+  TH1D* h1_Background_DataOmegaTGPSPlusPS_EG1         = nullptr;
+  TH1D* h1_SameEvent_DataOmegaPS_EG2                  = nullptr;
+  TH1D* h1_Background_DataOmegaRotPS_EG2              = nullptr;
+  TH1D* h1_Background_DataOmegaTGPSPS_EG2             = nullptr;
+  TH1D* h1_Background_DataOmegaTGPSPlusPS_EG2         = nullptr;
+  TH1D* h1_Dalitz_DataOmegaRotPS_EG1                  = nullptr;
+  TH1D* h1_Dalitz_DataOmegaTGPSPS_EG1                 = nullptr;
+  TH1D* h1_Dalitz_DataOmegaTGPSPlusPS_EG1             = nullptr;
+  TH1D* h1_DalitzBack_DataOmegaRotPS_EG1              = nullptr;
+  TH1D* h1_DalitzBack_DataOmegaTGPSPS_EG1             = nullptr;
+  TH1D* h1_DalitzBack_DataOmegaTGPSPlusPS_EG1         = nullptr;
+  TH1D* h1_Dalitz_DataOmegaRotPS_EG2                  = nullptr;
+  TH1D* h1_Dalitz_DataOmegaTGPSPS_EG2                 = nullptr;
+  TH1D* h1_Dalitz_DataOmegaTGPSPlusPS_EG2             = nullptr;
+  TH1D* h1_DalitzBack_DataOmegaRotPS_EG2              = nullptr;
+  TH1D* h1_DalitzBack_DataOmegaTGPSPS_EG2             = nullptr;
+  TH1D* h1_DalitzBack_DataOmegaTGPSPlusPS_EG2         = nullptr;
+  TH1D* h1_Background_DataPi0RotPS_EG1                = nullptr;
+  TH1D* h1_Background_DataPi0TGPSPlusPS_EG1           = nullptr;
+  TH1D* h1_Background_DataPi0RotPS_EG2                = nullptr;
+  TH1D* h1_Background_DataPi0TGPSPlusPS_EG2           = nullptr;
+  TH1D* h1_DalitzBack_DataPi0RotPS_EG1                = nullptr;
+  TH1D* h1_DalitzBack_DataPi0TGPSPlusPS_EG1           = nullptr;
+  TH1D* h1_DalitzBack_DataPi0RotPS_EG2                = nullptr;
+  TH1D* h1_DalitzBack_DataPi0TGPSPlusPS_EG2           = nullptr;
+  TH1D* h1_SameEvent_DataOmegaWOPS_EG1                = nullptr;
+  TH1D* h1_Background_DataOmegaRotWOPS_EG1            = nullptr;
+  TH1D* h1_Background_DataOmegaTGPSWOPS_EG1           = nullptr;
+  TH1D* h1_Background_DataOmegaTGPSPlusWOPS_EG1       = nullptr;
+  TH1D* h1_SameEvent_DataOmegaWOPS_EG2                = nullptr;
+  TH1D* h1_Background_DataOmegaRotWOPS_EG2            = nullptr;
+  TH1D* h1_Background_DataOmegaTGPSWOPS_EG2           = nullptr;
+  TH1D* h1_Background_DataOmegaTGPSPlusWOPS_EG2       = nullptr;
+  TH1D* h1_Dalitz_DataOmegaRotWOPS_EG1                = nullptr;
+  TH1D* h1_Dalitz_DataOmegaTGPSWOPS_EG1               = nullptr;
+  TH1D* h1_Dalitz_DataOmegaTGPSPlusWOPS_EG1           = nullptr;
+  TH1D* h1_DalitzBack_DataOmegaRotWOPS_EG1            = nullptr;
+  TH1D* h1_DalitzBack_DataOmegaTGPSWOPS_EG1           = nullptr;
+  TH1D* h1_DalitzBack_DataOmegaTGPSPlusWOPS_EG1       = nullptr;
+  TH1D* h1_Dalitz_DataOmegaRotWOPS_EG2                = nullptr;
+  TH1D* h1_Dalitz_DataOmegaTGPSWOPS_EG2               = nullptr;
+  TH1D* h1_Dalitz_DataOmegaTGPSPlusWOPS_EG2           = nullptr;
+  TH1D* h1_DalitzBack_DataOmegaRotWOPS_EG2            = nullptr;
+  TH1D* h1_DalitzBack_DataOmegaTGPSWOPS_EG2           = nullptr;
+  TH1D* h1_DalitzBack_DataOmegaTGPSPlusWOPS_EG2       = nullptr;
+  TH1D* h1_SameEvent_DataOmegaTGPSPlusAPPS1Sigma_EG1  = nullptr;
+  TH1D* h1_Background_DataOmegaTGPSPlusAPPS1Sigma_EG1 = nullptr;
+  TH1D* h1_SameEvent_DataOmegaTGPSPlusAPPS2Sigma_EG1  = nullptr;
+  TH1D* h1_Background_DataOmegaTGPSPlusAPPS2Sigma_EG1 = nullptr;
+  TH1D* h1_SameEvent_DataOmegaTGPSPlusAPPS3Sigma_EG1  = nullptr;
+  TH1D* h1_Background_DataOmegaTGPSPlusAPPS3Sigma_EG1 = nullptr;
+  TH1D* h1_SameEvent_DataOmegaTGPSPlusAPPS1Sigma_EG2  = nullptr;
+  TH1D* h1_Background_DataOmegaTGPSPlusAPPS1Sigma_EG2 = nullptr;
+  TH1D* h1_SameEvent_DataOmegaTGPSPlusAPPS2Sigma_EG2  = nullptr;
+  TH1D* h1_Background_DataOmegaTGPSPlusAPPS2Sigma_EG2 = nullptr;
+  TH1D* h1_SameEvent_DataOmegaTGPSPlusAPPS3Sigma_EG2  = nullptr;
+  TH1D* h1_Background_DataOmegaTGPSPlusAPPS3Sigma_EG2 = nullptr;
 
   TH1D* h1_ESD_Mother_InvMass_Pt      = nullptr;
   TH1D* h1_ESD_Backgr_InvMass_Pt      = nullptr;
