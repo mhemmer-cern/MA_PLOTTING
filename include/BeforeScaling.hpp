@@ -4,7 +4,7 @@
 #include "TFractionFitter.h"
 #include <vector>
 
-SquarePlot BeforeScaling(TH1D* &SE, TH1D* &Background, TPaveText* lSys){
+SquarePlot BeforeScaling(TH1D* SE, TH1D* Background, TPaveText* lSys){
   // --- Create TObjArrays -----------------------------------------------------
 
   TObjArray* main = new TObjArray();
@@ -19,19 +19,50 @@ SquarePlot BeforeScaling(TH1D* &SE, TH1D* &Background, TPaveText* lSys){
 
   // --- Marker ----------------------------------------------------------------
 
-  vector<Color_t> colors = {kRed-2, kBlack};
-  vector<Style_t> markers = {kFullSquare, kFullCircle};
-  vector<Size_t>  sizes = {2., 2.};
+  vector<Color_t> colors = {kRed-2, kBlack, 0, 0};
+  vector<Style_t> markers = {kFullSquare, kFullCircle, 0, 0};
+  vector<Size_t>  sizes = {2., 2., 0, 0};
 
   // --- Canvasses -------------------------------------------------------------
 
-  // Legend::SetPosition(lInfo, 0.2, 0.3, 0.85, 0.75);
   Legend::SetPosition(l, 0.15, 0.5, 0.65, 0.75);
 
   SquarePlot square = SquarePlot(main, minv_str, count_str);
   square.SetMode(Plot::Thesis);
   square.SetStyle(colors, markers, sizes);
   square.SetRanges(0.0, 1.6, SE->GetMinimum(), Background->GetMaximum()*1.8);
+  return square;
+
+}
+
+SquarePlot BeforeScalingAPLikeCut(TH1D* SE1, TH1D* SE2, TH1D* SE3, TPaveText* lSys){
+  // --- Create TObjArrays -----------------------------------------------------
+
+  TObjArray* main = new TObjArray();
+  main->Add(SE1);
+  main->Add(SE2);
+  main->Add(SE3);
+
+  // --- Legends ---------------------------------------------------------------
+
+  main->Add(lSys);
+  TLegend* l = Legend(main, "same event 1#sigma\n same event 2#sigma\n same event 3#sigma", "lp lp lp").GetLegendPointer();
+  l->SetFillStyle(0);
+
+  // --- Marker ----------------------------------------------------------------
+
+  vector<Color_t> colors = {kRed-2, kBlue+3, kBlack, 0, 0};
+  vector<Style_t> markers = {kFullSquare, kOpenCircle, kOpenSquare, 0, 0};
+  vector<Size_t>  sizes = {2., 2., 2., 0, 0};
+
+  // --- Canvasses -------------------------------------------------------------
+
+  Legend::SetPosition(l, 0.15, 0.5, 0.65, 0.75);
+
+  SquarePlot square = SquarePlot(main, minv_str, count_str);
+  square.SetMode(Plot::Thesis);
+  square.SetStyle(colors, markers, sizes);
+  square.SetRanges(0.0, 1.6, SE3->GetMinimum(), SE3->GetMaximum()*1.6);
   return square;
 
 }

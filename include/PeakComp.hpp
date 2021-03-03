@@ -4,6 +4,7 @@
 #include "TFractionFitter.h"
 #include <vector>
 
+
 SquarePlot PeakComp(TH1D* &hTruePeak, TH1D* &hTrueReco, TH1D* &DataReco, TPaveText* lSys, TString legstring){
   // --- Create TObjArrays -----------------------------------------------------
 

@@ -3,10 +3,10 @@
 #include "/home/tavlin/Documents/git/Header/Plot.h"
 #include <vector>
 
-const Int_t nBinsPt = 7;                                                        // pT binning
-Double_t arrPtBinning[nBinsPt] =
-{  8.0, 12.0, 16.0, 20.0, 24.0,
-  28.0, 32.0};
+// const Int_t nBinsPt = 7;                                                        // pT binning
+// Double_t arrPtBinning[nBinsPt] =
+// {  8.0, 12.0, 16.0, 20.0, 24.0,
+//   28.0, 32.0};
 
 
   SquarePlot SignalToBackground(TH1D* &hSignal_pol1, TH1D* &hSignal_pol2, TH1D* &hSignal_pol3, TH1D* &hSignal_pol4,TPaveText* lSys )

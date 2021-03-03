@@ -4,6 +4,7 @@
 #include "TFractionFitter.h"
 #include <vector>
 
+
 SquarePlot OnlyPeaks(TH1D* &TruePeak, TH1D* &Background1, TH1D* &Background2, TH1D* &Background3, TH1D* &Background4, TPaveText* lSys, const Double_t xLow, const Double_t xHigh){
   // --- Create TObjArrays -----------------------------------------------------
 

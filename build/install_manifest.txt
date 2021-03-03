@@ -1,4 +1,4 @@
-/home/tavlin/Documents/MA_Plotting/install/plot
-/home/tavlin/Documents/MA_Plotting/lib/libtestLib.so
-/home/tavlin/Documents/MA_Plotting/lib/liblibB.so
-/home/tavlin/Documents/MA_Plotting/lib/liblibC.so
+/media/tavlin/Samsung_T5/Analyse/MA_Plotting/install/plot
+/media/tavlin/Samsung_T5/Analyse/MA_Plotting/lib/libtestLib.so
+/media/tavlin/Samsung_T5/Analyse/MA_Plotting/lib/liblibB.so
+/media/tavlin/Samsung_T5/Analyse/MA_Plotting/lib/liblibC.so

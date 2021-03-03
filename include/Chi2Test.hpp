@@ -3,6 +3,7 @@
 #include "/home/tavlin/Documents/git/Header/Plot.h"
 #include <vector>
 
+
 Double_t CalcChi2(TH1D* h1, TH1D* h2)
 {
   Double_t chi2 = 0.;

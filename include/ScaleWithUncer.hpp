@@ -2,6 +2,7 @@
 #include "/home/tavlin/C_Headers/CommonHeader.h"
 #include "/home/tavlin/Documents/git/Header/Plot.h"
 
+
 void ScaleWithUncer(TH1D* &hist, TGraphErrors* &g, TF1* &f){
   // --- Scale that bad boi ----------------------------------------------------
   for (int bin = 1; bin <= hist->GetNbinsX(); bin++)

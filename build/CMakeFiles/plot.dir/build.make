@@ -62,10 +62,10 @@ RM = /usr/local/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/tavlin/Documents/MA_Plotting
+CMAKE_SOURCE_DIR = /media/tavlin/Samsung_T5/Analyse/MA_Plotting
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/tavlin/Documents/MA_Plotting/build
+CMAKE_BINARY_DIR = /media/tavlin/Samsung_T5/Analyse/MA_Plotting/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/plot.dir/depend.make
@@ -78,16 +78,16 @@ include CMakeFiles/plot.dir/flags.make
 
 CMakeFiles/plot.dir/src/main.cxx.o: CMakeFiles/plot.dir/flags.make
 CMakeFiles/plot.dir/src/main.cxx.o: ../src/main.cxx
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tavlin/Documents/MA_Plotting/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/plot.dir/src/main.cxx.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/plot.dir/src/main.cxx.o -c /home/tavlin/Documents/MA_Plotting/src/main.cxx
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/media/tavlin/Samsung_T5/Analyse/MA_Plotting/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/plot.dir/src/main.cxx.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/plot.dir/src/main.cxx.o -c /media/tavlin/Samsung_T5/Analyse/MA_Plotting/src/main.cxx
 
 CMakeFiles/plot.dir/src/main.cxx.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/plot.dir/src/main.cxx.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tavlin/Documents/MA_Plotting/src/main.cxx > CMakeFiles/plot.dir/src/main.cxx.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /media/tavlin/Samsung_T5/Analyse/MA_Plotting/src/main.cxx > CMakeFiles/plot.dir/src/main.cxx.i
 
 CMakeFiles/plot.dir/src/main.cxx.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/plot.dir/src/main.cxx.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tavlin/Documents/MA_Plotting/src/main.cxx -o CMakeFiles/plot.dir/src/main.cxx.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /media/tavlin/Samsung_T5/Analyse/MA_Plotting/src/main.cxx -o CMakeFiles/plot.dir/src/main.cxx.s
 
 # Object files for target plot
 plot_OBJECTS = \
@@ -101,26 +101,26 @@ plot: CMakeFiles/plot.dir/build.make
 plot: liblibC.so
 plot: liblibB.so
 plot: libtestLib.so
-plot: /home/tavlin/alice/sw/ubuntu1804_x86-64/ROOT/v6-20-08-alice1-5/lib/libCore.so
-plot: /home/tavlin/alice/sw/ubuntu1804_x86-64/ROOT/v6-20-08-alice1-5/lib/libImt.so
-plot: /home/tavlin/alice/sw/ubuntu1804_x86-64/ROOT/v6-20-08-alice1-5/lib/libRIO.so
-plot: /home/tavlin/alice/sw/ubuntu1804_x86-64/ROOT/v6-20-08-alice1-5/lib/libNet.so
-plot: /home/tavlin/alice/sw/ubuntu1804_x86-64/ROOT/v6-20-08-alice1-5/lib/libHist.so
-plot: /home/tavlin/alice/sw/ubuntu1804_x86-64/ROOT/v6-20-08-alice1-5/lib/libGraf.so
-plot: /home/tavlin/alice/sw/ubuntu1804_x86-64/ROOT/v6-20-08-alice1-5/lib/libGraf3d.so
-plot: /home/tavlin/alice/sw/ubuntu1804_x86-64/ROOT/v6-20-08-alice1-5/lib/libGpad.so
-plot: /home/tavlin/alice/sw/ubuntu1804_x86-64/ROOT/v6-20-08-alice1-5/lib/libROOTDataFrame.so
-plot: /home/tavlin/alice/sw/ubuntu1804_x86-64/ROOT/v6-20-08-alice1-5/lib/libTree.so
-plot: /home/tavlin/alice/sw/ubuntu1804_x86-64/ROOT/v6-20-08-alice1-5/lib/libTreePlayer.so
-plot: /home/tavlin/alice/sw/ubuntu1804_x86-64/ROOT/v6-20-08-alice1-5/lib/libRint.so
-plot: /home/tavlin/alice/sw/ubuntu1804_x86-64/ROOT/v6-20-08-alice1-5/lib/libPostscript.so
-plot: /home/tavlin/alice/sw/ubuntu1804_x86-64/ROOT/v6-20-08-alice1-5/lib/libMatrix.so
-plot: /home/tavlin/alice/sw/ubuntu1804_x86-64/ROOT/v6-20-08-alice1-5/lib/libPhysics.so
-plot: /home/tavlin/alice/sw/ubuntu1804_x86-64/ROOT/v6-20-08-alice1-5/lib/libMathCore.so
-plot: /home/tavlin/alice/sw/ubuntu1804_x86-64/ROOT/v6-20-08-alice1-5/lib/libThread.so
-plot: /home/tavlin/alice/sw/ubuntu1804_x86-64/ROOT/v6-20-08-alice1-5/lib/libMultiProc.so
+plot: /home/tavlin/alice/sw/ubuntu1804_x86-64/ROOT/v6-20-08-alice1-6/lib/libCore.so
+plot: /home/tavlin/alice/sw/ubuntu1804_x86-64/ROOT/v6-20-08-alice1-6/lib/libImt.so
+plot: /home/tavlin/alice/sw/ubuntu1804_x86-64/ROOT/v6-20-08-alice1-6/lib/libRIO.so
+plot: /home/tavlin/alice/sw/ubuntu1804_x86-64/ROOT/v6-20-08-alice1-6/lib/libNet.so
+plot: /home/tavlin/alice/sw/ubuntu1804_x86-64/ROOT/v6-20-08-alice1-6/lib/libHist.so
+plot: /home/tavlin/alice/sw/ubuntu1804_x86-64/ROOT/v6-20-08-alice1-6/lib/libGraf.so
+plot: /home/tavlin/alice/sw/ubuntu1804_x86-64/ROOT/v6-20-08-alice1-6/lib/libGraf3d.so
+plot: /home/tavlin/alice/sw/ubuntu1804_x86-64/ROOT/v6-20-08-alice1-6/lib/libGpad.so
+plot: /home/tavlin/alice/sw/ubuntu1804_x86-64/ROOT/v6-20-08-alice1-6/lib/libROOTDataFrame.so
+plot: /home/tavlin/alice/sw/ubuntu1804_x86-64/ROOT/v6-20-08-alice1-6/lib/libTree.so
+plot: /home/tavlin/alice/sw/ubuntu1804_x86-64/ROOT/v6-20-08-alice1-6/lib/libTreePlayer.so
+plot: /home/tavlin/alice/sw/ubuntu1804_x86-64/ROOT/v6-20-08-alice1-6/lib/libRint.so
+plot: /home/tavlin/alice/sw/ubuntu1804_x86-64/ROOT/v6-20-08-alice1-6/lib/libPostscript.so
+plot: /home/tavlin/alice/sw/ubuntu1804_x86-64/ROOT/v6-20-08-alice1-6/lib/libMatrix.so
+plot: /home/tavlin/alice/sw/ubuntu1804_x86-64/ROOT/v6-20-08-alice1-6/lib/libPhysics.so
+plot: /home/tavlin/alice/sw/ubuntu1804_x86-64/ROOT/v6-20-08-alice1-6/lib/libMathCore.so
+plot: /home/tavlin/alice/sw/ubuntu1804_x86-64/ROOT/v6-20-08-alice1-6/lib/libThread.so
+plot: /home/tavlin/alice/sw/ubuntu1804_x86-64/ROOT/v6-20-08-alice1-6/lib/libMultiProc.so
 plot: CMakeFiles/plot.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/tavlin/Documents/MA_Plotting/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable plot"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/media/tavlin/Samsung_T5/Analyse/MA_Plotting/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable plot"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/plot.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -133,6 +133,6 @@ CMakeFiles/plot.dir/clean:
 .PHONY : CMakeFiles/plot.dir/clean
 
 CMakeFiles/plot.dir/depend:
-	cd /home/tavlin/Documents/MA_Plotting/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/tavlin/Documents/MA_Plotting /home/tavlin/Documents/MA_Plotting /home/tavlin/Documents/MA_Plotting/build /home/tavlin/Documents/MA_Plotting/build /home/tavlin/Documents/MA_Plotting/build/CMakeFiles/plot.dir/DependInfo.cmake --color=$(COLOR)
+	cd /media/tavlin/Samsung_T5/Analyse/MA_Plotting/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /media/tavlin/Samsung_T5/Analyse/MA_Plotting /media/tavlin/Samsung_T5/Analyse/MA_Plotting /media/tavlin/Samsung_T5/Analyse/MA_Plotting/build /media/tavlin/Samsung_T5/Analyse/MA_Plotting/build /media/tavlin/Samsung_T5/Analyse/MA_Plotting/build/CMakeFiles/plot.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/plot.dir/depend
 
