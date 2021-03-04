@@ -4,3 +4,11 @@ install/
 Data/
 Comp/
 CMakeFiles/
+build/CMakeFiles
+build/cmake_install.cmake
+build/CMakeCache.txt
+build/liblibB.so
+build/liblibC.so
+build/libtestLib.so
+build/Makefile
+build/plot
