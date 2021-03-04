@@ -1147,7 +1147,7 @@ void plotting()
 
   /****************************************************************************/
   /*                                                                          */
-  /*             Preparing 1D histo poInt_ter which will be plotted             */
+  /*            Preparing 1D histo poInt_ter which will be plotted            */
   /*                                                                          */
   /****************************************************************************/
 
@@ -1218,7 +1218,347 @@ void plotting()
   TH1D* h1_SameEvent_DataOmegaTGPSPlusAPPS3Sigma_EG2  = nullptr;
   TH1D* h1_Background_DataOmegaTGPSPlusAPPS3Sigma_EG2 = nullptr;
 
+  // ---------------------------------------------------------------------------
+  //
+  // Data Functions
+  //
+  // ---------------------------------------------------------------------------
+  TF1* fGaus1 = new TF1("fGaus1", "gaus(0)", 0.2, 1.6, "");
+  fGaus1->SetParameters(1., 0.782, 0.05);
+  fGaus1->SetParLimits(0, 0.0, 10000.);
+  fGaus1->SetParLimits(1, 0.7, 0.85);
+  fGaus1->SetParLimits(2, 0.01, 0.15);
+  TF1* fGaus2 = new TF1("fGaus2", "gaus(0)", 0.2, 1.6, "");
+  fGaus2->SetParameters(1., 0.782, 0.05);
+  fGaus2->SetParLimits(0, 0.0, 10000.);
+  fGaus2->SetParLimits(1, 0.7, 0.85);
+  fGaus2->SetParLimits(2, 0.01, 0.15);
+  TF1 *fBack1 = new TF1 ("fBack1", "pol1", 0.2, 1.6, "");
+  fBack1->SetParameters(1., 1.);
+  TF1 *fBack2 = new TF1 ("fBack2", "pol2", 0.2, 1.6, "");
+  fBack2->SetParameters(1., 1., 1.);
 
+  // ---------------------------------------------------------------------------
+  //
+  // Data Function Gaus
+  //
+  // ---------------------------------------------------------------------------
+  TF1* f1Gaus_DataOmegaRotPS_Pol1_EG1               = new TF1("f1Gaus_DataOmegaRotPS_Pol1_EG1", "gaus(0)", 0.2, 1.6, "");
+  TF1* f1Gaus_DataOmegaRotPS_Pol2_EG1               = new TF1("f1Gaus_DataOmegaRotPS_Pol2_EG1", "gaus(0)", 0.2, 1.6, "");
+  TF1* f1Gaus_DataOmegaTGPSPS_Pol1_EG1              = new TF1("f1Gaus_DataOmegaTGPSPS_Pol1_EG1", "gaus(0)", 0.2, 1.6, "");
+  TF1* f1Gaus_DataOmegaTGPSPS_Pol2_EG1              = new TF1("f1Gaus_DataOmegaTGPSPS_Pol2_EG1", "gaus(0)", 0.2, 1.6, "");
+  TF1* f1Gaus_DataOmegaTGPSPlusPS_Pol1_EG1          = new TF1("f1Gaus_DataOmegaTGPSPlusPS_Pol1_EG1", "gaus(0)", 0.2, 1.6, "");
+  TF1* f1Gaus_DataOmegaTGPSPlusPS_Pol2_EG1          = new TF1("f1Gaus_DataOmegaTGPSPlusPS_Pol2_EG1", "gaus(0)", 0.2, 1.6, "");
+  TF1* f1Gaus_DataOmegaRotPS_Pol1_EG2               = new TF1("f1Gaus_DataOmegaRotPS_Pol1_EG2", "gaus(0)", 0.2, 1.6, "");
+  TF1* f1Gaus_DataOmegaRotPS_Pol2_EG2               = new TF1("f1Gaus_DataOmegaRotPS_Pol2_EG2", "gaus(0)", 0.2, 1.6, "");
+  TF1* f1Gaus_DataOmegaTGPSPS_Pol1_EG2              = new TF1("f1Gaus_DataOmegaTGPSPS_Pol1_EG2", "gaus(0)", 0.2, 1.6, "");
+  TF1* f1Gaus_DataOmegaTGPSPS_Pol2_EG2              = new TF1("f1Gaus_DataOmegaTGPSPS_Pol2_EG2", "gaus(0)", 0.2, 1.6, "");
+  TF1* f1Gaus_DataOmegaTGPSPlusPS_Pol1_EG2          = new TF1("f1Gaus_DataOmegaTGPSPlusPS_Pol1_EG2", "gaus(0)", 0.2, 1.6, "");
+  TF1* f1Gaus_DataOmegaTGPSPlusPS_Pol2_EG2          = new TF1("f1Gaus_DataOmegaTGPSPlusPS_Pol2_EG2", "gaus(0)", 0.2, 1.6, "");
+  TF1* f1Gaus_DataPi0RotPS_Pol1_EG1                 = new TF1("f1Gaus_DataPi0RotPS_Pol1_EG1", "gaus(0)", 0.2, 1.6, "");
+  TF1* f1Gaus_DataPi0RotPS_Pol2_EG1                 = new TF1("f1Gaus_DataPi0RotPS_Pol2_EG1", "gaus(0)", 0.2, 1.6, "");
+  TF1* f1Gaus_DataPi0TGPSPlusPS_Pol1_EG1            = new TF1("f1Gaus_DataPi0TGPSPlusPS_Pol1_EG1", "gaus(0)", 0.2, 1.6, "");
+  TF1* f1Gaus_DataPi0TGPSPlusPS_Pol2_EG1            = new TF1("f1Gaus_DataPi0TGPSPlusPS_Pol2_EG1", "gaus(0)", 0.2, 1.6, "");
+  TF1* f1Gaus_DataPi0RotPS_Pol1_EG2                 = new TF1("f1Gaus_DataPi0RotPS_Pol1_EG2", "gaus(0)", 0.2, 1.6, "");
+  TF1* f1Gaus_DataPi0RotPS_Pol2_EG2                 = new TF1("f1Gaus_DataPi0RotPS_Pol2_EG2", "gaus(0)", 0.2, 1.6, "");
+  TF1* f1Gaus_DataPi0TGPSPlusPS_Pol1_EG2            = new TF1("f1Gaus_DataPi0TGPSPlusPS_Pol1_EG2", "gaus(0)", 0.2, 1.6, "");
+  TF1* f1Gaus_DataPi0TGPSPlusPS_Pol2_EG2            = new TF1("f1Gaus_DataPi0TGPSPlusPS_Pol2_EG2", "gaus(0)", 0.2, 1.6, "");
+  TF1* f1Gaus_DataOmegaRotWOPS_Pol1_EG1             = new TF1("f1Gaus_DataOmegaRotWOPS_Pol1_EG1", "gaus(0)", 0.2, 1.6, "");
+  TF1* f1Gaus_DataOmegaRotWOPS_Pol2_EG1             = new TF1("f1Gaus_DataOmegaRotWOPS_Pol2_EG1", "gaus(0)", 0.2, 1.6, "");
+  TF1* f1Gaus_DataOmegaTGPSWOPS_Pol1_EG1            = new TF1("f1Gaus_DataOmegaTGPSWOPS_Pol1_EG1", "gaus(0)", 0.2, 1.6, "");
+  TF1* f1Gaus_DataOmegaTGPSWOPS_Pol2_EG1            = new TF1("f1Gaus_DataOmegaTGPSWOPS_Pol2_EG1", "gaus(0)", 0.2, 1.6, "");
+  TF1* f1Gaus_DataOmegaTGPSPlusWOPS_Pol1_EG1        = new TF1("f1Gaus_DataOmegaTGPSPlusWOPS_Pol1_EG1", "gaus(0)", 0.2, 1.6, "");
+  TF1* f1Gaus_DataOmegaTGPSPlusWOPS_Pol2_EG1        = new TF1("f1Gaus_DataOmegaTGPSPlusWOPS_Pol2_EG1", "gaus(0)", 0.2, 1.6, "");
+  TF1* f1Gaus_DataOmegaRotWOPS_Pol1_EG2             = new TF1("f1Gaus_DataOmegaRotWOPS_Pol1_EG2", "gaus(0)", 0.2, 1.6, "");
+  TF1* f1Gaus_DataOmegaRotWOPS_Pol2_EG2             = new TF1("f1Gaus_DataOmegaRotWOPS_Pol2_EG2", "gaus(0)", 0.2, 1.6, "");
+  TF1* f1Gaus_DataOmegaTGPSWOPS_Pol1_EG2            = new TF1("f1Gaus_DataOmegaTGPSWOPS_Pol1_EG2", "gaus(0)", 0.2, 1.6, "");
+  TF1* f1Gaus_DataOmegaTGPSWOPS_Pol2_EG2            = new TF1("f1Gaus_DataOmegaTGPSWOPS_Pol2_EG2", "gaus(0)", 0.2, 1.6, "");
+  TF1* f1Gaus_DataOmegaTGPSPlusWOPS_Pol1_EG2        = new TF1("f1Gaus_DataOmegaTGPSPlusWOPS_Pol1_EG2", "gaus(0)", 0.2, 1.6, "");
+  TF1* f1Gaus_DataOmegaTGPSPlusWOPS_Pol2_EG2        = new TF1("f1Gaus_DataOmegaTGPSPlusWOPS_Pol2_EG2", "gaus(0)", 0.2, 1.6, "");
+  TF1* f1Gaus_DataOmegaTGPSPlusAPPS1Sigma_Pol1_EG1  = new TF1("f1Gaus_DataOmegaTGPSPlusAPPS1Sigma_Pol1_EG1", "gaus(0)", 0.2, 1.6, "");
+  TF1* f1Gaus_DataOmegaTGPSPlusAPPS1Sigma_Pol2_EG1  = new TF1("f1Gaus_DataOmegaTGPSPlusAPPS1Sigma_Pol2_EG1", "gaus(0)", 0.2, 1.6, "");
+  TF1* f1Gaus_DataOmegaTGPSPlusAPPS2Sigma_Pol1_EG1  = new TF1("f1Gaus_DataOmegaTGPSPlusAPPS2Sigma_Pol1_EG1", "gaus(0)", 0.2, 1.6, "");
+  TF1* f1Gaus_DataOmegaTGPSPlusAPPS2Sigma_Pol2_EG1  = new TF1("f1Gaus_DataOmegaTGPSPlusAPPS2Sigma_Pol2_EG1", "gaus(0)", 0.2, 1.6, "");
+  TF1* f1Gaus_DataOmegaTGPSPlusAPPS3Sigma_Pol1_EG1  = new TF1("f1Gaus_DataOmegaTGPSPlusAPPS3Sigma_Pol1_EG1", "gaus(0)", 0.2, 1.6, "");
+  TF1* f1Gaus_DataOmegaTGPSPlusAPPS3Sigma_Pol2_EG1  = new TF1("f1Gaus_DataOmegaTGPSPlusAPPS3Sigma_Pol2_EG1", "gaus(0)", 0.2, 1.6, "");
+  TF1* f1Gaus_DataOmegaTGPSPlusAPPS1Sigma_Pol1_EG2  = new TF1("f1Gaus_DataOmegaTGPSPlusAPPS1Sigma_Pol1_EG2", "gaus(0)", 0.2, 1.6, "");
+  TF1* f1Gaus_DataOmegaTGPSPlusAPPS1Sigma_Pol2_EG2  = new TF1("f1Gaus_DataOmegaTGPSPlusAPPS1Sigma_Pol2_EG2", "gaus(0)", 0.2, 1.6, "");
+  TF1* f1Gaus_DataOmegaTGPSPlusAPPS2Sigma_Pol1_EG2  = new TF1("f1Gaus_DataOmegaTGPSPlusAPPS2Sigma_Pol1_EG2", "gaus(0)", 0.2, 1.6, "");
+  TF1* f1Gaus_DataOmegaTGPSPlusAPPS2Sigma_Pol2_EG2  = new TF1("f1Gaus_DataOmegaTGPSPlusAPPS2Sigma_Pol2_EG2", "gaus(0)", 0.2, 1.6, "");
+  TF1* f1Gaus_DataOmegaTGPSPlusAPPS3Sigma_Pol1_EG2  = new TF1("f1Gaus_DataOmegaTGPSPlusAPPS3Sigma_Pol1_EG2", "gaus(0)", 0.2, 1.6, "");
+  TF1* f1Gaus_DataOmegaTGPSPlusAPPS3Sigma_Pol2_EG2  = new TF1("f1Gaus_DataOmegaTGPSPlusAPPS3Sigma_Pol2_EG2", "gaus(0)", 0.2, 1.6, "");
+
+
+  f1Gaus_DataOmegaRotPS_Pol1_EG1->SetParameters(1.0, 0.782, 0.05);
+  f1Gaus_DataOmegaRotPS_Pol1_EG1->SetParLimits(0, 0.0, 10000.);
+  f1Gaus_DataOmegaRotPS_Pol1_EG1->SetParLimits(1, 0.7, 0.85);
+  f1Gaus_DataOmegaRotPS_Pol1_EG1->SetParLimits(2, 0.01, 0.15);
+  f1Gaus_DataOmegaRotPS_Pol2_EG1->SetParameters(1.0, 0.782, 0.05);
+  f1Gaus_DataOmegaRotPS_Pol2_EG1->SetParLimits(0, 0.0, 10000.);
+  f1Gaus_DataOmegaRotPS_Pol2_EG1->SetParLimits(1, 0.7, 0.85);
+  f1Gaus_DataOmegaRotPS_Pol2_EG1->SetParLimits(2, 0.01, 0.15);
+  f1Gaus_DataOmegaTGPSPS_Pol1_EG1->SetParameters(1.0, 0.782, 0.05);
+  f1Gaus_DataOmegaTGPSPS_Pol1_EG1->SetParLimits(0, 0.0, 10000.);
+  f1Gaus_DataOmegaTGPSPS_Pol1_EG1->SetParLimits(1, 0.7, 0.85);
+  f1Gaus_DataOmegaTGPSPS_Pol1_EG1->SetParLimits(2, 0.01, 0.15);
+  f1Gaus_DataOmegaTGPSPS_Pol2_EG1->SetParameters(1.0, 0.782, 0.05);
+  f1Gaus_DataOmegaTGPSPS_Pol2_EG1->SetParLimits(0, 0.0, 10000.);
+  f1Gaus_DataOmegaTGPSPS_Pol2_EG1->SetParLimits(1, 0.7, 0.85);
+  f1Gaus_DataOmegaTGPSPS_Pol2_EG1->SetParLimits(2, 0.01, 0.15);
+  f1Gaus_DataOmegaTGPSPlusPS_Pol1_EG1->SetParameters(1.0, 0.782, 0.05);
+  f1Gaus_DataOmegaTGPSPlusPS_Pol1_EG1->SetParLimits(0, 0.0, 10000.);
+  f1Gaus_DataOmegaTGPSPlusPS_Pol1_EG1->SetParLimits(1, 0.7, 0.85);
+  f1Gaus_DataOmegaTGPSPlusPS_Pol1_EG1->SetParLimits(2, 0.01, 0.15);
+  f1Gaus_DataOmegaTGPSPlusPS_Pol2_EG1->SetParameters(1.0, 0.782, 0.05);
+  f1Gaus_DataOmegaTGPSPlusPS_Pol2_EG1->SetParLimits(0, 0.0, 10000.);
+  f1Gaus_DataOmegaTGPSPlusPS_Pol2_EG1->SetParLimits(1, 0.7, 0.85);
+  f1Gaus_DataOmegaTGPSPlusPS_Pol2_EG1->SetParLimits(2, 0.01, 0.15);
+  f1Gaus_DataOmegaRotPS_Pol1_EG2->SetParameters(1.0, 0.782, 0.05);
+  f1Gaus_DataOmegaRotPS_Pol1_EG2->SetParLimits(0, 0.0, 10000.);
+  f1Gaus_DataOmegaRotPS_Pol1_EG2->SetParLimits(1, 0.7, 0.85);
+  f1Gaus_DataOmegaRotPS_Pol1_EG2->SetParLimits(2, 0.01, 0.15);
+  f1Gaus_DataOmegaRotPS_Pol2_EG2->SetParameters(1.0, 0.782, 0.05);
+  f1Gaus_DataOmegaRotPS_Pol2_EG2->SetParLimits(0, 0.0, 10000.);
+  f1Gaus_DataOmegaRotPS_Pol2_EG2->SetParLimits(1, 0.7, 0.85);
+  f1Gaus_DataOmegaRotPS_Pol2_EG2->SetParLimits(2, 0.01, 0.15);
+  f1Gaus_DataOmegaTGPSPS_Pol1_EG2->SetParameters(1.0, 0.782, 0.05);
+  f1Gaus_DataOmegaTGPSPS_Pol1_EG2->SetParLimits(0, 0.0, 10000.);
+  f1Gaus_DataOmegaTGPSPS_Pol1_EG2->SetParLimits(1, 0.7, 0.85);
+  f1Gaus_DataOmegaTGPSPS_Pol1_EG2->SetParLimits(2, 0.01, 0.15);
+  f1Gaus_DataOmegaTGPSPS_Pol2_EG2->SetParameters(1.0, 0.782, 0.05);
+  f1Gaus_DataOmegaTGPSPS_Pol2_EG2->SetParLimits(0, 0.0, 10000.);
+  f1Gaus_DataOmegaTGPSPS_Pol2_EG2->SetParLimits(1, 0.7, 0.85);
+  f1Gaus_DataOmegaTGPSPS_Pol2_EG2->SetParLimits(2, 0.01, 0.15);
+  f1Gaus_DataOmegaTGPSPlusPS_Pol1_EG2->SetParameters(1.0, 0.782, 0.05);
+  f1Gaus_DataOmegaTGPSPlusPS_Pol1_EG2->SetParLimits(0, 0.0, 10000.);
+  f1Gaus_DataOmegaTGPSPlusPS_Pol1_EG2->SetParLimits(1, 0.7, 0.85);
+  f1Gaus_DataOmegaTGPSPlusPS_Pol1_EG2->SetParLimits(2, 0.01, 0.15);
+  f1Gaus_DataOmegaTGPSPlusPS_Pol2_EG2->SetParameters(1.0, 0.782, 0.05);
+  f1Gaus_DataOmegaTGPSPlusPS_Pol2_EG2->SetParLimits(0, 0.0, 10000.);
+  f1Gaus_DataOmegaTGPSPlusPS_Pol2_EG2->SetParLimits(1, 0.7, 0.85);
+  f1Gaus_DataOmegaTGPSPlusPS_Pol2_EG2->SetParLimits(2, 0.01, 0.15);
+  f1Gaus_DataPi0RotPS_Pol1_EG1->SetParameters(1.0, 0.782, 0.05);
+  f1Gaus_DataPi0RotPS_Pol1_EG1->SetParLimits(0, 0.0, 10000.);
+  f1Gaus_DataPi0RotPS_Pol1_EG1->SetParLimits(1, 0.7, 0.85);
+  f1Gaus_DataPi0RotPS_Pol1_EG1->SetParLimits(2, 0.01, 0.15);
+  f1Gaus_DataPi0RotPS_Pol2_EG1->SetParameters(1.0, 0.782, 0.05);
+  f1Gaus_DataPi0RotPS_Pol2_EG1->SetParLimits(0, 0.0, 10000.);
+  f1Gaus_DataPi0RotPS_Pol2_EG1->SetParLimits(1, 0.7, 0.85);
+  f1Gaus_DataPi0RotPS_Pol2_EG1->SetParLimits(2, 0.01, 0.15);
+  f1Gaus_DataPi0TGPSPlusPS_Pol1_EG1->SetParameters(1.0, 0.782, 0.05);
+  f1Gaus_DataPi0TGPSPlusPS_Pol1_EG1->SetParLimits(0, 0.0, 10000.);
+  f1Gaus_DataPi0TGPSPlusPS_Pol1_EG1->SetParLimits(1, 0.7, 0.85);
+  f1Gaus_DataPi0TGPSPlusPS_Pol1_EG1->SetParLimits(2, 0.01, 0.15);
+  f1Gaus_DataPi0TGPSPlusPS_Pol2_EG1->SetParameters(1.0, 0.782, 0.05);
+  f1Gaus_DataPi0TGPSPlusPS_Pol2_EG1->SetParLimits(0, 0.0, 10000.);
+  f1Gaus_DataPi0TGPSPlusPS_Pol2_EG1->SetParLimits(1, 0.7, 0.85);
+  f1Gaus_DataPi0TGPSPlusPS_Pol2_EG1->SetParLimits(2, 0.01, 0.15);
+  f1Gaus_DataPi0RotPS_Pol1_EG2->SetParameters(1.0, 0.782, 0.05);
+  f1Gaus_DataPi0RotPS_Pol1_EG2->SetParLimits(0, 0.0, 10000.);
+  f1Gaus_DataPi0RotPS_Pol1_EG2->SetParLimits(1, 0.7, 0.85);
+  f1Gaus_DataPi0RotPS_Pol1_EG2->SetParLimits(2, 0.01, 0.15);
+  f1Gaus_DataPi0RotPS_Pol2_EG2->SetParameters(1.0, 0.782, 0.05);
+  f1Gaus_DataPi0RotPS_Pol2_EG2->SetParLimits(0, 0.0, 10000.);
+  f1Gaus_DataPi0RotPS_Pol2_EG2->SetParLimits(1, 0.7, 0.85);
+  f1Gaus_DataPi0RotPS_Pol2_EG2->SetParLimits(2, 0.01, 0.15);
+  f1Gaus_DataPi0TGPSPlusPS_Pol1_EG2->SetParameters(1.0, 0.782, 0.05);
+  f1Gaus_DataPi0TGPSPlusPS_Pol1_EG2->SetParLimits(0, 0.0, 10000.);
+  f1Gaus_DataPi0TGPSPlusPS_Pol1_EG2->SetParLimits(1, 0.7, 0.85);
+  f1Gaus_DataPi0TGPSPlusPS_Pol1_EG2->SetParLimits(2, 0.01, 0.15);
+  f1Gaus_DataPi0TGPSPlusPS_Pol2_EG2->SetParameters(1.0, 0.782, 0.05);
+  f1Gaus_DataPi0TGPSPlusPS_Pol2_EG2->SetParLimits(0, 0.0, 10000.);
+  f1Gaus_DataPi0TGPSPlusPS_Pol2_EG2->SetParLimits(1, 0.7, 0.85);
+  f1Gaus_DataPi0TGPSPlusPS_Pol2_EG2->SetParLimits(2, 0.01, 0.15);
+  f1Gaus_DataOmegaRotWOPS_Pol1_EG1->SetParameters(1.0, 0.782, 0.05);
+  f1Gaus_DataOmegaRotWOPS_Pol1_EG1->SetParLimits(0, 0.0, 10000.);
+  f1Gaus_DataOmegaRotWOPS_Pol1_EG1->SetParLimits(1, 0.7, 0.85);
+  f1Gaus_DataOmegaRotWOPS_Pol1_EG1->SetParLimits(2, 0.01, 0.15);
+  f1Gaus_DataOmegaRotWOPS_Pol2_EG1->SetParameters(1.0, 0.782, 0.05);
+  f1Gaus_DataOmegaRotWOPS_Pol2_EG1->SetParLimits(0, 0.0, 10000.);
+  f1Gaus_DataOmegaRotWOPS_Pol2_EG1->SetParLimits(1, 0.7, 0.85);
+  f1Gaus_DataOmegaRotWOPS_Pol2_EG1->SetParLimits(2, 0.01, 0.15);
+  f1Gaus_DataOmegaTGPSWOPS_Pol1_EG1->SetParameters(1.0, 0.782, 0.05);
+  f1Gaus_DataOmegaTGPSWOPS_Pol1_EG1->SetParLimits(0, 0.0, 10000.);
+  f1Gaus_DataOmegaTGPSWOPS_Pol1_EG1->SetParLimits(1, 0.7, 0.85);
+  f1Gaus_DataOmegaTGPSWOPS_Pol1_EG1->SetParLimits(2, 0.01, 0.15);
+  f1Gaus_DataOmegaTGPSWOPS_Pol2_EG1->SetParameters(1.0, 0.782, 0.05);
+  f1Gaus_DataOmegaTGPSWOPS_Pol2_EG1->SetParLimits(0, 0.0, 10000.);
+  f1Gaus_DataOmegaTGPSWOPS_Pol2_EG1->SetParLimits(1, 0.7, 0.85);
+  f1Gaus_DataOmegaTGPSWOPS_Pol2_EG1->SetParLimits(2, 0.01, 0.15);
+  f1Gaus_DataOmegaTGPSPlusWOPS_Pol1_EG1->SetParameters(1.0, 0.782, 0.05);
+  f1Gaus_DataOmegaTGPSPlusWOPS_Pol1_EG1->SetParLimits(0, 0.0, 10000.);
+  f1Gaus_DataOmegaTGPSPlusWOPS_Pol1_EG1->SetParLimits(1, 0.7, 0.85);
+  f1Gaus_DataOmegaTGPSPlusWOPS_Pol1_EG1->SetParLimits(2, 0.01, 0.15);
+  f1Gaus_DataOmegaTGPSPlusWOPS_Pol2_EG1->SetParameters(1.0, 0.782, 0.05);
+  f1Gaus_DataOmegaTGPSPlusWOPS_Pol2_EG1->SetParLimits(0, 0.0, 10000.);
+  f1Gaus_DataOmegaTGPSPlusWOPS_Pol2_EG1->SetParLimits(1, 0.7, 0.85);
+  f1Gaus_DataOmegaTGPSPlusWOPS_Pol2_EG1->SetParLimits(2, 0.01, 0.15);
+  f1Gaus_DataOmegaRotWOPS_Pol1_EG2->SetParameters(1.0, 0.782, 0.05);
+  f1Gaus_DataOmegaRotWOPS_Pol1_EG2->SetParLimits(0, 0.0, 10000.);
+  f1Gaus_DataOmegaRotWOPS_Pol1_EG2->SetParLimits(1, 0.7, 0.85);
+  f1Gaus_DataOmegaRotWOPS_Pol1_EG2->SetParLimits(2, 0.01, 0.15);
+  f1Gaus_DataOmegaRotWOPS_Pol2_EG2->SetParameters(1.0, 0.782, 0.05);
+  f1Gaus_DataOmegaRotWOPS_Pol2_EG2->SetParLimits(0, 0.0, 10000.);
+  f1Gaus_DataOmegaRotWOPS_Pol2_EG2->SetParLimits(1, 0.7, 0.85);
+  f1Gaus_DataOmegaRotWOPS_Pol2_EG2->SetParLimits(2, 0.01, 0.15);
+  f1Gaus_DataOmegaTGPSWOPS_Pol1_EG2->SetParameters(1.0, 0.782, 0.05);
+  f1Gaus_DataOmegaTGPSWOPS_Pol1_EG2->SetParLimits(0, 0.0, 10000.);
+  f1Gaus_DataOmegaTGPSWOPS_Pol1_EG2->SetParLimits(1, 0.7, 0.85);
+  f1Gaus_DataOmegaTGPSWOPS_Pol1_EG2->SetParLimits(2, 0.01, 0.15);
+  f1Gaus_DataOmegaTGPSWOPS_Pol2_EG2->SetParameters(1.0, 0.782, 0.05);
+  f1Gaus_DataOmegaTGPSWOPS_Pol2_EG2->SetParLimits(0, 0.0, 10000.);
+  f1Gaus_DataOmegaTGPSWOPS_Pol2_EG2->SetParLimits(1, 0.7, 0.85);
+  f1Gaus_DataOmegaTGPSWOPS_Pol2_EG2->SetParLimits(2, 0.01, 0.15);
+  f1Gaus_DataOmegaTGPSPlusWOPS_Pol1_EG2->SetParameters(1.0, 0.782, 0.05);
+  f1Gaus_DataOmegaTGPSPlusWOPS_Pol1_EG2->SetParLimits(0, 0.0, 10000.);
+  f1Gaus_DataOmegaTGPSPlusWOPS_Pol1_EG2->SetParLimits(1, 0.7, 0.85);
+  f1Gaus_DataOmegaTGPSPlusWOPS_Pol1_EG2->SetParLimits(2, 0.01, 0.15);
+  f1Gaus_DataOmegaTGPSPlusWOPS_Pol2_EG2->SetParameters(1.0, 0.782, 0.05);
+  f1Gaus_DataOmegaTGPSPlusWOPS_Pol2_EG2->SetParLimits(0, 0.0, 10000.);
+  f1Gaus_DataOmegaTGPSPlusWOPS_Pol2_EG2->SetParLimits(1, 0.7, 0.85);
+  f1Gaus_DataOmegaTGPSPlusWOPS_Pol2_EG2->SetParLimits(2, 0.01, 0.15);
+  f1Gaus_DataOmegaTGPSPlusAPPS1Sigma_Pol1_EG1->SetParameters(1.0, 0.782, 0.05);
+  f1Gaus_DataOmegaTGPSPlusAPPS1Sigma_Pol1_EG1->SetParLimits(0, 0.0, 10000.);
+  f1Gaus_DataOmegaTGPSPlusAPPS1Sigma_Pol1_EG1->SetParLimits(1, 0.7, 0.85);
+  f1Gaus_DataOmegaTGPSPlusAPPS1Sigma_Pol1_EG1->SetParLimits(2, 0.01, 0.15);
+  f1Gaus_DataOmegaTGPSPlusAPPS1Sigma_Pol2_EG1->SetParameters(1.0, 0.782, 0.05);
+  f1Gaus_DataOmegaTGPSPlusAPPS1Sigma_Pol2_EG1->SetParLimits(0, 0.0, 10000.);
+  f1Gaus_DataOmegaTGPSPlusAPPS1Sigma_Pol2_EG1->SetParLimits(1, 0.7, 0.85);
+  f1Gaus_DataOmegaTGPSPlusAPPS1Sigma_Pol2_EG1->SetParLimits(2, 0.01, 0.15);
+  f1Gaus_DataOmegaTGPSPlusAPPS2Sigma_Pol1_EG1->SetParameters(1.0, 0.782, 0.05);
+  f1Gaus_DataOmegaTGPSPlusAPPS2Sigma_Pol1_EG1->SetParLimits(0, 0.0, 10000.);
+  f1Gaus_DataOmegaTGPSPlusAPPS2Sigma_Pol1_EG1->SetParLimits(1, 0.7, 0.85);
+  f1Gaus_DataOmegaTGPSPlusAPPS2Sigma_Pol1_EG1->SetParLimits(2, 0.01, 0.15);
+  f1Gaus_DataOmegaTGPSPlusAPPS2Sigma_Pol2_EG1->SetParameters(1.0, 0.782, 0.05);
+  f1Gaus_DataOmegaTGPSPlusAPPS2Sigma_Pol2_EG1->SetParLimits(0, 0.0, 10000.);
+  f1Gaus_DataOmegaTGPSPlusAPPS2Sigma_Pol2_EG1->SetParLimits(1, 0.7, 0.85);
+  f1Gaus_DataOmegaTGPSPlusAPPS2Sigma_Pol2_EG1->SetParLimits(2, 0.01, 0.15);
+  f1Gaus_DataOmegaTGPSPlusAPPS3Sigma_Pol1_EG1->SetParameters(1.0, 0.782, 0.05);
+  f1Gaus_DataOmegaTGPSPlusAPPS3Sigma_Pol1_EG1->SetParLimits(0, 0.0, 10000.);
+  f1Gaus_DataOmegaTGPSPlusAPPS3Sigma_Pol1_EG1->SetParLimits(1, 0.7, 0.85);
+  f1Gaus_DataOmegaTGPSPlusAPPS3Sigma_Pol1_EG1->SetParLimits(2, 0.01, 0.15);
+  f1Gaus_DataOmegaTGPSPlusAPPS3Sigma_Pol2_EG1->SetParameters(1.0, 0.782, 0.05);
+  f1Gaus_DataOmegaTGPSPlusAPPS3Sigma_Pol2_EG1->SetParLimits(0, 0.0, 10000.);
+  f1Gaus_DataOmegaTGPSPlusAPPS3Sigma_Pol2_EG1->SetParLimits(1, 0.7, 0.85);
+  f1Gaus_DataOmegaTGPSPlusAPPS3Sigma_Pol2_EG1->SetParLimits(2, 0.01, 0.15);
+  f1Gaus_DataOmegaTGPSPlusAPPS1Sigma_Pol1_EG2->SetParameters(1.0, 0.782, 0.05);
+  f1Gaus_DataOmegaTGPSPlusAPPS1Sigma_Pol1_EG2->SetParLimits(0, 0.0, 10000.);
+  f1Gaus_DataOmegaTGPSPlusAPPS1Sigma_Pol1_EG2->SetParLimits(1, 0.7, 0.85);
+  f1Gaus_DataOmegaTGPSPlusAPPS1Sigma_Pol1_EG2->SetParLimits(2, 0.01, 0.15);
+  f1Gaus_DataOmegaTGPSPlusAPPS1Sigma_Pol2_EG2->SetParameters(1.0, 0.782, 0.05);
+  f1Gaus_DataOmegaTGPSPlusAPPS1Sigma_Pol2_EG2->SetParLimits(0, 0.0, 10000.);
+  f1Gaus_DataOmegaTGPSPlusAPPS1Sigma_Pol2_EG2->SetParLimits(1, 0.7, 0.85);
+  f1Gaus_DataOmegaTGPSPlusAPPS1Sigma_Pol2_EG2->SetParLimits(2, 0.01, 0.15);
+  f1Gaus_DataOmegaTGPSPlusAPPS2Sigma_Pol1_EG2->SetParameters(1.0, 0.782, 0.05);
+  f1Gaus_DataOmegaTGPSPlusAPPS2Sigma_Pol1_EG2->SetParLimits(0, 0.0, 10000.);
+  f1Gaus_DataOmegaTGPSPlusAPPS2Sigma_Pol1_EG2->SetParLimits(1, 0.7, 0.85);
+  f1Gaus_DataOmegaTGPSPlusAPPS2Sigma_Pol1_EG2->SetParLimits(2, 0.01, 0.15);
+  f1Gaus_DataOmegaTGPSPlusAPPS2Sigma_Pol2_EG2->SetParameters(1.0, 0.782, 0.05);
+  f1Gaus_DataOmegaTGPSPlusAPPS2Sigma_Pol2_EG2->SetParLimits(0, 0.0, 10000.);
+  f1Gaus_DataOmegaTGPSPlusAPPS2Sigma_Pol2_EG2->SetParLimits(1, 0.7, 0.85);
+  f1Gaus_DataOmegaTGPSPlusAPPS2Sigma_Pol2_EG2->SetParLimits(2, 0.01, 0.15);
+  f1Gaus_DataOmegaTGPSPlusAPPS3Sigma_Pol1_EG2->SetParameters(1.0, 0.782, 0.05);
+  f1Gaus_DataOmegaTGPSPlusAPPS3Sigma_Pol1_EG2->SetParLimits(0, 0.0, 10000.);
+  f1Gaus_DataOmegaTGPSPlusAPPS3Sigma_Pol1_EG2->SetParLimits(1, 0.7, 0.85);
+  f1Gaus_DataOmegaTGPSPlusAPPS3Sigma_Pol1_EG2->SetParLimits(2, 0.01, 0.15);
+  f1Gaus_DataOmegaTGPSPlusAPPS3Sigma_Pol2_EG2->SetParameters(1.0, 0.782, 0.05);
+  f1Gaus_DataOmegaTGPSPlusAPPS3Sigma_Pol2_EG2->SetParLimits(0, 0.0, 10000.);
+  f1Gaus_DataOmegaTGPSPlusAPPS3Sigma_Pol2_EG2->SetParLimits(1, 0.7, 0.85);
+  f1Gaus_DataOmegaTGPSPlusAPPS3Sigma_Pol2_EG2->SetParLimits(2, 0.01, 0.15);
+  // ---------------------------------------------------------------------------
+  //
+  // Data Function Background (pol1 and pol2)
+  //
+  // ---------------------------------------------------------------------------
+  TF1* f1Back_DataOmegaRotPS_Pol1_EG1               = new TF1("f1Back_DataOmegaRotPS_Pol1_EG1", "gaus(0)", 0.2, 1.6, "");
+  TF1* f1Back_DataOmegaRotPS_Pol2_EG1               = new TF1("f1Back_DataOmegaRotPS_Pol2_EG1", "gaus(0)", 0.2, 1.6, "");
+  TF1* f1Back_DataOmegaTGPSPS_Pol1_EG1              = new TF1("f1Back_DataOmegaTGPSPS_Pol1_EG1", "gaus(0)", 0.2, 1.6, "");
+  TF1* f1Back_DataOmegaTGPSPS_Pol2_EG1              = new TF1("f1Back_DataOmegaTGPSPS_Pol2_EG1", "gaus(0)", 0.2, 1.6, "");
+  TF1* f1Back_DataOmegaTGPSPlusPS_Pol1_EG1          = new TF1("f1Back_DataOmegaTGPSPlusPS_Pol1_EG1", "gaus(0)", 0.2, 1.6, "");
+  TF1* f1Back_DataOmegaTGPSPlusPS_Pol2_EG1          = new TF1("f1Back_DataOmegaTGPSPlusPS_Pol2_EG1", "gaus(0)", 0.2, 1.6, "");
+  TF1* f1Back_DataOmegaRotPS_Pol1_EG2               = new TF1("f1Back_DataOmegaRotPS_Pol1_EG2", "gaus(0)", 0.2, 1.6, "");
+  TF1* f1Back_DataOmegaRotPS_Pol2_EG2               = new TF1("f1Back_DataOmegaRotPS_Pol2_EG2", "gaus(0)", 0.2, 1.6, "");
+  TF1* f1Back_DataOmegaTGPSPS_Pol1_EG2              = new TF1("f1Back_DataOmegaTGPSPS_Pol1_EG2", "gaus(0)", 0.2, 1.6, "");
+  TF1* f1Back_DataOmegaTGPSPS_Pol2_EG2              = new TF1("f1Back_DataOmegaTGPSPS_Pol2_EG2", "gaus(0)", 0.2, 1.6, "");
+  TF1* f1Back_DataOmegaTGPSPlusPS_Pol1_EG2          = new TF1("f1Back_DataOmegaTGPSPlusPS_Pol1_EG2", "gaus(0)", 0.2, 1.6, "");
+  TF1* f1Back_DataOmegaTGPSPlusPS_Pol2_EG2          = new TF1("f1Back_DataOmegaTGPSPlusPS_Pol2_EG2", "gaus(0)", 0.2, 1.6, "");
+  TF1* f1Back_DataPi0RotPS_Pol1_EG1                 = new TF1("f1Back_DataPi0RotPS_Pol1_EG1", "gaus(0)", 0.2, 1.6, "");
+  TF1* f1Back_DataPi0RotPS_Pol2_EG1                 = new TF1("f1Back_DataPi0RotPS_Pol2_EG1", "gaus(0)", 0.2, 1.6, "");
+  TF1* f1Back_DataPi0TGPSPlusPS_Pol1_EG1            = new TF1("f1Back_DataPi0TGPSPlusPS_Pol1_EG1", "gaus(0)", 0.2, 1.6, "");
+  TF1* f1Back_DataPi0TGPSPlusPS_Pol2_EG1            = new TF1("f1Back_DataPi0TGPSPlusPS_Pol2_EG1", "gaus(0)", 0.2, 1.6, "");
+  TF1* f1Back_DataPi0RotPS_Pol1_EG2                 = new TF1("f1Back_DataPi0RotPS_Pol1_EG2", "gaus(0)", 0.2, 1.6, "");
+  TF1* f1Back_DataPi0RotPS_Pol2_EG2                 = new TF1("f1Back_DataPi0RotPS_Pol2_EG2", "gaus(0)", 0.2, 1.6, "");
+  TF1* f1Back_DataPi0TGPSPlusPS_Pol1_EG2            = new TF1("f1Back_DataPi0TGPSPlusPS_Pol1_EG2", "gaus(0)", 0.2, 1.6, "");
+  TF1* f1Back_DataPi0TGPSPlusPS_Pol2_EG2            = new TF1("f1Back_DataPi0TGPSPlusPS_Pol2_EG2", "gaus(0)", 0.2, 1.6, "");
+  TF1* f1Back_DataOmegaRotWOPS_Pol1_EG1             = new TF1("f1Back_DataOmegaRotWOPS_Pol1_EG1", "gaus(0)", 0.2, 1.6, "");
+  TF1* f1Back_DataOmegaRotWOPS_Pol2_EG1             = new TF1("f1Back_DataOmegaRotWOPS_Pol2_EG1", "gaus(0)", 0.2, 1.6, "");
+  TF1* f1Back_DataOmegaTGPSWOPS_Pol1_EG1            = new TF1("f1Back_DataOmegaTGPSWOPS_Pol1_EG1", "gaus(0)", 0.2, 1.6, "");
+  TF1* f1Back_DataOmegaTGPSWOPS_Pol2_EG1            = new TF1("f1Back_DataOmegaTGPSWOPS_Pol2_EG1", "gaus(0)", 0.2, 1.6, "");
+  TF1* f1Back_DataOmegaTGPSPlusWOPS_Pol1_EG1        = new TF1("f1Back_DataOmegaTGPSPlusWOPS_Pol1_EG1", "gaus(0)", 0.2, 1.6, "");
+  TF1* f1Back_DataOmegaTGPSPlusWOPS_Pol2_EG1        = new TF1("f1Back_DataOmegaTGPSPlusWOPS_Pol2_EG1", "gaus(0)", 0.2, 1.6, "");
+  TF1* f1Back_DataOmegaRotWOPS_Pol1_EG2             = new TF1("f1Back_DataOmegaRotWOPS_Pol1_EG2", "gaus(0)", 0.2, 1.6, "");
+  TF1* f1Back_DataOmegaRotWOPS_Pol2_EG2             = new TF1("f1Back_DataOmegaRotWOPS_Pol2_EG2", "gaus(0)", 0.2, 1.6, "");
+  TF1* f1Back_DataOmegaTGPSWOPS_Pol1_EG2            = new TF1("f1Back_DataOmegaTGPSWOPS_Pol1_EG2", "gaus(0)", 0.2, 1.6, "");
+  TF1* f1Back_DataOmegaTGPSWOPS_Pol2_EG2            = new TF1("f1Back_DataOmegaTGPSWOPS_Pol2_EG2", "gaus(0)", 0.2, 1.6, "");
+  TF1* f1Back_DataOmegaTGPSPlusWOPS_Pol1_EG2        = new TF1("f1Back_DataOmegaTGPSPlusWOPS_Pol1_EG2", "gaus(0)", 0.2, 1.6, "");
+  TF1* f1Back_DataOmegaTGPSPlusWOPS_Pol2_EG2        = new TF1("f1Back_DataOmegaTGPSPlusWOPS_Pol2_EG2", "gaus(0)", 0.2, 1.6, "");
+  TF1* f1Back_DataOmegaTGPSPlusAPPS1Sigma_Pol1_EG1  = new TF1("f1Back_DataOmegaTGPSPlusAPPS1Sigma_Pol1_EG1", "gaus(0)", 0.2, 1.6, "");
+  TF1* f1Back_DataOmegaTGPSPlusAPPS1Sigma_Pol2_EG1  = new TF1("f1Back_DataOmegaTGPSPlusAPPS1Sigma_Pol2_EG1", "gaus(0)", 0.2, 1.6, "");
+  TF1* f1Back_DataOmegaTGPSPlusAPPS2Sigma_Pol1_EG1  = new TF1("f1Back_DataOmegaTGPSPlusAPPS2Sigma_Pol1_EG1", "gaus(0)", 0.2, 1.6, "");
+  TF1* f1Back_DataOmegaTGPSPlusAPPS2Sigma_Pol2_EG1  = new TF1("f1Back_DataOmegaTGPSPlusAPPS2Sigma_Pol2_EG1", "gaus(0)", 0.2, 1.6, "");
+  TF1* f1Back_DataOmegaTGPSPlusAPPS3Sigma_Pol1_EG1  = new TF1("f1Back_DataOmegaTGPSPlusAPPS3Sigma_Pol1_EG1", "gaus(0)", 0.2, 1.6, "");
+  TF1* f1Back_DataOmegaTGPSPlusAPPS3Sigma_Pol2_EG1  = new TF1("f1Back_DataOmegaTGPSPlusAPPS3Sigma_Pol2_EG1", "gaus(0)", 0.2, 1.6, "");
+  TF1* f1Back_DataOmegaTGPSPlusAPPS1Sigma_Pol1_EG2  = new TF1("f1Back_DataOmegaTGPSPlusAPPS1Sigma_Pol1_EG2", "gaus(0)", 0.2, 1.6, "");
+  TF1* f1Back_DataOmegaTGPSPlusAPPS1Sigma_Pol2_EG2  = new TF1("f1Back_DataOmegaTGPSPlusAPPS1Sigma_Pol2_EG2", "gaus(0)", 0.2, 1.6, "");
+  TF1* f1Back_DataOmegaTGPSPlusAPPS2Sigma_Pol1_EG2  = new TF1("f1Back_DataOmegaTGPSPlusAPPS2Sigma_Pol1_EG2", "gaus(0)", 0.2, 1.6, "");
+  TF1* f1Back_DataOmegaTGPSPlusAPPS2Sigma_Pol2_EG2  = new TF1("f1Back_DataOmegaTGPSPlusAPPS2Sigma_Pol2_EG2", "gaus(0)", 0.2, 1.6, "");
+  TF1* f1Back_DataOmegaTGPSPlusAPPS3Sigma_Pol1_EG2  = new TF1("f1Back_DataOmegaTGPSPlusAPPS3Sigma_Pol1_EG2", "gaus(0)", 0.2, 1.6, "");
+  TF1* f1Back_DataOmegaTGPSPlusAPPS3Sigma_Pol2_EG2  = new TF1("f1Back_DataOmegaTGPSPlusAPPS3Sigma_Pol2_EG2", "gaus(0)", 0.2, 1.6, "");
+
+  f1Back_DataOmegaRotPS_Pol1_EG1             ->SetParameters(1., 1.);
+  f1Back_DataOmegaRotPS_Pol2_EG1             ->SetParameters(1., 1., 1.);
+  f1Back_DataOmegaTGPSPS_Pol1_EG1            ->SetParameters(1., 1.);
+  f1Back_DataOmegaTGPSPS_Pol2_EG1            ->SetParameters(1., 1., 1.);
+  f1Back_DataOmegaTGPSPlusPS_Pol1_EG1        ->SetParameters(1., 1.);
+  f1Back_DataOmegaTGPSPlusPS_Pol2_EG1        ->SetParameters(1., 1., 1.);
+  f1Back_DataOmegaRotPS_Pol1_EG2             ->SetParameters(1., 1.);
+  f1Back_DataOmegaRotPS_Pol2_EG2             ->SetParameters(1., 1., 1.);
+  f1Back_DataOmegaTGPSPS_Pol1_EG2            ->SetParameters(1., 1.);
+  f1Back_DataOmegaTGPSPS_Pol2_EG2            ->SetParameters(1., 1., 1.);
+  f1Back_DataOmegaTGPSPlusPS_Pol1_EG2        ->SetParameters(1., 1.);
+  f1Back_DataOmegaTGPSPlusPS_Pol2_EG2        ->SetParameters(1., 1., 1.);
+  f1Back_DataPi0RotPS_Pol1_EG1               ->SetParameters(1., 1.);
+  f1Back_DataPi0RotPS_Pol2_EG1               ->SetParameters(1., 1., 1.);
+  f1Back_DataPi0TGPSPlusPS_Pol1_EG1          ->SetParameters(1., 1.);
+  f1Back_DataPi0TGPSPlusPS_Pol2_EG1          ->SetParameters(1., 1., 1.);
+  f1Back_DataPi0RotPS_Pol1_EG2               ->SetParameters(1., 1.);
+  f1Back_DataPi0RotPS_Pol2_EG2               ->SetParameters(1., 1., 1.);
+  f1Back_DataPi0TGPSPlusPS_Pol1_EG2          ->SetParameters(1., 1.);
+  f1Back_DataPi0TGPSPlusPS_Pol2_EG2          ->SetParameters(1., 1., 1.);
+  f1Back_DataOmegaRotWOPS_Pol1_EG1           ->SetParameters(1., 1.);
+  f1Back_DataOmegaRotWOPS_Pol2_EG1           ->SetParameters(1., 1., 1.);
+  f1Back_DataOmegaTGPSWOPS_Pol1_EG1          ->SetParameters(1., 1.);
+  f1Back_DataOmegaTGPSWOPS_Pol2_EG1          ->SetParameters(1., 1., 1.);
+  f1Back_DataOmegaTGPSPlusWOPS_Pol1_EG1      ->SetParameters(1., 1.);
+  f1Back_DataOmegaRotWOPS_Pol1_EG2           ->SetParameters(1., 1.);
+  f1Back_DataOmegaTGPSPlusWOPS_Pol2_EG1      ->SetParameters(1., 1., 1.);
+  f1Back_DataOmegaRotWOPS_Pol2_EG2           ->SetParameters(1., 1., 1.);
+  f1Back_DataOmegaTGPSWOPS_Pol1_EG2          ->SetParameters(1., 1.);
+  f1Back_DataOmegaTGPSWOPS_Pol2_EG2          ->SetParameters(1., 1., 1.);
+  f1Back_DataOmegaTGPSPlusWOPS_Pol1_EG2      ->SetParameters(1., 1.);
+  f1Back_DataOmegaTGPSPlusWOPS_Pol2_EG2      ->SetParameters(1., 1., 1.);
+  f1Back_DataOmegaTGPSPlusAPPS1Sigma_Pol1_EG1->SetParameters(1., 1.);
+  f1Back_DataOmegaTGPSPlusAPPS1Sigma_Pol2_EG1->SetParameters(1., 1., 1.);
+  f1Back_DataOmegaTGPSPlusAPPS2Sigma_Pol1_EG1->SetParameters(1., 1.);
+  f1Back_DataOmegaTGPSPlusAPPS2Sigma_Pol2_EG1->SetParameters(1., 1., 1.);
+  f1Back_DataOmegaTGPSPlusAPPS3Sigma_Pol1_EG1->SetParameters(1., 1.);
+  f1Back_DataOmegaTGPSPlusAPPS3Sigma_Pol2_EG1->SetParameters(1., 1., 1.);
+  f1Back_DataOmegaTGPSPlusAPPS1Sigma_Pol1_EG2->SetParameters(1., 1.);
+  f1Back_DataOmegaTGPSPlusAPPS1Sigma_Pol2_EG2->SetParameters(1., 1., 1.);
+  f1Back_DataOmegaTGPSPlusAPPS2Sigma_Pol1_EG2->SetParameters(1., 1.);
+  f1Back_DataOmegaTGPSPlusAPPS2Sigma_Pol2_EG2->SetParameters(1., 1., 1.);
+  f1Back_DataOmegaTGPSPlusAPPS3Sigma_Pol1_EG2->SetParameters(1., 1.);
+  f1Back_DataOmegaTGPSPlusAPPS3Sigma_Pol2_EG2->SetParameters(1., 1., 1.);
   // ---------------------------------------------------------------------------
   //
   // MC 1D Histogramm
@@ -1698,8 +2038,6 @@ void plotting()
 
   for (Int_t pTBin_EG1 = 1; pTBin_EG1 < nBinsPt_EG1; ++pTBin_EG1)
   {
-    std::cout << "nBinsPt_EG1 = " << nBinsPt_EG1 << '\n';
-    std::cout << "pTBin_EG1 = " << pTBin_EG1 << '\n';
     lowerBinEdge = arrPtBinning_EG1[pTBin_EG1-1];
     upperBinEdge = arrPtBinning_EG1[pTBin_EG1];
 
@@ -1849,11 +2187,230 @@ void plotting()
     SQ = BeforeScaling(h1_SameEvent_DataOmegaTGPSPlusAPPS3Sigma_EG1, h1_Background_DataOmegaTGPSPlusAPPS3Sigma_EG1, legSystem);
     SQ.Draw(Form("Data/EG1/OmegaTGPSPlusAPPS3Sigma/SameEventAndBackgroundBeforeScaling_%02d.svg", pTBin_EG1) );
 
-    SQ = BeforeScalingAPLikeCut(h1_SameEvent_DataOmegaTGPSPlusAPPS1Sigma_EG1, h1_SameEvent_DataOmegaTGPSPlusAPPS2Sigma_EG1, h1_SameEvent_DataOmegaTGPSPlusAPPS3Sigma_EG1, legSystem);
+    SQ = BeforeScalingAPLikeCut(h1_SameEvent_DataOmegaTGPSPlusAPPS1Sigma_EG1, h1_SameEvent_DataOmegaTGPSPlusAPPS2Sigma_EG1, h1_SameEvent_DataOmegaTGPSPlusAPPS3Sigma_EG1, h1_SameEvent_DataOmegaPS_EG1, legSystem);
     SQ.Draw(Form("Data/EG1/OmegaTGPSPlusAPPS1Sigma/SameEventBeforeScalingComp_%02d.svg", pTBin_EG1) );
 
+
+    // same for the data
+    h1_BackToSame_Ratio_data = (TH1D*) h1_ESD_Mother_InvMass_Pt_data->Clone("h1_BackToSame_Ratio_data");
+    NBins = 0;
+    h1_BackToSame_Ratio_data->Divide(h1_BackToSame_Ratio_data, h1_ESD_Backgr_InvMass_Pt_data, 1, 1, "B");
+    h1_BackToSame_Ratio_Peak_data = (TH1D*) h1_BackToSame_Ratio_data->Clone("h1_BackToSame_Ratio_Peak_data");
+    for (Int_t i = 1; i <= h1_BackToSame_Ratio_data->GetNbinsX(); i++) {
+      if(h1_BackToSame_Ratio_data->GetBinCenter(i) > PeakLower && h1_BackToSame_Ratio_data->GetBinCenter(i) < PeakHigher)
+      {
+        h1_BackToSame_Ratio_data->SetBinContent(i, 0.0);
+        h1_BackToSame_Ratio_data->SetBinError(i, 0.0);
+      }
+      else
+      {
+        h1_BackToSame_Ratio_Peak_data->SetBinContent(i, 0.0);
+        h1_BackToSame_Ratio_Peak_data->SetBinError(i, 0.0);
+      }
+      if(h1_BackToSame_Ratio_data->GetBinCenter(i) > 0.6 && h1_BackToSame_Ratio_data->GetBinCenter(i) < 0.9)
+      {
+        NBins++;
+      }
+    }
+
+    TH1D* hOnlyPeak_data = new TH1D("hOnlyPeak_data", "", NBins, 0.6, 0.9);
+
+
+
+
     delete legSystem;
+
   }
+
+  // ---------------------------------------------------------------------------
+  //
+  // Garbage collection
+  //
+  // ---------------------------------------------------------------------------
+  delete f1Gaus_DataOmegaRotPS_Pol1_EG1;
+  delete f1Gaus_DataOmegaRotPS_Pol2_EG1;
+  delete f1Gaus_DataOmegaTGPSPS_Pol1_EG1;
+  delete f1Gaus_DataOmegaTGPSPS_Pol2_EG1;
+  delete f1Gaus_DataOmegaTGPSPlusPS_Pol1_EG1;
+  delete f1Gaus_DataOmegaTGPSPlusPS_Pol2_EG1;
+  delete f1Gaus_DataOmegaRotPS_Pol1_EG2;
+  delete f1Gaus_DataOmegaRotPS_Pol2_EG2;
+  delete f1Gaus_DataOmegaTGPSPS_Pol1_EG2;
+  delete f1Gaus_DataOmegaTGPSPS_Pol2_EG2;
+  delete f1Gaus_DataOmegaTGPSPlusPS_Pol1_EG2;
+  delete f1Gaus_DataOmegaTGPSPlusPS_Pol2_EG2;
+  delete f1Gaus_DataPi0RotPS_Pol1_EG1;
+  delete f1Gaus_DataPi0RotPS_Pol2_EG1;
+  delete f1Gaus_DataPi0TGPSPlusPS_Pol1_EG1;
+  delete f1Gaus_DataPi0TGPSPlusPS_Pol2_EG1;
+  delete f1Gaus_DataPi0RotPS_Pol1_EG2;
+  delete f1Gaus_DataPi0RotPS_Pol2_EG2;
+  delete f1Gaus_DataPi0TGPSPlusPS_Pol1_EG2;
+  delete f1Gaus_DataPi0TGPSPlusPS_Pol2_EG2;
+  delete f1Gaus_DataOmegaRotWOPS_Pol1_EG1;
+  delete f1Gaus_DataOmegaRotWOPS_Pol2_EG1;
+  delete f1Gaus_DataOmegaTGPSWOPS_Pol1_EG1;
+  delete f1Gaus_DataOmegaTGPSWOPS_Pol2_EG1;
+  delete f1Gaus_DataOmegaTGPSPlusWOPS_Pol1_EG1;
+  delete f1Gaus_DataOmegaTGPSPlusWOPS_Pol2_EG1;
+  delete f1Gaus_DataOmegaRotWOPS_Pol1_EG2;
+  delete f1Gaus_DataOmegaRotWOPS_Pol2_EG2;
+  delete f1Gaus_DataOmegaTGPSWOPS_Pol1_EG2;
+  delete f1Gaus_DataOmegaTGPSWOPS_Pol2_EG2;
+  delete f1Gaus_DataOmegaTGPSPlusWOPS_Pol1_EG2;
+  delete f1Gaus_DataOmegaTGPSPlusWOPS_Pol2_EG2;
+  delete f1Gaus_DataOmegaTGPSPlusAPPS1Sigma_Pol1_EG1;
+  delete f1Gaus_DataOmegaTGPSPlusAPPS1Sigma_Pol2_EG1;
+  delete f1Gaus_DataOmegaTGPSPlusAPPS2Sigma_Pol1_EG1;
+  delete f1Gaus_DataOmegaTGPSPlusAPPS2Sigma_Pol2_EG1;
+  delete f1Gaus_DataOmegaTGPSPlusAPPS3Sigma_Pol1_EG1;
+  delete f1Gaus_DataOmegaTGPSPlusAPPS3Sigma_Pol2_EG1;
+  delete f1Gaus_DataOmegaTGPSPlusAPPS1Sigma_Pol1_EG2;
+  delete f1Gaus_DataOmegaTGPSPlusAPPS1Sigma_Pol2_EG2;
+  delete f1Gaus_DataOmegaTGPSPlusAPPS2Sigma_Pol1_EG2;
+  delete f1Gaus_DataOmegaTGPSPlusAPPS2Sigma_Pol2_EG2;
+  delete f1Gaus_DataOmegaTGPSPlusAPPS3Sigma_Pol1_EG2;
+  delete f1Gaus_DataOmegaTGPSPlusAPPS3Sigma_Pol2_EG2;
+
+  delete f1Back_DataOmegaRotPS_Pol1_EG1;
+  delete f1Back_DataOmegaRotPS_Pol2_EG1;
+  delete f1Back_DataOmegaTGPSPS_Pol1_EG1;
+  delete f1Back_DataOmegaTGPSPS_Pol2_EG1;
+  delete f1Back_DataOmegaTGPSPlusPS_Pol1_EG1;
+  delete f1Back_DataOmegaTGPSPlusPS_Pol2_EG1;
+  delete f1Back_DataOmegaRotPS_Pol1_EG2;
+  delete f1Back_DataOmegaRotPS_Pol2_EG2;
+  delete f1Back_DataOmegaTGPSPS_Pol1_EG2;
+  delete f1Back_DataOmegaTGPSPS_Pol2_EG2;
+  delete f1Back_DataOmegaTGPSPlusPS_Pol1_EG2;
+  delete f1Back_DataOmegaTGPSPlusPS_Pol2_EG2;
+  delete f1Back_DataPi0RotPS_Pol1_EG1;
+  delete f1Back_DataPi0RotPS_Pol2_EG1;
+  delete f1Back_DataPi0TGPSPlusPS_Pol1_EG1;
+  delete f1Back_DataPi0TGPSPlusPS_Pol2_EG1;
+  delete f1Back_DataPi0RotPS_Pol1_EG2;
+  delete f1Back_DataPi0RotPS_Pol2_EG2;
+  delete f1Back_DataPi0TGPSPlusPS_Pol1_EG2;
+  delete f1Back_DataPi0TGPSPlusPS_Pol2_EG2;
+  delete f1Back_DataOmegaRotWOPS_Pol1_EG1;
+  delete f1Back_DataOmegaRotWOPS_Pol2_EG1;
+  delete f1Back_DataOmegaTGPSWOPS_Pol1_EG1;
+  delete f1Back_DataOmegaTGPSWOPS_Pol2_EG1;
+  delete f1Back_DataOmegaTGPSPlusWOPS_Pol1_EG1;
+  delete f1Back_DataOmegaTGPSPlusWOPS_Pol2_EG1;
+  delete f1Back_DataOmegaRotWOPS_Pol1_EG2;
+  delete f1Back_DataOmegaRotWOPS_Pol2_EG2;
+  delete f1Back_DataOmegaTGPSWOPS_Pol1_EG2;
+  delete f1Back_DataOmegaTGPSWOPS_Pol2_EG2;
+  delete f1Back_DataOmegaTGPSPlusWOPS_Pol1_EG2;
+  delete f1Back_DataOmegaTGPSPlusWOPS_Pol2_EG2;
+  delete f1Back_DataOmegaTGPSPlusAPPS1Sigma_Pol1_EG1;
+  delete f1Back_DataOmegaTGPSPlusAPPS1Sigma_Pol2_EG1;
+  delete f1Back_DataOmegaTGPSPlusAPPS2Sigma_Pol1_EG1;
+  delete f1Back_DataOmegaTGPSPlusAPPS2Sigma_Pol2_EG1;
+  delete f1Back_DataOmegaTGPSPlusAPPS3Sigma_Pol1_EG1;
+  delete f1Back_DataOmegaTGPSPlusAPPS3Sigma_Pol2_EG1;
+  delete f1Back_DataOmegaTGPSPlusAPPS1Sigma_Pol1_EG2;
+  delete f1Back_DataOmegaTGPSPlusAPPS1Sigma_Pol2_EG2;
+  delete f1Back_DataOmegaTGPSPlusAPPS2Sigma_Pol1_EG2;
+  delete f1Back_DataOmegaTGPSPlusAPPS2Sigma_Pol2_EG2;
+  delete f1Back_DataOmegaTGPSPlusAPPS3Sigma_Pol1_EG2;
+  delete f1Back_DataOmegaTGPSPlusAPPS3Sigma_Pol2_EG2;
+
+  delete h1_RawYield_DataOmegaRotPS_Pol1_EG1;
+  delete h1_RawYield_DataOmegaTGPSPS_Pol1_EG1;
+  delete h1_RawYield_DataOmegaTGPSPlusPS_Pol1_EG1;
+  delete h1_RawYield_DataOmegaRotPS_Pol1_EG2;
+  delete h1_RawYield_DataOmegaTGPSPS_Pol1_EG2;
+  delete h1_RawYield_DataOmegaTGPSPlusPS_Pol1_EG2;
+  delete h1_RawYield_DataPi0RotPS_Pol1_EG1;
+  delete h1_RawYield_DataPi0TGPSPlusPS_Pol1_EG1;
+  delete h1_RawYield_DataPi0RotPS_Pol1_EG2;
+  delete h1_RawYield_DataPi0TGPSPlusPS_Pol1_EG2;
+  delete h1_RawYield_DataOmegaRotWOPS_Pol1_EG1;
+  delete h1_RawYield_DataOmegaTGPSWOPS_Pol1_EG1;
+  delete h1_RawYield_DataOmegaTGPSPlusWOPS_Pol1_EG1;
+  delete h1_RawYield_DataOmegaRotWOPS_Pol1_EG2;
+  delete h1_RawYield_DataOmegaTGPSWOPS_Pol1_EG2;
+  delete h1_RawYield_DataOmegaTGPSPlusWOPS_Pol1_EG2;
+  delete h1_RawYield_DataOmegaTGPSPlusAPPS1Sigma_Pol1_EG1;
+  delete h1_RawYield_DataOmegaTGPSPlusAPPS2Sigma_Pol1_EG1;
+  delete h1_RawYield_DataOmegaTGPSPlusAPPS3Sigma_Pol1_EG1;
+  delete h1_RawYield_DataOmegaTGPSPlusAPPS1Sigma_Pol1_EG2;
+  delete h1_RawYield_DataOmegaTGPSPlusAPPS2Sigma_Pol1_EG2;
+  delete h1_RawYield_DataOmegaTGPSPlusAPPS3Sigma_Pol1_EG2;
+
+  delete h1_Effi_DataOmegaRotPS_Pol1_EG1;
+  delete h1_Effi_DataOmegaTGPSPS_Pol1_EG1;
+  delete h1_Effi_DataOmegaTGPSPlusPS_Pol1_EG1;
+  delete h1_Effi_DataOmegaRotPS_Pol1_EG2;
+  delete h1_Effi_DataOmegaTGPSPS_Pol1_EG2;
+  delete h1_Effi_DataOmegaTGPSPlusPS_Pol1_EG2;
+  delete h1_Effi_DataPi0RotPS_Pol1_EG1;
+  delete h1_Effi_DataPi0TGPSPlusPS_Pol1_EG1;
+  delete h1_Effi_DataPi0RotPS_Pol1_EG2;
+  delete h1_Effi_DataPi0TGPSPlusPS_Pol1_EG2;
+  delete h1_Effi_DataOmegaRotWOPS_Pol1_EG1;
+  delete h1_Effi_DataOmegaTGPSWOPS_Pol1_EG1;
+  delete h1_Effi_DataOmegaTGPSPlusWOPS_Pol1_EG1;
+  delete h1_Effi_DataOmegaRotWOPS_Pol1_EG2;
+  delete h1_Effi_DataOmegaTGPSWOPS_Pol1_EG2;
+  delete h1_Effi_DataOmegaTGPSPlusWOPS_Pol1_EG2;
+  delete h1_Effi_DataOmegaTGPSPlusAPPS1Sigma_Pol1_EG1;
+  delete h1_Effi_DataOmegaTGPSPlusAPPS2Sigma_Pol1_EG1;
+  delete h1_Effi_DataOmegaTGPSPlusAPPS3Sigma_Pol1_EG1;
+  delete h1_Effi_DataOmegaTGPSPlusAPPS1Sigma_Pol1_EG2;
+  delete h1_Effi_DataOmegaTGPSPlusAPPS2Sigma_Pol1_EG2;
+  delete h1_Effi_DataOmegaTGPSPlusAPPS3Sigma_Pol1_EG2;
+
+  delete h1_RawYield_DataOmegaRotPS_Pol2_EG1;
+  delete h1_RawYield_DataOmegaTGPSPS_Pol2_EG1;
+  delete h1_RawYield_DataOmegaTGPSPlusPS_Pol2_EG1;
+  delete h1_RawYield_DataOmegaRotPS_Pol2_EG2;
+  delete h1_RawYield_DataOmegaTGPSPS_Pol2_EG2;
+  delete h1_RawYield_DataOmegaTGPSPlusPS_Pol2_EG2;
+  delete h1_RawYield_DataPi0RotPS_Pol2_EG1;
+  delete h1_RawYield_DataPi0TGPSPlusPS_Pol2_EG1;
+  delete h1_RawYield_DataPi0RotPS_Pol2_EG2;
+  delete h1_RawYield_DataPi0TGPSPlusPS_Pol2_EG2;
+  delete h1_RawYield_DataOmegaRotWOPS_Pol2_EG1;
+  delete h1_RawYield_DataOmegaTGPSWOPS_Pol2_EG1;
+  delete h1_RawYield_DataOmegaTGPSPlusWOPS_Pol2_EG1;
+  delete h1_RawYield_DataOmegaRotWOPS_Pol2_EG2;
+  delete h1_RawYield_DataOmegaTGPSWOPS_Pol2_EG2;
+  delete h1_RawYield_DataOmegaTGPSPlusWOPS_Pol2_EG2;
+  delete h1_RawYield_DataOmegaTGPSPlusAPPS1Sigma_Pol2_EG1;
+  delete h1_RawYield_DataOmegaTGPSPlusAPPS2Sigma_Pol2_EG1;
+  delete h1_RawYield_DataOmegaTGPSPlusAPPS3Sigma_Pol2_EG1;
+  delete h1_RawYield_DataOmegaTGPSPlusAPPS1Sigma_Pol2_EG2;
+  delete h1_RawYield_DataOmegaTGPSPlusAPPS2Sigma_Pol2_EG2;
+  delete h1_RawYield_DataOmegaTGPSPlusAPPS3Sigma_Pol2_EG2;
+
+  delete h1_Effi_DataOmegaRotPS_Pol2_EG1;
+  delete h1_Effi_DataOmegaTGPSPS_Pol2_EG1;
+  delete h1_Effi_DataOmegaTGPSPlusPS_Pol2_EG1;
+  delete h1_Effi_DataOmegaRotPS_Pol2_EG2;
+  delete h1_Effi_DataOmegaTGPSPS_Pol2_EG2;
+  delete h1_Effi_DataOmegaTGPSPlusPS_Pol2_EG2;
+  delete h1_Effi_DataPi0RotPS_Pol2_EG1;
+  delete h1_Effi_DataPi0TGPSPlusPS_Pol2_EG1;
+  delete h1_Effi_DataPi0RotPS_Pol2_EG2;
+  delete h1_Effi_DataPi0TGPSPlusPS_Pol2_EG2;
+  delete h1_Effi_DataOmegaRotWOPS_Pol2_EG1;
+  delete h1_Effi_DataOmegaTGPSWOPS_Pol2_EG1;
+  delete h1_Effi_DataOmegaTGPSPlusWOPS_Pol2_EG1;
+  delete h1_Effi_DataOmegaRotWOPS_Pol2_EG2;
+  delete h1_Effi_DataOmegaTGPSWOPS_Pol2_EG2;
+  delete h1_Effi_DataOmegaTGPSPlusWOPS_Pol2_EG2;
+  delete h1_Effi_DataOmegaTGPSPlusAPPS1Sigma_Pol2_EG1;
+  delete h1_Effi_DataOmegaTGPSPlusAPPS2Sigma_Pol2_EG1;
+  delete h1_Effi_DataOmegaTGPSPlusAPPS3Sigma_Pol2_EG1;
+  delete h1_Effi_DataOmegaTGPSPlusAPPS1Sigma_Pol2_EG2;
+  delete h1_Effi_DataOmegaTGPSPlusAPPS2Sigma_Pol2_EG2;
+  delete h1_Effi_DataOmegaTGPSPlusAPPS3Sigma_Pol2_EG2;
+
+  delete h1_Acceptance_EG1;
+  delete h1_Acceptance_EG2;
 
   delete OAhists;
 }

@@ -72,37 +72,29 @@
 # done
 
 
-rm -rf "Data/EG1/OmegaRotPS/"
+rm -rf "Data/"
 mkdir -p "Data/EG1/OmegaRotPS/"
-
-rm -rf "Data/EG1/OmegaTGPSPS/"
 mkdir -p "Data/EG1/OmegaTGPSPS/"
-
-rm -rf "Data/EG1/OmegaTGPPlusSPS/"
 mkdir -p "Data/EG1/OmegaTGPPlusSPS/"
-
-rm -rf "Data/EG1/Pi0RotPS/"
 mkdir -p "Data/EG1/Pi0RotPS/"
-
-rm -rf "Data/EG1/Pi0TGPSPlusPS/"
 mkdir -p "Data/EG1/Pi0TGPSPlusPS/"
-
-rm -rf "Data/EG1/OmegaRotWOPS/"
 mkdir -p "Data/EG1/OmegaRotWOPS/"
-
-rm -rf "Data/EG1/OmegaTGPSWOPS/"
 mkdir -p "Data/EG1/OmegaTGPSWOPS/"
-
-rm -rf "Data/EG1/OmegaTGPSPlusWOPS/"
 mkdir -p "Data/EG1/OmegaTGPSPlusWOPS/"
-
-rm -rf "Data/EG1/OmegaTGPSPlusAPPS1Sigma/"
 mkdir -p "Data/EG1/OmegaTGPSPlusAPPS1Sigma/"
-
-rm -rf "Data/EG1/OmegaTGPSPlusAPPS2Sigma/"
 mkdir -p "Data/EG1/OmegaTGPSPlusAPPS2Sigma/"
-
-rm -rf "Data/EG1/OmegaTGPSPlusAPPS3Sigma/"
 mkdir -p "Data/EG1/OmegaTGPSPlusAPPS3Sigma/"
+
+mkdir -p "Data/EG2/OmegaRotPS/"
+mkdir -p "Data/EG2/OmegaTGPSPS/"
+mkdir -p "Data/EG2/OmegaTGPPlusSPS/"
+mkdir -p "Data/EG2/Pi0RotPS/"
+mkdir -p "Data/EG2/Pi0TGPSPlusPS/"
+mkdir -p "Data/EG2/OmegaRotWOPS/"
+mkdir -p "Data/EG2/OmegaTGPSWOPS/"
+mkdir -p "Data/EG2/OmegaTGPSPlusWOPS/"
+mkdir -p "Data/EG2/OmegaTGPSPlusAPPS1Sigma/"
+mkdir -p "Data/EG2/OmegaTGPSPlusAPPS2Sigma/"
+mkdir -p "Data/EG2/OmegaTGPSPlusAPPS3Sigma/"
 
 ./install/plot
