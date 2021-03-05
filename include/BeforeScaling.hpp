@@ -22,7 +22,7 @@ SquarePlot BeforeScaling(TH1D* SE, TH1D* Background, TPaveText* lSys){
   vector<Color_t> colors = {kRed-2, kBlack, 0, 0};
   vector<Style_t> markers = {kFullSquare, kFullCircle, 0, 0};
   vector<Size_t>  sizes = {2., 2., 0, 0};
-
+  
   // --- Canvasses -------------------------------------------------------------
 
   Legend::SetPosition(l, 0.15, 0.5, 0.65, 0.75);

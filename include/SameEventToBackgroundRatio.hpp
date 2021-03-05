@@ -10,35 +10,30 @@
 
 TLine* line = nullptr;
 
-SquarePlot SameEventToBackgroundRatio(TH1D* &Background, TH1D* &Peak, TF1* Background1, TF1* Background2, TF1* Background3, TF1* Background4, TPaveText* lSys, Double_t fitLower, Double_t fitHigher){
+SquarePlot SameEventToBackgroundRatio(TH1D* Background, TH1D* Peak, TF1* Background1, TF1* Background2, TPaveText* lSys, TLine* line){
   // --- Create TObjArrays -----------------------------------------------------
 
   TObjArray* main = new TObjArray();
-  Background->SetMaximum(Background->GetMaximum()*1.5);
-  Background->SetMinimum(0.0);
   main->Add(Background);
   main->Add(Peak);
   main->Add(Background1);
+  Background1->SetNpx(1000);
   main->Add(Background2);
-  main->Add(Background3);
-  main->Add(Background4);
-
-  TLine* line = new TLine(fitLower, Background->GetMaximum()*0.99, fitHigher, Background->GetMaximum()*0.99);
+  Background2->SetNpx(1000);
   main->Add(line);
 
   // --- Legends ---------------------------------------------------------------
   main->Add(lSys);
-  TLegend* l = Legend(main, "background\n peak range\n background pol1\n background pol2\n background pol3\n background pol4\n param. range", "lp lp l l l l l").GetLegendPointer();
+  TLegend* l = Legend(main, "ratio\n peak range\n background pol1\n background pol2\n param. range", "lp lp l l l").GetLegendPointer();
 
 
   // --- Marker ----------------------------------------------------------------
-  vector<Color_t> colors = {kRed-2, kRed-2, kMagenta+3, kBlue+3, kCyan+1, kOrange+2, kGray+2};
-  vector<Style_t> markers = {kFullSquare, kOpenSquare, 1, 1, 1, 1, 1};
-  vector<Size_t>  sizes = {2., 2., 3., 3., 3., 3., 5.};
+  vector<Color_t> colors = {kBlack, kRed+1, kCyan-4, kPink-3, kGray+2, 1, 1};
+  vector<Style_t> markers = {kFullCircle, kOpenCircle, 1, 1, 1, 1, 1};
+  vector<Size_t>  sizes = {3., 2.5, 3., 3., 5., 1, 1};
 
   // --- Canvasses -------------------------------------------------------------
 
-  // Legend::SetPosition(lInfo, 0.2, 0.3, 0.85, 0.75);
   Legend::SetPosition(l, 0.55, 0.9, 0.67, 0.875);
 
   SquarePlot square = SquarePlot(main, minv_str, "#frac{same event}{background}");

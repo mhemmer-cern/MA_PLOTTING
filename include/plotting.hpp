@@ -1494,50 +1494,50 @@ void plotting()
   // Data Function Background (pol1 and pol2)
   //
   // ---------------------------------------------------------------------------
-  TF1* f1Back_DataOmegaRotPS_Pol1_EG1               = new TF1("f1Back_DataOmegaRotPS_Pol1_EG1", "gaus(0)", 0.2, 1.6, "");
-  TF1* f1Back_DataOmegaRotPS_Pol2_EG1               = new TF1("f1Back_DataOmegaRotPS_Pol2_EG1", "gaus(0)", 0.2, 1.6, "");
-  TF1* f1Back_DataOmegaTGPSPS_Pol1_EG1              = new TF1("f1Back_DataOmegaTGPSPS_Pol1_EG1", "gaus(0)", 0.2, 1.6, "");
-  TF1* f1Back_DataOmegaTGPSPS_Pol2_EG1              = new TF1("f1Back_DataOmegaTGPSPS_Pol2_EG1", "gaus(0)", 0.2, 1.6, "");
-  TF1* f1Back_DataOmegaTGPSPlusPS_Pol1_EG1          = new TF1("f1Back_DataOmegaTGPSPlusPS_Pol1_EG1", "gaus(0)", 0.2, 1.6, "");
-  TF1* f1Back_DataOmegaTGPSPlusPS_Pol2_EG1          = new TF1("f1Back_DataOmegaTGPSPlusPS_Pol2_EG1", "gaus(0)", 0.2, 1.6, "");
-  TF1* f1Back_DataOmegaRotPS_Pol1_EG2               = new TF1("f1Back_DataOmegaRotPS_Pol1_EG2", "gaus(0)", 0.2, 1.6, "");
-  TF1* f1Back_DataOmegaRotPS_Pol2_EG2               = new TF1("f1Back_DataOmegaRotPS_Pol2_EG2", "gaus(0)", 0.2, 1.6, "");
-  TF1* f1Back_DataOmegaTGPSPS_Pol1_EG2              = new TF1("f1Back_DataOmegaTGPSPS_Pol1_EG2", "gaus(0)", 0.2, 1.6, "");
-  TF1* f1Back_DataOmegaTGPSPS_Pol2_EG2              = new TF1("f1Back_DataOmegaTGPSPS_Pol2_EG2", "gaus(0)", 0.2, 1.6, "");
-  TF1* f1Back_DataOmegaTGPSPlusPS_Pol1_EG2          = new TF1("f1Back_DataOmegaTGPSPlusPS_Pol1_EG2", "gaus(0)", 0.2, 1.6, "");
-  TF1* f1Back_DataOmegaTGPSPlusPS_Pol2_EG2          = new TF1("f1Back_DataOmegaTGPSPlusPS_Pol2_EG2", "gaus(0)", 0.2, 1.6, "");
-  TF1* f1Back_DataPi0RotPS_Pol1_EG1                 = new TF1("f1Back_DataPi0RotPS_Pol1_EG1", "gaus(0)", 0.2, 1.6, "");
-  TF1* f1Back_DataPi0RotPS_Pol2_EG1                 = new TF1("f1Back_DataPi0RotPS_Pol2_EG1", "gaus(0)", 0.2, 1.6, "");
-  TF1* f1Back_DataPi0TGPSPlusPS_Pol1_EG1            = new TF1("f1Back_DataPi0TGPSPlusPS_Pol1_EG1", "gaus(0)", 0.2, 1.6, "");
-  TF1* f1Back_DataPi0TGPSPlusPS_Pol2_EG1            = new TF1("f1Back_DataPi0TGPSPlusPS_Pol2_EG1", "gaus(0)", 0.2, 1.6, "");
-  TF1* f1Back_DataPi0RotPS_Pol1_EG2                 = new TF1("f1Back_DataPi0RotPS_Pol1_EG2", "gaus(0)", 0.2, 1.6, "");
-  TF1* f1Back_DataPi0RotPS_Pol2_EG2                 = new TF1("f1Back_DataPi0RotPS_Pol2_EG2", "gaus(0)", 0.2, 1.6, "");
-  TF1* f1Back_DataPi0TGPSPlusPS_Pol1_EG2            = new TF1("f1Back_DataPi0TGPSPlusPS_Pol1_EG2", "gaus(0)", 0.2, 1.6, "");
-  TF1* f1Back_DataPi0TGPSPlusPS_Pol2_EG2            = new TF1("f1Back_DataPi0TGPSPlusPS_Pol2_EG2", "gaus(0)", 0.2, 1.6, "");
-  TF1* f1Back_DataOmegaRotWOPS_Pol1_EG1             = new TF1("f1Back_DataOmegaRotWOPS_Pol1_EG1", "gaus(0)", 0.2, 1.6, "");
-  TF1* f1Back_DataOmegaRotWOPS_Pol2_EG1             = new TF1("f1Back_DataOmegaRotWOPS_Pol2_EG1", "gaus(0)", 0.2, 1.6, "");
-  TF1* f1Back_DataOmegaTGPSWOPS_Pol1_EG1            = new TF1("f1Back_DataOmegaTGPSWOPS_Pol1_EG1", "gaus(0)", 0.2, 1.6, "");
-  TF1* f1Back_DataOmegaTGPSWOPS_Pol2_EG1            = new TF1("f1Back_DataOmegaTGPSWOPS_Pol2_EG1", "gaus(0)", 0.2, 1.6, "");
-  TF1* f1Back_DataOmegaTGPSPlusWOPS_Pol1_EG1        = new TF1("f1Back_DataOmegaTGPSPlusWOPS_Pol1_EG1", "gaus(0)", 0.2, 1.6, "");
-  TF1* f1Back_DataOmegaTGPSPlusWOPS_Pol2_EG1        = new TF1("f1Back_DataOmegaTGPSPlusWOPS_Pol2_EG1", "gaus(0)", 0.2, 1.6, "");
-  TF1* f1Back_DataOmegaRotWOPS_Pol1_EG2             = new TF1("f1Back_DataOmegaRotWOPS_Pol1_EG2", "gaus(0)", 0.2, 1.6, "");
-  TF1* f1Back_DataOmegaRotWOPS_Pol2_EG2             = new TF1("f1Back_DataOmegaRotWOPS_Pol2_EG2", "gaus(0)", 0.2, 1.6, "");
-  TF1* f1Back_DataOmegaTGPSWOPS_Pol1_EG2            = new TF1("f1Back_DataOmegaTGPSWOPS_Pol1_EG2", "gaus(0)", 0.2, 1.6, "");
-  TF1* f1Back_DataOmegaTGPSWOPS_Pol2_EG2            = new TF1("f1Back_DataOmegaTGPSWOPS_Pol2_EG2", "gaus(0)", 0.2, 1.6, "");
-  TF1* f1Back_DataOmegaTGPSPlusWOPS_Pol1_EG2        = new TF1("f1Back_DataOmegaTGPSPlusWOPS_Pol1_EG2", "gaus(0)", 0.2, 1.6, "");
-  TF1* f1Back_DataOmegaTGPSPlusWOPS_Pol2_EG2        = new TF1("f1Back_DataOmegaTGPSPlusWOPS_Pol2_EG2", "gaus(0)", 0.2, 1.6, "");
-  TF1* f1Back_DataOmegaTGPSPlusAPPS1Sigma_Pol1_EG1  = new TF1("f1Back_DataOmegaTGPSPlusAPPS1Sigma_Pol1_EG1", "gaus(0)", 0.2, 1.6, "");
-  TF1* f1Back_DataOmegaTGPSPlusAPPS1Sigma_Pol2_EG1  = new TF1("f1Back_DataOmegaTGPSPlusAPPS1Sigma_Pol2_EG1", "gaus(0)", 0.2, 1.6, "");
-  TF1* f1Back_DataOmegaTGPSPlusAPPS2Sigma_Pol1_EG1  = new TF1("f1Back_DataOmegaTGPSPlusAPPS2Sigma_Pol1_EG1", "gaus(0)", 0.2, 1.6, "");
-  TF1* f1Back_DataOmegaTGPSPlusAPPS2Sigma_Pol2_EG1  = new TF1("f1Back_DataOmegaTGPSPlusAPPS2Sigma_Pol2_EG1", "gaus(0)", 0.2, 1.6, "");
-  TF1* f1Back_DataOmegaTGPSPlusAPPS3Sigma_Pol1_EG1  = new TF1("f1Back_DataOmegaTGPSPlusAPPS3Sigma_Pol1_EG1", "gaus(0)", 0.2, 1.6, "");
-  TF1* f1Back_DataOmegaTGPSPlusAPPS3Sigma_Pol2_EG1  = new TF1("f1Back_DataOmegaTGPSPlusAPPS3Sigma_Pol2_EG1", "gaus(0)", 0.2, 1.6, "");
-  TF1* f1Back_DataOmegaTGPSPlusAPPS1Sigma_Pol1_EG2  = new TF1("f1Back_DataOmegaTGPSPlusAPPS1Sigma_Pol1_EG2", "gaus(0)", 0.2, 1.6, "");
-  TF1* f1Back_DataOmegaTGPSPlusAPPS1Sigma_Pol2_EG2  = new TF1("f1Back_DataOmegaTGPSPlusAPPS1Sigma_Pol2_EG2", "gaus(0)", 0.2, 1.6, "");
-  TF1* f1Back_DataOmegaTGPSPlusAPPS2Sigma_Pol1_EG2  = new TF1("f1Back_DataOmegaTGPSPlusAPPS2Sigma_Pol1_EG2", "gaus(0)", 0.2, 1.6, "");
-  TF1* f1Back_DataOmegaTGPSPlusAPPS2Sigma_Pol2_EG2  = new TF1("f1Back_DataOmegaTGPSPlusAPPS2Sigma_Pol2_EG2", "gaus(0)", 0.2, 1.6, "");
-  TF1* f1Back_DataOmegaTGPSPlusAPPS3Sigma_Pol1_EG2  = new TF1("f1Back_DataOmegaTGPSPlusAPPS3Sigma_Pol1_EG2", "gaus(0)", 0.2, 1.6, "");
-  TF1* f1Back_DataOmegaTGPSPlusAPPS3Sigma_Pol2_EG2  = new TF1("f1Back_DataOmegaTGPSPlusAPPS3Sigma_Pol2_EG2", "gaus(0)", 0.2, 1.6, "");
+  TF1* f1Back_DataOmegaRotPS_Pol1_EG1               = new TF1("f1Back_DataOmegaRotPS_Pol1_EG1", "pol1", 0.2, 1.6, "");
+  TF1* f1Back_DataOmegaRotPS_Pol2_EG1               = new TF1("f1Back_DataOmegaRotPS_Pol2_EG1", "pol2", 0.2, 1.6, "");
+  TF1* f1Back_DataOmegaTGPSPS_Pol1_EG1              = new TF1("f1Back_DataOmegaTGPSPS_Pol1_EG1", "pol1", 0.2, 1.6, "");
+  TF1* f1Back_DataOmegaTGPSPS_Pol2_EG1              = new TF1("f1Back_DataOmegaTGPSPS_Pol2_EG1", "pol2", 0.2, 1.6, "");
+  TF1* f1Back_DataOmegaTGPSPlusPS_Pol1_EG1          = new TF1("f1Back_DataOmegaTGPSPlusPS_Pol1_EG1", "pol1", 0.2, 1.6, "");
+  TF1* f1Back_DataOmegaTGPSPlusPS_Pol2_EG1          = new TF1("f1Back_DataOmegaTGPSPlusPS_Pol2_EG1", "pol2", 0.2, 1.6, "");
+  TF1* f1Back_DataOmegaRotPS_Pol1_EG2               = new TF1("f1Back_DataOmegaRotPS_Pol1_EG2", "pol1", 0.2, 1.6, "");
+  TF1* f1Back_DataOmegaRotPS_Pol2_EG2               = new TF1("f1Back_DataOmegaRotPS_Pol2_EG2", "pol2", 0.2, 1.6, "");
+  TF1* f1Back_DataOmegaTGPSPS_Pol1_EG2              = new TF1("f1Back_DataOmegaTGPSPS_Pol1_EG2", "pol1", 0.2, 1.6, "");
+  TF1* f1Back_DataOmegaTGPSPS_Pol2_EG2              = new TF1("f1Back_DataOmegaTGPSPS_Pol2_EG2", "pol2", 0.2, 1.6, "");
+  TF1* f1Back_DataOmegaTGPSPlusPS_Pol1_EG2          = new TF1("f1Back_DataOmegaTGPSPlusPS_Pol1_EG2", "pol1", 0.2, 1.6, "");
+  TF1* f1Back_DataOmegaTGPSPlusPS_Pol2_EG2          = new TF1("f1Back_DataOmegaTGPSPlusPS_Pol2_EG2", "pol2", 0.2, 1.6, "");
+  TF1* f1Back_DataPi0RotPS_Pol1_EG1                 = new TF1("f1Back_DataPi0RotPS_Pol1_EG1", "pol1", 0.2, 1.6, "");
+  TF1* f1Back_DataPi0RotPS_Pol2_EG1                 = new TF1("f1Back_DataPi0RotPS_Pol2_EG1", "pol2", 0.2, 1.6, "");
+  TF1* f1Back_DataPi0TGPSPlusPS_Pol1_EG1            = new TF1("f1Back_DataPi0TGPSPlusPS_Pol1_EG1", "pol1", 0.2, 1.6, "");
+  TF1* f1Back_DataPi0TGPSPlusPS_Pol2_EG1            = new TF1("f1Back_DataPi0TGPSPlusPS_Pol2_EG1", "pol2", 0.2, 1.6, "");
+  TF1* f1Back_DataPi0RotPS_Pol1_EG2                 = new TF1("f1Back_DataPi0RotPS_Pol1_EG2", "pol1", 0.2, 1.6, "");
+  TF1* f1Back_DataPi0RotPS_Pol2_EG2                 = new TF1("f1Back_DataPi0RotPS_Pol2_EG2", "pol2", 0.2, 1.6, "");
+  TF1* f1Back_DataPi0TGPSPlusPS_Pol1_EG2            = new TF1("f1Back_DataPi0TGPSPlusPS_Pol1_EG2", "pol1", 0.2, 1.6, "");
+  TF1* f1Back_DataPi0TGPSPlusPS_Pol2_EG2            = new TF1("f1Back_DataPi0TGPSPlusPS_Pol2_EG2", "pol2", 0.2, 1.6, "");
+  TF1* f1Back_DataOmegaRotWOPS_Pol1_EG1             = new TF1("f1Back_DataOmegaRotWOPS_Pol1_EG1", "pol1", 0.2, 1.6, "");
+  TF1* f1Back_DataOmegaRotWOPS_Pol2_EG1             = new TF1("f1Back_DataOmegaRotWOPS_Pol2_EG1", "pol2", 0.2, 1.6, "");
+  TF1* f1Back_DataOmegaTGPSWOPS_Pol1_EG1            = new TF1("f1Back_DataOmegaTGPSWOPS_Pol1_EG1", "pol1", 0.2, 1.6, "");
+  TF1* f1Back_DataOmegaTGPSWOPS_Pol2_EG1            = new TF1("f1Back_DataOmegaTGPSWOPS_Pol2_EG1", "pol2", 0.2, 1.6, "");
+  TF1* f1Back_DataOmegaTGPSPlusWOPS_Pol1_EG1        = new TF1("f1Back_DataOmegaTGPSPlusWOPS_Pol1_EG1", "pol1", 0.2, 1.6, "");
+  TF1* f1Back_DataOmegaTGPSPlusWOPS_Pol2_EG1        = new TF1("f1Back_DataOmegaTGPSPlusWOPS_Pol2_EG1", "pol2", 0.2, 1.6, "");
+  TF1* f1Back_DataOmegaRotWOPS_Pol1_EG2             = new TF1("f1Back_DataOmegaRotWOPS_Pol1_EG2", "pol1", 0.2, 1.6, "");
+  TF1* f1Back_DataOmegaRotWOPS_Pol2_EG2             = new TF1("f1Back_DataOmegaRotWOPS_Pol2_EG2", "pol2", 0.2, 1.6, "");
+  TF1* f1Back_DataOmegaTGPSWOPS_Pol1_EG2            = new TF1("f1Back_DataOmegaTGPSWOPS_Pol1_EG2", "pol1", 0.2, 1.6, "");
+  TF1* f1Back_DataOmegaTGPSWOPS_Pol2_EG2            = new TF1("f1Back_DataOmegaTGPSWOPS_Pol2_EG2", "pol2", 0.2, 1.6, "");
+  TF1* f1Back_DataOmegaTGPSPlusWOPS_Pol1_EG2        = new TF1("f1Back_DataOmegaTGPSPlusWOPS_Pol1_EG2", "pol1", 0.2, 1.6, "");
+  TF1* f1Back_DataOmegaTGPSPlusWOPS_Pol2_EG2        = new TF1("f1Back_DataOmegaTGPSPlusWOPS_Pol2_EG2", "pol2", 0.2, 1.6, "");
+  TF1* f1Back_DataOmegaTGPSPlusAPPS1Sigma_Pol1_EG1  = new TF1("f1Back_DataOmegaTGPSPlusAPPS1Sigma_Pol1_EG1", "pol1", 0.2, 1.6, "");
+  TF1* f1Back_DataOmegaTGPSPlusAPPS1Sigma_Pol2_EG1  = new TF1("f1Back_DataOmegaTGPSPlusAPPS1Sigma_Pol2_EG1", "pol2", 0.2, 1.6, "");
+  TF1* f1Back_DataOmegaTGPSPlusAPPS2Sigma_Pol1_EG1  = new TF1("f1Back_DataOmegaTGPSPlusAPPS2Sigma_Pol1_EG1", "pol1", 0.2, 1.6, "");
+  TF1* f1Back_DataOmegaTGPSPlusAPPS2Sigma_Pol2_EG1  = new TF1("f1Back_DataOmegaTGPSPlusAPPS2Sigma_Pol2_EG1", "pol2", 0.2, 1.6, "");
+  TF1* f1Back_DataOmegaTGPSPlusAPPS3Sigma_Pol1_EG1  = new TF1("f1Back_DataOmegaTGPSPlusAPPS3Sigma_Pol1_EG1", "pol1", 0.2, 1.6, "");
+  TF1* f1Back_DataOmegaTGPSPlusAPPS3Sigma_Pol2_EG1  = new TF1("f1Back_DataOmegaTGPSPlusAPPS3Sigma_Pol2_EG1", "pol2", 0.2, 1.6, "");
+  TF1* f1Back_DataOmegaTGPSPlusAPPS1Sigma_Pol1_EG2  = new TF1("f1Back_DataOmegaTGPSPlusAPPS1Sigma_Pol1_EG2", "pol1", 0.2, 1.6, "");
+  TF1* f1Back_DataOmegaTGPSPlusAPPS1Sigma_Pol2_EG2  = new TF1("f1Back_DataOmegaTGPSPlusAPPS1Sigma_Pol2_EG2", "pol2", 0.2, 1.6, "");
+  TF1* f1Back_DataOmegaTGPSPlusAPPS2Sigma_Pol1_EG2  = new TF1("f1Back_DataOmegaTGPSPlusAPPS2Sigma_Pol1_EG2", "pol1", 0.2, 1.6, "");
+  TF1* f1Back_DataOmegaTGPSPlusAPPS2Sigma_Pol2_EG2  = new TF1("f1Back_DataOmegaTGPSPlusAPPS2Sigma_Pol2_EG2", "pol2", 0.2, 1.6, "");
+  TF1* f1Back_DataOmegaTGPSPlusAPPS3Sigma_Pol1_EG2  = new TF1("f1Back_DataOmegaTGPSPlusAPPS3Sigma_Pol1_EG2", "pol1", 0.2, 1.6, "");
+  TF1* f1Back_DataOmegaTGPSPlusAPPS3Sigma_Pol2_EG2  = new TF1("f1Back_DataOmegaTGPSPlusAPPS3Sigma_Pol2_EG2", "pol2", 0.2, 1.6, "");
 
   f1Back_DataOmegaRotPS_Pol1_EG1             ->SetParameters(1., 1.);
   f1Back_DataOmegaRotPS_Pol2_EG1             ->SetParameters(1., 1., 1.);
@@ -2055,7 +2055,7 @@ void plotting()
   Double_t IntUnc_back                  = 0.0;
 
   const Double_t PeakLower              = 0.7;
-  const Double_t PeakHigher             = 0.9; 
+  const Double_t PeakHigher             = 0.9;
 
   /****************************************************************************/
   /*                                                                          */
@@ -2215,14 +2215,14 @@ void plotting()
     h1_Ratio_BackToSame_DataOmegaTGPSPlusWOPS_EG1 = (TH1D*) h1_SameEvent_DataOmegaWOPS_EG1  ->Clone("h1_Ratio_BackToSame_DataOmegaTGPSPlusWOPS_EG1");
     h1_Ratio_BackToSame_DataOmegaTGPSPlusWOPS_EG1 ->Divide(h1_Ratio_BackToSame_DataOmegaTGPSPlusWOPS_EG1 , h1_Background_DataOmegaTGPSPlusWOPS_EG1, 1, 1, "B");
 
-    h1_Peak_BackToSame_DataOmegaRotPS_EG1         = (TH1D*) h1_SameEvent_DataOmegaPS_EG1    ->Clone("h1_Peak_BackToSame_DataOmegaRotPS_EG1        ");
-    h1_Peak_BackToSame_DataOmegaTGPSPS_EG1        = (TH1D*) h1_SameEvent_DataOmegaPS_EG1    ->Clone("h1_Peak_BackToSame_DataOmegaTGPSPS_EG1       ");
-    h1_Peak_BackToSame_DataOmegaTGPSPlusPS_EG1    = (TH1D*) h1_SameEvent_DataOmegaPS_EG1    ->Clone("h1_Peak_BackToSame_DataOmegaTGPSPlusPS_EG1   ");
-    h1_Peak_BackToSame_DataPi0RotPS_EG1           = (TH1D*) h1_SameEvent_DataOmegaPS_EG1    ->Clone("h1_Peak_BackToSame_DataPi0RotPS_EG1          ");
-    h1_Peak_BackToSame_DataPi0TGPSPlusPS_EG1      = (TH1D*) h1_SameEvent_DataOmegaPS_EG1    ->Clone("h1_Peak_BackToSame_DataPi0TGPSPlusPS_EG1     ");
-    h1_Peak_BackToSame_DataOmegaRotWOPS_EG1       = (TH1D*) h1_SameEvent_DataOmegaWOPS_EG1  ->Clone("h1_Peak_BackToSame_DataOmegaRotWOPS_EG1      ");
-    h1_Peak_BackToSame_DataOmegaTGPSWOPS_EG1      = (TH1D*) h1_SameEvent_DataOmegaWOPS_EG1  ->Clone("h1_Peak_BackToSame_DataOmegaTGPSWOPS_EG1     ");
-    h1_Peak_BackToSame_DataOmegaTGPSPlusWOPS_EG1  = (TH1D*) h1_SameEvent_DataOmegaWOPS_EG1  ->Clone("h1_Peak_BackToSame_DataOmegaTGPSPlusWOPS_EG1 ");
+    h1_Peak_BackToSame_DataOmegaRotPS_EG1         = (TH1D*) h1_Ratio_BackToSame_DataOmegaRotPS_EG1        ->Clone("h1_Peak_BackToSame_DataOmegaRotPS_EG1        ");
+    h1_Peak_BackToSame_DataOmegaTGPSPS_EG1        = (TH1D*) h1_Ratio_BackToSame_DataOmegaTGPSPS_EG1       ->Clone("h1_Peak_BackToSame_DataOmegaTGPSPS_EG1       ");
+    h1_Peak_BackToSame_DataOmegaTGPSPlusPS_EG1    = (TH1D*) h1_Ratio_BackToSame_DataOmegaTGPSPlusPS_EG1   ->Clone("h1_Peak_BackToSame_DataOmegaTGPSPlusPS_EG1   ");
+    h1_Peak_BackToSame_DataPi0RotPS_EG1           = (TH1D*) h1_Ratio_BackToSame_DataPi0RotPS_EG1          ->Clone("h1_Peak_BackToSame_DataPi0RotPS_EG1          ");
+    h1_Peak_BackToSame_DataPi0TGPSPlusPS_EG1      = (TH1D*) h1_Ratio_BackToSame_DataPi0TGPSPlusPS_EG1     ->Clone("h1_Peak_BackToSame_DataPi0TGPSPlusPS_EG1     ");
+    h1_Peak_BackToSame_DataOmegaRotWOPS_EG1       = (TH1D*) h1_Ratio_BackToSame_DataOmegaRotWOPS_EG1      ->Clone("h1_Peak_BackToSame_DataOmegaRotWOPS_EG1      ");
+    h1_Peak_BackToSame_DataOmegaTGPSWOPS_EG1      = (TH1D*) h1_Ratio_BackToSame_DataOmegaTGPSWOPS_EG1     ->Clone("h1_Peak_BackToSame_DataOmegaTGPSWOPS_EG1     ");
+    h1_Peak_BackToSame_DataOmegaTGPSPlusWOPS_EG1  = (TH1D*) h1_Ratio_BackToSame_DataOmegaTGPSPlusWOPS_EG1 ->Clone("h1_Peak_BackToSame_DataOmegaTGPSPlusWOPS_EG1 ");
 
     for (Int_t i = 1; i <= h1_SameEvent_DataOmegaPS_EG1->GetNbinsX(); i++)
     {
@@ -2337,10 +2337,10 @@ void plotting()
     gConvInt_DataOmegaTGPSWOPS_pol1_EG1->SetPoint(i, h1_Ratio_BackToSame_DataOmegaTGPSWOPS_EG1->GetBinContent(i), 0);
     (TVirtualFitter::GetFitter())->GetConfidenceIntervals(gConvInt_DataOmegaTGPSWOPS_pol1_EG1, 0.68);
 
-    h1_Peak_BackToSame_DataOmegaTGPSPlusWOPS_EG1->Fit("f1Back_DataOmegaTGPSPlusWOPS_Pol1_EG1", "QM0E", "", fitLower, fitHigher);
+    h1_Ratio_BackToSame_DataOmegaTGPSPlusWOPS_EG1->Fit("f1Back_DataOmegaTGPSPlusWOPS_Pol1_EG1", "QM0E", "", fitLower, fitHigher);
     gConvInt_DataOmegaTGPSPlusWOPS_pol1_EG1->SetTitle("Fitted pol4 with 1#sigma conf. band");
-    for (int i = 1; i <= h1_Peak_BackToSame_DataOmegaTGPSPlusWOPS_EG1->GetNbinsX(); i++)
-    gConvInt_DataOmegaTGPSPlusWOPS_pol1_EG1->SetPoint(i, h1_Peak_BackToSame_DataOmegaTGPSPlusWOPS_EG1->GetBinContent(i), 0);
+    for (int i = 1; i <= h1_Ratio_BackToSame_DataOmegaTGPSPlusWOPS_EG1->GetNbinsX(); i++)
+    gConvInt_DataOmegaTGPSPlusWOPS_pol1_EG1->SetPoint(i, h1_Ratio_BackToSame_DataOmegaTGPSPlusWOPS_EG1->GetBinContent(i), 0);
     (TVirtualFitter::GetFitter())->GetConfidenceIntervals(gConvInt_DataOmegaTGPSPlusWOPS_pol1_EG1, 0.68);
 
 
@@ -2387,12 +2387,11 @@ void plotting()
     gConvInt_DataOmegaTGPSWOPS_pol2_EG1->SetPoint(i, h1_Ratio_BackToSame_DataOmegaTGPSWOPS_EG1->GetBinContent(i), 0);
     (TVirtualFitter::GetFitter())->GetConfidenceIntervals(gConvInt_DataOmegaTGPSWOPS_pol2_EG1, 0.68);
 
-    h1_Peak_BackToSame_DataOmegaTGPSPlusWOPS_EG1->Fit("f1Back_DataOmegaTGPSPlusWOPS_Pol2_EG1", "QM0E", "", fitLower, fitHigher);
+    h1_Ratio_BackToSame_DataOmegaTGPSPlusWOPS_EG1->Fit("f1Back_DataOmegaTGPSPlusWOPS_Pol2_EG1", "QM0E", "", fitLower, fitHigher);
     gConvInt_DataOmegaTGPSPlusWOPS_pol2_EG1->SetTitle("Fitted pol4 with 1#sigma conf. band");
-    for (int i = 1; i <= h1_Peak_BackToSame_DataOmegaTGPSPlusWOPS_EG1->GetNbinsX(); i++)
-    gConvInt_DataOmegaTGPSPlusWOPS_pol2_EG1->SetPoint(i, h1_Peak_BackToSame_DataOmegaTGPSPlusWOPS_EG1->GetBinContent(i), 0);
+    for (int i = 1; i <= h1_Ratio_BackToSame_DataOmegaTGPSPlusWOPS_EG1->GetNbinsX(); i++)
+    gConvInt_DataOmegaTGPSPlusWOPS_pol2_EG1->SetPoint(i, h1_Ratio_BackToSame_DataOmegaTGPSPlusWOPS_EG1->GetBinContent(i), 0);
     (TVirtualFitter::GetFitter())->GetConfidenceIntervals(gConvInt_DataOmegaTGPSPlusWOPS_pol2_EG1, 0.68);
-
 
     TH1D* h1_Background_DataOmegaRotPS_Pol1_EG1         = (TH1D*) h1_Background_DataOmegaRotPS_EG1        ->Clone("h1_Background_DataOmegaRotPS_Pol1_EG1");
     TH1D* h1_Background_DataOmegaTGPSPS_Pol1_EG1        = (TH1D*) h1_Background_DataOmegaTGPSPS_EG1       ->Clone("h1_Background_DataOmegaTGPSPS_Pol1_EG1");
@@ -2431,10 +2430,70 @@ void plotting()
     ScaleWithUncer(h1_Background_DataOmegaTGPSWOPS_Pol2_EG1    , gConvInt_DataOmegaTGPSWOPS_pol2_EG1    , f1Back_DataOmegaTGPSWOPS_Pol2_EG1);
     ScaleWithUncer(h1_Background_DataOmegaTGPSPlusWOPS_Pol2_EG1, gConvInt_DataOmegaTGPSPlusWOPS_pol2_EG1, f1Back_DataOmegaTGPSPlusWOPS_Pol2_EG1);
 
-    // SQ = FitAfterScalig(h1_ESD_Mother_InvMass_Pt, h1_ESD_Backgr_InvMass_Pt_pol1, h1_ESD_Backgr_InvMass_Pt_pol2, h1_ESD_Backgr_InvMass_Pt_pol3, h1_ESD_Backgr_InvMass_Pt_pol4, legSystem);
-    // SQ.Draw(Form("JJ/" + outputfile + "/" + modenames[mode] + "/" + omega_cut_string + "/SignalAndBackgroundFit" + "%02d.svg", pTBin) );
+    h1_SameEvent_DataOmegaPS_EG1->SetMaximum(h1_SameEvent_DataOmegaPS_EG1->GetMaximum()*1.8);
+    h1_SameEvent_DataOmegaWOPS_EG1->SetMaximum(h1_SameEvent_DataOmegaWOPS_EG1->GetMaximum()*1.8);
+
+    h1_Ratio_BackToSame_DataOmegaRotPS_EG1->SetMaximum(h1_Ratio_BackToSame_DataOmegaRotPS_EG1->GetMaximum()*1.6);
+
+    TLine* FitLine_PS = new TLine(fitLower, h1_Ratio_BackToSame_DataOmegaRotPS_EG1->GetMaximum()*0.99, fitHigher, h1_Ratio_BackToSame_DataOmegaRotPS_EG1->GetMaximum()*0.99);
+    TLine* FitLine_WOPS = new TLine(fitLower, h1_SameEvent_DataOmegaWOPS_EG1->GetMaximum()*0.99, fitHigher, h1_SameEvent_DataOmegaWOPS_EG1->GetMaximum()*0.99);
+
+    SQ = SameEventToBackgroundRatio(h1_Ratio_BackToSame_DataOmegaRotPS_EG1, h1_Peak_BackToSame_DataOmegaRotPS_EG1, f1Back_DataOmegaRotPS_Pol1_EG1, f1Back_DataOmegaRotPS_Pol2_EG1, legSystem, FitLine_PS);
+    SQ.Draw(Form("Data/EG1/OmegaRotPS/SameEventToBackgroundRatio_%02d.svg", pTBin_EG1) );
+    // SQ.Draw(Form("Data/EG1/OmegaTGPSPS/SameEventToBackgroundRatio_%02d.svg", pTBin_EG1) );
+    // SQ.Draw(Form("Data/EG1/OmegaTGPPlusSPS/SameEventToBackgroundRatio_%02d.svg", pTBin_EG1) );
+    // SQ.Draw(Form("Data/EG1/Pi0RotPS/SameEventToBackgroundRatio_%02d.svg", pTBin_EG1) );
+    // SQ.Draw(Form("Data/EG1/Pi0TGPSPlusPS/SameEventToBackgroundRatio_%02d.svg", pTBin_EG1) );
+    // SQ.Draw(Form("Data/EG1/OmegaRotWOPS/SameEventToBackgroundRatio_%02d.svg", pTBin_EG1) );
+    // SQ.Draw(Form("Data/EG1/OmegaTGPSWOPS/SameEventToBackgroundRatio_%02d.svg", pTBin_EG1) );
+    // SQ.Draw(Form("Data/EG1/OmegaTGPSPlusWOPS/SameEventToBackgroundRatio_%02d.svg", pTBin_EG1) );
+
+
+    SQ = FitAfterScalig(h1_SameEvent_DataOmegaPS_EG1, h1_Background_DataOmegaRotPS_Pol1_EG1, h1_Background_DataOmegaRotPS_Pol2_EG1, legSystem);
+    SQ.Draw(Form("Data/EG1/OmegaRotPS/SignalAndBackgroundFit_%02d.svg", pTBin_EG1) );
+
+    SQ = FitAfterScalig(h1_SameEvent_DataOmegaPS_EG1, h1_Background_DataOmegaTGPSPS_Pol1_EG1, h1_Background_DataOmegaTGPSPS_Pol2_EG1, legSystem);
+    SQ.Draw(Form("Data/EG1/OmegaTGPSPS/SignalAndBackgroundFit_%02d.svg", pTBin_EG1) );
+
+    SQ = FitAfterScalig(h1_SameEvent_DataOmegaPS_EG1, h1_Background_DataOmegaTGPSPlusPS_Pol1_EG1, h1_Background_DataOmegaTGPSPlusPS_Pol2_EG1, legSystem);
+    SQ.Draw(Form("Data/EG1/OmegaTGPPlusSPS/SignalAndBackgroundFit_%02d.svg", pTBin_EG1) );
+
+    SQ = FitAfterScalig(h1_SameEvent_DataOmegaPS_EG1, h1_Background_DataPi0RotPS_Pol1_EG1, h1_Background_DataPi0RotPS_Pol2_EG1, legSystem);
+    SQ.Draw(Form("Data/EG1/Pi0RotPS/SignalAndBackgroundFit_%02d.svg", pTBin_EG1) );
+
+    SQ = FitAfterScalig(h1_SameEvent_DataOmegaPS_EG1, h1_Background_DataPi0TGPSPlusPS_Pol1_EG1, h1_Background_DataPi0TGPSPlusPS_Pol2_EG1, legSystem);
+    SQ.Draw(Form("Data/EG1/Pi0TGPSPlusPS/SignalAndBackgroundFitg_%02d.svg", pTBin_EG1) );
+
+    SQ = FitAfterScalig(h1_SameEvent_DataOmegaWOPS_EG1, h1_Background_DataOmegaRotWOPS_Pol1_EG1, h1_Background_DataOmegaRotWOPS_Pol2_EG1, legSystem);
+    SQ.Draw(Form("Data/EG1/OmegaRotWOPS/SignalAndBackgroundFit_%02d.svg", pTBin_EG1) );
+
+    SQ = FitAfterScalig(h1_SameEvent_DataOmegaWOPS_EG1, h1_Background_DataOmegaTGPSWOPS_Pol1_EG1, h1_Background_DataOmegaTGPSWOPS_Pol2_EG1, legSystem);
+    SQ.Draw(Form("Data/EG1/OmegaTGPSWOPS/SignalAndBackgroundFit_%02d.svg", pTBin_EG1) );
+
+    SQ = FitAfterScalig(h1_SameEvent_DataOmegaWOPS_EG1, h1_Background_DataOmegaTGPSPlusWOPS_Pol1_EG1, h1_Background_DataOmegaTGPSPlusWOPS_Pol2_EG1, legSystem);
+    SQ.Draw(Form("Data/EG1/OmegaTGPSPlusWOPS/SignalAndBackgroundFit_%02d.svg", pTBin_EG1) );
+
 
     delete legSystem;
+    delete gConvInt_DataOmegaRotPS_pol1_EG1;
+    delete gConvInt_DataOmegaTGPSPS_pol1_EG1;
+    delete gConvInt_DataOmegaTGPSPlusPS_pol1_EG1;
+    delete gConvInt_DataPi0RotPS_pol1_EG1;
+    delete gConvInt_DataPi0TGPSPlusPS_pol1_EG1;
+    delete gConvInt_DataOmegaRotWOPS_pol1_EG1;
+    delete gConvInt_DataOmegaTGPSWOPS_pol1_EG1;
+    delete gConvInt_DataOmegaTGPSPlusWOPS_pol1_EG1;
+    delete gConvInt_DataOmegaRotPS_pol2_EG1;
+    delete gConvInt_DataOmegaTGPSPS_pol2_EG1;
+    delete gConvInt_DataOmegaTGPSPlusPS_pol2_EG1;
+    delete gConvInt_DataPi0RotPS_pol2_EG1;
+    delete gConvInt_DataPi0TGPSPlusPS_pol2_EG1;
+    delete gConvInt_DataOmegaRotWOPS_pol2_EG1;
+    delete gConvInt_DataOmegaTGPSWOPS_pol2_EG1;
+    delete gConvInt_DataOmegaTGPSPlusWOPS_pol2_EG1;
+
+    delete FitLine_PS;
+    delete FitLine_WOPS;
 
   }
 
