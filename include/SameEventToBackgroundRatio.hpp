@@ -28,7 +28,7 @@ SquarePlot SameEventToBackgroundRatio(TH1D* Background, TH1D* Peak, TF1* Backgro
 
 
   // --- Marker ----------------------------------------------------------------
-  vector<Color_t> colors = {kBlack, kRed+1, kCyan-4, kPink-3, kGray+2, 1, 1};
+  vector<Color_t> colors = {kBlack, kGray+3, kCyan, kPink-3, kGray+1, 1, 1};
   vector<Style_t> markers = {kFullCircle, kOpenCircle, 1, 1, 1, 1, 1};
   vector<Size_t>  sizes = {3., 2.5, 3., 3., 5., 1, 1};
 
@@ -37,7 +37,7 @@ SquarePlot SameEventToBackgroundRatio(TH1D* Background, TH1D* Peak, TF1* Backgro
   Legend::SetPosition(l, 0.55, 0.9, 0.67, 0.875);
 
   SquarePlot square = SquarePlot(main, minv_str, "#frac{same event}{background}");
-  square.SetLineProperties(line, kGray+2, 1, 5.0);
+  square.SetLineProperties(line, kGray+1, 1, 5.0);
   square.SetMode(Plot::Thesis);
   square.SetStyle(colors, markers, sizes);
   square.SetRanges(0.0, 1.6, Background->GetMinimum(), Background->GetMaximum());
