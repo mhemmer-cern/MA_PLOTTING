@@ -1817,6 +1817,20 @@ void plotting()
   TH1D* h1_Acceptance_EG2                            = new TH1D("h1_Acceptance_EG2",                            "", nBinsPt_EG2-1, &arrPtBinning_EG2[0]);  // Acceptance for EG2
 
 
+  TPaveText* legYields_EG1 = new TPaveText(0.15, 0.75, 0.88, 0.93, "NDC");
+  legYields_EG1->SetMargin(0.01);
+  legYields_EG1->AddText("pp #sqrt{#it{s}} = 13 TeV EG1, #omega #rightarrow #pi^{0}#gamma #rightarrow #gamma#gamma#gamma with EMC");
+  legYields_EG1->AddText("ALICE work in progress");
+  legYields_EG1->SetTextAlign(11);
+  legYields_EG1->SetFillStyle(0);
+
+  TPaveText* legYields_EG2 = new TPaveText(0.15, 0.75, 0.88, 0.93, "NDC");
+  legYields_EG2->SetMargin(0.01);
+  legYields_EG2->AddText("pp #sqrt{#it{s}} = 13 TeV EG2, #omega #rightarrow #pi^{0}#gamma #rightarrow #gamma#gamma#gamma with EMC");
+  legYields_EG2->AddText("ALICE work in progress");
+  legYields_EG2->SetTextAlign(11);
+  legYields_EG2->SetFillStyle(0);
+
   TString str                           = " ";
   auto OAhists                          = new TObjArray();
 
@@ -2448,6 +2462,18 @@ void plotting()
 
   }
 
+  /**************************************************************************/
+  /*                                                                        */
+  /*                       calculate the peaks DATA                         */
+  /*                                                                        */
+  /**************************************************************************/
+
+  MeanPlotPol1(h1_Mean_DataOmegaRotPS_Pol1_EG1, h1_Mean_DataOmegaTGPSPS_Pol1_EG1, h1_Mean_DataOmegaTGPSPlusPS_Pol1_EG1, h1_Mean_DataPi0RotPS_Pol1_EG1, h1_Mean_DataPi0TGPSPlusPS_Pol1_EG1, h1_Mean_DataOmegaRotWOPS_Pol1_EG1, h1_Mean_DataOmegaTGPSWOPS_Pol1_EG1, h1_Mean_DataOmegaTGPSPlusWOPS_Pol1_EG1, legYields_EG1, "Data/EG1/Comp/Mean_Pol1.svg");
+  MeanPlotPol2(h1_Mean_DataOmegaRotPS_Pol2_EG1, h1_Mean_DataOmegaTGPSPS_Pol2_EG1, h1_Mean_DataOmegaTGPSPlusPS_Pol2_EG1, h1_Mean_DataPi0RotPS_Pol2_EG1, h1_Mean_DataPi0TGPSPlusPS_Pol2_EG1, h1_Mean_DataOmegaRotWOPS_Pol2_EG1, h1_Mean_DataOmegaTGPSWOPS_Pol2_EG1, h1_Mean_DataOmegaTGPSPlusWOPS_Pol2_EG1, legYields_EG1, "Data/EG1/Comp/Mean_Pol2.svg");
+
+  SigmaPlotPol1(h1_Sigma_DataOmegaRotPS_Pol1_EG1, h1_Sigma_DataOmegaTGPSPS_Pol1_EG1, h1_Sigma_DataOmegaTGPSPlusPS_Pol1_EG1, h1_Sigma_DataPi0RotPS_Pol1_EG1, h1_Sigma_DataPi0TGPSPlusPS_Pol1_EG1, h1_Sigma_DataOmegaRotWOPS_Pol1_EG1, h1_Sigma_DataOmegaTGPSWOPS_Pol1_EG1, h1_Sigma_DataOmegaTGPSPlusWOPS_Pol1_EG1, legYields_EG1, "Data/EG1/Comp/Sigma_Pol1.svg");
+  SigmaPlotPol2(h1_Sigma_DataOmegaRotPS_Pol2_EG1, h1_Sigma_DataOmegaTGPSPS_Pol2_EG1, h1_Sigma_DataOmegaTGPSPlusPS_Pol2_EG1, h1_Sigma_DataPi0RotPS_Pol2_EG1, h1_Sigma_DataPi0TGPSPlusPS_Pol2_EG1, h1_Sigma_DataOmegaRotWOPS_Pol2_EG1, h1_Sigma_DataOmegaTGPSWOPS_Pol2_EG1, h1_Sigma_DataOmegaTGPSPlusWOPS_Pol2_EG1, legYields_EG1, "Data/EG1/Comp/Sigma_Pol2.svg");
+
 
   // EG 2 Loop
   // h1_Ratio_BackToSame_DataOmegaRotPS_EG2        = (TH1D*) h1_SameEvent_DataOmegaPS_EG2    ->Clone("h1_Ratio_BackToSame_DataOmegaRotPS_EG2       ");
@@ -2711,6 +2737,9 @@ void plotting()
 
   delete h1_Acceptance_EG1;
   delete h1_Acceptance_EG2;
+
+  delete legYields_EG1;
+  delete legYields_EG2;
 
   delete OAhists;
 }
