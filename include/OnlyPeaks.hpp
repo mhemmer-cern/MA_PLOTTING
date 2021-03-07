@@ -20,7 +20,7 @@ SquarePlot OnlyPeaks(TH1D* &TruePeak, TH1D* &Background1, TH1D* &Background2, TH
   // --- Legends ---------------------------------------------------------------
 
   main->Add(lSys);
-  TLegend* l = Legend(main, "true signal\n extracted signal pol1\n extracted signal pol2\n extracted signal pol3\n extracted signal pol4", "lp lp lp lp lp").GetLegendPointer();
+  TLegend l = Legend(main, "true signal\n extracted signal pol1\n extracted signal pol2\n extracted signal pol3\n extracted signal pol4", "lp lp lp lp lp");
 
   // --- Marker ----------------------------------------------------------------
 
@@ -30,7 +30,7 @@ SquarePlot OnlyPeaks(TH1D* &TruePeak, TH1D* &Background1, TH1D* &Background2, TH
 
   // --- Canvasses -------------------------------------------------------------
 
-  Legend::SetPosition(l, 0.55, 0.9, 0.67, 0.875);
+  Legend::SetPosition(&l, 0.55, 0.9, 0.67, 0.875);
 
   SquarePlot square = SquarePlot(main, minv_str, count_str);
   square.SetMode(Plot::Thesis);

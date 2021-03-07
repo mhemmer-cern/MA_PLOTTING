@@ -4,7 +4,7 @@
 #include <vector>
 
 
-SquarePlot YieldsData(TH1D* &Background1, TH1D* &Background2, TH1D* &Background3, TH1D* &Background4, TPaveText* lSys){
+SquarePlot YieldsData(TH1D* Background1, TH1D* Background2, TH1D* Background3, TH1D* Background4, TPaveText* lSys){
   // --- Create TObjArrays -----------------------------------------------------
 
   TObjArray* main = new TObjArray();
@@ -18,7 +18,7 @@ SquarePlot YieldsData(TH1D* &Background1, TH1D* &Background2, TH1D* &Background3
   // --- Legends ---------------------------------------------------------------
 
   main->Add(lSys);
-  TLegend* l = Legend(main, "extracted yield pol1\n extracted yield pol2\n extracted yield pol3\n extracted yield pol4", "lp lp lp lp").GetLegendPointer();
+  TLegend l = Legend(main, "extracted yield pol1\n extracted yield pol2\n extracted yield pol3\n extracted yield pol4", "lp lp lp lp");
 
   // --- Marker ----------------------------------------------------------------
 
@@ -28,7 +28,7 @@ SquarePlot YieldsData(TH1D* &Background1, TH1D* &Background2, TH1D* &Background3
 
   // --- Canvasses -------------------------------------------------------------
 
-  Legend::SetPosition(l, 0.6, 0.9, 0.6, 0.775);
+  Legend::SetPosition(&l, 0.6, 0.9, 0.6, 0.775);
 
   SquarePlot square = SquarePlot(main, pt_str, rawyield);
   square.SetMode(Plot::Thesis);

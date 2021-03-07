@@ -4,7 +4,7 @@
 #include <vector>
 
 
-SquarePlot Yields(TH1D* &TruePeak, TH1D* &Background1, TH1D* &Background2, TH1D* &Background3, TH1D* &Background4, TPaveText* lSys){
+SquarePlot Yields(TH1D* TruePeak, TH1D* Background1, TH1D* Background2, TH1D* Background3, TH1D* Background4, TPaveText* lSys){
   // --- Create TObjArrays -----------------------------------------------------
 
   TObjArray* main = new TObjArray();
@@ -19,7 +19,7 @@ SquarePlot Yields(TH1D* &TruePeak, TH1D* &Background1, TH1D* &Background2, TH1D*
   // --- Legends ---------------------------------------------------------------
 
   main->Add(lSys);
-  TLegend* l = Legend(main, "true yield\n extracted yield pol1\n extracted yield pol2\n extracted yield pol3\n extracted yield pol4", "lp lp lp lp lp").GetLegendPointer();
+  TLegend l = Legend(main, "true yield\n extracted yield pol1\n extracted yield pol2\n extracted yield pol3\n extracted yield pol4", "lp lp lp lp lp");
 
   // --- Marker ----------------------------------------------------------------
 
@@ -29,7 +29,7 @@ SquarePlot Yields(TH1D* &TruePeak, TH1D* &Background1, TH1D* &Background2, TH1D*
 
   // --- Canvasses -------------------------------------------------------------
 
-  Legend::SetPosition(l, 0.6, 0.9, 0.6, 0.775);
+  Legend::SetPosition(&l, 0.6, 0.9, 0.6, 0.775);
 
   SquarePlot square = SquarePlot(main, pt_str, rawyield);
   square.SetMode(Plot::Thesis);
@@ -40,7 +40,7 @@ SquarePlot Yields(TH1D* &TruePeak, TH1D* &Background1, TH1D* &Background2, TH1D*
 
 }
 
-SquarePlot Acceptance(TH1D* &hAcc, TPaveText* lSys){
+SquarePlot Acceptance(TH1D* hAcc, TPaveText* lSys){
   // --- Create TObjArrays -----------------------------------------------------
 
   TObjArray* main = new TObjArray();
@@ -50,7 +50,7 @@ SquarePlot Acceptance(TH1D* &hAcc, TPaveText* lSys){
   // --- Legends ---------------------------------------------------------------
 
   main->Add(lSys);
-  TLegend* l = Legend(main, "acceptance", "lp").GetLegendPointer();
+  TLegend l = Legend(main, "acceptance", "lp");
 
   // --- Marker ----------------------------------------------------------------
 
@@ -60,7 +60,7 @@ SquarePlot Acceptance(TH1D* &hAcc, TPaveText* lSys){
 
   // --- Canvasses -------------------------------------------------------------
 
-  Legend::SetPosition(l, 0.6, 0.9, 0.6, 0.775);
+  Legend::SetPosition(&l, 0.6, 0.9, 0.6, 0.775);
 
   SquarePlot square = SquarePlot(main, pt_str, "acceptance");
   square.SetMode(Plot::Thesis);
@@ -70,7 +70,7 @@ SquarePlot Acceptance(TH1D* &hAcc, TPaveText* lSys){
 
 }
 
-SquarePlot Efficiency(TH1D* &hEffiTrue, TH1D* &hEffi1, TH1D* &hEffi2, TH1D* &hEffi3, TH1D* &hEffi4, TPaveText* lSys){
+SquarePlot Efficiency(TH1D* hEffiTrue, TH1D* hEffi1, TH1D* hEffi2, TH1D* hEffi3, TH1D* hEffi4, TPaveText* lSys){
   // --- Create TObjArrays -----------------------------------------------------
 
   TObjArray* main = new TObjArray();
@@ -84,7 +84,7 @@ SquarePlot Efficiency(TH1D* &hEffiTrue, TH1D* &hEffi1, TH1D* &hEffi2, TH1D* &hEf
   // --- Legends ---------------------------------------------------------------
 
   main->Add(lSys);
-  TLegend* l = Legend(main, "true efficiency\n efficiency pol1\n efficiency pol2\n efficiency pol3\n efficiency pol4", "lp lp lp lp lp").GetLegendPointer();
+  TLegend l = Legend(main, "true efficiency\n efficiency pol1\n efficiency pol2\n efficiency pol3\n efficiency pol4", "lp lp lp lp lp");
 
   // --- Marker ----------------------------------------------------------------
 
@@ -94,7 +94,7 @@ SquarePlot Efficiency(TH1D* &hEffiTrue, TH1D* &hEffi1, TH1D* &hEffi2, TH1D* &hEf
 
   // --- Canvasses -------------------------------------------------------------
 
-  Legend::SetPosition(l, 0.6, 0.9, 0.6, 0.85);
+  Legend::SetPosition(&l, 0.6, 0.9, 0.6, 0.85);
 
   SquarePlot square = SquarePlot(main, pt_str, "efficiency");
   square.SetMode(Plot::Thesis);
@@ -104,7 +104,7 @@ SquarePlot Efficiency(TH1D* &hEffiTrue, TH1D* &hEffi1, TH1D* &hEffi2, TH1D* &hEf
 
 }
 
-SquarePlot CorrYields(TH1D* &TruePeak, TH1D* &Background1, TH1D* &Background2, TH1D* &Background3, TH1D* &Background4, TPaveText* lSys){
+SquarePlot CorrYields(TH1D* TruePeak, TH1D* Background1, TH1D* Background2, TH1D* Background3, TH1D* Background4, TPaveText* lSys){
   // --- Create TObjArrays -----------------------------------------------------
 
   TObjArray* main = new TObjArray();
@@ -119,7 +119,7 @@ SquarePlot CorrYields(TH1D* &TruePeak, TH1D* &Background1, TH1D* &Background2, T
   // --- Legends ---------------------------------------------------------------
 
   main->Add(lSys);
-  TLegend* l = Legend(main, "corrected true yield\n corrected yield pol1\n corrected yield pol2\n corrected yield pol3\n corrected yield pol4", "lp lp lp lp lp").GetLegendPointer();
+  TLegend l = Legend(main, "corrected true yield\n corrected yield pol1\n corrected yield pol2\n corrected yield pol3\n corrected yield pol4", "lp lp lp lp lp");
 
   // --- Marker ----------------------------------------------------------------
 
@@ -129,7 +129,7 @@ SquarePlot CorrYields(TH1D* &TruePeak, TH1D* &Background1, TH1D* &Background2, T
 
   // --- Canvasses -------------------------------------------------------------
 
-  Legend::SetPosition(l, 0.6, 0.9, 0.6, 0.775);
+  Legend::SetPosition(&l, 0.6, 0.9, 0.6, 0.775);
 
   SquarePlot square = SquarePlot(main, pt_str, strCorrectedYield);
   square.SetMode(Plot::Thesis);
@@ -141,7 +141,7 @@ SquarePlot CorrYields(TH1D* &TruePeak, TH1D* &Background1, TH1D* &Background2, T
 }
 
 
-SquarePlot MeanPlot(TH1D* &h1, TH1D* &h2, TH1D* &h3, TH1D* &h4, TPaveText* lSys){
+SquarePlot MeanPlot(TH1D* h1, TH1D* h2, TH1D* h3, TH1D* h4, TPaveText* lSys){
   // --- Create TObjArrays -----------------------------------------------------
 
   TObjArray* main = new TObjArray();
@@ -155,7 +155,7 @@ SquarePlot MeanPlot(TH1D* &h1, TH1D* &h2, TH1D* &h3, TH1D* &h4, TPaveText* lSys)
   // --- Legends ---------------------------------------------------------------
 
   main->Add(lSys);
-  TLegend* l = Legend(main, "#mu (pol1)\n #mu (pol2)\n #mu (pol3)\n #mu (pol4)", "lp lp lp lp").GetLegendPointer();
+  TLegend l = Legend(main, "#mu (pol1)\n #mu (pol2)\n #mu (pol3)\n #mu (pol4)", "lp lp lp lp");
 
   // --- Marker ----------------------------------------------------------------
 
@@ -165,7 +165,7 @@ SquarePlot MeanPlot(TH1D* &h1, TH1D* &h2, TH1D* &h3, TH1D* &h4, TPaveText* lSys)
 
   // --- Canvasses -------------------------------------------------------------
 
-  Legend::SetPosition(l, 0.6, 0.9, 0.725, 0.85);
+  Legend::SetPosition(&l, 0.6, 0.9, 0.725, 0.85);
 
   SquarePlot square = SquarePlot(main, pt_str, "#mu (GeV/#it{c}^{2})");
   square.SetMode(Plot::Thesis);
@@ -176,7 +176,7 @@ SquarePlot MeanPlot(TH1D* &h1, TH1D* &h2, TH1D* &h3, TH1D* &h4, TPaveText* lSys)
 }
 
 
-SquarePlot SigmaPlot(TH1D* &h1, TH1D* &h2, TH1D* &h3, TH1D* &h4, TPaveText* lSys){
+SquarePlot SigmaPlot(TH1D* h1, TH1D* h2, TH1D* h3, TH1D* h4, TPaveText* lSys){
   // --- Create TObjArrays -----------------------------------------------------
 
   TObjArray* main = new TObjArray();
@@ -189,7 +189,7 @@ SquarePlot SigmaPlot(TH1D* &h1, TH1D* &h2, TH1D* &h3, TH1D* &h4, TPaveText* lSys
   // --- Legends ---------------------------------------------------------------
 
   main->Add(lSys);
-  TLegend* l = Legend(main, "#sigma (pol1)\n #sigma (pol2)\n #sigma (pol3)\n #sigma (pol4)", "l l l l").GetLegendPointer();
+  TLegend l = Legend(main, "#sigma (pol1)\n #sigma (pol2)\n #sigma (pol3)\n #sigma (pol4)", "l l l l");
 
   // --- Marker ----------------------------------------------------------------
 
@@ -199,7 +199,7 @@ SquarePlot SigmaPlot(TH1D* &h1, TH1D* &h2, TH1D* &h3, TH1D* &h4, TPaveText* lSys
 
   // --- Canvasses -------------------------------------------------------------
 
-  Legend::SetPosition(l, 0.6, 0.9, 0.725, 0.85);
+  Legend::SetPosition(&l, 0.6, 0.9, 0.725, 0.85);
 
   SquarePlot square = SquarePlot(main, pt_str, "#sigma (GeV/#it{c}^{2})");
   square.SetMode(Plot::Thesis);
@@ -210,7 +210,7 @@ SquarePlot SigmaPlot(TH1D* &h1, TH1D* &h2, TH1D* &h3, TH1D* &h4, TPaveText* lSys
 }
 
 
-SquarePlot MeanRatio(TH1D* &h1, TH1D* &h2, TH1D* &h3, TH1D* &h4, TPaveText* lSys){
+SquarePlot MeanRatio(TH1D* h1, TH1D* h2, TH1D* h3, TH1D* h4, TPaveText* lSys){
   // --- Create TObjArrays -----------------------------------------------------
 
   TObjArray* main = new TObjArray();
@@ -224,7 +224,7 @@ SquarePlot MeanRatio(TH1D* &h1, TH1D* &h2, TH1D* &h3, TH1D* &h4, TPaveText* lSys
   // --- Legends ---------------------------------------------------------------
 
   main->Add(lSys);
-  TLegend* l = Legend(main, "pol1\n pol2\n pol3\n pol4", "lp lp lp lp").GetLegendPointer();
+  TLegend l = Legend(main, "pol1\n pol2\n pol3\n pol4", "lp lp lp lp");
 
   // --- Marker ----------------------------------------------------------------
 
@@ -234,7 +234,7 @@ SquarePlot MeanRatio(TH1D* &h1, TH1D* &h2, TH1D* &h3, TH1D* &h4, TPaveText* lSys
 
   // --- Canvasses -------------------------------------------------------------
 
-  Legend::SetPosition(l, 0.6, 0.9, 0.725, 0.85);
+  Legend::SetPosition(&l, 0.6, 0.9, 0.725, 0.85);
 
   SquarePlot square = SquarePlot(main, pt_str, "#frac{#mu_{Data}}{#mu_{MC}}");
   square.SetMode(Plot::Thesis);

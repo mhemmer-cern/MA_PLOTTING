@@ -35,7 +35,7 @@ SquarePlot Chi2Test(TH1D* &True, TH1D* &Background1, TH1D* &Background2, TH1D* &
   TLine* line = new TLine(8.0, 1.0, 32.0, 1.0);
   main->Add(line);
   main->Add(lSys);
-  TLegend* l = Legend(main, "true reconstructed\n extracted with pol1\n extracted with pol2\n extracted with pol3\n extracted with pol4\n treshold", "lp lp lp lp lp l").GetLegendPointer();
+  TLegend l = Legend(main, "true reconstructed\n extracted with pol1\n extracted with pol2\n extracted with pol3\n extracted with pol4\n treshold", "lp lp lp lp lp l");
 
   // --- Marker ----------------------------------------------------------------
 
@@ -45,7 +45,7 @@ SquarePlot Chi2Test(TH1D* &True, TH1D* &Background1, TH1D* &Background2, TH1D* &
 
   // --- Canvasses -------------------------------------------------------------
 
-  Legend::SetPosition(l, 0.6, 0.9, 0.6, 0.775);
+  Legend::SetPosition(&l, 0.6, 0.9, 0.6, 0.775);
 
   SquarePlot square = SquarePlot(main, pt_str, "#frac{#chi^{2}}{ndf}");
   square.SetMode(Plot::Thesis);
@@ -73,7 +73,7 @@ SquarePlot Chi2TestData(TH1D* &Background1, TH1D* &Background2, TH1D* &Backgroun
   TLine* line = new TLine(8.0, 1.0, 32.0, 1.0);
   main->Add(line);
   main->Add(lSys);
-  TLegend* l = Legend(main, "extracted with pol1\n extracted with pol2\n extracted with pol3\n extracted with pol4\n treshold", "lp lp lp lp l").GetLegendPointer();
+  TLegend l = Legend(main, "extracted with pol1\n extracted with pol2\n extracted with pol3\n extracted with pol4\n treshold", "lp lp lp lp l");
 
   // --- Marker ----------------------------------------------------------------
 
@@ -83,7 +83,7 @@ SquarePlot Chi2TestData(TH1D* &Background1, TH1D* &Background2, TH1D* &Backgroun
 
   // --- Canvasses -------------------------------------------------------------
 
-  Legend::SetPosition(l, 0.6, 0.9, 0.6, 0.775);
+  Legend::SetPosition(&l, 0.6, 0.9, 0.6, 0.775);
 
   SquarePlot square = SquarePlot(main, pt_str, "#frac{#chi^{2}_{data to MC}}{ndf}");
   square.SetMode(Plot::Thesis);

@@ -4,11 +4,10 @@
 #include "TFractionFitter.h"
 #include <vector>
 
-
-SquarePlot Peaks(TH1D* &TruePeak, TH1D* &Background1, TH1D* &Background2, TH1D* &Background3, TH1D* &Background4, TPaveText* lSys){
+void Peaks(TH1D* TruePeak, TH1D* Background1, TH1D* Background2, TH1D* Background3, TH1D* Background4, TPaveText* lSys, TString outname){
   // --- Create TObjArrays -----------------------------------------------------
 
-  TObjArray* main = new TObjArray();
+  std::unique_ptr<TObjArray> main (new TObjArray);
   TruePeak->SetMaximum(TruePeak->GetMaximum()*1.8);
   TruePeak->SetMinimum(-0.1*TruePeak->GetMaximum());
   main->Add(TruePeak);
@@ -20,7 +19,7 @@ SquarePlot Peaks(TH1D* &TruePeak, TH1D* &Background1, TH1D* &Background2, TH1D* 
   // --- Legends ---------------------------------------------------------------
 
   main->Add(lSys);
-  TLegend* l = Legend(main, "true signal\n extracted signal pol1\n extracted signal pol2\n extracted signal pol3\n extracted signal pol4", "lp lp lp lp lp").GetLegendPointer();
+  std::unique_ptr<Legend> l (new Legend(main.get(), "true signal\n extracted signal pol1\n extracted signal pol2\n extracted signal pol3\n extracted signal pol4", "lp lp lp lp lp") );
 
   // --- Marker ----------------------------------------------------------------
 
@@ -30,56 +29,121 @@ SquarePlot Peaks(TH1D* &TruePeak, TH1D* &Background1, TH1D* &Background2, TH1D* 
 
   // --- Canvasses -------------------------------------------------------------
 
-  Legend::SetPosition(l, 0.55, 0.9, 0.67, 0.875);
+  Legend::SetPosition(l.get(), 0.55, 0.9, 0.67, 0.875);
 
-  SquarePlot square = SquarePlot(main, minv_str, count_str);
+  SquarePlot square = SquarePlot(main.get(), minv_str, count_str);
   square.SetMode(Plot::Thesis);
   square.SetRanges(0.4, 1.2, TruePeak->GetMinimum(), TruePeak->GetMaximum());
   square.SetStyle(colors, markers, sizes);
-  return square;
+  square.SetCanvasMargins(0.025, .1, 0.03, .1);
+
+  square.Draw(outname);
+  return;
 
 }
 
-SquarePlot PeaksData(TH1D* &Background1, TH1D* &Background2, TH1D* &Background3, TH1D* &Background4, TPaveText* lSys){
+void PeaksData(TH1D* PeakPol1, TH1D* PeakPol2, TPaveText* lSys, TString outname){
   // --- Create TObjArrays -----------------------------------------------------
 
-  TObjArray* main = new TObjArray();
-  Background1->SetMaximum(Background1->GetBinContent(Background1->FindBin(0.78))*2.1);
-  Background1->SetMinimum(Background1->GetBinContent(Background1->FindBin(0.50))*0.7);
-  main->Add(Background1);
-  main->Add(Background2);
-  main->Add(Background3);
-  main->Add(Background4);
+  std::unique_ptr<TObjArray> main (new TObjArray);
+  main->Add(PeakPol1);
+  main->Add(PeakPol2);
 
   // --- Legends ---------------------------------------------------------------
 
   main->Add(lSys);
-  TLegend* l = Legend(main, "extracted signal pol1\n extracted signal pol2\n extracted signal pol3\n extracted signal pol4", "lp lp lp lp").GetLegendPointer();
+  std::unique_ptr<Legend> l (new Legend(main.get(), "extracted signal pol1\n extracted signal pol2", "lp lp") );
 
   // --- Marker ----------------------------------------------------------------
 
-  vector<Color_t> colors = {kMagenta+3, kBlue+3, kCyan+1, kOrange+2};
-  vector<Style_t> markers = {kFullDiamond, kOpenCircle, kOpenSquare, kOpenDiamond};
-  vector<Size_t>  sizes = {3., 2., 2. ,2.5};
+  vector<Color_t> colors = {kCyan-3, kPink-3, 1, 1};
+  vector<Style_t> markers = {kOpenSquare, kOpenCircle, 1, 1};
+  vector<Size_t>  sizes = {2., 2., 1, 1};
 
   // --- Canvasses -------------------------------------------------------------
 
-  Legend::SetPosition(l, 0.55, 0.9, 0.67, 0.875);
+  Legend::SetPosition(l.get(), 0.55, 0.9, 0.8, 0.9);
 
-  SquarePlot square = SquarePlot(main, minv_str, count_str);
+  SquarePlot square = SquarePlot(main.get(), minv_str, count_str);
   square.SetMode(Plot::Thesis);
-  square.SetRanges(0.4, 1.2, Background1->GetMinimum(), Background1->GetMaximum());
+  square.SetRanges(0.5, 1.2, PeakPol1->GetMinimum(), PeakPol1->GetMaximum());
   square.SetStyle(colors, markers, sizes);
-  return square;
+  square.SetCanvasMargins(0.025, .1, 0.03, .1);
+
+  square.Draw(outname);
+  return;
 
 }
 
-SquarePlot PeaksDataWithFits(TH1D* &Background1, TH1D* &Background2, TH1D* &Background3, TH1D* &Background4, TF1* &f1, TF1* &f2, TF1* &f3, TF1* &f4, TPaveText* lSys){
+void PeaksDataPol1Comp(TH1D* PeakOmegaRotPS, TH1D* PeakOmegaTGPSPS, TH1D* PeakOmegaTGPSPlusPS, TH1D* PeakPi0RotPS ,TH1D* PeakPi0TGPSPlusPS, TH1D* PeakOmegaRotWOPS, TH1D* PeakOmegaTGPSWOPS, TH1D* PeakOmegaTGPSPlusWOPS, TPaveText* lSys, TString outname){
+  // --- Create TObjArrays -----------------------------------------------------
+  std::unique_ptr<TObjArray> main (new TObjArray);
+  main->Add(PeakOmegaRotPS);
+  main->Add(PeakOmegaTGPSPS);
+  main->Add(PeakOmegaTGPSPlusPS);
+  main->Add(PeakPi0RotPS);
+  main->Add(PeakPi0TGPSPlusPS);
+  main->Add(PeakOmegaRotWOPS);
+  main->Add(PeakOmegaTGPSWOPS);
+  main->Add(PeakOmegaTGPSPlusWOPS);
+
+  // --- Legends ---------------------------------------------------------------
+  main->Add(lSys);
+  std::unique_ptr<Legend> l (new Legend(main.get(), "OmegaRotPS\n OmegaTGPSPS\n OmegaTGPSPlusPS\n Pi0RotPS\n Pi0TGPSPlusPS\n OmegaRotWOPS\n OmegaTGPSWOPS\n OmegaTGPSPlusWOPS", "lp lp lp lp lp lp lp lp", "extracted signal pol1") );
+
+  // --- Marker ----------------------------------------------------------------
+  vector<Color_t> colors = {kOrange-3, kViolet-3, kGreen-3, kRed-3, kBlue-3, kPink-3, kAzure-3, kSpring-3, 1, 1};
+  vector<Style_t> markers = {kOpenCircle, kOpenCircle, kOpenCircle, kOpenDiamond, kOpenDiamond, kOpenSquare, kOpenSquare, kOpenSquare, 1, 1};
+  vector<Size_t>  sizes = {3., 3., 3., 3., 3., 2.5, 2.5, 2.5, 1, 1};
+
+  // --- Canvasses -------------------------------------------------------------
+  Legend::SetPosition(l.get(), 0.55, 0.9, 0.6, 0.85);
+  SquarePlot square = SquarePlot(main.get(), minv_str, count_str);
+  square.SetMode(Plot::Thesis);
+  square.SetRanges(0.5, 1.2, PeakOmegaTGPSPlusPS->GetMinimum(), PeakOmegaTGPSPlusPS->GetMaximum());
+  square.SetStyle(colors, markers, sizes);
+  square.SetCanvasMargins(0.025, .1, 0.03, .1);
+  square.Draw(outname);
+  return;
+
+}
+
+void PeaksDataPol2Comp(TH1D* PeakOmegaRotPS, TH1D* PeakOmegaTGPSPS, TH1D* PeakOmegaTGPSPlusPS, TH1D* PeakPi0RotPS ,TH1D* PeakPi0TGPSPlusPS, TH1D* PeakOmegaRotWOPS, TH1D* PeakOmegaTGPSWOPS, TH1D* PeakOmegaTGPSPlusWOPS, TPaveText* lSys, TString outname){
+  // --- Create TObjArrays -----------------------------------------------------
+  std::unique_ptr<TObjArray> main (new TObjArray);
+  main->Add(PeakOmegaRotPS);
+  main->Add(PeakOmegaTGPSPS);
+  main->Add(PeakOmegaTGPSPlusPS);
+  main->Add(PeakPi0RotPS);
+  main->Add(PeakPi0TGPSPlusPS);
+  main->Add(PeakOmegaRotWOPS);
+  main->Add(PeakOmegaTGPSWOPS);
+  main->Add(PeakOmegaTGPSPlusWOPS);
+
+  // --- Legends ---------------------------------------------------------------
+  main->Add(lSys);
+  std::unique_ptr<Legend> l (new Legend(main.get(), "OmegaRotPS\n OmegaTGPSPS\n OmegaTGPSPlusPS\n Pi0RotPS\n Pi0TGPSPlusPS\n OmegaRotWOPS\n OmegaTGPSWOPS\n OmegaTGPSPlusWOPS", "lp lp lp lp lp lp lp lp", "extracted signal pol2") );
+  // --- Marker ----------------------------------------------------------------
+  vector<Color_t> colors = {kOrange-3, kViolet-3, kGreen-3, kRed-3, kBlue-3, kPink-3, kAzure-3, kSpring-3, 1, 1};
+  vector<Style_t> markers = {kOpenCircle, kOpenCircle, kOpenCircle, kOpenDiamond, kOpenDiamond, kOpenSquare, kOpenSquare, kOpenSquare, 1, 1};
+  vector<Size_t>  sizes = {3., 3., 3., 3., 3., 2.5, 2.5, 2.5, 1, 1};
+
+  // --- Canvasses -------------------------------------------------------------
+  Legend::SetPosition(l.get(), 0.55, 0.9, 0.6, 0.85);
+  SquarePlot square = SquarePlot(main.get(), minv_str, count_str);
+  square.SetMode(Plot::Thesis);
+  square.SetRanges(0.5, 1.2, PeakOmegaTGPSPlusPS->GetMinimum(), PeakOmegaTGPSPlusPS->GetMaximum());
+  square.SetStyle(colors, markers, sizes);
+  square.SetCanvasMargins(0.025, .1, 0.03, .1);
+  square.Draw(outname);
+  return;
+
+}
+
+void PeaksDataWithFits(TH1D* &Background1, TH1D* &Background2, TH1D* &Background3, TH1D* &Background4, TF1* &f1, TF1* &f2, TF1* &f3, TF1* &f4, TPaveText* lSys, TString outname){
   // --- Create TObjArrays -----------------------------------------------------
 
-  TObjArray* main = new TObjArray();
-  // Background1->SetMaximum(Background1->GetBinContent(Background1->FindBin(0.78))*2.1);
-  // Background1->SetMinimum(Background1->GetBinContent(Background1->FindBin(0.50))*0.7);
+  std::unique_ptr<TObjArray> main (new TObjArray);
   main->Add(Background1);
   main->Add(Background2);
   main->Add(Background3);
@@ -92,7 +156,7 @@ SquarePlot PeaksDataWithFits(TH1D* &Background1, TH1D* &Background2, TH1D* &Back
   // --- Legends ---------------------------------------------------------------
 
   main->Add(lSys);
-  TLegend* l = Legend(main, "extracted signal pol1\n extracted signal pol2\n extracted signal pol3\n extracted signal pol4", "lp lp lp lp").GetLegendPointer();
+  std::unique_ptr<Legend> l (new Legend(main.get(), "extracted signal pol1\n extracted signal pol2\n extracted signal pol3\n extracted signal pol4", "lp lp lp lp") );
 
   // --- Marker ----------------------------------------------------------------
 
@@ -102,20 +166,23 @@ SquarePlot PeaksDataWithFits(TH1D* &Background1, TH1D* &Background2, TH1D* &Back
 
   // --- Canvasses -------------------------------------------------------------
 
-  Legend::SetPosition(l, 0.55, 0.9, 0.67, 0.875);
+  Legend::SetPosition(l.get(), 0.55, 0.9, 0.67, 0.875);
 
-  SquarePlot square = SquarePlot(main, minv_str, count_str);
+  SquarePlot square = SquarePlot(main.get(), minv_str, count_str);
   square.SetMode(Plot::Thesis);
-  square.SetRanges(0.4, 1.2, Background1->GetMinimum(), Background1->GetMaximum());
+  square.SetRanges(0.5, 1.2, Background1->GetMinimum(), Background1->GetMaximum());
   square.SetStyle(colors, markers, sizes);
-  return square;
+  square.SetCanvasMargins(0.025, .1, 0.03, .1);
+
+  square.Draw(outname);
+  return;
 
 }
 
-SquarePlot PeaksNormalized(TH1D* &h1, TH1D* &h2, TPaveText* lSys){
+void PeaksNormalized(TH1D* &h1, TH1D* &h2, TPaveText* lSys, TString outname){
   // --- Create TObjArrays -----------------------------------------------------
 
-  TObjArray* main = new TObjArray();
+  std::unique_ptr<TObjArray> main (new TObjArray);
   h1->SetMaximum(h1->GetBinContent(h1->FindBin(0.78))*2.5);
   h1->SetMinimum(0);
   main->Add(h1);
@@ -124,7 +191,7 @@ SquarePlot PeaksNormalized(TH1D* &h1, TH1D* &h2, TPaveText* lSys){
   // --- Legends ---------------------------------------------------------------
 
   main->Add(lSys);
-  TLegend* l = Legend(main, "extracted signal (data)\n extracted signal (MC)", "lp lp").GetLegendPointer();
+  std::unique_ptr<Legend> l (new Legend(main.get(), "extracted signal (data)\n extracted signal (MC)", "lp lp") );
 
   // --- Marker ----------------------------------------------------------------
 
@@ -134,12 +201,15 @@ SquarePlot PeaksNormalized(TH1D* &h1, TH1D* &h2, TPaveText* lSys){
 
   // --- Canvasses -------------------------------------------------------------
 
-  Legend::SetPosition(l, 0.55, 0.9, 0.67, 0.875);
+  Legend::SetPosition(l.get(), 0.55, 0.9, 0.67, 0.875);
 
-  SquarePlot square = SquarePlot(main, minv_str, count_str);
+  SquarePlot square = SquarePlot(main.get(), minv_str, count_str);
   square.SetMode(Plot::Thesis);
   square.SetRanges(0.4, 1.2, h1->GetMinimum(), h1->GetMaximum());
   square.SetStyle(colors, markers, sizes);
-  return square;
+  square.SetCanvasMargins(0.025, .1, 0.03, .1);
+
+  square.Draw(outname);
+  return;
 
 }

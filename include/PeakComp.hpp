@@ -34,7 +34,7 @@ SquarePlot PeakComp(TH1D* &hTruePeak, TH1D* &hTrueReco, TH1D* &DataReco, TPaveTe
   // --- Legends ---------------------------------------------------------------
 
   main->Add(lSys);
-  TLegend* l = Legend(main, legstring.Data(), "lp lp lp").GetLegendPointer();
+  TLegend l = Legend(main, legstring.Data(), "lp lp lp");
 
   // --- Marker ----------------------------------------------------------------
 
@@ -44,7 +44,7 @@ SquarePlot PeakComp(TH1D* &hTruePeak, TH1D* &hTrueReco, TH1D* &DataReco, TPaveTe
 
   // --- Canvasses -------------------------------------------------------------
 
-  Legend::SetPosition(l, 0.55, 0.9, 0.67, 0.875);
+  Legend::SetPosition(&l, 0.55, 0.9, 0.67, 0.875);
 
   SquarePlot square = SquarePlot(main, minv_str, count_str);
   square.SetMode(Plot::Thesis);

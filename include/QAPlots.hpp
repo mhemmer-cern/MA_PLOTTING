@@ -17,7 +17,7 @@ SquarePlot Dalitz01(TH1D* &hData, TH1D* &hTrue, TPaveText* lSys){
   // --- Legends ---------------------------------------------------------------
 
   main->Add(lSys);
-  TLegend* l = Legend(main, "data\n MC truth\n background", "lp lp lp").GetLegendPointer();
+  TLegend l = Legend(main, "data\n MC truth\n background", "lp lp lp");
 
   // --- Marker ----------------------------------------------------------------
 
@@ -27,7 +27,7 @@ SquarePlot Dalitz01(TH1D* &hData, TH1D* &hTrue, TPaveText* lSys){
 
   // --- Canvasses -------------------------------------------------------------
 
-  Legend::SetPosition(l, 0.55, 0.9, 0.67, 0.875);
+  Legend::SetPosition(&l, 0.55, 0.9, 0.67, 0.875);
 
   SquarePlot square = SquarePlot(main, "#it{m}^{2}_{#gamma_{0}#gamma_{1}}", "#it{count}");
   square.SetMode(Plot::Thesis);
@@ -52,7 +52,7 @@ SquarePlot Dalitz12(TH1D* &hData, TH1D* &hTrue, TH1D* hBack, TPaveText* lSys){
   // --- Legends ---------------------------------------------------------------
 
   main->Add(lSys);
-  TLegend* l = Legend(main, "data\n MC truth\n background", "lp lp lp").GetLegendPointer();
+  TLegend l = Legend(main, "data\n MC truth\n background", "lp lp lp");
 
   // --- Marker ----------------------------------------------------------------
 
@@ -62,7 +62,7 @@ SquarePlot Dalitz12(TH1D* &hData, TH1D* &hTrue, TH1D* hBack, TPaveText* lSys){
 
   // --- Canvasses -------------------------------------------------------------
 
-  Legend::SetPosition(l, 0.55, 0.9, 0.67, 0.875);
+  Legend::SetPosition(&l, 0.55, 0.9, 0.67, 0.875);
 
   SquarePlot square = SquarePlot(main, "#it{m}^{2}_{#gamma_{0/1}#gamma_{2}}", "#it{count}");
   square.SetMode(Plot::Thesis);
@@ -85,7 +85,7 @@ SquarePlot OmegaPiZeroCosTheta(TH1D* &hData, TH1D* &hTrue, TPaveText* lSys){
   // --- Legends ---------------------------------------------------------------
 
   main->Add(lSys);
-  TLegend* l = Legend(main, "data\n MC truth", "lp lp").GetLegendPointer();
+  TLegend l = Legend(main, "data\n MC truth", "lp lp");
 
   // --- Marker ----------------------------------------------------------------
 
@@ -95,7 +95,7 @@ SquarePlot OmegaPiZeroCosTheta(TH1D* &hData, TH1D* &hTrue, TPaveText* lSys){
 
   // --- Canvasses -------------------------------------------------------------
 
-  Legend::SetPosition(l, 0.55, 0.9, 0.67, 0.875);
+  Legend::SetPosition(&l, 0.55, 0.9, 0.67, 0.875);
 
   SquarePlot square = SquarePlot(main, "cos(#theta*)", "#it{count}");
   square.SetMode(Plot::Thesis);
