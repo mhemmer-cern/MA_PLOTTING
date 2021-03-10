@@ -3,6 +3,7 @@ build/
 install/
 Data/
 Comp/
+MC/
 CMakeFiles/
 build/CMakeFiles
 build/cmake_install.cmake
