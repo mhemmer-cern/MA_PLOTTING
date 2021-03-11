@@ -9,8 +9,6 @@ void PeaksMC(TH1D* TruePeak, TH1D* Background1, TH1D* Background2, TPaveText* lS
   // --- Create TObjArrays -----------------------------------------------------
 
   std::unique_ptr<TObjArray> main (new TObjArray);
-  TruePeak->SetMaximum(TruePeak->GetMaximum()*1.8);
-  TruePeak->SetMinimum(-0.1*TruePeak->GetMaximum());
   main->Add(TruePeak);
   main->Add(Background1);
   main->Add(Background2);
@@ -23,7 +21,7 @@ void PeaksMC(TH1D* TruePeak, TH1D* Background1, TH1D* Background2, TPaveText* lS
   // --- Marker ----------------------------------------------------------------
 
   vector<Color_t> colors = {kBlack, kCyan-3, kPink-3, 1, 1};
-  vector<Style_t> markers = {71, kOpenSquare, kOpenCircle, 1, 1};
+  vector<Style_t> markers = {kFullCircle, kOpenSquare, kOpenCircle, 1, 1};
   vector<Size_t>  sizes = {3., 2., 2., 1, 1};
 
   // --- Canvasses -------------------------------------------------------------
@@ -60,7 +58,7 @@ void PeaksMCPol1Comp(TH1D* TruePeak ,TH1D* PeakOmegaRotPS, TH1D* PeakOmegaTGPSPS
 
   // --- Marker ----------------------------------------------------------------
   vector<Color_t> colors = {kBlack, kOrange-3, kViolet-3, kGreen-3, kRed-3, kBlue-3, kPink-3, kAzure-3, kSpring-3, 1, 1};
-  vector<Style_t> markers = {71, kOpenCircle, kOpenCircle, kOpenCircle, kOpenDiamond, kOpenDiamond, kOpenSquare, kOpenSquare, kOpenSquare, 1, 1};
+  vector<Style_t> markers = {kFullCircle, kOpenCircle, kOpenCircle, kOpenCircle, kOpenDiamond, kOpenDiamond, kOpenSquare, kOpenSquare, kOpenSquare, 1, 1};
   vector<Size_t>  sizes = {3., 3., 3., 3., 3., 3., 2.5, 2.5, 2.5, 1, 1};
 
   // --- Canvasses -------------------------------------------------------------
@@ -94,7 +92,7 @@ void PeaksMCPol2Comp(TH1D* TruePeak, TH1D* PeakOmegaRotPS, TH1D* PeakOmegaTGPSPS
   std::unique_ptr<Legend> l (new Legend(main.get(), "true signal\n OmegaRotPS\n OmegaTGPSPS\n OmegaTGPSPlusPS\n Pi0RotPS\n Pi0TGPSPlusPS\n OmegaRotWOPS\n OmegaTGPSWOPS\n OmegaTGPSPlusWOPS", "lp lp lp lp lp lp lp lp", "extracted signal pol2") );
   // --- Marker ----------------------------------------------------------------
   vector<Color_t> colors = {kBlack, kOrange-3, kViolet-3, kGreen-3, kRed-3, kBlue-3, kPink-3, kAzure-3, kSpring-3, 1, 1};
-  vector<Style_t> markers = {71, kOpenCircle, kOpenCircle, kOpenCircle, kOpenDiamond, kOpenDiamond, kOpenSquare, kOpenSquare, kOpenSquare, 1, 1};
+  vector<Style_t> markers = {kFullCircle, kOpenCircle, kOpenCircle, kOpenCircle, kOpenDiamond, kOpenDiamond, kOpenSquare, kOpenSquare, kOpenSquare, 1, 1};
   vector<Size_t>  sizes = {3.0, 3., 3., 3., 3., 3., 2.5, 2.5, 2.5, 1, 1};
 
   // --- Canvasses -------------------------------------------------------------
