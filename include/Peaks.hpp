@@ -283,3 +283,44 @@ void PeaksNormalized(TH1D* h1, TH1D* h2, TPaveText* lSys, TString outname)
   return;
 
 }
+
+void PeakRatio(TH1D* PeakOmegaRotPS, TH1D* PeakOmegaTGPSPS, TH1D* PeakOmegaTGPSPlusPS,
+            TH1D* PeakPi0RotPS ,TH1D* PeakPi0TGPSPlusPS, TH1D* PeakOmegaRotWOPS, TH1D* PeakOmegaTGPSWOPS,
+            TH1D* PeakOmegaTGPSPlusWOPS, TPaveText* lSys, TString outname, TString legHead,
+            Double_t lowX, Double_t highX){
+  // --- Create TObjArrays -----------------------------------------------------
+
+  std::unique_ptr<TObjArray> main (new TObjArray);
+  main->Add(PeakOmegaRotPS);
+  main->Add(PeakOmegaTGPSPS);
+  main->Add(PeakOmegaTGPSPlusPS);
+  main->Add(PeakPi0RotPS);
+  main->Add(PeakPi0TGPSPlusPS);
+  main->Add(PeakOmegaRotWOPS);
+  main->Add(PeakOmegaTGPSWOPS);
+  main->Add(PeakOmegaTGPSPlusWOPS);
+
+  // --- Legends ---------------------------------------------------------------
+
+  main->Add(lSys);
+  std::unique_ptr<Legend> l (new Legend(main.get(), "OmegaRotPS\n OmegaTGPSPS\n OmegaTGPSPlusPS\n Pi0RotPS\n Pi0TGPSPlusPS\n OmegaRotWOPS\n OmegaTGPSWOPS\n OmegaTGPSPlusWOPS", "lp lp lp lp lp lp lp lp", legHead.Data()) );
+
+  // --- Marker ----------------------------------------------------------------
+  vector<Color_t> colors = {kOrange-3, kViolet-3, kGreen-3, kRed-3, kBlue-3, kPink-3, kAzure-3, kSpring-3, 1, 1};
+  vector<Style_t> markers = {kOpenCircle, kOpenCircle, kOpenCircle, kOpenDiamond, kOpenDiamond, kOpenSquare, kOpenSquare, kOpenSquare, 1, 1};
+  vector<Size_t>  sizes = {3., 3., 3., 3., 3., 2.5, 2.5, 2.5, 1, 1};
+
+  // --- Canvasses -------------------------------------------------------------
+
+  Legend::SetPosition(l.get(), 0.5, 0.9, 0.6, 0.875);
+
+  SquarePlot square = SquarePlot(main.get(), minv_str, "peak ratio #frac{data}{MC}");
+  square.SetMode(Plot::Thesis);
+  square.SetStyle(colors, markers, sizes);
+  square.SetRanges(lowX, highX, -3., +7.);
+  square.SetCanvasMargins(0.025, .12, 0.03, .1);
+  square.SetCanvasOffsets(1.2, 1.4);
+  square.Draw(outname);
+  return;
+
+}
