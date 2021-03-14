@@ -3,6 +3,20 @@
 #include "/home/tavlin/Documents/git/Header/Plot.h"
 #include <vector>
 
+void GetMeanAndStdvar(TH1D* h1, Double_t &mean, Double_t &stdvar)
+{
+  mean = 0.0;
+  stdvar = 0.0;
+  for (int bin = 0; bin < h1->GetNbinsX(); bin++) {
+    mean += h1->GetBinContent(bin);
+  }
+  mean /= h1->GetNbinsX();
+  for (int bin = 0; bin < h1->GetNbinsX(); bin++) {
+    stdvar += pow(h1->GetBinContent(bin)-mean, 2.0);
+  }
+  stdvar = sqrt(stdvar/h1->GetNbinsX());
+}
+
 
 void Yields(TH1D* TruePeak ,TH1D* PeakOmegaRotPS, TH1D* PeakOmegaTGPSPS, TH1D* PeakOmegaTGPSPlusPS,
             TH1D* PeakPi0RotPS ,TH1D* PeakPi0TGPSPlusPS, TH1D* PeakOmegaRotWOPS, TH1D* PeakOmegaTGPSWOPS,
@@ -388,5 +402,88 @@ void Chi2(TH1D* PeakOmegaRotPS, TH1D* PeakOmegaTGPSPS, TH1D* PeakOmegaTGPSPlusPS
   square.SetCanvasOffsets(1.2, 1.5);
   square.Draw(outname);
   return;
+}
 
+
+void FillChi2Histo(TH1D* h1, TH1D* PeakOmegaRotPS, TH1D* PeakOmegaTGPSPS, TH1D* PeakOmegaTGPSPlusPS,
+            TH1D* PeakPi0RotPS ,TH1D* PeakPi0TGPSPlusPS, TH1D* PeakOmegaRotWOPS, TH1D* PeakOmegaTGPSWOPS,
+            TH1D* PeakOmegaTGPSPlusWOPS)
+{
+
+  Double_t mean = 0.0;
+  Double_t stdvar = 0.0;
+
+  GetMeanAndStdvar(PeakOmegaRotPS, mean, stdvar);
+
+  h1->SetBinContent(1, mean);
+  h1->SetBinError(1, stdvar);
+
+  GetMeanAndStdvar(PeakOmegaTGPSPS, mean, stdvar);
+
+  h1->SetBinContent(2, mean);
+  h1->SetBinError(2, stdvar);
+
+  GetMeanAndStdvar(PeakOmegaTGPSPlusPS, mean, stdvar);
+
+  h1->SetBinContent(3, mean);
+  h1->SetBinError(3, stdvar);
+
+  GetMeanAndStdvar(PeakPi0RotPS, mean, stdvar);
+
+  h1->SetBinContent(4, mean);
+  h1->SetBinError(4, stdvar);
+
+  GetMeanAndStdvar(PeakPi0TGPSPlusPS, mean, stdvar);
+
+  h1->SetBinContent(5, mean);
+  h1->SetBinError(5, stdvar);
+
+  GetMeanAndStdvar(PeakOmegaRotWOPS, mean, stdvar);
+
+  h1->SetBinContent(6, mean);
+  h1->SetBinError(6, stdvar);
+
+  GetMeanAndStdvar(PeakOmegaTGPSWOPS, mean, stdvar);
+
+  h1->SetBinContent(7, mean);
+  h1->SetBinError(7, stdvar);
+
+  GetMeanAndStdvar(PeakOmegaTGPSPlusWOPS, mean, stdvar);
+
+  h1->SetBinContent(8, mean);
+  h1->SetBinError(8, stdvar);
+  return;
+}
+
+void Chi2Comp(TH1D* h1, TPaveText* lSys, TString outname, TString legHead)
+{
+  // --- Create TObjArrays -----------------------------------------------------
+
+  std::unique_ptr<TObjArray> main (new TObjArray);
+  main->Add(h1);
+  // --- Legends ---------------------------------------------------------------
+
+  // char *methods[8] = {"OmegaRotPS", "OmegaTGPSPS". "OmegaTGPSPlusPS", "Pi0RotPS",
+  // "Pi0TGPSPlusPS", "OmegaRotWOPS","OmegaTGPSWOPS","OmegaTGPSPlusWOPS"};
+
+  main->Add(lSys);
+  std::unique_ptr<Legend> l (new Legend(main.get(), "mean(#chi^{2}/NDF)", "lp", legHead.Data()) );
+
+  // --- Marker ----------------------------------------------------------------
+  vector<Color_t> colors = {kBlack, 1, 1};
+  vector<Style_t> markers = {kOpenCircle, 1, 1};
+  vector<Size_t>  sizes = {3., 1, 1};
+
+  // --- Canvasses -------------------------------------------------------------
+
+  Legend::SetPosition(l.get(), 0.5, 0.9, 0.7, 0.8);
+
+  SquarePlot square = SquarePlot(main.get(), "method", "mean#left(#frac{#chi^{2}}{NDF}#right)");
+  square.SetMode(Plot::Thesis);
+  square.SetStyle(colors, markers, sizes);
+  square.SetRanges(0., 8., 0., 10.);
+  square.SetCanvasMargins(0.025, .12, 0.03, .1);
+  square.SetCanvasOffsets(1.2, 1.5);
+  square.Draw(outname);
+  return;
 }

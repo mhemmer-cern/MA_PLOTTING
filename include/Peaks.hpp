@@ -317,7 +317,7 @@ void PeakRatio(TH1D* PeakOmegaRotPS, TH1D* PeakOmegaTGPSPS, TH1D* PeakOmegaTGPSP
   SquarePlot square = SquarePlot(main.get(), minv_str, "peak ratio #frac{data}{MC}");
   square.SetMode(Plot::Thesis);
   square.SetStyle(colors, markers, sizes);
-  square.SetRanges(lowX, highX, -3., +7.);
+  square.SetRanges(lowX, highX, -2., +3.5);
   square.SetCanvasMargins(0.025, .12, 0.03, .1);
   square.SetCanvasOffsets(1.2, 1.4);
   square.Draw(outname);
