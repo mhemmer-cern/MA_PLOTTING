@@ -461,10 +461,16 @@ void Chi2Comp(TH1D* h1, TPaveText* lSys, TString outname, TString legHead)
 
   std::unique_ptr<TObjArray> main (new TObjArray);
   main->Add(h1);
+
+  const char *methods[8] = {"OmegaRotPS", "OmegaTGPSPS", "OmegaTGPSPlusPS", "Pi0RotPS",
+  "Pi0TGPSPlusPS", "OmegaRotWOPS","OmegaTGPSWOPS","OmegaTGPSPlusWOPS"};
+  for (int bin = 1; bin <= h1->GetNbinsX(); bin++)
+  {
+    h1->GetXaxis()->SetBinLabel(bin, methods[bin-1]);
+  }
+  h1->GetXaxis()->LabelsOption("u");
   // --- Legends ---------------------------------------------------------------
 
-  // char *methods[8] = {"OmegaRotPS", "OmegaTGPSPS". "OmegaTGPSPlusPS", "Pi0RotPS",
-  // "Pi0TGPSPlusPS", "OmegaRotWOPS","OmegaTGPSWOPS","OmegaTGPSPlusWOPS"};
 
   main->Add(lSys);
   std::unique_ptr<Legend> l (new Legend(main.get(), "mean(#chi^{2}/NDF)", "lp", legHead.Data()) );
@@ -478,11 +484,11 @@ void Chi2Comp(TH1D* h1, TPaveText* lSys, TString outname, TString legHead)
 
   Legend::SetPosition(l.get(), 0.5, 0.9, 0.7, 0.8);
 
-  SquarePlot square = SquarePlot(main.get(), "method", "mean#left(#frac{#chi^{2}}{NDF}#right)");
+  SquarePlot square = SquarePlot(main.get(), "", "mean#left(#frac{#chi^{2}}{NDF}#right)");
   square.SetMode(Plot::Thesis);
   square.SetStyle(colors, markers, sizes);
-  square.SetRanges(0., 8., 0., 10.);
-  square.SetCanvasMargins(0.025, .12, 0.03, .1);
+  square.SetRanges(0., 8., 0., 50.);
+  square.SetCanvasMargins(0.025, .12, 0.03, .15);
   square.SetCanvasOffsets(1.2, 1.5);
   square.Draw(outname);
   return;
