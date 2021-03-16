@@ -10,7 +10,7 @@
 
 TLine* line = nullptr;
 
-void SameEventToBackgroundRatio(TH1D* Background, TH1D* Peak, TF1* Background1, TF1* Background2, TPaveText* lSys, TLine* line, TString outname){
+void SameEventToBackgroundRatio(TH1D* Background, TH1D* Peak, TF1* Background1, TF1* Background2, TPaveText* lSys, TString outname, Double_t fitLower, Double_t fitHigher){
   // --- Create TObjArrays -----------------------------------------------------
 
   std::unique_ptr<TObjArray> main(new TObjArray);
@@ -20,7 +20,8 @@ void SameEventToBackgroundRatio(TH1D* Background, TH1D* Peak, TF1* Background1, 
   Background1->SetNpx(1000);
   main->Add(Background2);
   Background2->SetNpx(1000);
-  main->Add(line);
+  std::unique_ptr<TLine> line(new TLine(fitLower, Background->GetMaximum()*0.99, fitHigher, Background->GetMaximum()*0.99));
+  main->Add(line.get());
 
   // --- Legends ---------------------------------------------------------------
   main->Add(lSys);
