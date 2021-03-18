@@ -67,7 +67,7 @@ void PeaksDataComp(std::vector<TH1D*> v, TPaveText* lSys, TString outname, TStri
 
   // --- Legends ---------------------------------------------------------------
   main->Add(lSys);
-  std::unique_ptr<Legend> l (new Legend(main.get(), legString.Data(), "lp lp lp lp lp lp lp lp", legHeader.Data()) );
+  std::unique_ptr<Legend> l (new Legend(main.get(), legString.Data(), "lp lp lp lp lp lp lp lp lp lp lp", legHeader.Data()) );
 
   // --- Marker ----------------------------------------------------------------
   vector<Color_t> colors = {kOrange-3, kViolet-3, kGreen-3, kRed-3, kBlue-3, kPink-3, kAzure-3, kSpring-3, 1, 1};

@@ -3993,17 +3993,17 @@ void plotting()
     SetYRange(h1_Peak_DataOmegaTGPSPSNCell_Pol1_EG1);
     SetYRange(h1_Peak_DataOmegaTGPSPlusPSNCell_Pol1_EG1);
 
-    h1_Peak_DataOmegaRotPS_Pol1_EG1->SetTitle("RotPS");
-    h1_Peak_DataOmegaTGPSPS_Pol1_EG1->SetTitle("TGPSPS");
-    h1_Peak_DataOmegaTGPSPlusPS_Pol1_EG1->SetTitle("TGPSPlusPS");
-    h1_Peak_DataPi0RotPS_Pol1_EG1->SetTitle("tPS");
-    h1_Peak_DataPi0TGPSPlusPS_Pol1_EG1->SetTitle("PSPlusPS");
-    h1_Peak_DataOmegaRotWOPS_Pol1_EG1->SetTitle("RotWOPS");
-    h1_Peak_DataOmegaTGPSWOPS_Pol1_EG1->SetTitle("TGPSWOPS");
-    h1_Peak_DataOmegaTGPSPlusWOPS_Pol1_EG1->SetTitle("TGPSPlusWOPS");
-    h1_Peak_DataOmegaRotPSNCell_Pol1_EG1->SetTitle("RotPSNCell");
-    h1_Peak_DataOmegaTGPSPSNCell_Pol1_EG1->SetTitle("TGPSPSNCell");
-    h1_Peak_DataOmegaTGPSPlusPSNCell_Pol1_EG1->SetTitle("TGPSPlusPSNCell");
+    h1_Peak_DataOmegaRotPS_Pol1_EG1->SetTitle("OmegaRotPS");
+    h1_Peak_DataOmegaTGPSPS_Pol1_EG1->SetTitle("OmegaTGPSPS");
+    h1_Peak_DataOmegaTGPSPlusPS_Pol1_EG1->SetTitle("OmegaTGPSPlusPS");
+    h1_Peak_DataPi0RotPS_Pol1_EG1->SetTitle("Pi0RotPS");
+    h1_Peak_DataPi0TGPSPlusPS_Pol1_EG1->SetTitle("Pi0TGPSPlusPS");
+    h1_Peak_DataOmegaRotWOPS_Pol1_EG1->SetTitle("OmegaRotWOPS");
+    h1_Peak_DataOmegaTGPSWOPS_Pol1_EG1->SetTitle("OmegaTGPSWOPS");
+    h1_Peak_DataOmegaTGPSPlusWOPS_Pol1_EG1->SetTitle("OmegaTGPSPlusWOPS");
+    h1_Peak_DataOmegaRotPSNCell_Pol1_EG1->SetTitle("OmegaRotPSNCell");
+    h1_Peak_DataOmegaTGPSPSNCell_Pol1_EG1->SetTitle("OmegaTGPSPSNCell");
+    h1_Peak_DataOmegaTGPSPlusPSNCell_Pol1_EG1->SetTitle("OmegaTGPSPlusPSNCell");
 
 
     SetYRange(h1_Peak_DataOmegaRotPS_Pol2_EG1);
@@ -4018,17 +4018,17 @@ void plotting()
     SetYRange(h1_Peak_DataOmegaTGPSPSNCell_Pol2_EG1);
     SetYRange(h1_Peak_DataOmegaTGPSPlusPSNCell_Pol2_EG1);
 
-    h1_Peak_DataOmegaRotPS_Pol2_EG1->SetTitle("RotPS");
-    h1_Peak_DataOmegaTGPSPS_Pol2_EG1->SetTitle("TGPSPS");
-    h1_Peak_DataOmegaTGPSPlusPS_Pol2_EG1->SetTitle("TGPSPlusPS");
-    h1_Peak_DataPi0RotPS_Pol2_EG1->SetTitle("tPS");
-    h1_Peak_DataPi0TGPSPlusPS_Pol2_EG1->SetTitle("PSPlusPS");
-    h1_Peak_DataOmegaRotWOPS_Pol2_EG1->SetTitle("RotWOPS");
-    h1_Peak_DataOmegaTGPSWOPS_Pol2_EG1->SetTitle("TGPSWOPS");
-    h1_Peak_DataOmegaTGPSPlusWOPS_Pol2_EG1->SetTitle("TGPSPlusWOPS");
-    h1_Peak_DataOmegaRotPSNCell_Pol2_EG1->SetTitle("RotPSNCell");
-    h1_Peak_DataOmegaTGPSPSNCell_Pol2_EG1->SetTitle("TGPSPSNCell");
-    h1_Peak_DataOmegaTGPSPlusPSNCell_Pol2_EG1->SetTitle("TGPSPlusPSNCell");
+    h1_Peak_DataOmegaRotPS_Pol2_EG1->SetTitle("OmegaRotPS");
+    h1_Peak_DataOmegaTGPSPS_Pol2_EG1->SetTitle("OmegaTGPSPS");
+    h1_Peak_DataOmegaTGPSPlusPS_Pol2_EG1->SetTitle("OmegaTGPSPlusPS");
+    h1_Peak_DataPi0RotPS_Pol2_EG1->SetTitle("Pi0RotPS");
+    h1_Peak_DataPi0TGPSPlusPS_Pol2_EG1->SetTitle("Pi0TGPSPlusPS");
+    h1_Peak_DataOmegaRotWOPS_Pol2_EG1->SetTitle("OmegaRotWOPS");
+    h1_Peak_DataOmegaTGPSWOPS_Pol2_EG1->SetTitle("OmegaTGPSWOPS");
+    h1_Peak_DataOmegaTGPSPlusWOPS_Pol2_EG1->SetTitle("OmegaTGPSPlusWOPS");
+    h1_Peak_DataOmegaRotPSNCell_Pol2_EG1->SetTitle("OmegaRotPSNCell");
+    h1_Peak_DataOmegaTGPSPSNCell_Pol2_EG1->SetTitle("OmegaTGPSPSNCell");
+    h1_Peak_DataOmegaTGPSPlusPSNCell_Pol2_EG1->SetTitle("OmegaTGPSPlusPSNCell");
 
     PeaksData(h1_Peak_DataOmegaRotPS_Pol1_EG1, h1_Peak_DataOmegaRotPS_Pol2_EG1, legSystem, Form("Data/EG1/OmegaRotPS/Peaks_%02d.svg", pTBin_EG1));
 
