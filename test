@@ -1,6 +1,6 @@
-TH1D* h1_Chi2Narrow_OmegaRotPS_Pol2_EG1              = new TH1D("h1_Chi2Narrow_OmegaRotPS_Pol2_EG1",        "", nBinsPt_EG1-1, &arrPtBinning_EG1[0]);
-TH1D* h1_Chi2Narrow_OmegaTGPSPS_Pol2_EG1             = new TH1D("h1_Chi2Narrow_OmegaTGPSPS_Pol2_EG1 ",      "", nBinsPt_EG1-1, &arrPtBinning_EG1[0]);
-TH1D* h1_Chi2Narrow_OmegaTGPSPlusPS_Pol2_EG1         = new TH1D("h1_Chi2Narrow_OmegaTGPSPlusPS_Pol2_EG1 ",  "", nBinsPt_EG1-1, &arrPtBinning_EG1[0]);
-TH1D* h1_Chi2Narrow_OmegaRotPS_Pol2_EG2              = new TH1D("h1_Chi2Narrow_OmegaRotPS_Pol2_EG2  ",      "", nBinsPt_EG2-1, &arrPtBinning_EG2[0]);
-TH1D* h1_Chi2Narrow_OmegaTGPSPS_Pol2_EG2             = new TH1D("h1_Chi2Narrow_OmegaTGPSPS_Pol2_EG2",       "", nBinsPt_EG2-1, &arrPtBinning_EG2[0]);
-TH1D* h1_Chi2Narrow_OmegaTGPSPlusPS_Pol2_EG2         = new TH1D("h1_Chi2Narrow_OmegaTGPSPlusPS_Pol2_EG2",   "", nBinsPt_EG2-1, &arrPtBinning_EG2[0]);
+h1_Peak_MCOmegaRotPS_Pol2_EG1->SetBinContent(zerobin, 0.0);
+h1_Peak_MCOmegaRotPS_Pol2_EG1->SetBinError(zerobin, 0.0);
+h1_Peak_MCOmegaTGPSPS_Pol2_EG1->SetBinContent(zerobin, 0.0);
+h1_Peak_MCOmegaTGPSPS_Pol2_EG1->SetBinError(zerobin, 0.0);
+h1_Peak_MCOmegaTGPSPlusPS_Pol2_EG1->SetBinContent(zerobin, 0.0);
+h1_Peak_MCOmegaTGPSPlusPS_Pol2_EG1->SetBinError(zerobin, 0.0);

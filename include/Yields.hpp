@@ -405,53 +405,21 @@ void Chi2(TH1D* PeakOmegaRotPS, TH1D* PeakOmegaTGPSPS, TH1D* PeakOmegaTGPSPlusPS
 }
 
 
-void FillChi2Histo(TH1D* h1, TH1D* PeakOmegaRotPS, TH1D* PeakOmegaTGPSPS, TH1D* PeakOmegaTGPSPlusPS,
-            TH1D* PeakPi0RotPS ,TH1D* PeakPi0TGPSPlusPS, TH1D* PeakOmegaRotWOPS, TH1D* PeakOmegaTGPSWOPS,
-            TH1D* PeakOmegaTGPSPlusWOPS)
+void FillChi2Histo(TH1D* h1, std::vector<TH1D*> v;)
 {
 
   Double_t mean = 0.0;
   Double_t stdvar = 0.0;
 
-  GetMeanAndStdvar(PeakOmegaRotPS, mean, stdvar);
+  for (int i = 0; i < v.size(); i++)
+  {
+    mean = 0.0;
+    stdvar = 0.0;
+    GetMeanAndStdvar(v.at(i), mean, stdvar);
 
-  h1->SetBinContent(1, mean);
-  h1->SetBinError(1, stdvar);
-
-  GetMeanAndStdvar(PeakOmegaTGPSPS, mean, stdvar);
-
-  h1->SetBinContent(2, mean);
-  h1->SetBinError(2, stdvar);
-
-  GetMeanAndStdvar(PeakOmegaTGPSPlusPS, mean, stdvar);
-
-  h1->SetBinContent(3, mean);
-  h1->SetBinError(3, stdvar);
-
-  GetMeanAndStdvar(PeakPi0RotPS, mean, stdvar);
-
-  h1->SetBinContent(4, mean);
-  h1->SetBinError(4, stdvar);
-
-  GetMeanAndStdvar(PeakPi0TGPSPlusPS, mean, stdvar);
-
-  h1->SetBinContent(5, mean);
-  h1->SetBinError(5, stdvar);
-
-  GetMeanAndStdvar(PeakOmegaRotWOPS, mean, stdvar);
-
-  h1->SetBinContent(6, mean);
-  h1->SetBinError(6, stdvar);
-
-  GetMeanAndStdvar(PeakOmegaTGPSWOPS, mean, stdvar);
-
-  h1->SetBinContent(7, mean);
-  h1->SetBinError(7, stdvar);
-
-  GetMeanAndStdvar(PeakOmegaTGPSPlusWOPS, mean, stdvar);
-
-  h1->SetBinContent(8, mean);
-  h1->SetBinError(8, stdvar);
+    h1->SetBinContent(i+1, mean);
+    h1->SetBinError(i+1, stdvar);
+  }
   return;
 }
 
@@ -462,8 +430,9 @@ void Chi2Comp(TH1D* h1, TPaveText* lSys, TString outname, TString legHead)
   std::unique_ptr<TObjArray> main (new TObjArray);
   main->Add(h1);
 
-  const char *methods[8] = {"OmegaRotPS", "OmegaTGPSPS", "OmegaTGPSPlusPS", "Pi0RotPS",
-  "Pi0TGPSPlusPS", "OmegaRotWOPS","OmegaTGPSWOPS","OmegaTGPSPlusWOPS"};
+  const char *methods[11] = {"OmegaRotPS", "OmegaTGPSPS", "OmegaTGPSPlusPS", "Pi0RotPS",
+  "Pi0TGPSPlusPS", "OmegaRotWOPS","OmegaTGPSWOPS","OmegaTGPSPlusWOPS", "OmegaRotPSNCell",
+  "OmegaTGPSPSNCell", "OmegaTGPSPlusPSNCell"};
   for (int bin = 1; bin <= h1->GetNbinsX(); bin++)
   {
     h1->GetXaxis()->SetBinLabel(bin, methods[bin-1]);
