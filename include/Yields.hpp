@@ -405,7 +405,7 @@ void Chi2(TH1D* PeakOmegaRotPS, TH1D* PeakOmegaTGPSPS, TH1D* PeakOmegaTGPSPlusPS
 }
 
 
-void FillChi2Histo(TH1D* h1, std::vector<TH1D*> v;)
+void FillChi2Histo(TH1D* h1, std::vector<TH1D*> v)
 {
 
   Double_t mean = 0.0;
@@ -456,7 +456,7 @@ void Chi2Comp(TH1D* h1, TPaveText* lSys, TString outname, TString legHead)
   SquarePlot square = SquarePlot(main.get(), "", "mean#left(#frac{#chi^{2}}{NDF}#right)");
   square.SetMode(Plot::Thesis);
   square.SetStyle(colors, markers, sizes);
-  square.SetRanges(0., 8., 0., 10.);
+  square.SetRanges(0., 11., 0., 10.);
   square.SetCanvasMargins(0.025, .12, 0.03, .15);
   square.SetCanvasOffsets(1.2, 1.5);
   square.Draw(outname);
