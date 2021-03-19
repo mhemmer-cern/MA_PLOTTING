@@ -5,6 +5,7 @@ Data/
 Comp/
 MC/
 CMakeFiles/
+test.cpp
 build/CMakeFiles
 build/cmake_install.cmake
 build/CMakeCache.txt
