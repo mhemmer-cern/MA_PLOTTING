@@ -75,3 +75,25 @@ void CalcYield(std::vector<TH1D*> vSignal, std::vector<TH1D*> vYield, std::vecto
   }
   return;
 }
+
+void SetZeroOOR(std::vector<TH1D*> vSignal, Double_t low, Double_t high, int &NDF)
+{
+  NDF = 0;
+  for (int vn = 0; vn < vSignal.size(); vn++) {
+    for (int zerobin = 1; zerobin < vSignal.at(vn)->GetNbinsX(); zerobin++)
+    {
+      if( (vSignal.at(vn)->GetBinLowEdge(zerobin+1) < low) || (vSignal.at(vn)->GetBinLowEdge(zerobin) >= high))
+      {
+        vSignal.at(vn)->SetBinContent(zerobin, 0.0);
+        vSignal.at(vn)->SetBinError(zerobin, 0.0);
+      }
+      else
+      {
+        NDF++;
+      }
+    }
+    vSignal.at(vn)->Scale(1./vSignal.at(vn)->Integral());
+  }
+  NDF/vSignal.size();
+  return
+}
