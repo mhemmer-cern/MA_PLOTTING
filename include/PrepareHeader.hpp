@@ -124,7 +124,7 @@ void SetZeroOOR(std::vector<TH1D*> vSignal, Double_t low, Double_t high, int &ND
     }
     vSignal.at(vn)->Scale(1./vSignal.at(vn)->Integral());
   }
-  NDF/vSignal.size();
+  NDF /= vSignal.size();
   return;
 }
 

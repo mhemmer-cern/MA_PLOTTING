@@ -7,11 +7,11 @@ void GetMeanAndStdvar(TH1D* h1, Double_t &mean, Double_t &stdvar)
 {
   mean = 0.0;
   stdvar = 0.0;
-  for (int bin = 0; bin < h1->GetNbinsX(); bin++) {
+  for (int bin = 1; bin < h1->GetNbinsX(); bin++) {
     mean += h1->GetBinContent(bin);
   }
   mean /= h1->GetNbinsX();
-  for (int bin = 0; bin < h1->GetNbinsX(); bin++) {
+  for (int bin = 1; bin < h1->GetNbinsX(); bin++) {
     stdvar += pow(h1->GetBinContent(bin)-mean, 2.0);
   }
   stdvar = sqrt(stdvar/h1->GetNbinsX());
@@ -178,7 +178,7 @@ void CorrYields(TH1D* TruePeak ,TH1D* PeakOmegaRotPS, TH1D* PeakOmegaTGPSPS, TH1
 }
 
 
-void MeanPlotPol1(TH1D* h1, TH1D* h2, TH1D* h3, TH1D* h4, TH1D* h5, TH1D* h6, TH1D* h7, TH1D* h8, TPaveText* lSys, TString outname){
+void MeanPlotPol1(TH1D* h1, TH1D* h2, TH1D* h3, TH1D* h4, TH1D* h5, TH1D* h6, TH1D* h7, TH1D* h8, TPaveText* lSys, TString outname, Double_t xLow, Double_t xHigh){
   // --- Create TObjArrays -----------------------------------------------------
 
   std::unique_ptr<TObjArray> main (new TObjArray);
@@ -209,14 +209,14 @@ void MeanPlotPol1(TH1D* h1, TH1D* h2, TH1D* h3, TH1D* h4, TH1D* h5, TH1D* h6, TH
   SquarePlot square = SquarePlot(main.get(), pt_str, "#mu (GeV/#it{c}^{2})");
   square.SetMode(Plot::Thesis);
   square.SetStyle(colors, markers, sizes);
-  square.SetRanges(8.0, 32., h1->GetMinimum(), h1->GetMaximum());
+  square.SetRanges(xLow, xHigh, h1->GetMinimum(), h1->GetMaximum());
   square.SetCanvasMargins(0.025, .1, 0.03, .1);
   square.Draw(outname);
   return;
 
 }
 
-void MeanPlotPol2(TH1D* h1, TH1D* h2, TH1D* h3, TH1D* h4, TH1D* h5, TH1D* h6, TH1D* h7, TH1D* h8, TPaveText* lSys, TString outname){
+void MeanPlotPol2(TH1D* h1, TH1D* h2, TH1D* h3, TH1D* h4, TH1D* h5, TH1D* h6, TH1D* h7, TH1D* h8, TPaveText* lSys, TString outname, Double_t xLow, Double_t xHigh){
   // --- Create TObjArrays -----------------------------------------------------
 
   std::unique_ptr<TObjArray> main (new TObjArray);
@@ -247,14 +247,14 @@ void MeanPlotPol2(TH1D* h1, TH1D* h2, TH1D* h3, TH1D* h4, TH1D* h5, TH1D* h6, TH
   SquarePlot square = SquarePlot(main.get(), pt_str, "#mu (GeV/#it{c}^{2})");
   square.SetMode(Plot::Thesis);
   square.SetStyle(colors, markers, sizes);
-  square.SetRanges(8.0, 32., h1->GetMinimum(), h1->GetMaximum());
+  square.SetRanges(xLow, xHigh, h1->GetMinimum(), h1->GetMaximum());
   square.SetCanvasMargins(0.025, .1, 0.03, .1);
   square.Draw(outname);
   return;
 
 }
 
-void SigmaPlotPol1(TH1D* h1, TH1D* h2, TH1D* h3, TH1D* h4, TH1D* h5, TH1D* h6, TH1D* h7, TH1D* h8, TPaveText* lSys, TString outname){
+void SigmaPlotPol1(TH1D* h1, TH1D* h2, TH1D* h3, TH1D* h4, TH1D* h5, TH1D* h6, TH1D* h7, TH1D* h8, TPaveText* lSys, TString outname, Double_t xLow, Double_t xHigh){
   // --- Create TObjArrays -----------------------------------------------------
 
   std::unique_ptr<TObjArray> main (new TObjArray);
@@ -284,15 +284,14 @@ void SigmaPlotPol1(TH1D* h1, TH1D* h2, TH1D* h3, TH1D* h4, TH1D* h5, TH1D* h6, T
   SquarePlot square = SquarePlot(main.get(), pt_str, "#sigma (GeV/#it{c}^{2})");
   square.SetMode(Plot::Thesis);
   square.SetStyle(colors, markers, sizes);
-  square.SetRanges(8.0, 32., 0., h1->GetMaximum());
+  square.SetRanges(xLow, xHigh, 0., h1->GetMaximum());
   square.SetCanvasMargins(0.025, .1, 0.03, .1);
   square.Draw(outname);
   return;
 
 }
 
-
-void SigmaPlotPol2(TH1D* h1, TH1D* h2, TH1D* h3, TH1D* h4, TH1D* h5, TH1D* h6, TH1D* h7, TH1D* h8, TPaveText* lSys, TString outname){
+void SigmaPlotPol2(TH1D* h1, TH1D* h2, TH1D* h3, TH1D* h4, TH1D* h5, TH1D* h6, TH1D* h7, TH1D* h8, TPaveText* lSys, TString outname, Double_t xLow, Double_t xHigh){
   // --- Create TObjArrays -----------------------------------------------------
 
   std::unique_ptr<TObjArray> main (new TObjArray);
@@ -322,7 +321,7 @@ void SigmaPlotPol2(TH1D* h1, TH1D* h2, TH1D* h3, TH1D* h4, TH1D* h5, TH1D* h6, T
   SquarePlot square = SquarePlot(main.get(), pt_str, "#sigma (GeV/#it{c}^{2})");
   square.SetMode(Plot::Thesis);
   square.SetStyle(colors, markers, sizes);
-  square.SetRanges(8.0, 32., 0., h1->GetMaximum());
+  square.SetRanges(xLow, xHigh, 0., h1->GetMaximum());
   square.SetCanvasMargins(0.025, .1, 0.03, .1);
   square.Draw(outname);
   return;

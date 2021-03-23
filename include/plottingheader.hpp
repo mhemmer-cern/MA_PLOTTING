@@ -30,14 +30,14 @@ std::vector<TGraphErrors*> vGraphs;
 Double_t fitLower = 0.6;                                                        // lower boundary for fitting the background
 Double_t fitHigher = 1.1;                                                       // upper boundary for fitting the background
 
-const Int_t nBinsPt_EG1 = 13;                                                   // pT binning for EG 1
+const Int_t nBinsPt_EG1 = 8;                                                    // pT binning for EG 1
 std::vector<Double_t> arrPtBinning_EG1
-{02.0, 04.0, 06.0, 08.0, 10.0, 12.0, 14.0, 16.0, 18.0, 20.0, 24.0, 28.0, 32.0};
-// { 12.0, 14.0, 16.0, 18.0, 20.0, 24.0, 28.0, 32.0};
+{12.0, 14.0, 16.0, 18.0, 20.0, 24.0, 28.0, 32.0};
+// {02.0, 04.0, 06.0, 08.0, 10.0, 12.0, 14.0, 16.0, 18.0, 20.0, 24.0, 28.0, 32.0};
 
 std::vector<Int_t> arrRebinning_EG1
-// {2, 2, 2, 2, 2, 2, 4};
-{2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 4};
+{2, 2, 2, 2, 2, 2, 4};
+// {2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 4};
 
 
 const Int_t nBinsPt_EG2 = 7;                                                  // pT binning for EG 1
