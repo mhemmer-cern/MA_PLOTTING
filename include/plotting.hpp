@@ -91,20 +91,10 @@ void plotting()
 
   //EG1
   //Same Event
-  TH2D* h2_Dalitz_DataOmegaRotPS_EG1       = (TH2D*) ESDFileDataOmegaRotPS_EG1->FindObject("ESD_Dalitz_Gamma1Gamma2_Gamma0Gamma1");
-  h2_Dalitz_DataOmegaRotPS_EG1->SetName("h2_Dalitz_DataOmegaRotPS_EG1");
-  h2_Dalitz_DataOmegaRotPS_EG1->SetTitle("OmegaRotPS");
-  h2_Dalitz_DataOmegaRotPS_EG1->Sumw2();
-
-  TH2D* h2_Dalitz_DataOmegaTGPSPS_EG1      = (TH2D*) ESDFileDataOmegaTGPSPS_EG1->FindObject("ESD_Dalitz_Gamma1Gamma2_Gamma0Gamma1");
-  h2_Dalitz_DataOmegaTGPSPS_EG1->SetName("h2_Dalitz_DataOmegaTGPSPS_EG1");
-  h2_Dalitz_DataOmegaTGPSPS_EG1->SetTitle("OmegaTGPSPS");
-  h2_Dalitz_DataOmegaTGPSPS_EG1->Sumw2();
-
-  TH2D* h2_Dalitz_DataOmegaTGPSPlusPS_EG1  = (TH2D*) ESDFileDataOmegaTGPSPlusPS_EG1->FindObject("ESD_Dalitz_Gamma1Gamma2_Gamma0Gamma1");
-  h2_Dalitz_DataOmegaTGPSPlusPS_EG1->SetName("h2_Dalitz_DataOmegaTGPSPlusPS_EG1");
-  h2_Dalitz_DataOmegaTGPSPlusPS_EG1->SetTitle("OmegaTGPSPlusPS");
-  h2_Dalitz_DataOmegaTGPSPlusPS_EG1->Sumw2();
+  TH2D* h2_Dalitz_DataOmegaPS_EG1       = (TH2D*) ESDFileDataOmegaRotPS_EG1->FindObject("ESD_Dalitz_Gamma1Gamma2_Gamma0Gamma1");
+  h2_Dalitz_DataOmegaPS_EG1->SetName("h2_Dalitz_DataOmegaPS_EG1");
+  h2_Dalitz_DataOmegaPS_EG1->SetTitle("OmegaPS");
+  h2_Dalitz_DataOmegaPS_EG1->Sumw2();
 
   // Background
   TH2D* h2_DalitzBack_DataOmegaRotPS_EG1 = (TH2D*) ESDFileDataOmegaRotPS_EG1->FindObject("ESD_Dalitz_Back_Gamma1Gamma2_Gamma0Gamma1");
@@ -122,22 +112,33 @@ void plotting()
   h2_DalitzBack_DataOmegaTGPSPlusPS_EG1->SetTitle("OmegaTGPSPlusPS");
   h2_DalitzBack_DataOmegaTGPSPlusPS_EG1->Sumw2();
 
+  // Angles
+  TH2D* h2_OmegaPi0_Angle_DataOmegaPS_EG1 = (TH2D*) ESDFileDataOmegaRotPS_EG1->FindObject("ESD_MotherPi0_Angle_Pt");
+  h2_OmegaPi0_Angle_DataOmegaPS_EG1->SetName("h2_OmegaPi0_Angle_DataOmegaPS_EG1");
+  h2_OmegaPi0_Angle_DataOmegaPS_EG1->SetTitle("OmegaPS");
+  h2_OmegaPi0_Angle_DataOmegaPS_EG1->Sumw2();
+
+  TH2D* h2_OmegaGamma_Angle_DataOmegaPS_EG1 = (TH2D*) ESDFileDataOmegaRotPS_EG1->FindObject("ESD_MotherGamma_Angle_Pt");
+  h2_OmegaGamma_Angle_DataOmegaPS_EG1->SetName("h2_OmegaGamma_Angle_DataOmegaPS_EG1");
+  h2_OmegaGamma_Angle_DataOmegaPS_EG1->SetTitle("OmegaPS");
+  h2_OmegaGamma_Angle_DataOmegaPS_EG1->Sumw2();
+
+  TH2D* h2_Pi0Gamma_Angle_DataOmegaPS_EG1 = (TH2D*) ESDFileDataOmegaRotPS_EG1->FindObject("ESD_Pi0Gamma_Angle_Pt");
+  h2_Pi0Gamma_Angle_DataOmegaPS_EG1->SetName("h2_Pi0Gamma_Angle_DataOmegaPS_EG1");
+  h2_Pi0Gamma_Angle_DataOmegaPS_EG1->SetTitle("OmegaPS");
+  h2_Pi0Gamma_Angle_DataOmegaPS_EG1->Sumw2();
+
+  TH2D* h2_OmegaRestGamma_CosAngle_DataOmegaPS_EG1 = (TH2D*) ESDFileDataOmegaRotPS_EG1->FindObject("ESD_MotherRestGamma_CosAngle_Pt");
+  h2_OmegaRestGamma_CosAngle_DataOmegaPS_EG1->SetName("h2_OmegaRestGamma_CosAngle_DataOmegaPS_EG1");
+  h2_OmegaRestGamma_CosAngle_DataOmegaPS_EG1->SetTitle("OmegaPS");
+  h2_OmegaRestGamma_CosAngle_DataOmegaPS_EG1->Sumw2();
+
   //EG2
   //Same Event
-  TH2D* h2_Dalitz_DataOmegaRotPS_EG2       = (TH2D*) ESDFileDataOmegaRotPS_EG2->FindObject("ESD_Dalitz_Gamma1Gamma2_Gamma0Gamma1");
-  h2_Dalitz_DataOmegaRotPS_EG2->SetName("h2_Dalitz_DataOmegaRotPS_EG2");
-  h2_Dalitz_DataOmegaRotPS_EG2->SetTitle("OmegaRotPS");
-  h2_Dalitz_DataOmegaRotPS_EG2->Sumw2();
-
-  TH2D* h2_Dalitz_DataOmegaTGPSPS_EG2      = (TH2D*) ESDFileDataOmegaTGPSPS_EG2->FindObject("ESD_Dalitz_Gamma1Gamma2_Gamma0Gamma1");
-  h2_Dalitz_DataOmegaTGPSPS_EG2->SetName("h2_Dalitz_DataOmegaTGPSPS_EG2");
-  h2_Dalitz_DataOmegaTGPSPS_EG2->SetTitle("OmegaTGPSPS");
-  h2_Dalitz_DataOmegaTGPSPS_EG2->Sumw2();
-
-  TH2D* h2_Dalitz_DataOmegaTGPSPlusPS_EG2  = (TH2D*) ESDFileDataOmegaTGPSPlusPS_EG2->FindObject("ESD_Dalitz_Gamma1Gamma2_Gamma0Gamma1");
-  h2_Dalitz_DataOmegaTGPSPlusPS_EG2->SetName("h2_Dalitz_DataOmegaTGPSPlusPS_EG2");
-  h2_Dalitz_DataOmegaTGPSPlusPS_EG2->SetTitle("OmegaTGPSPlusPS");
-  h2_Dalitz_DataOmegaTGPSPlusPS_EG2->Sumw2();
+  TH2D* h2_Dalitz_DataOmegaPS_EG2       = (TH2D*) ESDFileDataOmegaRotPS_EG2->FindObject("ESD_Dalitz_Gamma1Gamma2_Gamma0Gamma1");
+  h2_Dalitz_DataOmegaPS_EG2->SetName("h2_Dalitz_DataOmegaPS_EG2");
+  h2_Dalitz_DataOmegaPS_EG2->SetTitle("OmegaRotPS");
+  h2_Dalitz_DataOmegaPS_EG2->Sumw2();
 
   // Background
   TH2D* h2_DalitzBack_DataOmegaRotPS_EG2 = (TH2D*) ESDFileDataOmegaRotPS_EG2->FindObject("ESD_Dalitz_Back_Gamma1Gamma2_Gamma0Gamma1");
@@ -154,6 +155,27 @@ void plotting()
   h2_DalitzBack_DataOmegaTGPSPlusPS_EG2->SetName("h2_DalitzBack_DataOmegaTGPSPlusPS_EG2");
   h2_DalitzBack_DataOmegaTGPSPlusPS_EG2->SetTitle("OmegaTGPSPlusPS");
   h2_DalitzBack_DataOmegaTGPSPlusPS_EG2->Sumw2();
+
+  // Angles
+  TH2D* h2_OmegaPi0_Angle_DataOmegaPS_EG2 = (TH2D*) ESDFileDataOmegaRotPS_EG2->FindObject("ESD_MotherPi0_Angle_Pt");
+  h2_OmegaPi0_Angle_DataOmegaPS_EG2->SetName("h2_OmegaPi0_Angle_DataOmegaPS_EG2");
+  h2_OmegaPi0_Angle_DataOmegaPS_EG2->SetTitle("OmegaPS");
+  h2_OmegaPi0_Angle_DataOmegaPS_EG2->Sumw2();
+
+  TH2D* h2_OmegaGamma_Angle_DataOmegaPS_EG2 = (TH2D*) ESDFileDataOmegaRotPS_EG2->FindObject("ESD_MotherGamma_Angle_Pt");
+  h2_OmegaGamma_Angle_DataOmegaPS_EG2->SetName("h2_OmegaGamma_Angle_DataOmegaPS_EG2");
+  h2_OmegaGamma_Angle_DataOmegaPS_EG2->SetTitle("OmegaPS");
+  h2_OmegaGamma_Angle_DataOmegaPS_EG2->Sumw2();
+
+  TH2D* h2_Pi0Gamma_Angle_DataOmegaPS_EG2 = (TH2D*) ESDFileDataOmegaRotPS_EG2->FindObject("ESD_Pi0Gamma_Angle_Pt");
+  h2_Pi0Gamma_Angle_DataOmegaPS_EG2->SetName("h2_Pi0Gamma_Angle_DataOmegaPS_EG2");
+  h2_Pi0Gamma_Angle_DataOmegaPS_EG2->SetTitle("OmegaPS");
+  h2_Pi0Gamma_Angle_DataOmegaPS_EG2->Sumw2();
+
+  TH2D* h2_OmegaRestGamma_CosAngle_DataOmegaPS_EG2 = (TH2D*) ESDFileDataOmegaRotPS_EG2->FindObject("ESD_MotherRestGamma_CosAngle_Pt");
+  h2_OmegaRestGamma_CosAngle_DataOmegaPS_EG2->SetName("h2_OmegaRestGamma_CosAngle_DataOmegaPS_EG2");
+  h2_OmegaRestGamma_CosAngle_DataOmegaPS_EG2->SetTitle("OmegaPS");
+  h2_OmegaRestGamma_CosAngle_DataOmegaPS_EG2->Sumw2();
 
   // ---------------------------------------------------------------------------
   //
@@ -322,20 +344,10 @@ void plotting()
 
   //EG1
   //Same Event
-  TH2D* h2_Dalitz_DataOmegaRotWOPS_EG1       = (TH2D*) ESDFileDataOmegaRotWOPS_EG1->FindObject("ESD_Dalitz_Gamma1Gamma2_Gamma0Gamma1");
-  h2_Dalitz_DataOmegaRotWOPS_EG1->SetName("h2_Dalitz_DataOmegaRotWOPS_EG1");
-  h2_Dalitz_DataOmegaRotWOPS_EG1->SetTitle("OmegaRotWOPS");
-  h2_Dalitz_DataOmegaRotWOPS_EG1->Sumw2();
-
-  TH2D* h2_Dalitz_DataOmegaTGPSWOPS_EG1      = (TH2D*) ESDFileDataOmegaTGPSWOPS_EG1->FindObject("ESD_Dalitz_Gamma1Gamma2_Gamma0Gamma1");
-  h2_Dalitz_DataOmegaTGPSWOPS_EG1->SetName("h2_Dalitz_DataOmegaTGPSWOPS_EG1");
-  h2_Dalitz_DataOmegaTGPSWOPS_EG1->SetTitle("OmegaTGPSWOPS");
-  h2_Dalitz_DataOmegaTGPSWOPS_EG1->Sumw2();
-
-  TH2D* h2_Dalitz_DataOmegaTGPSPlusWOPS_EG1  = (TH2D*) ESDFileDataOmegaTGPSPlusWOPS_EG1->FindObject("ESD_Dalitz_Gamma1Gamma2_Gamma0Gamma1");
-  h2_Dalitz_DataOmegaTGPSPlusWOPS_EG1->SetName("h2_Dalitz_DataOmegaTGPSPlusWOPS_EG1");
-  h2_Dalitz_DataOmegaTGPSPlusWOPS_EG1->SetTitle("OmegaTGPSPlusWOPS");
-  h2_Dalitz_DataOmegaTGPSPlusWOPS_EG1->Sumw2();
+  TH2D* h2_Dalitz_DataOmegWOPS_EG1       = (TH2D*) ESDFileDataOmegaRotWOPS_EG1->FindObject("ESD_Dalitz_Gamma1Gamma2_Gamma0Gamma1");
+  h2_Dalitz_DataOmegWOPS_EG1->SetName("h2_Dalitz_DataOmegWOPS_EG1");
+  h2_Dalitz_DataOmegWOPS_EG1->SetTitle("OmegaWOPS");
+  h2_Dalitz_DataOmegWOPS_EG1->Sumw2();
 
   // Background
   TH2D* h2_DalitzBack_DataOmegaRotWOPS_EG1 = (TH2D*) ESDFileDataOmegaRotWOPS_EG1->FindObject("ESD_Dalitz_Back_Gamma1Gamma2_Gamma0Gamma1");
@@ -355,20 +367,10 @@ void plotting()
 
   //EG2
   //Same Event
-  TH2D* h2_Dalitz_DataOmegaRotWOPS_EG2       = (TH2D*) ESDFileDataOmegaRotWOPS_EG2->FindObject("ESD_Dalitz_Gamma1Gamma2_Gamma0Gamma1");
-  h2_Dalitz_DataOmegaRotWOPS_EG2->SetName("h2_Dalitz_DataOmegaRotWOPS_EG2");
-  h2_Dalitz_DataOmegaRotWOPS_EG2->SetTitle("OmegaRotWOPS");
-  h2_Dalitz_DataOmegaRotWOPS_EG2->Sumw2();
-
-  TH2D* h2_Dalitz_DataOmegaTGPSWOPS_EG2      = (TH2D*) ESDFileDataOmegaTGPSWOPS_EG2->FindObject("ESD_Dalitz_Gamma1Gamma2_Gamma0Gamma1");
-  h2_Dalitz_DataOmegaTGPSWOPS_EG2->SetName("h2_Dalitz_DataOmegaTGPSWOPS_EG2");
-  h2_Dalitz_DataOmegaTGPSWOPS_EG2->SetTitle("OmegaTGPSWOPS");
-  h2_Dalitz_DataOmegaTGPSWOPS_EG2->Sumw2();
-
-  TH2D* h2_Dalitz_DataOmegaTGPSPlusWOPS_EG2  = (TH2D*) ESDFileDataOmegaTGPSPlusWOPS_EG2->FindObject("ESD_Dalitz_Gamma1Gamma2_Gamma0Gamma1");
-  h2_Dalitz_DataOmegaTGPSPlusWOPS_EG2->SetName("h2_Dalitz_DataOmegaTGPSPlusWOPS_EG2");
-  h2_Dalitz_DataOmegaTGPSPlusWOPS_EG2->SetTitle("OmegaTGPSPlusWOPS");
-  h2_Dalitz_DataOmegaTGPSPlusWOPS_EG2->Sumw2();
+  TH2D* h2_Dalitz_DataOmegWOPS_EG2       = (TH2D*) ESDFileDataOmegaRotWOPS_EG2->FindObject("ESD_Dalitz_Gamma1Gamma2_Gamma0Gamma1");
+  h2_Dalitz_DataOmegWOPS_EG2->SetName("h2_Dalitz_DataOmegWOPS_EG2");
+  h2_Dalitz_DataOmegWOPS_EG2->SetTitle("OmegaWOPS");
+  h2_Dalitz_DataOmegWOPS_EG2->Sumw2();
 
   // Background
   TH2D* h2_DalitzBack_DataOmegaRotWOPS_EG2 = (TH2D*) ESDFileDataOmegaRotWOPS_EG2->FindObject("ESD_Dalitz_Back_Gamma1Gamma2_Gamma0Gamma1");
@@ -560,75 +562,6 @@ void plotting()
   h2_Background_DataOmegaTGPSPlusPSNCell_EG2->SetTitle("OmegaTGPSPlusPSNCell");
   // h2_Background_DataOmegaTGPSPlusPSNCell_EG2->Sumw2();
 
-  // QA Plots ------------------------------------------------------------------
-
-  //EG1
-  //Same Event
-  TH2D* h2_Dalitz_DataOmegaRotPSNCell_EG1       = (TH2D*) ESDFileDataOmegaRotPSNCell_EG1->FindObject("ESD_Dalitz_Gamma1Gamma2_Gamma0Gamma1");
-  h2_Dalitz_DataOmegaRotPSNCell_EG1->SetName("h2_Dalitz_DataOmegaRotPSNCell_EG1");
-  h2_Dalitz_DataOmegaRotPSNCell_EG1->SetTitle("OmegaRotPSNCell");
-  h2_Dalitz_DataOmegaRotPSNCell_EG1->Sumw2();
-
-  TH2D* h2_Dalitz_DataOmegaTGPSPSNCell_EG1      = (TH2D*) ESDFileDataOmegaTGPSPSNCell_EG1->FindObject("ESD_Dalitz_Gamma1Gamma2_Gamma0Gamma1");
-  h2_Dalitz_DataOmegaTGPSPSNCell_EG1->SetName("h2_Dalitz_DataOmegaTGPSPSNCell_EG1");
-  h2_Dalitz_DataOmegaTGPSPSNCell_EG1->SetTitle("OmegaTGPSPSNCell");
-  h2_Dalitz_DataOmegaTGPSPSNCell_EG1->Sumw2();
-
-  TH2D* h2_Dalitz_DataOmegaTGPSPlusPSNCell_EG1  = (TH2D*) ESDFileDataOmegaTGPSPlusPSNCell_EG1->FindObject("ESD_Dalitz_Gamma1Gamma2_Gamma0Gamma1");
-  h2_Dalitz_DataOmegaTGPSPlusPSNCell_EG1->SetName("h2_Dalitz_DataOmegaTGPSPlusPSNCell_EG1");
-  h2_Dalitz_DataOmegaTGPSPlusPSNCell_EG1->SetTitle("OmegaTGPSPlusPSNCell");
-  h2_Dalitz_DataOmegaTGPSPlusPSNCell_EG1->Sumw2();
-
-  // Background
-  TH2D* h2_DalitzBack_DataOmegaRotPSNCell_EG1 = (TH2D*) ESDFileDataOmegaRotPSNCell_EG1->FindObject("ESD_Dalitz_Back_Gamma1Gamma2_Gamma0Gamma1");
-  h2_DalitzBack_DataOmegaRotPSNCell_EG1->SetName("h2_DalitzBack_DataOmegaRotPSNCell_EG1");
-  h2_DalitzBack_DataOmegaRotPSNCell_EG1->SetTitle("OmegaRotPSNCell");
-  h2_DalitzBack_DataOmegaRotPSNCell_EG1->Sumw2();
-
-  TH2D* h2_DalitzBack_DataOmegaTGPSPSNCell_EG1      = (TH2D*) ESDFileDataOmegaTGPSPSNCell_EG1->FindObject("ESD_Dalitz_Back_Gamma1Gamma2_Gamma0Gamma1");
-  h2_DalitzBack_DataOmegaTGPSPSNCell_EG1->SetName("h2_DalitzBack_DataOmegaTGPSPSNCell_EG1");
-  h2_DalitzBack_DataOmegaTGPSPSNCell_EG1->SetTitle("OmegaTGPSPSNCell");
-  h2_DalitzBack_DataOmegaTGPSPSNCell_EG1->Sumw2();
-
-  TH2D* h2_DalitzBack_DataOmegaTGPSPlusPSNCell_EG1  = (TH2D*) ESDFileDataOmegaTGPSPlusPSNCell_EG1->FindObject("ESD_Dalitz_Back_Gamma1Gamma2_Gamma0Gamma1");
-  h2_DalitzBack_DataOmegaTGPSPlusPSNCell_EG1->SetName("h2_DalitzBack_DataOmegaTGPSPlusPSNCell_EG1");
-  h2_DalitzBack_DataOmegaTGPSPlusPSNCell_EG1->SetTitle("OmegaTGPSPlusPSNCell");
-  h2_DalitzBack_DataOmegaTGPSPlusPSNCell_EG1->Sumw2();
-
-  //EG2
-  //Same Event
-  TH2D* h2_Dalitz_DataOmegaRotPSNCell_EG2       = (TH2D*) ESDFileDataOmegaRotPSNCell_EG2->FindObject("ESD_Dalitz_Gamma1Gamma2_Gamma0Gamma1");
-  h2_Dalitz_DataOmegaRotPSNCell_EG2->SetName("h2_Dalitz_DataOmegaRotPSNCell_EG2");
-  h2_Dalitz_DataOmegaRotPSNCell_EG2->SetTitle("OmegaRotPSNCell");
-  h2_Dalitz_DataOmegaRotPSNCell_EG2->Sumw2();
-
-  TH2D* h2_Dalitz_DataOmegaTGPSPSNCell_EG2      = (TH2D*) ESDFileDataOmegaTGPSPSNCell_EG2->FindObject("ESD_Dalitz_Gamma1Gamma2_Gamma0Gamma1");
-  h2_Dalitz_DataOmegaTGPSPSNCell_EG2->SetName("h2_Dalitz_DataOmegaTGPSPSNCell_EG2");
-  h2_Dalitz_DataOmegaTGPSPSNCell_EG2->SetTitle("OmegaTGPSPSNCell");
-  h2_Dalitz_DataOmegaTGPSPSNCell_EG2->Sumw2();
-
-  TH2D* h2_Dalitz_DataOmegaTGPSPlusPSNCell_EG2  = (TH2D*) ESDFileDataOmegaTGPSPlusPSNCell_EG2->FindObject("ESD_Dalitz_Gamma1Gamma2_Gamma0Gamma1");
-  h2_Dalitz_DataOmegaTGPSPlusPSNCell_EG2->SetName("h2_Dalitz_DataOmegaTGPSPlusPSNCell_EG2");
-  h2_Dalitz_DataOmegaTGPSPlusPSNCell_EG2->SetTitle("OmegaTGPSPlusPSNCell");
-  h2_Dalitz_DataOmegaTGPSPlusPSNCell_EG2->Sumw2();
-
-  // Background
-  TH2D* h2_DalitzBack_DataOmegaRotPSNCell_EG2 = (TH2D*) ESDFileDataOmegaRotPSNCell_EG2->FindObject("ESD_Dalitz_Back_Gamma1Gamma2_Gamma0Gamma1");
-  h2_DalitzBack_DataOmegaRotPSNCell_EG2->SetName("h2_DalitzBack_DataOmegaRotPSNCell_EG2");
-  h2_DalitzBack_DataOmegaRotPSNCell_EG2->SetTitle("OmegaRotPSNCell");
-  h2_DalitzBack_DataOmegaRotPSNCell_EG2->Sumw2();
-
-  TH2D* h2_DalitzBack_DataOmegaTGPSPSNCell_EG2      = (TH2D*) ESDFileDataOmegaTGPSPSNCell_EG2->FindObject("ESD_Dalitz_Back_Gamma1Gamma2_Gamma0Gamma1");
-  h2_DalitzBack_DataOmegaTGPSPSNCell_EG2->SetName("h2_DalitzBack_DataOmegaTGPSPSNCell_EG2");
-  h2_DalitzBack_DataOmegaTGPSPSNCell_EG2->SetTitle("OmegaTGPSPSNCell");
-  h2_DalitzBack_DataOmegaTGPSPSNCell_EG2->Sumw2();
-
-  TH2D* h2_DalitzBack_DataOmegaTGPSPlusPSNCell_EG2  = (TH2D*) ESDFileDataOmegaTGPSPlusPSNCell_EG2->FindObject("ESD_Dalitz_Back_Gamma1Gamma2_Gamma0Gamma1");
-  h2_DalitzBack_DataOmegaTGPSPlusPSNCell_EG2->SetName("h2_DalitzBack_DataOmegaTGPSPlusPSNCell_EG2");
-  h2_DalitzBack_DataOmegaTGPSPlusPSNCell_EG2->SetTitle("OmegaTGPSPlusPSNCell");
-  h2_DalitzBack_DataOmegaTGPSPlusPSNCell_EG2->Sumw2();
-
-
   /****************************************************************************/
   /*                                                                          */
   /*                     Read the MC data from the MC files                   */
@@ -758,20 +691,10 @@ void plotting()
 
   //EG1
   //Same Event
-  TH2D* h2_Dalitz_MCOmegaRotPS_EG1       = (TH2D*) ESDFileMCOmegaRotPS_EG1->FindObject("ESD_Dalitz_Gamma1Gamma2_Gamma0Gamma1");
-  h2_Dalitz_MCOmegaRotPS_EG1->SetName("h2_Dalitz_MCOmegaRotPS_EG1");
-  h2_Dalitz_MCOmegaRotPS_EG1->SetTitle("OmegaRotPS");
-  // h2_Dalitz_MCOmegaRotPS_EG1->Sumw2();
-
-  TH2D* h2_Dalitz_MCOmegaTGPSPS_EG1      = (TH2D*) ESDFileMCOmegaTGPSPS_EG1->FindObject("ESD_Dalitz_Gamma1Gamma2_Gamma0Gamma1");
-  h2_Dalitz_MCOmegaTGPSPS_EG1->SetName("h2_Dalitz_MCOmegaTGPSPS_EG1");
-  h2_Dalitz_MCOmegaTGPSPS_EG1->SetTitle("OmegaTGPSPS");
-  // h2_Dalitz_MCOmegaTGPSPS_EG1->Sumw2();
-
-  TH2D* h2_Dalitz_MCOmegaTGPSPlusPS_EG1  = (TH2D*) ESDFileMCOmegaTGPSPlusPS_EG1->FindObject("ESD_Dalitz_Gamma1Gamma2_Gamma0Gamma1");
-  h2_Dalitz_MCOmegaTGPSPlusPS_EG1->SetName("h2_Dalitz_MCOmegaTGPSPlusPS_EG1");
-  h2_Dalitz_MCOmegaTGPSPlusPS_EG1->SetTitle("OmegaTGPSPlusPS");
-  // h2_Dalitz_MCOmegaTGPSPlusPS_EG1->Sumw2();
+  TH2D* h2_Dalitz_MCOmegaPS_EG1       = (TH2D*) ESDFileMCOmegaRotPS_EG1->FindObject("ESD_Dalitz_Gamma1Gamma2_Gamma0Gamma1");
+  h2_Dalitz_MCOmegaPS_EG1->SetName("h2_Dalitz_MCOmegaPS_EG1");
+  h2_Dalitz_MCOmegaPS_EG1->SetTitle("OmegaPS");
+  // h2_Dalitz_MCOmegaPS_EG1->Sumw2();
 
   // Background
   TH2D* h2_DalitzBack_MCOmegaRotPS_EG1 = (TH2D*) ESDFileMCOmegaRotPS_EG1->FindObject("ESD_Dalitz_Back_Gamma1Gamma2_Gamma0Gamma1");
@@ -790,37 +713,17 @@ void plotting()
   // h2_DalitzBack_MCOmegaTGPSPlusPS_EG1->Sumw2();
 
   // True Dalitz
-  TH2D* h2_TrueDalitz_MCOmegaRotPS_EG1 = (TH2D*) TrueFileMCOmegaRotPS_EG1->FindObject("True_Dalitz_Gamma1Gamma2_Gamma0Gamma1");
-  h2_TrueDalitz_MCOmegaRotPS_EG1->SetName("h2_TrueDalitz_MCOmegaRotPS_EG1");
-  h2_TrueDalitz_MCOmegaRotPS_EG1->SetTitle("OmegaRotPS");
-  // h2_TrueDalitz_MCOmegaRotPS_EG1->Sumw2();
-
-  TH2D* h2_TrueDalitz_MCOmegaTGPSPS_EG1 = (TH2D*) TrueFileMCOmegaTGPSPS_EG1->FindObject("True_Dalitz_Gamma1Gamma2_Gamma0Gamma1");
-  h2_TrueDalitz_MCOmegaTGPSPS_EG1->SetName("h2_TrueDalitz_MCOmegaTGPSPS_EG1");
-  h2_TrueDalitz_MCOmegaTGPSPS_EG1->SetTitle("OmegaTGPSPS");
-  // h2_TrueDalitz_MCOmegaTGPSPS_EG1->Sumw2();
-
-  TH2D* h2_TrueDalitz_MCOmegaTGPSPlusPS_EG1 = (TH2D*) TrueFileMCOmegaTGPSPlusPS_EG1->FindObject("True_Dalitz_Gamma1Gamma2_Gamma0Gamma1");
-  h2_TrueDalitz_MCOmegaTGPSPlusPS_EG1->SetName("h2_TrueDalitz_MCOmegaTGPSPlusPS_EG1");
-  h2_TrueDalitz_MCOmegaTGPSPlusPS_EG1->SetTitle("OmegaTGPSPlusPS");
-  // h2_TrueDalitz_MCOmegaTGPSPlusPS_EG1->Sumw2();
+  TH2D* h2_TrueDalitz_MCOmegaPS_EG1 = (TH2D*) TrueFileMCOmegaRotPS_EG1->FindObject("True_Dalitz_Gamma1Gamma2_Gamma0Gamma1");
+  h2_TrueDalitz_MCOmegaPS_EG1->SetName("h2_TrueDalitz_MCOmegaPS_EG1");
+  h2_TrueDalitz_MCOmegaPS_EG1->SetTitle("True Dalitz");
+  // h2_TrueDalitz_MCOmegaPS_EG1->Sumw2();
 
   //EG2
   //Same Event
-  TH2D* h2_Dalitz_MCOmegaRotPS_EG2       = (TH2D*) ESDFileMCOmegaRotPS_EG2->FindObject("ESD_Dalitz_Gamma1Gamma2_Gamma0Gamma1");
-  h2_Dalitz_MCOmegaRotPS_EG2->SetName("h2_Dalitz_MCOmegaRotPS_EG2");
-  h2_Dalitz_MCOmegaRotPS_EG2->SetTitle("OmegaRotPS");
-  // h2_Dalitz_MCOmegaRotPS_EG2->Sumw2();
-
-  TH2D* h2_Dalitz_MCOmegaTGPSPS_EG2      = (TH2D*) ESDFileMCOmegaTGPSPS_EG2->FindObject("ESD_Dalitz_Gamma1Gamma2_Gamma0Gamma1");
-  h2_Dalitz_MCOmegaTGPSPS_EG2->SetName("h2_Dalitz_MCOmegaTGPSPS_EG2");
-  h2_Dalitz_MCOmegaTGPSPS_EG2->SetTitle("OmegaTGPSPS");
-  // h2_Dalitz_MCOmegaTGPSPS_EG2->Sumw2();
-
-  TH2D* h2_Dalitz_MCOmegaTGPSPlusPS_EG2  = (TH2D*) ESDFileMCOmegaTGPSPlusPS_EG2->FindObject("ESD_Dalitz_Gamma1Gamma2_Gamma0Gamma1");
-  h2_Dalitz_MCOmegaTGPSPlusPS_EG2->SetName("h2_Dalitz_MCOmegaTGPSPlusPS_EG2");
-  h2_Dalitz_MCOmegaTGPSPlusPS_EG2->SetTitle("OmegaTGPSPlusPS");
-  // h2_Dalitz_MCOmegaTGPSPlusPS_EG2->Sumw2();
+  TH2D* h2_Dalitz_MCOmegaPS_EG2       = (TH2D*) ESDFileMCOmegaRotPS_EG2->FindObject("ESD_Dalitz_Gamma1Gamma2_Gamma0Gamma1");
+  h2_Dalitz_MCOmegaPS_EG2->SetName("h2_Dalitz_MCOmegaPS_EG2");
+  h2_Dalitz_MCOmegaPS_EG2->SetTitle("OmegPS");
+  // h2_Dalitz_MCOmegaPS_EG2->Sumw2();
 
   // Background
   TH2D* h2_DalitzBack_MCOmegaRotP_EG2 = (TH2D*) ESDFileMCOmegaRotPS_EG2->FindObject("ESD_Dalitz_Back_Gamma1Gamma2_Gamma0Gamma1");
@@ -839,20 +742,10 @@ void plotting()
   // h2_DalitzBack_MCOmegaTGPSPlusPS_EG2->Sumw2();
 
   // True Dalitz
-  TH2D* h2_TrueDalitz_MCOmegaRotPS_EG2 = (TH2D*) TrueFileMCOmegaRotPS_EG2->FindObject("True_Dalitz_Gamma1Gamma2_Gamma0Gamma1");
-  h2_TrueDalitz_MCOmegaRotPS_EG2->SetName("h2_TrueDalitz_MCOmegaRotPS_EG2");
-  h2_TrueDalitz_MCOmegaRotPS_EG2->SetTitle("OmegaRotPS");
-  // h2_TrueDalitz_MCOmegaRotPS_EG2->Sumw2();
-
-  TH2D* h2_TrueDalitz_MCOmegaTGPSPS_EG2 = (TH2D*) TrueFileMCOmegaTGPSPS_EG2->FindObject("True_Dalitz_Gamma1Gamma2_Gamma0Gamma1");
-  h2_TrueDalitz_MCOmegaTGPSPS_EG2->SetName("h2_TrueDalitz_MCOmegaTGPSPS_EG2");
-  h2_TrueDalitz_MCOmegaTGPSPS_EG2->SetTitle("OmegaTGPSPS");
-  // h2_TrueDalitz_MCOmegaTGPSPS_EG2->Sumw2();
-
-  TH2D* h2_TrueDalitz_MCOmegaTGPSPlusPS_EG2 = (TH2D*) TrueFileMCOmegaTGPSPlusPS_EG2->FindObject("True_Dalitz_Gamma1Gamma2_Gamma0Gamma1");
-  h2_TrueDalitz_MCOmegaTGPSPlusPS_EG2->SetName("h2_TrueDalitz_MCOmegaTGPSPlusPS_EG2");
-  h2_TrueDalitz_MCOmegaTGPSPlusPS_EG2->SetTitle("OmegaTGPSPlusPS");
-  // h2_TrueDalitz_MCOmegaTGPSPlusPS_EG2->Sumw2();
+  TH2D* h2_TrueDalitz_MCOmegaPS_EG2 = (TH2D*) TrueFileMCOmegaRotPS_EG2->FindObject("True_Dalitz_Gamma1Gamma2_Gamma0Gamma1");
+  h2_TrueDalitz_MCOmegaPS_EG2->SetName("h2_TrueDalitz_MCOmegaPS_EG2");
+  h2_TrueDalitz_MCOmegaPS_EG2->SetTitle("OmegaPS");
+  // h2_TrueDalitz_MCOmegaPS_EG2->Sumw2();
 
   // True Signal (omega and Pi0)
   TH2D* h2_TrueOmega_MCPS_EG1 = (TH2D*) TrueFileMCOmegaRotPS_EG1->FindObject("True_Omega_InvMass_Pt");
@@ -871,6 +764,27 @@ void plotting()
   TH2D* h2_TruePi0_MCPS_EG2 = (TH2D*) TrueFileMCOmegaRotPS_EG2->FindObject("True_Pi0FromOmega_InvMass_Pt");
   h2_TruePi0_MCPS_EG2->SetName("h2_TruePi0_MCPS_EG2");
   // h2_TruePi0_MCPS_EG2->Sumw2();
+
+  // Angles
+  TH2D* h2_OmegaPi0_Angle_MCOmegaPS_EG1 = (TH2D*) ESDFileMCOmegaRotPS_EG1->FindObject("ESD_MotherPi0_Angle_Pt");
+  h2_OmegaPi0_Angle_MCOmegaPS_EG1->SetName("h2_OmegaPi0_Angle_MCOmegaPS_EG1");
+  h2_OmegaPi0_Angle_MCOmegaPS_EG1->SetTitle("OmegaPS");
+  h2_OmegaPi0_Angle_MCOmegaPS_EG1->Sumw2();
+
+  TH2D* h2_OmegaGamma_Angle_MCOmegaPS_EG1 = (TH2D*) ESDFileMCOmegaRotPS_EG1->FindObject("ESD_MotherGamma_Angle_Pt");
+  h2_OmegaGamma_Angle_MCOmegaPS_EG1->SetName("h2_OmegaGamma_Angle_MCOmegaPS_EG1");
+  h2_OmegaGamma_Angle_MCOmegaPS_EG1->SetTitle("OmegaPS");
+  h2_OmegaGamma_Angle_MCOmegaPS_EG1->Sumw2();
+
+  TH2D* h2_Pi0Gamma_Angle_MCOmegaPS_EG1 = (TH2D*) ESDFileMCOmegaRotPS_EG1->FindObject("ESD_Pi0Gamma_Angle_Pt");
+  h2_Pi0Gamma_Angle_MCOmegaPS_EG1->SetName("h2_Pi0Gamma_Angle_MCOmegaPS_EG1");
+  h2_Pi0Gamma_Angle_MCOmegaPS_EG1->SetTitle("OmegaPS");
+  h2_Pi0Gamma_Angle_MCOmegaPS_EG1->Sumw2();
+
+  TH2D* h2_OmegaRestGamma_CosAngle_MCOmegaPS_EG1 = (TH2D*) ESDFileMCOmegaRotPS_EG1->FindObject("ESD_MotherRestGamma_CosAngle_Pt");
+  h2_OmegaRestGamma_CosAngle_MCOmegaPS_EG1->SetName("h2_OmegaRestGamma_CosAngle_MCOmegaPS_EG1");
+  h2_OmegaRestGamma_CosAngle_MCOmegaPS_EG1->SetTitle("OmegaPS");
+  h2_OmegaRestGamma_CosAngle_MCOmegaPS_EG1->Sumw2();
 
   // ---------------------------------------------------------------------------
   //
@@ -916,24 +830,24 @@ void plotting()
   // SameEvent doesn't change between different background schemes, so there is only one above ^
   TH2D* h2_Background_MCPi0RotPS_EG1      = (TH2D*) ESDFileMCPi0RotPS_EG1->FindObject("ESD_Mother_SwappingBack_InvMass_Pt");
   h2_Background_MCPi0RotPS_EG1->SetName("h2_Background_MCPi0RotPS_EG1");
-  h2_Background_MCPi0RotPS_EG1->SetName("Pi0RotPS");
+  h2_Background_MCPi0RotPS_EG1->SetTitle("Pi0RotPS");
   // h2_Background_MCPi0RotPS_EG1->Sumw2();
 
   TH2D* h2_Background_MCPi0TGPSPlusPS_EG1 = (TH2D*) ESDFileMCPi0TGPSPlusPS_EG1->FindObject("ESD_Mother_SwappingBack_InvMass_Pt");
   h2_Background_MCPi0TGPSPlusPS_EG1->SetName("h2_Background_MCPi0TGPSPlusPS_EG1");
-  h2_Background_MCPi0TGPSPlusPS_EG1->SetName("Pi0TGPSPlusPS");
+  h2_Background_MCPi0TGPSPlusPS_EG1->SetTitle("Pi0TGPSPlusPS");
   // h2_Background_MCPi0TGPSPlusPS_EG1->Sumw2();
 
 
   // EG2  background
   TH2D* h2_Background_MCPi0RotPS_EG2      = (TH2D*) ESDFileMCPi0RotPS_EG2->FindObject("ESD_Mother_SwappingBack_InvMass_Pt");
   h2_Background_MCPi0RotPS_EG2->SetName("h2_Background_MCPi0RotPS_EG2");
-  h2_Background_MCPi0RotPS_EG2->SetName("Pi0RotPS");
+  h2_Background_MCPi0RotPS_EG2->SetTitle("Pi0RotPS");
   // h2_Background_MCPi0RotPS_EG2->Sumw2();
 
   TH2D* h2_Background_MCPi0TGPSPlusPS_EG2 = (TH2D*) ESDFileMCPi0TGPSPlusPS_EG2->FindObject("ESD_Mother_SwappingBack_InvMass_Pt");
   h2_Background_MCPi0TGPSPlusPS_EG2->SetName("h2_Background_MCPi0TGPSPlusPS_EG2");
-  h2_Background_MCPi0TGPSPlusPS_EG2->SetName("Pi0TGPSPlusPS");
+  h2_Background_MCPi0TGPSPlusPS_EG2->SetTitle("Pi0TGPSPlusPS");
   // h2_Background_MCPi0TGPSPlusPS_EG2->Sumw2();
 
   // QA Plots ------------------------------------------------------------------
@@ -942,46 +856,46 @@ void plotting()
   // Background
   TH2D* h2_DalitzBack_MCPi0RotPS_EG1 = (TH2D*) ESDFileMCPi0RotPS_EG1->FindObject("ESD_Dalitz_Back_Gamma1Gamma2_Gamma0Gamma1");
   h2_DalitzBack_MCPi0RotPS_EG1->SetName("h2_DalitzBack_MCPi0RotPS_EG1");
-  h2_DalitzBack_MCPi0RotPS_EG1->SetName("Pi0RotPS");
+  h2_DalitzBack_MCPi0RotPS_EG1->SetTitle("Pi0RotPS");
   // h2_DalitzBack_MCPi0RotPS_EG1->Sumw2();
 
   TH2D* h2_DalitzBack_MCPi0TGPSPlusPS_EG1  = (TH2D*) ESDFileMCPi0TGPSPlusPS_EG1->FindObject("ESD_Dalitz_Back_Gamma1Gamma2_Gamma0Gamma1");
   h2_DalitzBack_MCPi0TGPSPlusPS_EG1->SetName("h2_DalitzBack_MCPi0TGPSPlusPS_EG1");
-  h2_DalitzBack_MCPi0TGPSPlusPS_EG1->SetName("Pi0TGPSPlusPS");
+  h2_DalitzBack_MCPi0TGPSPlusPS_EG1->SetTitle("Pi0TGPSPlusPS");
   // h2_DalitzBack_MCPi0TGPSPlusPS_EG1->Sumw2();
 
   // True Dalitz
   TH2D* h2_TrueDalitz_MCPi0RotPS_EG1 = (TH2D*) TrueFileMCPi0RotPS_EG1->FindObject("True_Dalitz_Gamma1Gamma2_Gamma0Gamma1");
   h2_TrueDalitz_MCPi0RotPS_EG1->SetName("h2_TrueDalitz_MCPi0RotPS_EG1");
-  h2_TrueDalitz_MCPi0RotPS_EG1->SetName("Pi0RotPS");
+  h2_TrueDalitz_MCPi0RotPS_EG1->SetTitle("Pi0RotPS");
   // h2_TrueDalitz_MCPi0RotPS_EG1->Sumw2();
 
   TH2D* h2_TrueDalitz_MCPi0TGPSPlusPS_EG1 = (TH2D*) TrueFileMCPi0TGPSPlusPS_EG1->FindObject("True_Dalitz_Gamma1Gamma2_Gamma0Gamma1");
   h2_TrueDalitz_MCPi0TGPSPlusPS_EG1->SetName("h2_TrueDalitz_MCPi0TGPSPlusPS_EG1");
-  h2_TrueDalitz_MCPi0TGPSPlusPS_EG1->SetName("Pi0TGPSPlusPS");
+  h2_TrueDalitz_MCPi0TGPSPlusPS_EG1->SetTitle("Pi0TGPSPlusPS");
   // h2_TrueDalitz_MCPi0TGPSPlusPS_EG1->Sumw2();
 
   //EG2
   // Background
   TH2D* h2_DalitzBack_MCPi0RotPS_EG2 = (TH2D*) ESDFileMCPi0RotPS_EG2->FindObject("ESD_Dalitz_Back_Gamma1Gamma2_Gamma0Gamma1");
   h2_DalitzBack_MCPi0RotPS_EG2->SetName("h2_DalitzBack_MCPi0RotPS_EG2");
-  h2_DalitzBack_MCPi0RotPS_EG2->SetName("Pi0RotPS");
+  h2_DalitzBack_MCPi0RotPS_EG2->SetTitle("Pi0RotPS");
   // h2_DalitzBack_MCPi0RotPS_EG2->Sumw2();
 
   TH2D* h2_DalitzBack_MCPi0TGPSPlusPS_EG2  = (TH2D*) ESDFileMCPi0TGPSPlusPS_EG2->FindObject("ESD_Dalitz_Back_Gamma1Gamma2_Gamma0Gamma1");
   h2_DalitzBack_MCPi0TGPSPlusPS_EG2->SetName("h2_DalitzBack_MCPi0TGPSPlusPS_EG2");
-  h2_DalitzBack_MCPi0TGPSPlusPS_EG2->SetName("Pi0TGPSPlusPS");
+  h2_DalitzBack_MCPi0TGPSPlusPS_EG2->SetTitle("Pi0TGPSPlusPS");
   // h2_DalitzBack_MCPi0TGPSPlusPS_EG2->Sumw2();
 
   // True Dalitz
   TH2D* h2_TrueDalitz_MCPi0RotPS_EG2 = (TH2D*) TrueFileMCPi0RotPS_EG2->FindObject("True_Dalitz_Gamma1Gamma2_Gamma0Gamma1");
   h2_TrueDalitz_MCPi0RotPS_EG2->SetName("h2_TrueDalitz_MCPi0RotPS_EG2");
-  h2_TrueDalitz_MCPi0RotPS_EG2->SetName("Pi0RotPS");
+  h2_TrueDalitz_MCPi0RotPS_EG2->SetTitle("Pi0RotPS");
   // h2_TrueDalitz_MCPi0RotPS_EG2->Sumw2();
 
   TH2D* h2_TrueDalitz_MCPi0TGPSPlusPS_EG2 = (TH2D*) TrueFileMCPi0TGPSPlusPS_EG2->FindObject("True_Dalitz_Gamma1Gamma2_Gamma0Gamma1");
   h2_TrueDalitz_MCPi0TGPSPlusPS_EG2->SetName("h2_TrueDalitz_MCPi0TGPSPlusPS_EG2");
-  h2_TrueDalitz_MCPi0TGPSPlusPS_EG2->SetName("Pi0TGPSPlusPS");
+  h2_TrueDalitz_MCPi0TGPSPlusPS_EG2->SetTitle("Pi0TGPSPlusPS");
   // h2_TrueDalitz_MCPi0TGPSPlusPS_EG2->Sumw2();
 
   // ---------------------------------------------------------------------------
@@ -1034,22 +948,22 @@ void plotting()
   // SameEvent doesn't change between different background schemes, so there is only one
   TH2D* h2_SameEvent_MCOmegaWOPS_EG1          = (TH2D*) ESDFileMCOmegaRotWOPS_EG1->FindObject("ESD_Mother_InvMass_Pt");
   h2_SameEvent_MCOmegaWOPS_EG1->SetName("h2_SameEvent_MCOmegaWOPS_EG1");
-  h2_SameEvent_MCOmegaWOPS_EG1->SetName("OmegaWOPS");
+  h2_SameEvent_MCOmegaWOPS_EG1->SetTitle("OmegaWOPS");
   // h2_SameEvent_MCOmegaWOPS_EG1->Sumw2();
 
   TH2D* h2_Background_MCOmegaRotWOPS_EG1      = (TH2D*) ESDFileMCOmegaRotWOPS_EG1->FindObject("ESD_Mother_SwappingBack_InvMass_Pt");
   h2_Background_MCOmegaRotWOPS_EG1->SetName("h2_Background_MCOmegaRotWOPS_EG1");
-  h2_Background_MCOmegaRotWOPS_EG1->SetName("OmegaRotWOPS");
+  h2_Background_MCOmegaRotWOPS_EG1->SetTitle("OmegaRotWOPS");
   // h2_Background_MCOmegaRotWOPS_EG1->Sumw2();
 
   TH2D* h2_Background_MCOmegaTGPSWOPS_EG1     = (TH2D*) ESDFileMCOmegaTGPSWOPS_EG1->FindObject("ESD_Mother_SwappingBack_InvMass_Pt");
   h2_Background_MCOmegaTGPSWOPS_EG1->SetName("h2_Background_MCOmegaTGPSWOPS_EG1");
-  h2_Background_MCOmegaTGPSWOPS_EG1->SetName("OmegaTGPSWOPS");
+  h2_Background_MCOmegaTGPSWOPS_EG1->SetTitle("OmegaTGPSWOPS");
   // h2_Background_MCOmegaTGPSWOPS_EG1->Sumw2();
 
   TH2D* h2_Background_MCOmegaTGPSPlusWOPS_EG1 = (TH2D*) ESDFileMCOmegaTGPSPlusWOPS_EG1->FindObject("ESD_Mother_SwappingBack_InvMass_Pt");
   h2_Background_MCOmegaTGPSPlusWOPS_EG1->SetName("h2_Background_MCOmegaTGPSPlusWOPS_EG1");
-  h2_Background_MCOmegaTGPSPlusWOPS_EG1->SetName("OmegaTGPSPlusWOPS");
+  h2_Background_MCOmegaTGPSPlusWOPS_EG1->SetTitle("OmegaTGPSPlusWOPS");
   // h2_Background_MCOmegaTGPSPlusWOPS_EG1->Sumw2();
 
   // True Signal (omega and Pi0)
@@ -1066,22 +980,22 @@ void plotting()
   // EG2 SameEvent and background
   TH2D* h2_SameEvent_MCOmegaWOPS_EG2          = (TH2D*) ESDFileMCOmegaRotWOPS_EG2->FindObject("ESD_Mother_InvMass_Pt");
   h2_SameEvent_MCOmegaWOPS_EG2->SetName("h2_SameEvent_MCOmegaWOPS_EG2");
-  h2_SameEvent_MCOmegaWOPS_EG2->SetName("OmegaWOPS");
+  h2_SameEvent_MCOmegaWOPS_EG2->SetTitle("OmegaWOPS");
   // h2_SameEvent_MCOmegaWOPS_EG2->Sumw2();
 
   TH2D* h2_Background_MCOmegaRotWOPS_EG2      = (TH2D*) ESDFileMCOmegaRotWOPS_EG2->FindObject("ESD_Mother_SwappingBack_InvMass_Pt");
   h2_Background_MCOmegaRotWOPS_EG2->SetName("h2_Background_MCOmegaRotWOPS_EG2");
-  h2_Background_MCOmegaRotWOPS_EG2->SetName("OmegaRotWOPS");
+  h2_Background_MCOmegaRotWOPS_EG2->SetTitle("OmegaRotWOPS");
   // h2_Background_MCOmegaRotWOPS_EG2->Sumw2();
 
   TH2D* h2_Background_MCOmegaTGPSWOPS_EG2     = (TH2D*) ESDFileMCOmegaTGPSWOPS_EG2->FindObject("ESD_Mother_SwappingBack_InvMass_Pt");
   h2_Background_MCOmegaTGPSWOPS_EG2->SetName("h2_Background_MCOmegaTGPSWOPS_EG2");
-  h2_Background_MCOmegaTGPSWOPS_EG2->SetName("OmegaTGPSWOPS");
+  h2_Background_MCOmegaTGPSWOPS_EG2->SetTitle("OmegaTGPSWOPS");
   // h2_Background_MCOmegaTGPSWOPS_EG2->Sumw2();
 
   TH2D* h2_Background_MCOmegaTGPSPlusWOPS_EG2 = (TH2D*) ESDFileMCOmegaTGPSPlusWOPS_EG2->FindObject("ESD_Mother_SwappingBack_InvMass_Pt");
   h2_Background_MCOmegaTGPSPlusWOPS_EG2->SetName("h2_Background_MCOmegaTGPSPlusWOPS_EG2");
-  h2_Background_MCOmegaTGPSPlusWOPS_EG2->SetName("OmegaTGPSPlusWOPS");
+  h2_Background_MCOmegaTGPSPlusWOPS_EG2->SetTitle("OmegaTGPSPlusWOPS");
   // h2_Background_MCOmegaTGPSPlusWOPS_EG2->Sumw2();
 
   // True Signal (omega and Pi0)
@@ -1100,35 +1014,25 @@ void plotting()
 
   //EG1
   //Same Event
-  TH2D* h2_Dalitz_MCOmegaRotWOPS_EG1       = (TH2D*) ESDFileMCOmegaRotWOPS_EG1->FindObject("ESD_Dalitz_Gamma1Gamma2_Gamma0Gamma1");
-  h2_Dalitz_MCOmegaRotWOPS_EG1->SetName("h2_Dalitz_MCOmegaRotWOPS_EG1");
-  h2_Dalitz_MCOmegaRotWOPS_EG1->SetName("OmegaRotWOPS");
-  // h2_Dalitz_MCOmegaRotWOPS_EG1->Sumw2();
-
-  TH2D* h2_Dalitz_MCOmegaTGPSWOPS_EG1      = (TH2D*) ESDFileMCOmegaTGPSWOPS_EG1->FindObject("ESD_Dalitz_Gamma1Gamma2_Gamma0Gamma1");
-  h2_Dalitz_MCOmegaTGPSWOPS_EG1->SetName("h2_Dalitz_MCOmegaTGPSWOPS_EG1");
-  h2_Dalitz_MCOmegaTGPSWOPS_EG1->SetName("OmegaTGPSWOPS");
-  // h2_Dalitz_MCOmegaTGPSWOPS_EG1->Sumw2();
-
-  TH2D* h2_Dalitz_MCOmegaTGPSPlusWOPS_EG1  = (TH2D*) ESDFileMCOmegaTGPSPlusWOPS_EG1->FindObject("ESD_Dalitz_Gamma1Gamma2_Gamma0Gamma1");
-  h2_Dalitz_MCOmegaTGPSPlusWOPS_EG1->SetName("h2_Dalitz_MCOmegaTGPSPlusWOPS_EG1");
-  h2_Dalitz_MCOmegaTGPSPlusWOPS_EG1->SetName("OmegaTGPSPlusWOPS");
-  // h2_Dalitz_MCOmegaTGPSPlusWOPS_EG1->Sumw2();
+  TH2D* h2_Dalitz_MCOmegaWOPS_EG1       = (TH2D*) ESDFileMCOmegaRotWOPS_EG1->FindObject("ESD_Dalitz_Gamma1Gamma2_Gamma0Gamma1");
+  h2_Dalitz_MCOmegaWOPS_EG1->SetName("h2_Dalitz_MCOmegaWOPS_EG1");
+  h2_Dalitz_MCOmegaWOPS_EG1->SetTitle("OmegaWOPS");
+  // h2_Dalitz_MCOmegaWOPS_EG1->Sumw2();
 
   // Background
   TH2D* h2_DalitzBack_MCOmegaRotWOPS_EG1 = (TH2D*) ESDFileMCOmegaRotWOPS_EG1->FindObject("ESD_Dalitz_Back_Gamma1Gamma2_Gamma0Gamma1");
   h2_DalitzBack_MCOmegaRotWOPS_EG1->SetName("h2_DalitzBack_MCOmegaRotWOPS_EG1");
-  h2_DalitzBack_MCOmegaRotWOPS_EG1->SetName("OmegaRotWOPS");
+  h2_DalitzBack_MCOmegaRotWOPS_EG1->SetTitle("OmegaRotWOPS");
   // h2_DalitzBack_MCOmegaRotWOPS_EG1->Sumw2();
 
   TH2D* h2_DalitzBack_MCOmegaTGPSWOPS_EG1      = (TH2D*) ESDFileMCOmegaTGPSWOPS_EG1->FindObject("ESD_Dalitz_Back_Gamma1Gamma2_Gamma0Gamma1");
   h2_DalitzBack_MCOmegaTGPSWOPS_EG1->SetName("h2_DalitzBack_MCOmegaTGPSWOPS_EG1");
-  h2_DalitzBack_MCOmegaTGPSWOPS_EG1->SetName("OmegaTGPSWOPS");
+  h2_DalitzBack_MCOmegaTGPSWOPS_EG1->SetTitle("OmegaTGPSWOPS");
   // h2_DalitzBack_MCOmegaTGPSWOPS_EG1->Sumw2();
 
   TH2D* h2_DalitzBack_MCOmegaTGPSPlusWOPS_EG1  = (TH2D*) ESDFileMCOmegaTGPSPlusWOPS_EG1->FindObject("ESD_Dalitz_Back_Gamma1Gamma2_Gamma0Gamma1");
   h2_DalitzBack_MCOmegaTGPSPlusWOPS_EG1->SetName("h2_DalitzBack_MCOmegaTGPSPlusWOPS_EG1");
-  h2_DalitzBack_MCOmegaTGPSPlusWOPS_EG1->SetName("OmegaTGPSPlusWOPS");
+  h2_DalitzBack_MCOmegaTGPSPlusWOPS_EG1->SetTitle("OmegaTGPSPlusWOPS");
   // h2_DalitzBack_MCOmegaTGPSPlusWOPS_EG1->Sumw2();
 
   // True Dalitz
@@ -1140,33 +1044,33 @@ void plotting()
   //Same Event
   TH2D* h2_Dalitz_MCOmegaRotWOPS_EG2       = (TH2D*) ESDFileMCOmegaRotWOPS_EG2->FindObject("ESD_Dalitz_Gamma1Gamma2_Gamma0Gamma1");
   h2_Dalitz_MCOmegaRotWOPS_EG2->SetName("h2_Dalitz_MCOmegaRotWOPS_EG2");
-  h2_Dalitz_MCOmegaRotWOPS_EG2->SetName("OmegaRotWOPS");
+  h2_Dalitz_MCOmegaRotWOPS_EG2->SetTitle("OmegaRotWOPS");
   // h2_Dalitz_MCOmegaRotWOPS_EG2->Sumw2();
 
   TH2D* h2_Dalitz_MCOmegaTGPSWOPS_EG2      = (TH2D*) ESDFileMCOmegaTGPSWOPS_EG2->FindObject("ESD_Dalitz_Gamma1Gamma2_Gamma0Gamma1");
   h2_Dalitz_MCOmegaTGPSWOPS_EG2->SetName("h2_Dalitz_MCOmegaTGPSWOPS_EG2");
-  h2_Dalitz_MCOmegaTGPSWOPS_EG2->SetName("OmegaTGPSWOPS");
+  h2_Dalitz_MCOmegaTGPSWOPS_EG2->SetTitle("OmegaTGPSWOPS");
   // h2_Dalitz_MCOmegaTGPSWOPS_EG2->Sumw2();
 
   TH2D* h2_Dalitz_MCOmegaTGPSPlusWOPS_EG2  = (TH2D*) ESDFileMCOmegaTGPSPlusWOPS_EG2->FindObject("ESD_Dalitz_Gamma1Gamma2_Gamma0Gamma1");
   h2_Dalitz_MCOmegaTGPSPlusWOPS_EG2->SetName("h2_Dalitz_MCOmegaTGPSPlusWOPS_EG2");
-  h2_Dalitz_MCOmegaTGPSPlusWOPS_EG2->SetName("OmegaTGPSPlusWOPS");
+  h2_Dalitz_MCOmegaTGPSPlusWOPS_EG2->SetTitle("OmegaTGPSPlusWOPS");
   // h2_Dalitz_MCOmegaTGPSPlusWOPS_EG2->Sumw2();
 
   // Background
   TH2D* h2_DalitzBack_MCOmegaRotWOPS_EG2 = (TH2D*) ESDFileMCOmegaRotWOPS_EG2->FindObject("ESD_Dalitz_Back_Gamma1Gamma2_Gamma0Gamma1");
   h2_DalitzBack_MCOmegaRotWOPS_EG2->SetName("h2_DalitzBack_MCOmegaRotWOPS_EG2");
-  h2_DalitzBack_MCOmegaRotWOPS_EG2->SetName("OmegaRotWOPS");
+  h2_DalitzBack_MCOmegaRotWOPS_EG2->SetTitle("OmegaRotWOPS");
   // h2_DalitzBack_MCOmegaRotWOPS_EG2->Sumw2();
 
   TH2D* h2_DalitzBack_MCOmegaTGPSWOPS_EG2      = (TH2D*) ESDFileMCOmegaTGPSWOPS_EG2->FindObject("ESD_Dalitz_Back_Gamma1Gamma2_Gamma0Gamma1");
   h2_DalitzBack_MCOmegaTGPSWOPS_EG2->SetName("h2_DalitzBack_MCOmegaTGPSWOPS_EG2");
-  h2_DalitzBack_MCOmegaTGPSWOPS_EG2->SetName("OmegaTGPSWOPS");
+  h2_DalitzBack_MCOmegaTGPSWOPS_EG2->SetTitle("OmegaTGPSWOPS");
   // h2_DalitzBack_MCOmegaTGPSWOPS_EG2->Sumw2();
 
   TH2D* h2_DalitzBack_MCOmegaTGPSPlusWOPS_EG2  = (TH2D*) ESDFileMCOmegaTGPSPlusWOPS_EG2->FindObject("ESD_Dalitz_Back_Gamma1Gamma2_Gamma0Gamma1");
   h2_DalitzBack_MCOmegaTGPSPlusWOPS_EG2->SetName("h2_DalitzBack_MCOmegaTGPSPlusWOPS_EG2");
-  h2_DalitzBack_MCOmegaTGPSPlusWOPS_EG2->SetName("OmegaTGPSPlusWOPS");
+  h2_DalitzBack_MCOmegaTGPSPlusWOPS_EG2->SetTitle("OmegaTGPSPlusWOPS");
   // h2_DalitzBack_MCOmegaTGPSPlusWOPS_EG2->Sumw2();
 
   // True Dalitz
@@ -1224,128 +1128,128 @@ void plotting()
   // EG1 SameEvent and background and True Signal (omega and Pi0) 1 sigma
   TH2D* h2_SameEvent_MCOmegaTGPSPlusAPPS1Sigma_EG1  = (TH2D*) ESDFileMCOmegaTGPSPlusAPPS1Sigma_EG1->FindObject("ESD_Mother_InvMass_Pt");
   h2_SameEvent_MCOmegaTGPSPlusAPPS1Sigma_EG1->SetName("h2_SameEvent_MCOmegaTGPSPlusAPPS1Sigma_EG1");
-  h2_SameEvent_MCOmegaTGPSPlusAPPS1Sigma_EG1->SetName("OmegaTGPSPlusAPPS1Sigma");
+  h2_SameEvent_MCOmegaTGPSPlusAPPS1Sigma_EG1->SetTitle("OmegaTGPSPlusAPPS1Sigma");
   // h2_SameEvent_MCOmegaTGPSPlusAPPS1Sigma_EG1->Sumw2();
 
   TH2D* h2_Background_MCOmegaTGPSPlusAPPS1Sigma_EG1 = (TH2D*) ESDFileMCOmegaTGPSPlusAPPS1Sigma_EG1->FindObject("ESD_Mother_SwappingBack_InvMass_Pt");
   h2_Background_MCOmegaTGPSPlusAPPS1Sigma_EG1->SetName("h2_Background_MCOmegaTGPSPlusAPPS1Sigma_EG1");
-  h2_Background_MCOmegaTGPSPlusAPPS1Sigma_EG1->SetName("OmegaTGPSPlusAPPS1Sigma");
+  h2_Background_MCOmegaTGPSPlusAPPS1Sigma_EG1->SetTitle("OmegaTGPSPlusAPPS1Sigma");
   // h2_Background_MCOmegaTGPSPlusAPPS1Sigma_EG1->Sumw2();
 
   TH2D* h2_TrueOmega_MCOmegaTGPSPlusAPPS1Sigma_EG1 = (TH2D*) TrueFileMCOmegaTGPSPlusAPPS1Sigma_EG1->FindObject("True_Omega_InvMass_Pt");
   h2_TrueOmega_MCOmegaTGPSPlusAPPS1Sigma_EG1->SetName("h2_TrueOmega_MCOmegaTGPSPlusAPPS1Sigma_EG1");
-  h2_TrueOmega_MCOmegaTGPSPlusAPPS1Sigma_EG1->SetName("OmegaTGPSPlusAPPS1Sigma");
+  h2_TrueOmega_MCOmegaTGPSPlusAPPS1Sigma_EG1->SetTitle("OmegaTGPSPlusAPPS1Sigma");
   // h2_TrueOmega_MCOmegaTGPSPlusAPPS1Sigma_EG1->Sumw2();
 
   TH2D* h2_TruePi0_MCOmegaTGPSPlusAPPS1Sigma_EG1 = (TH2D*) TrueFileMCOmegaTGPSPlusAPPS1Sigma_EG1->FindObject("True_Pi0FromOmega_InvMass_Pt");
   h2_TruePi0_MCOmegaTGPSPlusAPPS1Sigma_EG1->SetName("h2_TruePi0_MCOmegaTGPSPlusAPPS1Sigma_EG1");
-  h2_TruePi0_MCOmegaTGPSPlusAPPS1Sigma_EG1->SetName("OmegaTGPSPlusAPPS1Sigma");
+  h2_TruePi0_MCOmegaTGPSPlusAPPS1Sigma_EG1->SetTitle("OmegaTGPSPlusAPPS1Sigma");
   // h2_TruePi0_MCOmegaTGPSPlusAPPS1Sigma_EG1->Sumw2();
 
   // EG1 SameEvent and background and True Signal (omega and Pi0) 2 sigma
   TH2D* h2_SameEvent_MCOmegaTGPSPlusAPPS2Sigma_EG1  = (TH2D*) ESDFileMCOmegaTGPSPlusAPPS2Sigma_EG1->FindObject("ESD_Mother_InvMass_Pt");
   h2_SameEvent_MCOmegaTGPSPlusAPPS2Sigma_EG1->SetName("h2_SameEvent_MCOmegaTGPSPlusAPPS2Sigma_EG1");
-  h2_SameEvent_MCOmegaTGPSPlusAPPS2Sigma_EG1->SetName("OmegaTGPSPlusAPPS2Sigma");
+  h2_SameEvent_MCOmegaTGPSPlusAPPS2Sigma_EG1->SetTitle("OmegaTGPSPlusAPPS2Sigma");
   // h2_SameEvent_MCOmegaTGPSPlusAPPS2Sigma_EG1->Sumw2();
 
   TH2D* h2_Background_MCOmegaTGPSPlusAPPS2Sigma_EG1 = (TH2D*) ESDFileMCOmegaTGPSPlusAPPS2Sigma_EG1->FindObject("ESD_Mother_SwappingBack_InvMass_Pt");
   h2_Background_MCOmegaTGPSPlusAPPS2Sigma_EG1->SetName("h2_Background_MCOmegaTGPSPlusAPPS2Sigma_EG1");
-  h2_Background_MCOmegaTGPSPlusAPPS2Sigma_EG1->SetName("OmegaTGPSPlusAPPS2Sigma");
+  h2_Background_MCOmegaTGPSPlusAPPS2Sigma_EG1->SetTitle("OmegaTGPSPlusAPPS2Sigma");
   // h2_Background_MCOmegaTGPSPlusAPPS2Sigma_EG1->Sumw2();
 
   TH2D* h2_TrueOmega_MCOmegaTGPSPlusAPPS2Sigma_EG1 = (TH2D*) TrueFileMCOmegaTGPSPlusAPPS2Sigma_EG1->FindObject("True_Omega_InvMass_Pt");
   h2_TrueOmega_MCOmegaTGPSPlusAPPS2Sigma_EG1->SetName("h2_TrueOmega_MCOmegaTGPSPlusAPPS2Sigma_EG1");
-  h2_TrueOmega_MCOmegaTGPSPlusAPPS2Sigma_EG1->SetName("OmegaTGPSPlusAPPS2Sigma");
+  h2_TrueOmega_MCOmegaTGPSPlusAPPS2Sigma_EG1->SetTitle("OmegaTGPSPlusAPPS2Sigma");
   // h2_TrueOmega_MCOmegaTGPSPlusAPPS2Sigma_EG1->Sumw2();
 
   TH2D* h2_TruePi0_MCOmegaTGPSPlusAPPS2Sigma_EG1 = (TH2D*) TrueFileMCOmegaTGPSPlusAPPS2Sigma_EG1->FindObject("True_Pi0FromOmega_InvMass_Pt");
   h2_TruePi0_MCOmegaTGPSPlusAPPS2Sigma_EG1->SetName("h2_TruePi0_MCOmegaTGPSPlusAPPS2Sigma_EG1");
-  h2_TruePi0_MCOmegaTGPSPlusAPPS2Sigma_EG1->SetName("OmegaTGPSPlusAPPS2Sigma");
+  h2_TruePi0_MCOmegaTGPSPlusAPPS2Sigma_EG1->SetTitle("OmegaTGPSPlusAPPS2Sigma");
   // h2_TruePi0_MCOmegaTGPSPlusAPPS2Sigma_EG1->Sumw2();
 
   // EG1 SameEvent and background and True Signal (omega and Pi0) 3 sigma
   TH2D* h2_SameEvent_MCOmegaTGPSPlusAPPS3Sigma_EG1  = (TH2D*) ESDFileMCOmegaTGPSPlusAPPS3Sigma_EG1->FindObject("ESD_Mother_InvMass_Pt");
   h2_SameEvent_MCOmegaTGPSPlusAPPS3Sigma_EG1->SetName("h2_SameEvent_MCOmegaTGPSPlusAPPS3Sigma_EG1");
-  h2_SameEvent_MCOmegaTGPSPlusAPPS3Sigma_EG1->SetName("OmegaTGPSPlusAPPS3Sigma");
+  h2_SameEvent_MCOmegaTGPSPlusAPPS3Sigma_EG1->SetTitle("OmegaTGPSPlusAPPS3Sigma");
   // h2_SameEvent_MCOmegaTGPSPlusAPPS3Sigma_EG1->Sumw2();
 
   TH2D* h2_Background_MCOmegaTGPSPlusAPPS3Sigma_EG1 = (TH2D*) ESDFileMCOmegaTGPSPlusAPPS3Sigma_EG1->FindObject("ESD_Mother_SwappingBack_InvMass_Pt");
   h2_Background_MCOmegaTGPSPlusAPPS3Sigma_EG1->SetName("h2_Background_MCOmegaTGPSPlusAPPS3Sigma_EG1");
-  h2_Background_MCOmegaTGPSPlusAPPS3Sigma_EG1->SetName("OmegaTGPSPlusAPPS3Sigma");
+  h2_Background_MCOmegaTGPSPlusAPPS3Sigma_EG1->SetTitle("OmegaTGPSPlusAPPS3Sigma");
   // h2_Background_MCOmegaTGPSPlusAPPS3Sigma_EG1->Sumw2();
 
   TH2D* h2_TrueOmega_MCOmegaTGPSPlusAPPS3Sigma_EG1 = (TH2D*) TrueFileMCOmegaTGPSPlusAPPS3Sigma_EG1->FindObject("True_Omega_InvMass_Pt");
   h2_TrueOmega_MCOmegaTGPSPlusAPPS3Sigma_EG1->SetName("h2_TrueOmega_MCOmegaTGPSPlusAPPS3Sigma_EG1");
-  h2_TrueOmega_MCOmegaTGPSPlusAPPS3Sigma_EG1->SetName("OmegaTGPSPlusAPPS3Sigma");
+  h2_TrueOmega_MCOmegaTGPSPlusAPPS3Sigma_EG1->SetTitle("OmegaTGPSPlusAPPS3Sigma");
   // h2_TrueOmega_MCOmegaTGPSPlusAPPS3Sigma_EG1->Sumw2();
 
   TH2D* h2_TruePi0_MCOmegaTGPSPlusAPPS3Sigma_EG1 = (TH2D*) TrueFileMCOmegaTGPSPlusAPPS3Sigma_EG1->FindObject("True_Pi0FromOmega_InvMass_Pt");
   h2_TruePi0_MCOmegaTGPSPlusAPPS3Sigma_EG1->SetName("h2_TruePi0_MCOmegaTGPSPlusAPPS3Sigma_EG1");
-  h2_TruePi0_MCOmegaTGPSPlusAPPS3Sigma_EG1->SetName("OmegaTGPSPlusAPPS3Sigma");
+  h2_TruePi0_MCOmegaTGPSPlusAPPS3Sigma_EG1->SetTitle("OmegaTGPSPlusAPPS3Sigma");
   // h2_TruePi0_MCOmegaTGPSPlusAPPS3Sigma_EG1->Sumw2();
 
 
   // EG2 SameEvent and background and True Signal (omega and Pi0) 1 sigma
   TH2D* h2_SameEvent_MCOmegaTGPSPlusAPPS1Sigma_EG2  = (TH2D*) ESDFileMCOmegaTGPSPlusAPPS1Sigma_EG2->FindObject("ESD_Mother_InvMass_Pt");
   h2_SameEvent_MCOmegaTGPSPlusAPPS1Sigma_EG2->SetName("h2_SameEvent_MCOmegaTGPSPlusAPPS1Sigma_EG2");
-  h2_SameEvent_MCOmegaTGPSPlusAPPS1Sigma_EG2->SetName("OmegaTGPSPlusAPPS1Sigma");
+  h2_SameEvent_MCOmegaTGPSPlusAPPS1Sigma_EG2->SetTitle("OmegaTGPSPlusAPPS1Sigma");
   // h2_SameEvent_MCOmegaTGPSPlusAPPS1Sigma_EG2->Sumw2();
 
   TH2D* h2_Background_MCOmegaTGPSPlusAPPS1Sigma_EG2 = (TH2D*) ESDFileMCOmegaTGPSPlusAPPS1Sigma_EG2->FindObject("ESD_Mother_SwappingBack_InvMass_Pt");
   h2_Background_MCOmegaTGPSPlusAPPS1Sigma_EG2->SetName("h2_Background_MCOmegaTGPSPlusAPPS1Sigma_EG2");
-  h2_Background_MCOmegaTGPSPlusAPPS1Sigma_EG2->SetName("OmegaTGPSPlusAPPS1Sigma");
+  h2_Background_MCOmegaTGPSPlusAPPS1Sigma_EG2->SetTitle("OmegaTGPSPlusAPPS1Sigma");
   // h2_Background_MCOmegaTGPSPlusAPPS1Sigma_EG2->Sumw2();
 
   TH2D* h2_TrueOmega_MCOmegaTGPSPlusAPPS1Sigma_EG2 = (TH2D*) TrueFileMCOmegaTGPSPlusAPPS1Sigma_EG2->FindObject("True_Omega_InvMass_Pt");
   h2_TrueOmega_MCOmegaTGPSPlusAPPS1Sigma_EG2->SetName("h2_TrueOmega_MCOmegaTGPSPlusAPPS1Sigma_EG2");
-  h2_TrueOmega_MCOmegaTGPSPlusAPPS1Sigma_EG2->SetName("OmegaTGPSPlusAPPS1Sigma");
+  h2_TrueOmega_MCOmegaTGPSPlusAPPS1Sigma_EG2->SetTitle("OmegaTGPSPlusAPPS1Sigma");
   // h2_TrueOmega_MCOmegaTGPSPlusAPPS1Sigma_EG2->Sumw2();
 
   TH2D* h2_TruePi0_MCOmegaTGPSPlusAPPS1Sigma_EG2 = (TH2D*) TrueFileMCOmegaTGPSPlusAPPS1Sigma_EG2->FindObject("True_Pi0FromOmega_InvMass_Pt");
   h2_TruePi0_MCOmegaTGPSPlusAPPS1Sigma_EG2->SetName("h2_TruePi0_MCOmegaTGPSPlusAPPS1Sigma_EG2");
-  h2_TruePi0_MCOmegaTGPSPlusAPPS1Sigma_EG2->SetName("OmegaTGPSPlusAPPS1Sigma");
+  h2_TruePi0_MCOmegaTGPSPlusAPPS1Sigma_EG2->SetTitle("OmegaTGPSPlusAPPS1Sigma");
   // h2_TruePi0_MCOmegaTGPSPlusAPPS1Sigma_EG2->Sumw2();
 
   // EG2 SameEvent and background and True Signal (omega and Pi0) 2 sigma
   TH2D* h2_SameEvent_MCOmegaTGPSPlusAPPS2Sigma_EG2  = (TH2D*) ESDFileMCOmegaTGPSPlusAPPS2Sigma_EG2->FindObject("ESD_Mother_InvMass_Pt");
   h2_SameEvent_MCOmegaTGPSPlusAPPS2Sigma_EG2->SetName("h2_SameEvent_MCOmegaTGPSPlusAPPS2Sigma_EG2");
-  h2_SameEvent_MCOmegaTGPSPlusAPPS2Sigma_EG2->SetName("OmegaTGPSPlusAPPS2Sigma");
+  h2_SameEvent_MCOmegaTGPSPlusAPPS2Sigma_EG2->SetTitle("OmegaTGPSPlusAPPS2Sigma");
   // h2_SameEvent_MCOmegaTGPSPlusAPPS2Sigma_EG2->Sumw2();
 
   TH2D* h2_Background_MCOmegaTGPSPlusAPPS2Sigma_EG2 = (TH2D*) ESDFileMCOmegaTGPSPlusAPPS2Sigma_EG2->FindObject("ESD_Mother_SwappingBack_InvMass_Pt");
   h2_Background_MCOmegaTGPSPlusAPPS2Sigma_EG2->SetName("h2_Background_MCOmegaTGPSPlusAPPS2Sigma_EG2");
-  h2_Background_MCOmegaTGPSPlusAPPS2Sigma_EG2->SetName("OmegaTGPSPlusAPPS2Sigma");
+  h2_Background_MCOmegaTGPSPlusAPPS2Sigma_EG2->SetTitle("OmegaTGPSPlusAPPS2Sigma");
   // h2_Background_MCOmegaTGPSPlusAPPS2Sigma_EG2->Sumw2();
 
   TH2D* h2_TrueOmega_MCOmegaTGPSPlusAPPS2Sigma_EG2 = (TH2D*) TrueFileMCOmegaTGPSPlusAPPS2Sigma_EG2->FindObject("True_Omega_InvMass_Pt");
   h2_TrueOmega_MCOmegaTGPSPlusAPPS2Sigma_EG2->SetName("h2_TrueOmega_MCOmegaTGPSPlusAPPS2Sigma_EG2");
-  h2_TrueOmega_MCOmegaTGPSPlusAPPS2Sigma_EG2->SetName("OmegaTGPSPlusAPPS2Sigma");
+  h2_TrueOmega_MCOmegaTGPSPlusAPPS2Sigma_EG2->SetTitle("OmegaTGPSPlusAPPS2Sigma");
   // h2_TrueOmega_MCOmegaTGPSPlusAPPS2Sigma_EG2->Sumw2();
 
   TH2D* h2_TruePi0_MCOmegaTGPSPlusAPPS2Sigma_EG2 = (TH2D*) TrueFileMCOmegaTGPSPlusAPPS2Sigma_EG2->FindObject("True_Pi0FromOmega_InvMass_Pt");
   h2_TruePi0_MCOmegaTGPSPlusAPPS2Sigma_EG2->SetName("h2_TruePi0_MCOmegaTGPSPlusAPPS2Sigma_EG2");
-  h2_TruePi0_MCOmegaTGPSPlusAPPS2Sigma_EG2->SetName("OmegaTGPSPlusAPPS2Sigma");
+  h2_TruePi0_MCOmegaTGPSPlusAPPS2Sigma_EG2->SetTitle("OmegaTGPSPlusAPPS2Sigma");
   // h2_TruePi0_MCOmegaTGPSPlusAPPS2Sigma_EG2->Sumw2();
 
   // EG2 SameEvent and background and True Signal (omega and Pi0) 3 sigma
   TH2D* h2_SameEvent_MCOmegaTGPSPlusAPPS3Sigma_EG2  = (TH2D*) ESDFileMCOmegaTGPSPlusAPPS3Sigma_EG2->FindObject("ESD_Mother_InvMass_Pt");
   h2_SameEvent_MCOmegaTGPSPlusAPPS3Sigma_EG2->SetName("h2_SameEvent_MCOmegaTGPSPlusAPPS3Sigma_EG2");
-  h2_SameEvent_MCOmegaTGPSPlusAPPS3Sigma_EG2->SetName("OmegaTGPSPlusAPPS3Sigma");
+  h2_SameEvent_MCOmegaTGPSPlusAPPS3Sigma_EG2->SetTitle("OmegaTGPSPlusAPPS3Sigma");
   // h2_SameEvent_MCOmegaTGPSPlusAPPS3Sigma_EG2->Sumw2();
 
   TH2D* h2_Background_MCOmegaTGPSPlusAPPS3Sigma_EG2 = (TH2D*) ESDFileMCOmegaTGPSPlusAPPS3Sigma_EG2->FindObject("ESD_Mother_SwappingBack_InvMass_Pt");
   h2_Background_MCOmegaTGPSPlusAPPS3Sigma_EG2->SetName("h2_Background_MCOmegaTGPSPlusAPPS3Sigma_EG2");
-  h2_Background_MCOmegaTGPSPlusAPPS3Sigma_EG2->SetName("OmegaTGPSPlusAPPS3Sigma");
+  h2_Background_MCOmegaTGPSPlusAPPS3Sigma_EG2->SetTitle("OmegaTGPSPlusAPPS3Sigma");
   // h2_Background_MCOmegaTGPSPlusAPPS3Sigma_EG2->Sumw2();
 
   TH2D* h2_TrueOmega_MCOmegaTGPSPlusAPPS3Sigma_EG2 = (TH2D*) TrueFileMCOmegaTGPSPlusAPPS3Sigma_EG2->FindObject("True_Omega_InvMass_Pt");
   h2_TrueOmega_MCOmegaTGPSPlusAPPS3Sigma_EG2->SetName("h2_TrueOmega_MCOmegaTGPSPlusAPPS3Sigma_EG2");
-  h2_TrueOmega_MCOmegaTGPSPlusAPPS3Sigma_EG2->SetName("OmegaTGPSPlusAPPS3Sigma");
+  h2_TrueOmega_MCOmegaTGPSPlusAPPS3Sigma_EG2->SetTitle("OmegaTGPSPlusAPPS3Sigma");
   // h2_TrueOmega_MCOmegaTGPSPlusAPPS3Sigma_EG2->Sumw2();
 
   TH2D* h2_TruePi0_MCOmegaTGPSPlusAPPS3Sigma_EG2 = (TH2D*) TrueFileMCOmegaTGPSPlusAPPS3Sigma_EG2->FindObject("True_Pi0FromOmega_InvMass_Pt");
   h2_TruePi0_MCOmegaTGPSPlusAPPS3Sigma_EG2->SetName("h2_TruePi0_MCOmegaTGPSPlusAPPS3Sigma_EG2");
-  h2_TruePi0_MCOmegaTGPSPlusAPPS3Sigma_EG2->SetName("OmegaTGPSPlusAPPS3Sigma");
+  h2_TruePi0_MCOmegaTGPSPlusAPPS3Sigma_EG2->SetTitle("OmegaTGPSPlusAPPS3Sigma");
   // h2_TruePi0_MCOmegaTGPSPlusAPPS3Sigma_EG2->Sumw2();
 
 
@@ -2855,34 +2759,34 @@ void plotting()
   std::unique_ptr<TH1D> h1_RawYield_MCOmegaTGPSPS_Pol2_MB2          (new TH1D("h1_RawYield_MCOmegaTGPSPS_Pol2_MB2",             "", nBinsPt_MB2-1, &arrPtBinning_MB2[0]));
   std::unique_ptr<TH1D> h1_RawYield_MCOmegaTGPSPlusPS_Pol2_MB2      (new TH1D("h1_RawYield_MCOmegaTGPSPlusPS_Pol2_MB2",         "", nBinsPt_MB2-1, &arrPtBinning_MB2[0]));
 
-  h1_RawYield_MCOmegaRotPS_Pol2_EG1->SetTitle("MCOmegaRotPS");
-  h1_RawYield_MCOmegaTGPSPS_Pol2_EG1->SetTitle("MCOmegaTGPSPS");
-  h1_RawYield_MCOmegaTGPSPlusPS_Pol2_EG1->SetTitle("MCOmegaTGPSPlusPS");
-  h1_RawYield_MCOmegaRotPS_Pol2_EG2->SetTitle("MCOmegaRotPS");
-  h1_RawYield_MCOmegaTGPSPS_Pol2_EG2->SetTitle("MCOmegaTGPSPS");
-  h1_RawYield_MCOmegaTGPSPlusPS_Pol2_EG2->SetTitle("MCOmegaTGPSPlusPS");
-  h1_RawYield_MCPi0RotPS_Pol2_EG1->SetTitle("MCPi0RotPS");
-  h1_RawYield_MCPi0TGPSPlusPS_Pol2_EG1->SetTitle("MCPi0TGPSPlusPS");
-  h1_RawYield_MCPi0RotPS_Pol2_EG2->SetTitle("MCPi0RotPS");
-  h1_RawYield_MCPi0TGPSPlusPS_Pol2_EG2->SetTitle("MCPi0TGPSPlusPS");
-  h1_RawYield_MCOmegaRotWOPS_Pol2_EG1->SetTitle("MCOmegaRotWOPS");
-  h1_RawYield_MCOmegaTGPSWOPS_Pol2_EG1->SetTitle("MCOmegaTGPSWOPS");
-  h1_RawYield_MCOmegaTGPSPlusWOPS_Pol2_EG1->SetTitle("MCOmegaTGPSPlusWOPS");
-  h1_RawYield_MCOmegaRotWOPS_Pol2_EG2->SetTitle("MCOmegaRotWOPS");
-  h1_RawYield_MCOmegaTGPSWOPS_Pol2_EG2->SetTitle("MCOmegaTGPSWOPS");
-  h1_RawYield_MCOmegaTGPSPlusWOPS_Pol2_EG2->SetTitle("MCOmegaTGPSPlusWOPS");
-  h1_RawYield_MCOmegaRotPSNCell_Pol2_EG1->SetTitle("MCOmegaRotPSNCell");
-  h1_RawYield_MCOmegaTGPSPSNCell_Pol2_EG1->SetTitle("MCOmegaTGPSPSNCell");
-  h1_RawYield_MCOmegaTGPSPlusPSNCell_Pol2_EG1->SetTitle("MCOmegaTGPSPlusPSNCell");
-  h1_RawYield_MCOmegaRotPSNCell_Pol2_EG2->SetTitle("MCOmegaRotPSNCell");
-  h1_RawYield_MCOmegaTGPSPSNCell_Pol2_EG2->SetTitle("MCOmegaTGPSPSNCell");
-  h1_RawYield_MCOmegaTGPSPlusPSNCell_Pol2_EG2->SetTitle("MCOmegaTGPSPlusPSNCell");
-  h1_RawYield_MCOmegaRotPS_Pol2_MB1->SetTitle("MCOmegaRotPS");
-  h1_RawYield_MCOmegaTGPSPS_Pol2_MB1->SetTitle("MCOmegaTGPSPS");
-  h1_RawYield_MCOmegaTGPSPlusPS_Pol2_MB1->SetTitle("MCOmegaTGPSPlusPS");
-  h1_RawYield_MCOmegaRotPS_Pol2_MB2->SetTitle("MCOmegaRotPS");
-  h1_RawYield_MCOmegaTGPSPS_Pol2_MB2->SetTitle("MCOmegaTGPSPS");
-  h1_RawYield_MCOmegaTGPSPlusPS_Pol2_MB2->SetTitle("MCOmegaTGPSPlusPS");
+  h1_RawYield_MCOmegaRotPS_Pol2_EG1->SetTitle("OmegaRotPS");
+  h1_RawYield_MCOmegaTGPSPS_Pol2_EG1->SetTitle("OmegaTGPSPS");
+  h1_RawYield_MCOmegaTGPSPlusPS_Pol2_EG1->SetTitle("OmegaTGPSPlusPS");
+  h1_RawYield_MCOmegaRotPS_Pol2_EG2->SetTitle("OmegaRotPS");
+  h1_RawYield_MCOmegaTGPSPS_Pol2_EG2->SetTitle("OmegaTGPSPS");
+  h1_RawYield_MCOmegaTGPSPlusPS_Pol2_EG2->SetTitle("OmegaTGPSPlusPS");
+  h1_RawYield_MCPi0RotPS_Pol2_EG1->SetTitle("Pi0RotPS");
+  h1_RawYield_MCPi0TGPSPlusPS_Pol2_EG1->SetTitle("Pi0TGPSPlusPS");
+  h1_RawYield_MCPi0RotPS_Pol2_EG2->SetTitle("Pi0RotPS");
+  h1_RawYield_MCPi0TGPSPlusPS_Pol2_EG2->SetTitle("Pi0TGPSPlusPS");
+  h1_RawYield_MCOmegaRotWOPS_Pol2_EG1->SetTitle("OmegaRotWOPS");
+  h1_RawYield_MCOmegaTGPSWOPS_Pol2_EG1->SetTitle("OmegaTGPSWOPS");
+  h1_RawYield_MCOmegaTGPSPlusWOPS_Pol2_EG1->SetTitle("OmegaTGPSPlusWOPS");
+  h1_RawYield_MCOmegaRotWOPS_Pol2_EG2->SetTitle("OmegaRotWOPS");
+  h1_RawYield_MCOmegaTGPSWOPS_Pol2_EG2->SetTitle("OmegaTGPSWOPS");
+  h1_RawYield_MCOmegaTGPSPlusWOPS_Pol2_EG2->SetTitle("OmegaTGPSPlusWOPS");
+  h1_RawYield_MCOmegaRotPSNCell_Pol2_EG1->SetTitle("OmegaRotPSNCell");
+  h1_RawYield_MCOmegaTGPSPSNCell_Pol2_EG1->SetTitle("OmegaTGPSPSNCell");
+  h1_RawYield_MCOmegaTGPSPlusPSNCell_Pol2_EG1->SetTitle("OmegaTGPSPlusPSNCell");
+  h1_RawYield_MCOmegaRotPSNCell_Pol2_EG2->SetTitle("OmegaRotPSNCell");
+  h1_RawYield_MCOmegaTGPSPSNCell_Pol2_EG2->SetTitle("OmegaTGPSPSNCell");
+  h1_RawYield_MCOmegaTGPSPlusPSNCell_Pol2_EG2->SetTitle("OmegaTGPSPlusPSNCell");
+  h1_RawYield_MCOmegaRotPS_Pol2_MB1->SetTitle("OmegaRotPS");
+  h1_RawYield_MCOmegaTGPSPS_Pol2_MB1->SetTitle("OmegaTGPSPS");
+  h1_RawYield_MCOmegaTGPSPlusPS_Pol2_MB1->SetTitle("OmegaTGPSPlusPS");
+  h1_RawYield_MCOmegaRotPS_Pol2_MB2->SetTitle("OmegaRotPS");
+  h1_RawYield_MCOmegaTGPSPS_Pol2_MB2->SetTitle("OmegaTGPSPS");
+  h1_RawYield_MCOmegaTGPSPlusPS_Pol2_MB2->SetTitle("OmegaTGPSPlusPS");
 
 
   // ---------------------------------------------------------------------------
@@ -6449,6 +6353,96 @@ void plotting()
   vHistos.clear();
   vHistos.resize(0);
 
+  /****************************************************************************/
+  /*                                                                          */
+  /*                              Dalitz Diagramms                            */
+  /*                                                                          */
+  /****************************************************************************/
+  // ---------------------------------------------------------------------------
+  //
+  // Dalitz Diagramms Data
+  //
+  // ---------------------------------------------------------------------------
+  h1_Dalitz_DataOmegaPS_EG1 = (TH1D*) h2_Dalitz_DataOmegaPS_EG1->ProjectionY("h1_Dalitz_DataOmegaPS_EG1", 1, h2_Dalitz_DataOmegaPS_EG1->GetNbinsX());
+  h1_DalitzBack_DataOmegaRotPS_EG1 = (TH1D*) h2_DalitzBack_DataOmegaRotPS_EG1->ProjectionY("h1_DalitzBack_DataOmegaRotPS_EG1", 1, h2_DalitzBack_DataOmegaRotPS_EG1->GetNbinsX());
+  h1_DalitzBack_DataOmegaTGPSPS_EG1 = (TH1D*) h2_DalitzBack_DataOmegaTGPSPS_EG1->ProjectionY("h1_DalitzBack_DataOmegaTGPSPS_EG1", 1, h2_DalitzBack_DataOmegaTGPSPS_EG1->GetNbinsX());
+  h1_DalitzBack_DataOmegaTGPSPlusPS_EG1 = (TH1D*) h2_DalitzBack_DataOmegaTGPSPlusPS_EG1->ProjectionY("h1_DalitzBack_DataOmegaTGPSPlusPS_EG1", 1, h2_DalitzBack_DataOmegaTGPSPlusPS_EG1->GetNbinsX());
+  h1_DalitzBack_DataPi0RotPS_EG1 = (TH1D*) h2_DalitzBack_DataPi0RotPS_EG1->ProjectionY("h1_DalitzBack_DataPi0RotPS_EG1", 1, h2_DalitzBack_DataPi0RotPS_EG1->GetNbinsX());
+  h1_DalitzBack_DataPi0TGPSPlusPS_EG1 = (TH1D*) h2_DalitzBack_DataPi0TGPSPlusPS_EG1->ProjectionY("h1_DalitzBack_DataPi0TGPSPlusPS_EG1", 1, h2_DalitzBack_DataPi0TGPSPlusPS_EG1->GetNbinsX());
+
+  h1_Dalitz_DataOmegaPS_EG1->SetTitle("Same Event");
+  h1_DalitzBack_DataOmegaRotPS_EG1->SetTitle("OmegaRotPS");
+  h1_DalitzBack_DataOmegaTGPSPS_EG1->SetTitle("OmegaTGPSPS");
+  h1_DalitzBack_DataOmegaTGPSPlusPS_EG1->SetTitle("OmegaTGPSPlusPS");
+  h1_DalitzBack_DataPi0RotPS_EG1->SetTitle("Pi0RotPS");
+  h1_DalitzBack_DataPi0TGPSPlusPS_EG1->SetTitle("Pi0TGPSPlusPS");
+
+  vHistos.push_back(h1_Dalitz_DataOmegaPS_EG1);
+  vHistos.push_back(h1_DalitzBack_DataOmegaRotPS_EG1);
+  vHistos.push_back(h1_DalitzBack_DataOmegaTGPSPS_EG1);
+  vHistos.push_back(h1_DalitzBack_DataOmegaTGPSPlusPS_EG1);
+  vHistos.push_back(h1_DalitzBack_DataPi0RotPS_EG1);
+  vHistos.push_back(h1_DalitzBack_DataPi0TGPSPlusPS_EG1);
+  Dalitz01(vHistos, legYields_EG1.get(), "Data/EG1/DalitzPlot.svg", "Dalitz Plot", arrPtBinning_EG1[0], arrPtBinning_EG1.back());
+  vHistos.clear();
+  vHistos.resize(0);
+  // ---------------------------------------------------------------------------
+  //
+  // Dalitz Diagramms MC
+  //
+  // ---------------------------------------------------------------------------
+  h1_Dalitz_MCOmegaPS_EG1 = (TH1D*) h2_Dalitz_MCOmegaPS_EG1->ProjectionY("h1_Dalitz_MCOmegaPS_EG1", 1, h2_Dalitz_MCOmegaPS_EG1->GetNbinsX());
+  h1_DalitzBack_MCOmegaRotPS_EG1 = (TH1D*) h2_DalitzBack_MCOmegaRotPS_EG1->ProjectionY("h1_DalitzBack_MCOmegaRotPS_EG1", 1, h2_DalitzBack_MCOmegaRotPS_EG1->GetNbinsX());
+  h1_DalitzBack_MCOmegaTGPSPS_EG1 = (TH1D*) h2_DalitzBack_MCOmegaTGPSPS_EG1->ProjectionY("h1_DalitzBack_MCOmegaTGPSPS_EG1", 1, h2_DalitzBack_MCOmegaTGPSPS_EG1->GetNbinsX());
+  h1_DalitzBack_MCOmegaTGPSPlusPS_EG1 = (TH1D*) h2_DalitzBack_MCOmegaTGPSPlusPS_EG1->ProjectionY("h1_DalitzBack_MCOmegaTGPSPlusPS_EG1", 1, h2_DalitzBack_MCOmegaTGPSPlusPS_EG1->GetNbinsX());
+
+  h1_DalitzBack_MCPi0RotPS_EG1 = (TH1D*) h2_DalitzBack_MCPi0RotPS_EG1->ProjectionY("h1_DalitzBack_MCPi0RotPS_EG1", 1, h2_DalitzBack_MCPi0RotPS_EG1->GetNbinsX());
+  h1_DalitzBack_MCPi0TGPSPlusPS_EG1 = (TH1D*) h2_DalitzBack_MCPi0TGPSPlusPS_EG1->ProjectionY("h1_DalitzBack_MCPi0TGPSPlusPS_EG1", 1, h2_DalitzBack_MCPi0TGPSPlusPS_EG1->GetNbinsX());
+
+  h1_TrueDalitz_MCOmegaPS_EG1 = (TH1D*) h2_TrueDalitz_MCOmegaPS_EG1->ProjectionY("h1_TrueDalitz_MCOmegaPS_EG1", 1, h2_TrueDalitz_MCOmegaPS_EG1->GetNbinsX());
+
+  h1_TrueDalitz_MCOmegaPS_EG1->SetTitle("MC True Signal");
+  h1_Dalitz_DataOmegaPS_EG1->SetTitle("Same Event");
+  h1_DalitzBack_MCOmegaRotPS_EG1->SetTitle("OmegaRotPS");
+  h1_DalitzBack_MCOmegaTGPSPS_EG1->SetTitle("OmegaTGPSPS");
+  h1_DalitzBack_MCOmegaTGPSPlusPS_EG1->SetTitle("OmegaTGPSPlusPS");
+  h1_DalitzBack_MCPi0RotPS_EG1->SetTitle("Pi0RotPS");
+  h1_DalitzBack_MCPi0TGPSPlusPS_EG1->SetTitle("Pi0TGPSPlusPS");
+
+
+  h1_TrueBackDalitz_MCOmegaPS_EG1 = (TH1D*) h1_Dalitz_MCOmegaPS_EG1->Clone("h1_TrueBackDalitz_MCOmegaPS_EG1");
+  h1_TrueBackDalitz_MCOmegaPS_EG1->Add(h1_Dalitz_MCOmegaPS_EG1, h1_TrueDalitz_MCOmegaPS_EG1, 1, -1);
+
+  vHistos.push_back(h1_TrueDalitz_MCOmegaPS_EG1);
+  vHistos.push_back(h1_Dalitz_MCOmegaPS_EG1);
+  vHistos.push_back(h1_DalitzBack_MCOmegaRotPS_EG1);
+  vHistos.push_back(h1_DalitzBack_MCOmegaTGPSPS_EG1);
+  vHistos.push_back(h1_DalitzBack_MCOmegaTGPSPlusPS_EG1);
+  vHistos.push_back(h1_DalitzBack_MCPi0RotPS_EG1);
+  vHistos.push_back(h1_DalitzBack_MCPi0TGPSPlusPS_EG1);
+  Dalitz01MC(vHistos, legYields_EG1.get(), "MC/EG1/DalitzPlot.svg", "Dalitz Plot", arrPtBinning_EG1[0], arrPtBinning_EG1.back());
+  vHistos.clear();
+  vHistos.resize(0);
+
+  h1_TrueBackDalitz_MCOmegaPS_EG1->SetTitle("True Background");
+  vHistos.push_back(h1_TrueBackDalitz_MCOmegaPS_EG1);
+  vHistos.push_back(h1_DalitzBack_MCOmegaRotPS_EG1);
+  vHistos.push_back(h1_DalitzBack_MCOmegaTGPSPS_EG1);
+  vHistos.push_back(h1_DalitzBack_MCOmegaTGPSPlusPS_EG1);
+  vHistos.push_back(h1_DalitzBack_MCPi0RotPS_EG1);
+  vHistos.push_back(h1_DalitzBack_MCPi0TGPSPlusPS_EG1);
+  Dalitz01(vHistos, legYields_EG1.get(), "MC/EG1/DalitzPlotWithTrueBack.svg", "Dalitz Plot", arrPtBinning_EG1[0], arrPtBinning_EG1.back());
+  vHistos.clear();
+  vHistos.resize(0);
+
+  h1_Dalitz_MCOmegaPS_EG1->SetTitle("MC Same Event");
+  h1_Dalitz_DataOmegaPS_EG1->SetTitle("Data Same Event");
+  vHistos.push_back(h1_TrueDalitz_MCOmegaPS_EG1);
+  vHistos.push_back(h1_Dalitz_MCOmegaPS_EG1);
+  vHistos.push_back(h1_Dalitz_DataOmegaPS_EG1);
+  Dalitz01(vHistos, legYields_EG1.get(), "Data/EG1/Comp/DalitzComp.svg", "Dalitz Plot", arrPtBinning_EG1[0], arrPtBinning_EG1.back());
+  vHistos.clear();
+  vHistos.resize(0);
   // ---------------------------------------------------------------------------
   //
   // Garbage collection

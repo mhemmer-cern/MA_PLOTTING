@@ -4,77 +4,83 @@
 #include <vector>
 
 
-SquarePlot Dalitz01(TH1D* &hData, TH1D* &hTrue, TPaveText* lSys){
+void Dalitz01(std::vector<TH1D*> v, TPaveText* lSys, TString outname, TString legHead, Double_t lowX, Double_t highX){
   // --- Create TObjArrays -----------------------------------------------------
-
-  hData->Scale(1./hData->Integral());
-  hTrue->Scale(1./hTrue->Integral());
-  TObjArray* main = new TObjArray();
-  hData->SetMaximum(hTrue->GetMaximum()*1.8);
-  main->Add(hData);
-  main->Add(hTrue);
+  std::unique_ptr<TObjArray> main (new TObjArray);
+  TString legString = "";
+  TString legOpt = "";
+  for (int i = 0; i < v.size(); i++)
+  {
+    v.at(i)->Scale(1./v.at(i)->Integral());
+    main->Add(v.at(i));
+    legOpt += "lp ";
+    if(i < v.size()-1) legString += TString(v.at(i)->GetTitle()) + "\n ";
+  }
 
   // --- Legends ---------------------------------------------------------------
 
   main->Add(lSys);
-  TLegend l = Legend(main, "data\n MC truth\n background", "lp lp lp");
+  std::unique_ptr<Legend> l (new Legend(main.get(), legString.Data(), legOpt.Data(), legHead.Data()) );
 
   // --- Marker ----------------------------------------------------------------
-
-  vector<Color_t> colors = {kBlack, kBlue+3};
-  vector<Style_t> markers = {kFullCircle, kOpenSquare};
-  vector<Size_t>  sizes = {2., 2.};
+  vector<Color_t> colors = {kBlack, kOrange-3, kViolet-3, kGreen-3, kRed-3, kBlue-3, 1, 1};
+  vector<Style_t> markers = {kFullSquare, kOpenCircle, kOpenCircle, kOpenCircle, kOpenDiamond, kOpenDiamond, 1, 1};
+  vector<Size_t>  sizes = {1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1, 1};
 
   // --- Canvasses -------------------------------------------------------------
 
-  Legend::SetPosition(&l, 0.55, 0.9, 0.67, 0.875);
+  Legend::SetPosition(l.get(), 0.15, 0.5, 0.75-(v.size()+1)*0.025, 0.75);
 
-  SquarePlot square = SquarePlot(main, "#it{m}^{2}_{#gamma_{0}#gamma_{1}}", "#it{count}");
+  SquarePlot square = SquarePlot(main.get(), "#it{m}^{2}_{#gamma_{0}#gamma_{1}}", "#it{count}");
   square.SetMode(Plot::Thesis);
-  square.SetRanges(0.0, 0.04, hData->GetMinimum(), hData->GetMaximum());
   square.SetStyle(colors, markers, sizes);
-  return square;
-
+  square.SetRanges(lowX, highX, v.at(0)->GetMinimum(), v.at(0)->GetMaximum()*1.8);
+  square.SetCanvasMargins(0.025, .1, 0.03, .1);
+  square.SetCanvasOffsets(1.2, 1.8);
+  square.SetLog(1, 0);
+  square.Draw(outname);
+  return;
 }
 
-SquarePlot Dalitz12(TH1D* &hData, TH1D* &hTrue, TH1D* hBack, TPaveText* lSys){
+void Dalitz01MC(std::vector<TH1D*> v, TPaveText* lSys, TString outname, TString legHead, Double_t lowX, Double_t highX){
   // --- Create TObjArrays -----------------------------------------------------
-
-  hData->Scale(1./hData->Integral());
-  hTrue->Scale(1./hTrue->Integral());
-  hBack->Scale(1./hBack->Integral());
-  TObjArray* main = new TObjArray();
-  hData->SetMaximum(hTrue->GetMaximum()*1.8);
-  main->Add(hData);
-  main->Add(hTrue);
-  main->Add(hBack);
+  std::unique_ptr<TObjArray> main (new TObjArray);
+  TString legString = "";
+  TString legOpt = "";
+  for (int i = 0; i < v.size(); i++)
+  {
+    v.at(i)->Scale(1./v.at(i)->Integral());
+    main->Add(v.at(i));
+    legOpt += "lp ";
+    if(i < v.size()-1) legString += TString(v.at(i)->GetTitle()) + "\n ";
+  }
 
   // --- Legends ---------------------------------------------------------------
 
   main->Add(lSys);
-  TLegend l = Legend(main, "data\n MC truth\n background", "lp lp lp");
+  std::unique_ptr<Legend> l (new Legend(main.get(), legString.Data(), legOpt.Data(), legHead.Data()) );
 
   // --- Marker ----------------------------------------------------------------
-
-  vector<Color_t> colors = {kBlack, kBlue+3, kGreen-3};
-  vector<Style_t> markers = {kFullCircle, kOpenSquare, kFullDiamond};
-  vector<Size_t>  sizes = {2., 2., 3.};
+  vector<Color_t> colors = {kBlack, kBlack, kOrange-3, kViolet-3, kGreen-3, kRed-3, kBlue-3, 1, 1};
+  vector<Style_t> markers = {kOpenSquare, kFullSquare, kOpenCircle, kOpenCircle, kOpenCircle, kOpenDiamond, kOpenDiamond, 1, 1};
+  vector<Size_t>  sizes = {1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1, 1};
 
   // --- Canvasses -------------------------------------------------------------
 
-  Legend::SetPosition(&l, 0.55, 0.9, 0.67, 0.875);
+  Legend::SetPosition(l.get(), 0.15, 0.5, 0.75-(v.size()+1)*0.025, 0.75);
 
-  SquarePlot square = SquarePlot(main, "#it{m}^{2}_{#gamma_{0/1}#gamma_{2}}", "#it{count}");
+  SquarePlot square = SquarePlot(main.get(), "#it{m}^{2}_{#gamma_{0}#gamma_{1}}", "#it{count}");
   square.SetMode(Plot::Thesis);
-  square.SetRanges(0.001, 2.0, hData->GetMinimum(), hData->GetMaximum());
   square.SetStyle(colors, markers, sizes);
-  square.SetLog(kTRUE, kFALSE);
-  return square;
-
+  square.SetRanges(lowX, highX, v.at(0)->GetMinimum(), v.at(0)->GetMaximum()*1.8);
+  square.SetCanvasMargins(0.025, .1, 0.03, .1);
+  square.SetCanvasOffsets(1.2, 1.8);
+  square.SetLog(1, 0);
+  square.Draw(outname);
+  return;
 }
 
-
-SquarePlot OmegaPiZeroCosTheta(TH1D* &hData, TH1D* &hTrue, TPaveText* lSys){
+SquarePlot OmegaPiZeroCosTheta(TH1D* hData, TH1D* hTrue, TPaveText* lSys){
   // --- Create TObjArrays -----------------------------------------------------
 
   TObjArray* main = new TObjArray();
@@ -104,7 +110,7 @@ SquarePlot OmegaPiZeroCosTheta(TH1D* &hData, TH1D* &hTrue, TPaveText* lSys){
   return square;
 }
 
-SquarePlot OmegaPiZeroCosThetaRatio(TH1D* &hRatio, TPaveText* lSys){
+SquarePlot OmegaPiZeroCosThetaRatio(TH1D* hRatio, TPaveText* lSys){
   // --- Create TObjArrays -----------------------------------------------------
 
   TObjArray* main = new TObjArray();
