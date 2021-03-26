@@ -42,7 +42,8 @@ void Dalitz01(std::vector<TH1D*> v, TPaveText* lSys, TString outname, TString le
   return;
 }
 
-void Dalitz01MC(std::vector<TH1D*> v, TPaveText* lSys, TString outname, TString legHead, Double_t lowX, Double_t highX){
+void Dalitz01MC(std::vector<TH1D*> v, TPaveText* lSys, TString outname, TString legHead, Double_t lowX, Double_t highX)
+{
   // --- Create TObjArrays -----------------------------------------------------
   std::unique_ptr<TObjArray> main (new TObjArray);
   TString legString = "";
@@ -73,6 +74,43 @@ void Dalitz01MC(std::vector<TH1D*> v, TPaveText* lSys, TString outname, TString 
   square.SetMode(Plot::Thesis);
   square.SetStyle(colors, markers, sizes);
   square.SetRanges(lowX, highX, v.at(0)->GetMinimum(), v.at(0)->GetMaximum()*1.8);
+  square.SetCanvasMargins(0.025, .1, 0.03, .1);
+  square.SetCanvasOffsets(1.2, 1.8);
+  square.SetLog(1, 0);
+  square.Draw(outname);
+  return;
+}
+
+void DalitzFit(TH1D* h1, TF1* f1, TPaveText* lSys, TString outname, TString legHead, Double_t lowX, Double_t highX)
+{
+  // --- Create TObjArrays -----------------------------------------------------
+  std::unique_ptr<TObjArray> main (new TObjArray);
+  TString legString = "";
+  legString += TString(h1->GetTitle()) + "\n ";
+  legString += TString(f1->GetTitle());
+  main->Add(h1);
+  main->Add(f1);
+
+  // --- Legends ---------------------------------------------------------------
+
+  main->Add(lSys);
+  std::unique_ptr<Legend> l (new Legend(main.get(), legString.Data(), "lp l", legHead.Data()) );
+
+  // --- Marker ----------------------------------------------------------------
+  std::vector<Color_t> colors = {kBlack, kOrange-3, 1, 1};
+  std::vector<Style_t> markers = {kFullSquare, 1, 1, 1};
+  std::vector<Size_t>  sizes = {1.5, 1.5, 1, 1};
+  std::vector<Style_t> linestyle  = {1, 1, 1, 1};
+  std::vector<Size_t> linewidth   = {1.5, 3., 1., 1.};
+
+  // --- Canvasses -------------------------------------------------------------
+
+  Legend::SetPosition(l.get(), 0.15, 0.5, 0.75-3*0.025, 0.75);
+
+  SquarePlot square = SquarePlot(main.get(), "#it{m}^{2}_{#gamma_{0}#gamma_{1}}", "#it{count}");
+  square.SetMode(Plot::Thesis);
+  square.SetStyle(colors, markers, sizes, linestyle, linewidth);
+  square.SetRanges(lowX, highX, h1->GetMinimum(), h1->GetMaximum()*1.4);
   square.SetCanvasMargins(0.025, .1, 0.03, .1);
   square.SetCanvasOffsets(1.2, 1.8);
   square.SetLog(1, 0);
@@ -137,4 +175,19 @@ SquarePlot OmegaPiZeroCosThetaRatio(TH1D* hRatio, TPaveText* lSys){
   square.SetRanges(0.0, 1.0, hRatio->GetMinimum(), hRatio->GetMaximum());
   square.SetStyle(colors, markers, sizes);
   return square;
+}
+
+void AlphaPlot(TH2D* h2, TLegend* lSys, TString outname)
+{
+  h2->SetContour(100);
+  // --- Canvasses -------------------------------------------------------------
+  HeatMapPlot plot = HeatMapPlot(h2, lSys, "#it{p}_{T}", "#alpha", "count");
+  plot.SetMode(Plot::Thesis);
+  plot.SetPalette(109);
+  plot.SetRanges(h2->GetXaxis()->GetBinLowEdge(1), h2->GetXaxis()->GetBinLowEdge(-1), -1, 1, 0, h2->GetMaximum());
+  plot.SetCanvasMargins(0.16, .1, 0.05, .1);
+  // plot.SetCanvasOffsets(1.2, 1.8);
+  plot.SetLog(0, 0, 0);
+  plot.Draw(outname);
+  return;
 }

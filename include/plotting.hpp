@@ -179,6 +179,22 @@ void plotting()
 
   // ---------------------------------------------------------------------------
   //
+  // Alpha Plots
+  //
+  // ---------------------------------------------------------------------------
+
+  TH2D* h2_Pi0_Alpha_DataOmegaPS_EG1 = (TH2D*) ESDFileDataOmegaRotPS_EG1->FindObject("ESD_PhotonPair_Alpha_Pt");
+  h2_Pi0_Alpha_DataOmegaPS_EG1->SetName("h2_Pi0_Alpha_DataOmegaPS_EG1");
+  h2_Pi0_Alpha_DataOmegaPS_EG1->SetTitle("OmegaPS");
+  // h2_Pi0_Alpha_DataOmegaPS_EG1->Sumw2();
+
+  TH2D* h2_Omega_Alpha_DataOmegaPS_EG1 = (TH2D*) ESDFileDataOmegaRotPS_EG1->FindObject("ESD_Mother_Alpha_Pt");
+  h2_Omega_Alpha_DataOmegaPS_EG1->SetName("h2_Omega_Alpha_DataOmegaPS_EG1");
+  h2_Omega_Alpha_DataOmegaPS_EG1->SetTitle("OmegaPS");
+  // h2_Omega_Alpha_DataOmegaPS_EG1->Sumw2();
+
+  // ---------------------------------------------------------------------------
+  //
   // Get the number of Events for normalization
   //
   // ---------------------------------------------------------------------------
@@ -344,10 +360,10 @@ void plotting()
 
   //EG1
   //Same Event
-  TH2D* h2_Dalitz_DataOmegWOPS_EG1       = (TH2D*) ESDFileDataOmegaRotWOPS_EG1->FindObject("ESD_Dalitz_Gamma1Gamma2_Gamma0Gamma1");
-  h2_Dalitz_DataOmegWOPS_EG1->SetName("h2_Dalitz_DataOmegWOPS_EG1");
-  h2_Dalitz_DataOmegWOPS_EG1->SetTitle("OmegaWOPS");
-  h2_Dalitz_DataOmegWOPS_EG1->Sumw2();
+  TH2D* h2_Dalitz_DataOmegaWOPS_EG1       = (TH2D*) ESDFileDataOmegaRotWOPS_EG1->FindObject("ESD_Dalitz_Gamma1Gamma2_Gamma0Gamma1");
+  h2_Dalitz_DataOmegaWOPS_EG1->SetName("h2_Dalitz_DataOmegaWOPS_EG1");
+  h2_Dalitz_DataOmegaWOPS_EG1->SetTitle("OmegaWOPS");
+  h2_Dalitz_DataOmegaWOPS_EG1->Sumw2();
 
   // Background
   TH2D* h2_DalitzBack_DataOmegaRotWOPS_EG1 = (TH2D*) ESDFileDataOmegaRotWOPS_EG1->FindObject("ESD_Dalitz_Back_Gamma1Gamma2_Gamma0Gamma1");
@@ -1042,20 +1058,10 @@ void plotting()
 
   //EG2
   //Same Event
-  TH2D* h2_Dalitz_MCOmegaRotWOPS_EG2       = (TH2D*) ESDFileMCOmegaRotWOPS_EG2->FindObject("ESD_Dalitz_Gamma1Gamma2_Gamma0Gamma1");
-  h2_Dalitz_MCOmegaRotWOPS_EG2->SetName("h2_Dalitz_MCOmegaRotWOPS_EG2");
-  h2_Dalitz_MCOmegaRotWOPS_EG2->SetTitle("OmegaRotWOPS");
+  TH2D* h2_Dalitz_MCOmegaWOPS_EG2       = (TH2D*) ESDFileMCOmegaRotWOPS_EG2->FindObject("ESD_Dalitz_Gamma1Gamma2_Gamma0Gamma1");
+  h2_Dalitz_MCOmegaWOPS_EG2->SetName("h2_Dalitz_MCOmegaWOPS_EG2");
+  h2_Dalitz_MCOmegaWOPS_EG2->SetTitle("OmegaRotWOPS");
   // h2_Dalitz_MCOmegaRotWOPS_EG2->Sumw2();
-
-  TH2D* h2_Dalitz_MCOmegaTGPSWOPS_EG2      = (TH2D*) ESDFileMCOmegaTGPSWOPS_EG2->FindObject("ESD_Dalitz_Gamma1Gamma2_Gamma0Gamma1");
-  h2_Dalitz_MCOmegaTGPSWOPS_EG2->SetName("h2_Dalitz_MCOmegaTGPSWOPS_EG2");
-  h2_Dalitz_MCOmegaTGPSWOPS_EG2->SetTitle("OmegaTGPSWOPS");
-  // h2_Dalitz_MCOmegaTGPSWOPS_EG2->Sumw2();
-
-  TH2D* h2_Dalitz_MCOmegaTGPSPlusWOPS_EG2  = (TH2D*) ESDFileMCOmegaTGPSPlusWOPS_EG2->FindObject("ESD_Dalitz_Gamma1Gamma2_Gamma0Gamma1");
-  h2_Dalitz_MCOmegaTGPSPlusWOPS_EG2->SetName("h2_Dalitz_MCOmegaTGPSPlusWOPS_EG2");
-  h2_Dalitz_MCOmegaTGPSPlusWOPS_EG2->SetTitle("OmegaTGPSPlusWOPS");
-  // h2_Dalitz_MCOmegaTGPSPlusWOPS_EG2->Sumw2();
 
   // Background
   TH2D* h2_DalitzBack_MCOmegaRotWOPS_EG2 = (TH2D*) ESDFileMCOmegaRotWOPS_EG2->FindObject("ESD_Dalitz_Back_Gamma1Gamma2_Gamma0Gamma1");
@@ -2954,6 +2960,13 @@ void plotting()
   legYields_EG1->AddText("ALICE work in progress");
   legYields_EG1->SetTextAlign(11);
   legYields_EG1->SetFillStyle(0);
+
+  std::unique_ptr<TLegend> legAlpha  (new TLegend(0.12, 0.75, 0.88, 0.93, "NDC"));
+  legAlpha->SetMargin(0.01);
+  legAlpha->AddEntry((TObject*) 0x0, "pp #sqrt{#it{s}} = 13 TeV EG1, #omega #rightarrow #pi^{0}#gamma #rightarrow #gamma#gamma#gamma with EMC", "");
+  legAlpha->AddEntry((TObject*) 0x0, "ALICE work in progress", "");
+  legAlpha->SetTextAlign(11);
+  legAlpha->SetFillStyle(0);
 
   std::unique_ptr<TPaveText> legYields_EG2  (new TPaveText(0.15, 0.75, 0.88, 0.93, "NDC"));
   legYields_EG2->SetMargin(0.01);
@@ -6363,6 +6376,7 @@ void plotting()
   // Dalitz Diagramms Data
   //
   // ---------------------------------------------------------------------------
+  h1_Dalitz_DataOmegaWOPS_EG1 = (TH1D*) h2_Dalitz_DataOmegaWOPS_EG1->ProjectionY("h1_Dalitz_DataOmegaWOPS_EG1", 1, h2_Dalitz_DataOmegaWOPS_EG1->GetNbinsX());
   h1_Dalitz_DataOmegaPS_EG1 = (TH1D*) h2_Dalitz_DataOmegaPS_EG1->ProjectionY("h1_Dalitz_DataOmegaPS_EG1", 1, h2_Dalitz_DataOmegaPS_EG1->GetNbinsX());
   h1_DalitzBack_DataOmegaRotPS_EG1 = (TH1D*) h2_DalitzBack_DataOmegaRotPS_EG1->ProjectionY("h1_DalitzBack_DataOmegaRotPS_EG1", 1, h2_DalitzBack_DataOmegaRotPS_EG1->GetNbinsX());
   h1_DalitzBack_DataOmegaTGPSPS_EG1 = (TH1D*) h2_DalitzBack_DataOmegaTGPSPS_EG1->ProjectionY("h1_DalitzBack_DataOmegaTGPSPS_EG1", 1, h2_DalitzBack_DataOmegaTGPSPS_EG1->GetNbinsX());
@@ -6370,12 +6384,25 @@ void plotting()
   h1_DalitzBack_DataPi0RotPS_EG1 = (TH1D*) h2_DalitzBack_DataPi0RotPS_EG1->ProjectionY("h1_DalitzBack_DataPi0RotPS_EG1", 1, h2_DalitzBack_DataPi0RotPS_EG1->GetNbinsX());
   h1_DalitzBack_DataPi0TGPSPlusPS_EG1 = (TH1D*) h2_DalitzBack_DataPi0TGPSPlusPS_EG1->ProjectionY("h1_DalitzBack_DataPi0TGPSPlusPS_EG1", 1, h2_DalitzBack_DataPi0TGPSPlusPS_EG1->GetNbinsX());
 
+  h1_Dalitz_DataOmegaWOPS_EG1->SetTitle("Same Event WOPS");
   h1_Dalitz_DataOmegaPS_EG1->SetTitle("Same Event");
   h1_DalitzBack_DataOmegaRotPS_EG1->SetTitle("OmegaRotPS");
   h1_DalitzBack_DataOmegaTGPSPS_EG1->SetTitle("OmegaTGPSPS");
   h1_DalitzBack_DataOmegaTGPSPlusPS_EG1->SetTitle("OmegaTGPSPlusPS");
   h1_DalitzBack_DataPi0RotPS_EG1->SetTitle("Pi0RotPS");
   h1_DalitzBack_DataPi0TGPSPlusPS_EG1->SetTitle("Pi0TGPSPlusPS");
+
+  std::unique_ptr<TF1> f1_DalitzBack (new TF1("f1_DalitzBack", ReversedLogNom, 1.E-3, 2., 4) );
+  f1_DalitzBack->SetParameters(1, 0.1, 5, 100.);
+  f1_DalitzBack->SetParLimits(2, 2.5, 10);
+  f1_DalitzBack->SetParLimits(3, 1., 1.e7);
+  f1_DalitzBack->SetTitle("reversed log normal");
+  h1_Dalitz_DataOmegaPS_EG1->Fit(f1_DalitzBack.get(), "MNE", "", 8.E-1, 2.);
+
+  DalitzFit(h1_Dalitz_DataOmegaPS_EG1, f1_DalitzBack.get(), legYields_EG1.get(), "Data/EG1/DalitzPlotWithFit.svg", "Dalitz Plot", arrPtBinning_EG1[0], arrPtBinning_EG1.back());
+
+  h1_Dalitz_DataOmegaWOPS_EG1->Fit(f1_DalitzBack.get(), "MNE", "", 1.E-3, 2.);
+  DalitzFit(h1_Dalitz_DataOmegaWOPS_EG1, f1_DalitzBack.get(), legYields_EG1.get(), "Data/EG1/DalitzPlotWithFitWOPS.svg", "Dalitz Plot", arrPtBinning_EG1[0], arrPtBinning_EG1.back());
 
   vHistos.push_back(h1_Dalitz_DataOmegaPS_EG1);
   vHistos.push_back(h1_DalitzBack_DataOmegaRotPS_EG1);
@@ -6391,6 +6418,8 @@ void plotting()
   // Dalitz Diagramms MC
   //
   // ---------------------------------------------------------------------------
+
+  h1_Dalitz_MCOmegaWOPS_EG1 = (TH1D*) h2_Dalitz_MCOmegaWOPS_EG2->ProjectionY("h1_Dalitz_MCOmegaWOPS_EG1", 1, h2_Dalitz_MCOmegaWOPS_EG2->GetNbinsX());
   h1_Dalitz_MCOmegaPS_EG1 = (TH1D*) h2_Dalitz_MCOmegaPS_EG1->ProjectionY("h1_Dalitz_MCOmegaPS_EG1", 1, h2_Dalitz_MCOmegaPS_EG1->GetNbinsX());
   h1_DalitzBack_MCOmegaRotPS_EG1 = (TH1D*) h2_DalitzBack_MCOmegaRotPS_EG1->ProjectionY("h1_DalitzBack_MCOmegaRotPS_EG1", 1, h2_DalitzBack_MCOmegaRotPS_EG1->GetNbinsX());
   h1_DalitzBack_MCOmegaTGPSPS_EG1 = (TH1D*) h2_DalitzBack_MCOmegaTGPSPS_EG1->ProjectionY("h1_DalitzBack_MCOmegaTGPSPS_EG1", 1, h2_DalitzBack_MCOmegaTGPSPS_EG1->GetNbinsX());
@@ -6400,6 +6429,8 @@ void plotting()
   h1_DalitzBack_MCPi0TGPSPlusPS_EG1 = (TH1D*) h2_DalitzBack_MCPi0TGPSPlusPS_EG1->ProjectionY("h1_DalitzBack_MCPi0TGPSPlusPS_EG1", 1, h2_DalitzBack_MCPi0TGPSPlusPS_EG1->GetNbinsX());
 
   h1_TrueDalitz_MCOmegaPS_EG1 = (TH1D*) h2_TrueDalitz_MCOmegaPS_EG1->ProjectionY("h1_TrueDalitz_MCOmegaPS_EG1", 1, h2_TrueDalitz_MCOmegaPS_EG1->GetNbinsX());
+
+
 
   h1_TrueDalitz_MCOmegaPS_EG1->SetTitle("MC True Signal");
   h1_Dalitz_DataOmegaPS_EG1->SetTitle("Same Event");
@@ -6412,6 +6443,7 @@ void plotting()
 
   h1_TrueBackDalitz_MCOmegaPS_EG1 = (TH1D*) h1_Dalitz_MCOmegaPS_EG1->Clone("h1_TrueBackDalitz_MCOmegaPS_EG1");
   h1_TrueBackDalitz_MCOmegaPS_EG1->Add(h1_Dalitz_MCOmegaPS_EG1, h1_TrueDalitz_MCOmegaPS_EG1, 1, -1);
+
 
   vHistos.push_back(h1_TrueDalitz_MCOmegaPS_EG1);
   vHistos.push_back(h1_Dalitz_MCOmegaPS_EG1);
@@ -6443,6 +6475,9 @@ void plotting()
   Dalitz01(vHistos, legYields_EG1.get(), "Data/EG1/Comp/DalitzComp.svg", "Dalitz Plot", arrPtBinning_EG1[0], arrPtBinning_EG1.back());
   vHistos.clear();
   vHistos.resize(0);
+
+  AlphaPlot(h2_Pi0_Alpha_DataOmegaPS_EG1, legAlpha.get(), "Data/EG1/Alpha_Pi0.svg");
+  AlphaPlot(h2_Omega_Alpha_DataOmegaPS_EG1, legAlpha.get(), "Data/EG1/Alpha_Omega.svg");
   // ---------------------------------------------------------------------------
   //
   // Garbage collection

@@ -145,3 +145,9 @@ void CorrEffi(std::vector<TH1D*> vYield, std::vector<TH1D*> vEffi)
   }
   return;
 }
+
+Double_t ReversedLogNom(Double_t* x, Double_t* par)
+{
+  Double_t x1 = x[0];
+  return par[3]*exp(-pow(log(par[2]-x1)-par[0], 2.)/(2*pow(par[1], 2.) ) )/( (par[2]-x1)*par[1] );
+}
