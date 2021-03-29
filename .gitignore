@@ -1,9 +1,9 @@
 JJ/
 build/
 install/
-Data/
-Comp/
-MC/
+Data*/
+Comp*/
+MC*/
 CMakeFiles/
 test.cpp
 build/CMakeFiles
