@@ -72,9 +72,9 @@ void PeaksDataComp(std::vector<TH1D*> v, TPaveText* lSys, TString outname, TStri
   std::unique_ptr<Legend> l (new Legend(main.get(), legString.Data(), legOpt.Data(), legHeader.Data()) );
 
   // --- Marker ----------------------------------------------------------------
-  vector<Color_t> colors = {kOrange-3, kViolet-3, kGreen-3, kRed-3, kBlue-3, kPink-3, kAzure-3, kSpring-3, 1, 1};
-  vector<Style_t> markers = {kOpenCircle, kOpenCircle, kOpenCircle, kOpenDiamond, kOpenDiamond, kOpenSquare, kOpenSquare, kOpenSquare, 1, 1};
-  vector<Size_t>  sizes = {3., 3., 3., 3., 3., 2.5, 2.5, 2.5, 1, 1};
+  vector<Color_t> colors = {kOrange-3, kViolet-3, kRed-3, kBlue-3, kPink-3, kAzure-3, 1, 1};
+  vector<Style_t> markers = {kOpenCircle, kOpenCircle, kOpenDiamond, kOpenDiamond, kOpenSquare, kOpenSquare, 1, 1};
+  vector<Size_t>  sizes = {3., 3., 3., 3., 2.5, 2.5, 1, 1};
 
   // --- Canvasses -------------------------------------------------------------
   Legend::SetPosition(l.get(), 0.55, 0.9, 0.85-(v.size()+1)*0.025, 0.85);
@@ -106,9 +106,9 @@ void PeaksMCComp(std::vector<TH1D*> v, TPaveText* lSys, TString outname, TString
   std::unique_ptr<Legend> l (new Legend(main.get(), legString.Data(), legOpt.Data(), legHeader.Data()) );
 
   // --- Marker ----------------------------------------------------------------
-  vector<Color_t> colors = {kBlack, kOrange-3, kViolet-3, kGreen-3, kRed-3, kBlue-3, kPink-3, kAzure-3, kSpring-3, 1, 1};
-  vector<Style_t> markers = {kFullCircle, kOpenCircle, kOpenCircle, kOpenCircle, kOpenDiamond, kOpenDiamond, kOpenSquare, kOpenSquare, kOpenSquare, 1, 1};
-  vector<Size_t>  sizes = {3., 3., 3., 3., 3., 3., 2.5, 2.5, 2.5, 1, 1};
+  vector<Color_t> colors = {kBlack, kOrange-3, kViolet-3, kRed-3, kBlue-3, kPink-3, kAzure-3, 1, 1};
+  vector<Style_t> markers = {kFullCircle, kOpenCircle, kOpenCircle, kOpenDiamond, kOpenDiamond, kOpenSquare, kOpenSquare, 1, 1};
+  vector<Size_t>  sizes = {3., 3., 3., 3., 3., 2.5, 2.5, 1, 1};
 
   // --- Canvasses -------------------------------------------------------------
   Legend::SetPosition(l.get(), 0.55, 0.9, 0.85-(v.size()+1)*0.025, 0.85);
@@ -140,9 +140,9 @@ void PeaksDataNCellComp(std::vector<TH1D*> v, TPaveText* lSys, TString outname, 
   std::unique_ptr<Legend> l (new Legend(main.get(), legString.Data(), legOpt.Data(), legHeader.Data()) );
 
   // --- Marker ----------------------------------------------------------------
-  vector<Color_t> colors = {kOrange-3, kViolet-3, kGreen-3, kPink-3, kAzure-3, kSpring-3, 1, 1};
-  vector<Style_t> markers = {kOpenCircle, kOpenCircle, kOpenCircle, 46, 46, 46, 1, 1};
-  vector<Size_t>  sizes = {3., 3., 3., 2.5, 2.5, 2.5, 1, 1};
+  vector<Color_t> colors = {kOrange-3, kViolet-3, kPink-3, kAzure-3, 1, 1};
+  vector<Style_t> markers = {kOpenCircle, kOpenCircle, 46, 46, 1, 1};
+  vector<Size_t>  sizes = {3., 3., 2.5, 2.5, 1, 1};
 
   // --- Canvasses -------------------------------------------------------------
   Legend::SetPosition(l.get(), 0.55, 0.9, 0.85-(v.size()+1)*0.025, 0.85);
@@ -174,9 +174,9 @@ void PeaksMCNCellComp(std::vector<TH1D*> v, TPaveText* lSys, TString outname, TS
   std::unique_ptr<Legend> l (new Legend(main.get(), legString.Data(), legOpt.Data(), legHeader.Data()) );
 
   // --- Marker ----------------------------------------------------------------
-  vector<Color_t> colors = {kBlack, kOrange-3, kViolet-3, kGreen-3,kGray+3, kPink-3, kAzure-3, kSpring-3, 1, 1};
-  vector<Style_t> markers = {kFullCircle, kOpenCircle, kOpenCircle, kOpenCircle, 47, 46, 46, 46, 1, 1};
-  vector<Size_t>  sizes = {3., 3., 3., 3., 3., 2.5, 2.5, 2.5, 1, 1};
+  vector<Color_t> colors = {kBlack, kOrange-3, kViolet-3, kGray+3, kPink-3, kAzure-3, 1, 1};
+  vector<Style_t> markers = {kFullCircle, kOpenCircle, kOpenCircle, 47, 46, 46, 1, 1};
+  vector<Size_t>  sizes = {3., 3., 3., 3., 2.5, 2.5, 1, 1};
 
   // --- Canvasses -------------------------------------------------------------
   Legend::SetPosition(l.get(), 0.55, 0.9, 0.85-(v.size()+1)*0.025, 0.85);

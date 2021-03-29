@@ -19,7 +19,7 @@ void GetMeanAndStdvar(TH1D* h1, Double_t &mean, Double_t &stdvar)
 
 
 void Yields(TH1D* TruePeak ,TH1D* PeakOmegaRotPS, TH1D* PeakOmegaTGPSPS, TH1D* PeakOmegaTGPSPlusPS,
-            TH1D* PeakPi0RotPS ,TH1D* PeakPi0TGPSPlusPS, TH1D* PeakOmegaRotWOPS, TH1D* PeakOmegaTGPSWOPS,
+            TH1D* PeakPi0RotPS ,TH1D* PeakPi0TGPSPS, TH1D* PeakOmegaRotWOPS, TH1D* PeakOmegaTGPSWOPS,
             TH1D* PeakOmegaTGPSPlusWOPS, TPaveText* lSys, TString outname, TString legHead,
             Double_t lowX, Double_t highX){
   // --- Create TObjArrays -----------------------------------------------------
@@ -30,7 +30,7 @@ void Yields(TH1D* TruePeak ,TH1D* PeakOmegaRotPS, TH1D* PeakOmegaTGPSPS, TH1D* P
   main->Add(PeakOmegaTGPSPS);
   main->Add(PeakOmegaTGPSPlusPS);
   main->Add(PeakPi0RotPS);
-  main->Add(PeakPi0TGPSPlusPS);
+  main->Add(PeakPi0TGPSPS);
   main->Add(PeakOmegaRotWOPS);
   main->Add(PeakOmegaTGPSWOPS);
   main->Add(PeakOmegaTGPSPlusWOPS);
@@ -38,7 +38,7 @@ void Yields(TH1D* TruePeak ,TH1D* PeakOmegaRotPS, TH1D* PeakOmegaTGPSPS, TH1D* P
   // --- Legends ---------------------------------------------------------------
 
   main->Add(lSys);
-  std::unique_ptr<Legend> l (new Legend(main.get(), "true yield\n OmegaRotPS\n OmegaTGPSPS\n OmegaTGPSPlusPS\n Pi0RotPS\n Pi0TGPSPlusPS\n OmegaRotWOPS\n OmegaTGPSWOPS\n OmegaTGPSPlusWOPS", "lp lp lp lp lp lp lp lp lp", legHead.Data()) );
+  std::unique_ptr<Legend> l (new Legend(main.get(), "true yield\n OmegaRotPS\n OmegaTGPSPS\n OmegaTGPSPlusPS\n Pi0RotPS\n Pi0TGPSPS\n OmegaRotWOPS\n OmegaTGPSWOPS\n OmegaTGPSPlusWOPS", "lp lp lp lp lp lp lp lp lp", legHead.Data()) );
 
   // --- Marker ----------------------------------------------------------------
   vector<Color_t> colors = {kBlack, kOrange-3, kViolet-3, kGreen-3, kRed-3, kBlue-3, kPink-3, kAzure-3, kSpring-3, 1, 1};
@@ -93,7 +93,7 @@ void Acceptance(TH1D* hAcc, TPaveText* lSys, TString outname, Double_t lowX, Dou
 }
 
 void Efficiency(TH1D* TruePeak ,TH1D* PeakOmegaRotPS, TH1D* PeakOmegaTGPSPS, TH1D* PeakOmegaTGPSPlusPS,
-            TH1D* PeakPi0RotPS ,TH1D* PeakPi0TGPSPlusPS, TH1D* PeakOmegaRotWOPS, TH1D* PeakOmegaTGPSWOPS,
+            TH1D* PeakPi0RotPS ,TH1D* PeakPi0TGPSPS, TH1D* PeakOmegaRotWOPS, TH1D* PeakOmegaTGPSWOPS,
             TH1D* PeakOmegaTGPSPlusWOPS, TPaveText* lSys, TString outname, TString legHead,
             Double_t lowX, Double_t highX){
   // --- Create TObjArrays -----------------------------------------------------
@@ -104,7 +104,7 @@ void Efficiency(TH1D* TruePeak ,TH1D* PeakOmegaRotPS, TH1D* PeakOmegaTGPSPS, TH1
   main->Add(PeakOmegaTGPSPS);
   main->Add(PeakOmegaTGPSPlusPS);
   main->Add(PeakPi0RotPS);
-  main->Add(PeakPi0TGPSPlusPS);
+  main->Add(PeakPi0TGPSPS);
   main->Add(PeakOmegaRotWOPS);
   main->Add(PeakOmegaTGPSWOPS);
   main->Add(PeakOmegaTGPSPlusWOPS);
@@ -112,7 +112,7 @@ void Efficiency(TH1D* TruePeak ,TH1D* PeakOmegaRotPS, TH1D* PeakOmegaTGPSPS, TH1
   // --- Legends ---------------------------------------------------------------
 
   main->Add(lSys);
-  std::unique_ptr<Legend> l (new Legend(main.get(), "MC true\n OmegaRotPS\n OmegaTGPSPS\n OmegaTGPSPlusPS\n Pi0RotPS\n Pi0TGPSPlusPS\n OmegaRotWOPS\n OmegaTGPSWOPS\n OmegaTGPSPlusWOPS", "lp lp lp lp lp lp lp lp lp", legHead.Data()) );
+  std::unique_ptr<Legend> l (new Legend(main.get(), "MC true\n OmegaRotPS\n OmegaTGPSPS\n OmegaTGPSPlusPS\n Pi0RotPS\n Pi0TGPSPS\n OmegaRotWOPS\n OmegaTGPSWOPS\n OmegaTGPSPlusWOPS", "lp lp lp lp lp lp lp lp lp", legHead.Data()) );
 
   // --- Marker ----------------------------------------------------------------
   vector<Color_t> colors = {kBlack, kOrange-3, kViolet-3, kGreen-3, kRed-3, kBlue-3, kPink-3, kAzure-3, kSpring-3, 1, 1};
@@ -208,156 +208,81 @@ void CorrYieldsNCell(std::vector<TH1D*> v, TPaveText* lSys, TString outname, TSt
   return;
 }
 
-void MeanPlotPol1(TH1D* h1, TH1D* h2, TH1D* h3, TH1D* h4, TH1D* h5, TH1D* h6, TH1D* h7, TH1D* h8, TPaveText* lSys, TString outname, Double_t xLow, Double_t xHigh){
+void MeanPlotPol(std::vector<TH1D*> v, TPaveText* lSys, TString outname, TString legHead, Double_t xLow, Double_t xHigh)
+{
   // --- Create TObjArrays -----------------------------------------------------
-
+  v.at(0)->SetMaximum(1.10);
+  v.at(0)->SetMinimum(0.65);
   std::unique_ptr<TObjArray> main (new TObjArray);
-  h1->SetMaximum(1.10);
-  h1->SetMinimum(0.65);
-  main->Add(h1);
-  main->Add(h2);
-  main->Add(h3);
-  main->Add(h4);
-  main->Add(h5);
-  main->Add(h6);
-  main->Add(h7);
-  main->Add(h8);
+  TString legString = "";
+  TString legOpt = "";
+  for (int i = 0; i < v.size(); i++)
+  {
+    main->Add(v.at(i));
+    legOpt += "lp ";
+    if(i < v.size()-1) legString += TString(v.at(i)->GetTitle()) + "\n ";
+  }
 
   // --- Legends ---------------------------------------------------------------
 
   main->Add(lSys);
-  std::unique_ptr<Legend> l (new Legend(main.get(), "OmegaRotPS\n OmegaTGPSPS\n OmegaTGPSPlusPS\n Pi0RotPS\n Pi0TGPSPlusPS\n OmegaRotWOPS\n OmegaTGPSWOPS\n OmegaTGPSPlusWOPS", "lp lp lp lp lp lp lp lp", "#mu pol1") );
+  std::unique_ptr<Legend> l (new Legend(main.get(), legString.Data(), legOpt.Data(), legHead.Data() ) );
 
   // --- Marker ----------------------------------------------------------------
-  vector<Color_t> colors = {kOrange-3, kViolet-3, kGreen-3, kRed-3, kBlue-3, kPink-3, kAzure-3, kSpring-3, 1, 1};
-  vector<Style_t> markers = {kOpenCircle, kOpenCircle, kOpenCircle, kOpenDiamond, kOpenDiamond, kOpenSquare, kOpenSquare, kOpenSquare, 1, 1};
-  vector<Size_t>  sizes = {3., 3., 3., 3., 3., 2.5, 2.5, 2.5, 1, 1};
+  vector<Color_t> colors = {kOrange-3, kViolet-3, kRed-3, kBlue-3, kPink-3, kAzure-3, 1, 1};
+  vector<Style_t> markers = {kOpenCircle, kOpenCircle, kOpenDiamond, kOpenDiamond, kOpenSquare, kOpenSquare, 1, 1};
+  vector<Size_t>  sizes = {3., 3., 3., 3., 2.5, 2.5, 1, 1};
 
   // --- Canvasses -------------------------------------------------------------
 
-  Legend::SetPosition(l.get(), 0.55, 0.9, 0.6, 0.85);
+  Legend::SetPosition(l.get(), 0.55, 0.9, 0.85-(v.size()+1)*0.025, 0.85);
   SquarePlot square = SquarePlot(main.get(), pt_str, "#mu (GeV/#it{c}^{2})");
   square.SetMode(Plot::Thesis);
   square.SetStyle(colors, markers, sizes);
-  square.SetRanges(xLow, xHigh, h1->GetMinimum(), h1->GetMaximum());
+  square.SetRanges(xLow, xHigh, v.at(0)->GetMinimum(), v.at(0)->GetMaximum());
   square.SetCanvasMargins(0.025, .1, 0.03, .1);
   square.Draw(outname);
   return;
 
 }
 
-void MeanPlotPol2(TH1D* h1, TH1D* h2, TH1D* h3, TH1D* h4, TH1D* h5, TH1D* h6, TH1D* h7, TH1D* h8, TPaveText* lSys, TString outname, Double_t xLow, Double_t xHigh){
+void SigmaPlotPol(std::vector<TH1D*> v, TPaveText* lSys, TString outname, TString legHead, Double_t xLow, Double_t xHigh)
+{
   // --- Create TObjArrays -----------------------------------------------------
 
+  v.at(0)->SetMaximum(0.18);
   std::unique_ptr<TObjArray> main (new TObjArray);
-  h1->SetMaximum(1.10);
-  h1->SetMinimum(0.65);
-  main->Add(h1);
-  main->Add(h2);
-  main->Add(h3);
-  main->Add(h4);
-  main->Add(h5);
-  main->Add(h6);
-  main->Add(h7);
-  main->Add(h8);
+  TString legString = "";
+  TString legOpt = "";
+  for (int i = 0; i < v.size(); i++)
+  {
+    main->Add(v.at(i));
+    legOpt += "lp ";
+    if(i < v.size()-1) legString += TString(v.at(i)->GetTitle()) + "\n ";
+  }
 
   // --- Legends ---------------------------------------------------------------
 
   main->Add(lSys);
-  std::unique_ptr<Legend> l (new Legend(main.get(), "OmegaRotPS\n OmegaTGPSPS\n OmegaTGPSPlusPS\n Pi0RotPS\n Pi0TGPSPlusPS\n OmegaRotWOPS\n OmegaTGPSWOPS\n OmegaTGPSPlusWOPS", "lp lp lp lp lp lp lp lp", "#mu pol2") );
+  std::unique_ptr<Legend> l (new Legend(main.get(), legString.Data(), legOpt.Data(), legHead.Data() ) );
 
   // --- Marker ----------------------------------------------------------------
-  vector<Color_t> colors = {kOrange-3, kViolet-3, kGreen-3, kRed-3, kBlue-3, kPink-3, kAzure-3, kSpring-3, 1, 1};
-  vector<Style_t> markers = {kOpenCircle, kOpenCircle, kOpenCircle, kOpenDiamond, kOpenDiamond, kOpenSquare, kOpenSquare, kOpenSquare, 1, 1};
-  vector<Size_t>  sizes = {3., 3., 3., 3., 3., 2.5, 2.5, 2.5, 1, 1};
+  vector<Color_t> colors = {kOrange-3, kViolet-3, kRed-3, kBlue-3, kPink-3, kAzure-3, 1, 1};
+  vector<Style_t> markers = {kOpenCircle, kOpenCircle, kOpenDiamond, kOpenDiamond, kOpenSquare, kOpenSquare, 1, 1};
+  vector<Size_t>  sizes = {3., 3., 3., 3., 2.5, 2.5, 1, 1};
 
   // --- Canvasses -------------------------------------------------------------
 
-  Legend::SetPosition(l.get(), 0.55, 0.9, 0.6, 0.85);
-  SquarePlot square = SquarePlot(main.get(), pt_str, "#mu (GeV/#it{c}^{2})");
-  square.SetMode(Plot::Thesis);
-  square.SetStyle(colors, markers, sizes);
-  square.SetRanges(xLow, xHigh, h1->GetMinimum(), h1->GetMaximum());
-  square.SetCanvasMargins(0.025, .1, 0.03, .1);
-  square.Draw(outname);
-  return;
-
-}
-
-void SigmaPlotPol1(TH1D* h1, TH1D* h2, TH1D* h3, TH1D* h4, TH1D* h5, TH1D* h6, TH1D* h7, TH1D* h8, TPaveText* lSys, TString outname, Double_t xLow, Double_t xHigh){
-  // --- Create TObjArrays -----------------------------------------------------
-
-  std::unique_ptr<TObjArray> main (new TObjArray);
-  h1->SetMaximum(0.18);
-  main->Add(h1);
-  main->Add(h2);
-  main->Add(h3);
-  main->Add(h4);
-  main->Add(h5);
-  main->Add(h6);
-  main->Add(h7);
-  main->Add(h8);
-
-  // --- Legends ---------------------------------------------------------------
-
-  main->Add(lSys);
-  std::unique_ptr<Legend> l (new Legend(main.get(), "OmegaRotPS\n OmegaTGPSPS\n OmegaTGPSPlusPS\n Pi0RotPS\n Pi0TGPSPlusPS\n OmegaRotWOPS\n OmegaTGPSWOPS\n OmegaTGPSPlusWOPS", "lp lp lp lp lp lp lp lp", "#sigma pol1") );
-
-  // --- Marker ----------------------------------------------------------------
-  vector<Color_t> colors = {kOrange-3, kViolet-3, kGreen-3, kRed-3, kBlue-3, kPink-3, kAzure-3, kSpring-3, 1, 1};
-  vector<Style_t> markers = {kOpenCircle, kOpenCircle, kOpenCircle, kOpenDiamond, kOpenDiamond, kOpenSquare, kOpenSquare, kOpenSquare, 1, 1};
-  vector<Size_t>  sizes = {3., 3., 3., 3., 3., 2.5, 2.5, 2.5, 1, 1};
-
-  // --- Canvasses -------------------------------------------------------------
-
-  Legend::SetPosition(l.get(), 0.55, 0.9, 0.6, 0.85);
+  Legend::SetPosition(l.get(), 0.55, 0.9, 0.85-(v.size()+1)*0.025, 0.85);
   SquarePlot square = SquarePlot(main.get(), pt_str, "#sigma (GeV/#it{c}^{2})");
   square.SetMode(Plot::Thesis);
   square.SetStyle(colors, markers, sizes);
-  square.SetRanges(xLow, xHigh, 0., h1->GetMaximum());
+  square.SetRanges(xLow, xHigh, 0., v.at(0)->GetMaximum());
   square.SetCanvasMargins(0.025, .1, 0.03, .1);
   square.Draw(outname);
   return;
 
 }
-
-void SigmaPlotPol2(TH1D* h1, TH1D* h2, TH1D* h3, TH1D* h4, TH1D* h5, TH1D* h6, TH1D* h7, TH1D* h8, TPaveText* lSys, TString outname, Double_t xLow, Double_t xHigh){
-  // --- Create TObjArrays -----------------------------------------------------
-
-  std::unique_ptr<TObjArray> main (new TObjArray);
-  h1->SetMaximum(0.18);
-  main->Add(h1);
-  main->Add(h2);
-  main->Add(h3);
-  main->Add(h4);
-  main->Add(h5);
-  main->Add(h6);
-  main->Add(h7);
-  main->Add(h8);
-
-  // --- Legends ---------------------------------------------------------------
-
-  main->Add(lSys);
-  std::unique_ptr<Legend> l (new Legend(main.get(), "OmegaRotPS\n OmegaTGPSPS\n OmegaTGPSPlusPS\n Pi0RotPS\n Pi0TGPSPlusPS\n OmegaRotWOPS\n OmegaTGPSWOPS\n OmegaTGPSPlusWOPS", "lp lp lp lp lp lp lp lp", "#sigma pol2") );
-
-  // --- Marker ----------------------------------------------------------------
-  vector<Color_t> colors = {kOrange-3, kViolet-3, kGreen-3, kRed-3, kBlue-3, kPink-3, kAzure-3, kSpring-3, 1, 1};
-  vector<Style_t> markers = {kOpenCircle, kOpenCircle, kOpenCircle, kOpenDiamond, kOpenDiamond, kOpenSquare, kOpenSquare, kOpenSquare, 1, 1};
-  vector<Size_t>  sizes = {3., 3., 3., 3., 3., 2.5, 2.5, 2.5, 1, 1};
-
-  // --- Canvasses -------------------------------------------------------------
-
-  Legend::SetPosition(l.get(), 0.55, 0.9, 0.6, 0.85);
-  SquarePlot square = SquarePlot(main.get(), pt_str, "#sigma (GeV/#it{c}^{2})");
-  square.SetMode(Plot::Thesis);
-  square.SetStyle(colors, markers, sizes);
-  square.SetRanges(xLow, xHigh, 0., h1->GetMaximum());
-  square.SetCanvasMargins(0.025, .1, 0.03, .1);
-  square.Draw(outname);
-  return;
-
-}
-
 
 SquarePlot MeanRatio(TH1D* h1, TH1D* h2, TH1D* h3, TH1D* h4, TPaveText* lSys){
   // --- Create TObjArrays -----------------------------------------------------
@@ -393,31 +318,29 @@ SquarePlot MeanRatio(TH1D* h1, TH1D* h2, TH1D* h3, TH1D* h4, TPaveText* lSys){
 
 }
 
-void Chi2(TH1D* PeakOmegaRotPS, TH1D* PeakOmegaTGPSPS, TH1D* PeakOmegaTGPSPlusPS,
-            TH1D* PeakPi0RotPS ,TH1D* PeakPi0TGPSPlusPS, TH1D* PeakOmegaRotWOPS, TH1D* PeakOmegaTGPSWOPS,
-            TH1D* PeakOmegaTGPSPlusWOPS, TPaveText* lSys, TString outname, TString legHead,
-            Double_t lowX, Double_t highX){
+void Chi2(std::vector<TH1D*> v, TPaveText* lSys, TString outname, TString legHead, Double_t lowX, Double_t highX)
+{
   // --- Create TObjArrays -----------------------------------------------------
 
   std::unique_ptr<TObjArray> main (new TObjArray);
-  main->Add(PeakOmegaRotPS);
-  main->Add(PeakOmegaTGPSPS);
-  main->Add(PeakOmegaTGPSPlusPS);
-  main->Add(PeakPi0RotPS);
-  main->Add(PeakPi0TGPSPlusPS);
-  main->Add(PeakOmegaRotWOPS);
-  main->Add(PeakOmegaTGPSWOPS);
-  main->Add(PeakOmegaTGPSPlusWOPS);
+  TString legString = "";
+  TString legOpt = "";
+  for (int i = 0; i < v.size(); i++)
+  {
+    main->Add(v.at(i));
+    legOpt += "l ";
+    if(i < v.size()-1) legString += TString(v.at(i)->GetTitle()) + "\n ";
+  }
 
   // --- Legends ---------------------------------------------------------------
 
   main->Add(lSys);
-  std::unique_ptr<Legend> l (new Legend(main.get(), "OmegaRotPS\n OmegaTGPSPS\n OmegaTGPSPlusPS\n Pi0RotPS\n Pi0TGPSPlusPS\n OmegaRotWOPS\n OmegaTGPSWOPS\n OmegaTGPSPlusWOPS", "l l l l l l l l", legHead.Data()) );
+  std::unique_ptr<Legend> l (new Legend(main.get(), legString.Data(), legOpt.Data(), legHead.Data()) );
 
   // --- Marker ----------------------------------------------------------------
-  vector<Color_t> colors = {kOrange-3, kViolet-3, kGreen-3, kRed-3, kBlue-3, kPink-3, kAzure-3, kSpring-3, 1, 1};
-  vector<Style_t> markers = {kOpenCircle, kOpenCircle, kOpenCircle, kOpenDiamond, kOpenDiamond, kOpenSquare, kOpenSquare, kOpenSquare, 1, 1};
-  vector<Size_t>  sizes = {3., 3., 3., 3., 3., 2.5, 2.5, 2.5, 1, 1};
+  vector<Color_t> colors = {kOrange-3, kViolet-3, kRed-3, kBlue-3, kPink-3, kAzure-3, 1, 1};
+  vector<Style_t> markers = {kOpenCircle, kOpenCircle, kOpenDiamond, kOpenDiamond, kOpenSquare, kOpenSquare, 1, 1};
+  vector<Size_t>  sizes = {3., 3., 3., 3., 2.5, 2.5, 1, 1};
 
   // --- Canvasses -------------------------------------------------------------
 
@@ -426,7 +349,7 @@ void Chi2(TH1D* PeakOmegaRotPS, TH1D* PeakOmegaTGPSPS, TH1D* PeakOmegaTGPSPlusPS
   SquarePlot square = SquarePlot(main.get(), pt_str, "#frac{#chi^{2}}{NDF}");
   square.SetMode(Plot::Thesis);
   square.SetStyle(colors, markers, sizes);
-  square.SetRanges(lowX, highX, 0., 10.);
+  square.SetRanges(lowX, highX, 0., 11.);
   square.SetCanvasMargins(0.025, .12, 0.03, .1);
   square.SetCanvasOffsets(1.2, 1.5);
   square.Draw(outname);
@@ -459,9 +382,8 @@ void Chi2Comp(TH1D* h1, TPaveText* lSys, TString outname, TString legHead)
   std::unique_ptr<TObjArray> main (new TObjArray);
   main->Add(h1);
 
-  const char *methods[11] = {"OmegaRotPS", "OmegaTGPSPS", "OmegaTGPSPlusPS", "Pi0RotPS",
-  "Pi0TGPSPlusPS", "OmegaRotWOPS","OmegaTGPSWOPS","OmegaTGPSPlusWOPS", "OmegaRotPSNCell",
-  "OmegaTGPSPSNCell", "OmegaTGPSPlusPSNCell"};
+  const char *methods[6] = {"OmegaRotPS", "OmegaTGPSPS", "Pi0RotPS",
+  "Pi0TGPSPS", "OmegaRotWOPS","OmegaTGPSWOPS"};
   for (int bin = 1; bin <= h1->GetNbinsX(); bin++)
   {
     h1->GetXaxis()->SetBinLabel(bin, methods[bin-1]);
@@ -485,7 +407,7 @@ void Chi2Comp(TH1D* h1, TPaveText* lSys, TString outname, TString legHead)
   SquarePlot square = SquarePlot(main.get(), "", "mean#left(#frac{#chi^{2}}{NDF}#right)");
   square.SetMode(Plot::Thesis);
   square.SetStyle(colors, markers, sizes);
-  square.SetRanges(0., 11., 0., 10.);
+  square.SetRanges(0., 6., 0., 10.);
   square.SetCanvasMargins(0.025, .12, 0.03, .15);
   square.SetCanvasOffsets(1.2, 1.5);
   square.Draw(outname);

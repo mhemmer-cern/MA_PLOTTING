@@ -7,25 +7,21 @@
 void PeaksMC(TH1D* TruePeak, TH1D* Background1, TH1D* Background2, TPaveText* lSys, TString outname)
 {
   // --- Create TObjArrays -----------------------------------------------------
-
   std::unique_ptr<TObjArray> main (new TObjArray);
   main->Add(TruePeak);
   main->Add(Background1);
   main->Add(Background2);
 
   // --- Legends ---------------------------------------------------------------
-
   main->Add(lSys);
   std::unique_ptr<Legend> l (new Legend(main.get(), "true signal\n extracted signal pol1\n extracted signal pol2", "lp lp lp") );
 
   // --- Marker ----------------------------------------------------------------
-
-  vector<Color_t> colors = {kBlack, kCyan-3, kPink-3, 1, 1};
-  vector<Style_t> markers = {kFullCircle, kOpenSquare, kOpenCircle, 1, 1};
-  vector<Size_t>  sizes = {3., 2., 2., 1, 1};
+  std::vector<Color_t> colors = {kBlack, kCyan-3, kPink-3, 1, 1};
+  std::vector<Style_t> markers = {kFullCircle, kOpenSquare, 1, 1, 1};
+  std::vector<Size_t>  sizes = {3., 2., 2., 1, 1};
 
   // --- Canvasses -------------------------------------------------------------
-
   Legend::SetPosition(l.get(), 0.55, 0.9, 0.67, 0.875);
 
   SquarePlot square = SquarePlot(main.get(), minv_str, count_str);
@@ -41,21 +37,18 @@ void PeaksMC(TH1D* TruePeak, TH1D* Background1, TH1D* Background2, TPaveText* lS
 void PeaksData(TH1D* PeakPol1, TH1D* PeakPol2, TPaveText* lSys, TString outname)
 {
   // --- Create TObjArrays -----------------------------------------------------
-
   std::unique_ptr<TObjArray> main (new TObjArray);
   main->Add(PeakPol1);
   main->Add(PeakPol2);
-
   // --- Legends ---------------------------------------------------------------
 
   main->Add(lSys);
   std::unique_ptr<Legend> l (new Legend(main.get(), "extracted signal pol1\n extracted signal pol2", "lp lp") );
 
   // --- Marker ----------------------------------------------------------------
-
-  vector<Color_t> colors = {kCyan-3, kPink-3, 1, 1};
-  vector<Style_t> markers = {kOpenSquare, kOpenCircle, 1, 1};
-  vector<Size_t>  sizes = {2., 2., 1, 1};
+  std::vector<Color_t> colors = {kCyan-3, kPink-3, 1, 1};
+  std::vector<Style_t> markers = {kOpenSquare, kOpenCircle, 1, 1};
+  std::vector<Size_t>  sizes = {2., 2., 1, 1};
 
   // --- Canvasses -------------------------------------------------------------
 
@@ -148,35 +141,33 @@ void PeaksNormalized(TH1D* h1, TH1D* h2, TPaveText* lSys, TString outname)
 
 }
 
-void PeakRatio(TH1D* PeakOmegaRotPS, TH1D* PeakOmegaTGPSPS, TH1D* PeakOmegaTGPSPlusPS,
-            TH1D* PeakPi0RotPS ,TH1D* PeakPi0TGPSPlusPS, TH1D* PeakOmegaRotWOPS, TH1D* PeakOmegaTGPSWOPS,
-            TH1D* PeakOmegaTGPSPlusWOPS, TPaveText* lSys, TString outname, TString legHead,
-            Double_t lowX, Double_t highX){
+void PeakRatio(std::vector<TH1D*> v, TPaveText* lSys, TString outname, TString legHead, Double_t lowX, Double_t highX)
+{
   // --- Create TObjArrays -----------------------------------------------------
 
   std::unique_ptr<TObjArray> main (new TObjArray);
-  main->Add(PeakOmegaRotPS);
-  main->Add(PeakOmegaTGPSPS);
-  main->Add(PeakOmegaTGPSPlusPS);
-  main->Add(PeakPi0RotPS);
-  main->Add(PeakPi0TGPSPlusPS);
-  main->Add(PeakOmegaRotWOPS);
-  main->Add(PeakOmegaTGPSWOPS);
-  main->Add(PeakOmegaTGPSPlusWOPS);
+  TString legString = "";
+  TString legOpt = "";
+  for (int i = 0; i < v.size(); i++)
+  {
+    main->Add(v.at(i));
+    legOpt += "lp ";
+    if(i < v.size()-1) legString += TString(v.at(i)->GetTitle()) + "\n ";
+  }
 
   // --- Legends ---------------------------------------------------------------
 
   main->Add(lSys);
-  std::unique_ptr<Legend> l (new Legend(main.get(), "OmegaRotPS\n OmegaTGPSPS\n OmegaTGPSPlusPS\n Pi0RotPS\n Pi0TGPSPlusPS\n OmegaRotWOPS\n OmegaTGPSWOPS\n OmegaTGPSPlusWOPS", "lp lp lp lp lp lp lp lp", legHead.Data()) );
+  std::unique_ptr<Legend> l (new Legend(main.get(), legString.Data(), legOpt.Data(), legHead.Data()) );
 
   // --- Marker ----------------------------------------------------------------
-  vector<Color_t> colors = {kOrange-3, kViolet-3, kGreen-3, kRed-3, kBlue-3, kPink-3, kAzure-3, kSpring-3, 1, 1};
-  vector<Style_t> markers = {kOpenCircle, kOpenCircle, kOpenCircle, kOpenDiamond, kOpenDiamond, kOpenSquare, kOpenSquare, kOpenSquare, 1, 1};
-  vector<Size_t>  sizes = {3., 3., 3., 3., 3., 2.5, 2.5, 2.5, 1, 1};
+  vector<Color_t> colors = {kOrange-3, kViolet-3, kRed-3, kBlue-3, kPink-3, kAzure-3, 1, 1};
+  vector<Style_t> markers = {kOpenCircle, kOpenCircle, kOpenDiamond, kOpenDiamond, kOpenSquare, kOpenSquare, 1, 1};
+  vector<Size_t>  sizes = {3., 3., 3., 3., 2.5, 2.5, 1, 1};
 
   // --- Canvasses -------------------------------------------------------------
 
-  Legend::SetPosition(l.get(), 0.5, 0.9, 0.6, 0.875);
+  Legend::SetPosition(l.get(), 0.5, 0.9, 0.875-(v.size()+1)*0.025, 0.875);
 
   SquarePlot square = SquarePlot(main.get(), minv_str, "peak ratio #frac{data}{MC}");
   square.SetMode(Plot::Thesis);
