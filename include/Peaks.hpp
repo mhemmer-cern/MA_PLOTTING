@@ -18,7 +18,7 @@ void PeaksMC(TH1D* TruePeak, TH1D* Background1, TH1D* Background2, TPaveText* lS
 
   // --- Marker ----------------------------------------------------------------
   std::vector<Color_t> colors = {kBlack, kCyan-3, kPink-3, 1, 1};
-  std::vector<Style_t> markers = {kFullCircle, kOpenSquare, 1, 1, 1};
+  std::vector<Style_t> markers = {kFullCircle, kOpenSquare, kOpenCircle, 1, 1};
   std::vector<Size_t>  sizes = {3., 2., 2., 1, 1};
 
   // --- Canvasses -------------------------------------------------------------
@@ -26,7 +26,7 @@ void PeaksMC(TH1D* TruePeak, TH1D* Background1, TH1D* Background2, TPaveText* lS
 
   SquarePlot square = SquarePlot(main.get(), minv_str, count_str);
   square.SetMode(Plot::Thesis);
-  square.SetRanges(0.4, 1.2, TruePeak->GetMinimum(), TruePeak->GetMaximum());
+  square.SetRanges(0.5, 1.2, TruePeak->GetMinimum(), TruePeak->GetMaximum());
   square.SetStyle(colors, markers, sizes);
   square.SetCanvasMargins(0.025, .1, 0.03, .1);
   square.Draw(outname);

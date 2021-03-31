@@ -27,8 +27,10 @@ std::vector<TH1D*> vSigma;
 std::vector<TF1*> vFunctions;
 std::vector<TGraphErrors*> vGraphs;
 
-Double_t fitLower = 0.6;                                                        // lower boundary for fitting the background
-Double_t fitHigher = 1.1;                                                       // upper boundary for fitting the background
+Double_t fitLower_Pol1  = 0.6;                                                  // lower boundary for fitting the background
+Double_t fitHigher_Pol1 = 1.1;                                                  // upper boundary for fitting the background
+Double_t fitLower_Pol2  = 0.6;                                                  // lower boundary for fitting the background
+Double_t fitHigher_Pol2 = 1.1;                                                  // upper boundary for fitting the background
 
 const Int_t nBinsPt_EG1 = 8;                                                    // pT binning for EG 1
 std::vector<Double_t> arrPtBinning_EG1
