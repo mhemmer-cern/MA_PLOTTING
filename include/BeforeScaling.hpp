@@ -38,6 +38,39 @@ void BeforeScaling(TH1D* SE, TH1D* Background, TPaveText* lSys, TString outname)
 
 }
 
+
+void BeforeScalingMCData(TH1D* SE, TH1D* Background, TPaveText* lSys, TString outname){
+  // --- Create TObjArrays -----------------------------------------------------
+  std::unique_ptr<TObjArray> main(new TObjArray);
+  TH1D* h1_Clone = (TH1D*) SE->Clone("h1_Clone");
+  h1_Clone->Scale(1./h1_Clone->Integral());
+  TH1D* h2_Clone = (TH1D*) Background->Clone("h2_Clone");
+  h2_Clone->Scale(1./h2_Clone->Integral());
+  main->Add(h1_Clone);
+  main->Add(h2_Clone);
+
+  // --- Legends ---------------------------------------------------------------
+  main->Add(lSys);
+  std::unique_ptr<Legend> l(new Legend(main.get(), "MC\n data", "lp lp", "same event"));
+  l->SetFillStyle(0);
+
+  // --- Marker ----------------------------------------------------------------
+  vector<Color_t> colors = {kBlack, kRed-2, 0, 0};
+  vector<Style_t> markers = {kFullCircle, kOpenSquare, 0, 0};
+  vector<Size_t>  sizes = {2., 2., 0, 0};
+
+  // --- Canvasses -------------------------------------------------------------
+  Legend::SetPosition((Legend*) l.get(), 0.6, 0.9, 0.75, 0.85);
+  SquarePlot square = SquarePlot(main.get(), minv_str, count_str);
+  square.SetMode(Plot::Thesis);
+  square.SetStyle(colors, markers, sizes);
+  square.SetRanges(0.0, 1.6, 0, h1_Clone->GetMaximum()*1.7);
+  square.SetCanvasMargins(0.025, .1, 0.03, .1);
+  square.Draw(outname);
+  return;
+
+}
+
 void BeforeScalingAPLikeCut(TH1D* SE1, TH1D* SE2, TH1D* SE3, TH1D* SE4, TPaveText* lSys, TString outname){
   // --- Create TObjArrays -----------------------------------------------------
 

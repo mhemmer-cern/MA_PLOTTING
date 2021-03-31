@@ -3406,8 +3406,8 @@ void plotting()
     h1_TrueOmega_MCWOPS_EG1->Fit("f1Gaus_TrueOmega_MCWOPS_Pol1_EG1", "QMNE", "", fitLower_Pol1, fitHigher_Pol1);
     h1_TrueOmega_MCPSNCell_EG1->Fit("f1Gaus_TrueOmega_MCPSNCell_Pol1_EG1", "QMNE", "", fitLower_Pol1, fitHigher_Pol1);
 
-    PeakLower = f1Gaus_TrueOmega_MCPS_Pol1_EG1->GetParameter(1)-3.* f1Gaus_TrueOmega_MCPS_Pol1_EG1->GetParameter(2);
-    PeakHigher  = f1Gaus_TrueOmega_MCPS_Pol1_EG1->GetParameter(1)+3.* f1Gaus_TrueOmega_MCPS_Pol1_EG1->GetParameter(2);
+    PeakLower = f1Gaus_TrueOmega_MCPS_Pol1_EG1->GetParameter(1)-2.* f1Gaus_TrueOmega_MCPS_Pol1_EG1->GetParameter(2);
+    PeakHigher  = f1Gaus_TrueOmega_MCPS_Pol1_EG1->GetParameter(1)+2.* f1Gaus_TrueOmega_MCPS_Pol1_EG1->GetParameter(2);
 
     // -------------------------------------------------------------------------
     //
@@ -4365,6 +4365,12 @@ void plotting()
     BeforeScaling(h1_SameEvent_MCOmegaPSNCell_EG1, h1_Background_MCOmegaTGPSPlusPSNCell_EG1, legSystem.get(), Form("MC/EG1/OmegaTGPSPlusPSNCell/SameEventAndBackgroundBeforeScaling_%02d.svg", pTBin_EG1));
 
     BeforeScalingAPLikeCut(h1_SameEvent_MCOmegaTGPSPlusAPPS1Sigma_EG1, h1_SameEvent_MCOmegaTGPSPlusAPPS2Sigma_EG1, h1_SameEvent_MCOmegaTGPSPlusAPPS3Sigma_EG1, h1_SameEvent_MCOmegaPS_EG1, legSystem.get(), Form("MC/EG1/OmegaTGPSPlusAPPS1Sigma/SameEventBeforeScalingComp_%02d.svg", pTBin_EG1));
+
+    BeforeScalingMCData(h1_SameEvent_MCOmegaPS_EG1, h1_SameEvent_DataOmegaPS_EG1, legSystem.get(), Form("Data/EG1/Comp/SameEventMCvsData_OmegaPS_%02d.svg", pTBin_EG1));
+
+    BeforeScalingMCData(h1_SameEvent_MCOmegaWOPS_EG1, h1_SameEvent_DataOmegaWOPS_EG1, legSystem.get(), Form("Data/EG1/Comp/SameEventMCvsData_OmegaWOPS_%02d.svg", pTBin_EG1));
+
+    BeforeScalingMCData(h1_SameEvent_MCOmegaPSNCell_EG1, h1_SameEvent_DataOmegaPSNCell_EG1, legSystem.get(), Form("Data/EG1/Comp/SameEventMCvsData_OmegaPSNCell_%02d.svg", pTBin_EG1));
 
 
     h1_Ratio_BackToSame_MCOmegaRotPS_EG1          = (TH1D*) h1_SameEvent_MCOmegaPS_EG1    ->Clone("h1_Ratio_BackToSame_MCOmegaRotPS_EG1");
