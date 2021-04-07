@@ -578,6 +578,210 @@ void plotting()
   h2_Background_DataOmegaTGPSPlusPSNCell_EG2->SetTitle("OmegaTGPSPlusPSNCell");
   // h2_Background_DataOmegaTGPSPlusPSNCell_EG2->Sumw2();
 
+  // ---------------------------------------------------------------------------
+  //
+  // Mixed Event Omega with PhotonSelection Variation
+  //
+  // ---------------------------------------------------------------------------
+  // HARDCODED!
+  TFile* FDataOmegaPSVari_EG1                     = SafelyOpenRootfile("/mnt/wwn-0x50000395b2b85149-part1/PreparedData2/2021_03_17_pp13TeV/OmegaToPiZeroGamma_2083.root");
+  TFile* FDataOmegaPSVari_EG2                     = SafelyOpenRootfile("/mnt/wwn-0x50000395b2b85149-part1/PreparedData2/2021_03_17_pp13TeV/OmegaToPiZeroGamma_2073.root");
+
+  TList* UpperListDataOmegaPSVari_EG1             = (TList*) FDataOmegaPSVari_EG1->Get("OmegaToPiZeroGamma_2083");
+  TList* UpperListDataOmegaPSVari_EG2             = (TList*) FDataOmegaPSVari_EG2->Get("OmegaToPiZeroGamma_2073");
+
+
+  TList* CutNumberListDataOmegaPS1Sig_EG1 = (TList*) UpperListDataOmegaPSVari_EG1->FindObject("Cut Number 0008d113_00200009327000008250400000_411792109fe32220000_0163103u000000d0_01631031000000d0");
+  TList* CutNumberListDataOmegaPS2Sig_EG1 = (TList*) UpperListDataOmegaPSVari_EG1->FindObject("Cut Number 0008d113_00200009327000008250400000_411792109fe32220000_01631031000000d0_01631031000000d0");
+  TList* CutNumberListDataOmegaPS3Sig_EG1 = (TList*) UpperListDataOmegaPSVari_EG1->FindObject("Cut Number 0008d113_00200009327000008250400000_411792109fe32220000_0163103v000000d0_01631031000000d0");
+  TList* CutNumberListDataOmegaPS4Sig_EG1 = (TList*) UpperListDataOmegaPSVari_EG1->FindObject("Cut Number 0008d113_00200009327000008250400000_411792109fe32220000_0163103w000000d0_01631031000000d0");
+
+  TList* CutNumberListDataOmegaPS1Sig_EG2 = (TList*) UpperListDataOmegaPSVari_EG2->FindObject("Cut Number 0008e113_00200009327000008250400000_411792109fe32220000_0163103u000000d0_01631031000000d0");
+  TList* CutNumberListDataOmegaPS2Sig_EG2 = (TList*) UpperListDataOmegaPSVari_EG2->FindObject("Cut Number 0008e113_00200009327000008250400000_411792109fe32220000_01631031000000d0_01631031000000d0");
+  TList* CutNumberListDataOmegaPS3Sig_EG2 = (TList*) UpperListDataOmegaPSVari_EG2->FindObject("Cut Number 0008e113_00200009327000008250400000_411792109fe32220000_0163103v000000d0_01631031000000d0");
+  TList* CutNumberListDataOmegaPS4Sig_EG2 = (TList*) UpperListDataOmegaPSVari_EG2->FindObject("Cut Number 0008e113_00200009327000008250400000_411792109fe32220000_0163103w000000d0_01631031000000d0");
+
+  TList* ESDFileDataOmegaPS1Sig_EG1       = (TList*) CutNumberListDataOmegaPS1Sig_EG1->FindObject("0008d113_00200009327000008250400000_411792109fe32220000_0163103u000000d0_01631031000000d0 ESD histograms");
+  TList* ESDFileDataOmegaPS2Sig_EG1       = (TList*) CutNumberListDataOmegaPS2Sig_EG1->FindObject("0008d113_00200009327000008250400000_411792109fe32220000_01631031000000d0_01631031000000d0 ESD histograms");
+  TList* ESDFileDataOmegaPS3Sig_EG1       = (TList*) CutNumberListDataOmegaPS3Sig_EG1->FindObject("0008d113_00200009327000008250400000_411792109fe32220000_0163103v000000d0_01631031000000d0 ESD histograms");
+  TList* ESDFileDataOmegaPS4Sig_EG1       = (TList*) CutNumberListDataOmegaPS4Sig_EG1->FindObject("0008d113_00200009327000008250400000_411792109fe32220000_0163103w000000d0_01631031000000d0 ESD histograms");
+
+  TList* ESDFileDataOmegaPS1Sig_EG2       = (TList*) CutNumberListDataOmegaPS1Sig_EG2->FindObject("0008e113_00200009327000008250400000_411792109fe32220000_0163103u000000d0_01631031000000d0 ESD histograms");
+  TList* ESDFileDataOmegaPS2Sig_EG2       = (TList*) CutNumberListDataOmegaPS2Sig_EG2->FindObject("0008e113_00200009327000008250400000_411792109fe32220000_01631031000000d0_01631031000000d0 ESD histograms");
+  TList* ESDFileDataOmegaPS3Sig_EG2       = (TList*) CutNumberListDataOmegaPS3Sig_EG2->FindObject("0008e113_00200009327000008250400000_411792109fe32220000_0163103v000000d0_01631031000000d0 ESD histograms");
+  TList* ESDFileDataOmegaPS4Sig_EG2       = (TList*) CutNumberListDataOmegaPS4Sig_EG2->FindObject("0008e113_00200009327000008250400000_411792109fe32220000_0163103w000000d0_01631031000000d0 ESD histograms");
+
+
+  // EG1 SameEvent
+  TH2D* h2_SameEvent_DataOmegaPS1Sig_EG1          = (TH2D*) ESDFileDataOmegaPS1Sig_EG1->FindObject("ESD_Mother_InvMass_Pt");
+  h2_SameEvent_DataOmegaPS1Sig_EG1->SetName("h2_SameEvent_DataOmegaPS1Sig_EG1");
+  h2_SameEvent_DataOmegaPS1Sig_EG1->SetTitle("OmegaPS");
+  h2_SameEvent_DataOmegaPS1Sig_EG1->Sumw2();
+
+  TH2D* h2_SameEvent_DataOmegaPS2Sig_EG1          = (TH2D*) ESDFileDataOmegaPS2Sig_EG1->FindObject("ESD_Mother_InvMass_Pt");
+  h2_SameEvent_DataOmegaPS2Sig_EG1->SetName("h2_SameEvent_DataOmegaPS2Sig_EG1");
+  h2_SameEvent_DataOmegaPS2Sig_EG1->SetTitle("OmegaPS");
+  h2_SameEvent_DataOmegaPS2Sig_EG1->Sumw2();
+
+  TH2D* h2_SameEvent_DataOmegaPS3Sig_EG1          = (TH2D*) ESDFileDataOmegaPS3Sig_EG1->FindObject("ESD_Mother_InvMass_Pt");
+  h2_SameEvent_DataOmegaPS3Sig_EG1->SetName("h2_SameEvent_DataOmegaPS3Sig_EG1");
+  h2_SameEvent_DataOmegaPS3Sig_EG1->SetTitle("OmegaPS");
+  h2_SameEvent_DataOmegaPS3Sig_EG1->Sumw2();
+
+  TH2D* h2_SameEvent_DataOmegaPS4Sig_EG1          = (TH2D*) ESDFileDataOmegaPS4Sig_EG1->FindObject("ESD_Mother_InvMass_Pt");
+  h2_SameEvent_DataOmegaPS4Sig_EG1->SetName("h2_SameEvent_DataOmegaPS4Sig_EG1");
+  h2_SameEvent_DataOmegaPS4Sig_EG1->SetTitle("OmegaPS");
+  h2_SameEvent_DataOmegaPS4Sig_EG1->Sumw2();
+
+  // EG1 SameEvent AngleCUtRecejtion
+  TH2D* h2_AngleCutRejected_DataOmegaPS1Sig_EG1          = (TH2D*) ESDFileDataOmegaPS1Sig_EG1->FindObject("ESD_Mother_AngleCutRejected_InvMass_Pt");
+  h2_AngleCutRejected_DataOmegaPS1Sig_EG1->SetName("h2_AngleCutRejected_DataOmegaPS1Sig_EG1");
+  h2_AngleCutRejected_DataOmegaPS1Sig_EG1->SetTitle("OmegaPS");
+  h2_AngleCutRejected_DataOmegaPS1Sig_EG1->Sumw2();
+
+  TH2D* h2_AngleCutRejected_DataOmegaPS2Sig_EG1          = (TH2D*) ESDFileDataOmegaPS2Sig_EG1->FindObject("ESD_Mother_AngleCutRejected_InvMass_Pt");
+  h2_AngleCutRejected_DataOmegaPS2Sig_EG1->SetName("h2_AngleCutRejected_DataOmegaPS2Sig_EG1");
+  h2_AngleCutRejected_DataOmegaPS2Sig_EG1->SetTitle("OmegaPS");
+  h2_AngleCutRejected_DataOmegaPS2Sig_EG1->Sumw2();
+
+  TH2D* h2_AngleCutRejected_DataOmegaPS3Sig_EG1          = (TH2D*) ESDFileDataOmegaPS3Sig_EG1->FindObject("ESD_Mother_AngleCutRejected_InvMass_Pt");
+  h2_AngleCutRejected_DataOmegaPS3Sig_EG1->SetName("h2_AngleCutRejected_DataOmegaPS3Sig_EG1");
+  h2_AngleCutRejected_DataOmegaPS3Sig_EG1->SetTitle("OmegaPS");
+  h2_AngleCutRejected_DataOmegaPS3Sig_EG1->Sumw2();
+
+  TH2D* h2_AngleCutRejected_DataOmegaPS4Sig_EG1          = (TH2D*) ESDFileDataOmegaPS4Sig_EG1->FindObject("ESD_Mother_AngleCutRejected_InvMass_Pt");
+  h2_AngleCutRejected_DataOmegaPS4Sig_EG1->SetName("h2_AngleCutRejected_DataOmegaPS4Sig_EG1");
+  h2_AngleCutRejected_DataOmegaPS4Sig_EG1->SetTitle("OmegaPS");
+  h2_AngleCutRejected_DataOmegaPS4Sig_EG1->Sumw2();
+
+  // EG1 mixed event DiffPi0SameGamma
+  TH2D* h2_MixedEventDiffPi0SameGamma_DataOmegaPS1Sig_EG1          = (TH2D*) ESDFileDataOmegaPS1Sig_EG1->FindObject("ESD_Mother_DiffPi0SameGamma_InvMass_Pt");
+  h2_MixedEventDiffPi0SameGamma_DataOmegaPS1Sig_EG1->SetName("h2_MixedEventDiffPi0SameGamma_DataOmegaPS1Sig_EG1");
+  h2_MixedEventDiffPi0SameGamma_DataOmegaPS1Sig_EG1->SetTitle("OmegaPS");
+  h2_MixedEventDiffPi0SameGamma_DataOmegaPS1Sig_EG1->Sumw2();
+
+  TH2D* h2_MixedEventDiffPi0SameGamma_DataOmegaPS2Sig_EG1          = (TH2D*) ESDFileDataOmegaPS2Sig_EG1->FindObject("ESD_Mother_DiffPi0SameGamma_InvMass_Pt");
+  h2_MixedEventDiffPi0SameGamma_DataOmegaPS2Sig_EG1->SetName("h2_MixedEventDiffPi0SameGamma_DataOmegaPS2Sig_EG1");
+  h2_MixedEventDiffPi0SameGamma_DataOmegaPS2Sig_EG1->SetTitle("OmegaPS");
+  h2_MixedEventDiffPi0SameGamma_DataOmegaPS2Sig_EG1->Sumw2();
+
+  TH2D* h2_MixedEventDiffPi0SameGamma_DataOmegaPS3Sig_EG1          = (TH2D*) ESDFileDataOmegaPS3Sig_EG1->FindObject("ESD_Mother_DiffPi0SameGamma_InvMass_Pt");
+  h2_MixedEventDiffPi0SameGamma_DataOmegaPS3Sig_EG1->SetName("h2_MixedEventDiffPi0SameGamma_DataOmegaPS3Sig_EG1");
+  h2_MixedEventDiffPi0SameGamma_DataOmegaPS3Sig_EG1->SetTitle("OmegaPS");
+  h2_MixedEventDiffPi0SameGamma_DataOmegaPS3Sig_EG1->Sumw2();
+
+  TH2D* h2_MixedEventDiffPi0SameGamma_DataOmegaPS4Sig_EG1          = (TH2D*) ESDFileDataOmegaPS4Sig_EG1->FindObject("ESD_Mother_DiffPi0SameGamma_InvMass_Pt");
+  h2_MixedEventDiffPi0SameGamma_DataOmegaPS4Sig_EG1->SetName("h2_MixedEventDiffPi0SameGamma_DataOmegaPS4Sig_EG1");
+  h2_MixedEventDiffPi0SameGamma_DataOmegaPS4Sig_EG1->SetTitle("OmegaPS");
+  h2_MixedEventDiffPi0SameGamma_DataOmegaPS4Sig_EG1->Sumw2();
+
+  // EG1 mixed event SamePi0DiffGamma
+  TH2D* h2_MixedEventSamePi0DiffGamma_DataOmegaPS1Sig_EG1          = (TH2D*) ESDFileDataOmegaPS1Sig_EG1->FindObject("ESD_Mother_SamePi0DiffGamma_InvMass_Pt");
+  h2_MixedEventSamePi0DiffGamma_DataOmegaPS1Sig_EG1->SetName("h2_MixedEventSamePi0DiffGamma_DataOmegaPS1Sig_EG1");
+  h2_MixedEventSamePi0DiffGamma_DataOmegaPS1Sig_EG1->SetTitle("OmegaPS");
+  h2_MixedEventSamePi0DiffGamma_DataOmegaPS1Sig_EG1->Sumw2();
+
+  TH2D* h2_MixedEventSamePi0DiffGamma_DataOmegaPS2Sig_EG1          = (TH2D*) ESDFileDataOmegaPS2Sig_EG1->FindObject("ESD_Mother_SamePi0DiffGamma_InvMass_Pt");
+  h2_MixedEventSamePi0DiffGamma_DataOmegaPS2Sig_EG1->SetName("h2_MixedEventSamePi0DiffGamma_DataOmegaPS2Sig_EG1");
+  h2_MixedEventSamePi0DiffGamma_DataOmegaPS2Sig_EG1->SetTitle("OmegaPS");
+  h2_MixedEventSamePi0DiffGamma_DataOmegaPS2Sig_EG1->Sumw2();
+
+  TH2D* h2_MixedEventSamePi0DiffGamma_DataOmegaPS3Sig_EG1          = (TH2D*) ESDFileDataOmegaPS3Sig_EG1->FindObject("ESD_Mother_SamePi0DiffGamma_InvMass_Pt");
+  h2_MixedEventSamePi0DiffGamma_DataOmegaPS3Sig_EG1->SetName("h2_MixedEventSamePi0DiffGamma_DataOmegaPS3Sig_EG1");
+  h2_MixedEventSamePi0DiffGamma_DataOmegaPS3Sig_EG1->SetTitle("OmegaPS");
+  h2_MixedEventSamePi0DiffGamma_DataOmegaPS3Sig_EG1->Sumw2();
+
+  TH2D* h2_MixedEventSamePi0DiffGamma_DataOmegaPS4Sig_EG1          = (TH2D*) ESDFileDataOmegaPS4Sig_EG1->FindObject("ESD_Mother_SamePi0DiffGamma_InvMass_Pt");
+  h2_MixedEventSamePi0DiffGamma_DataOmegaPS4Sig_EG1->SetName("h2_MixedEventSamePi0DiffGamma_DataOmegaPS4Sig_EG1");
+  h2_MixedEventSamePi0DiffGamma_DataOmegaPS4Sig_EG1->SetTitle("OmegaPS");
+  h2_MixedEventSamePi0DiffGamma_DataOmegaPS4Sig_EG1->Sumw2();
+
+
+  // EG2 SameEvent
+  TH2D* h2_SameEvent_DataOmegaPS1Sig_EG2          = (TH2D*) ESDFileDataOmegaPS1Sig_EG2->FindObject("ESD_Mother_InvMass_Pt");
+  h2_SameEvent_DataOmegaPS1Sig_EG2->SetName("h2_SameEvent_DataOmegaPS1Sig_EG2");
+  h2_SameEvent_DataOmegaPS1Sig_EG2->SetTitle("OmegaPS");
+  h2_SameEvent_DataOmegaPS1Sig_EG2->Sumw2();
+
+  TH2D* h2_SameEvent_DataOmegaPS2Sig_EG2          = (TH2D*) ESDFileDataOmegaPS2Sig_EG2->FindObject("ESD_Mother_InvMass_Pt");
+  h2_SameEvent_DataOmegaPS2Sig_EG2->SetName("h2_SameEvent_DataOmegaPS2Sig_EG2");
+  h2_SameEvent_DataOmegaPS2Sig_EG2->SetTitle("OmegaPS");
+  h2_SameEvent_DataOmegaPS2Sig_EG2->Sumw2();
+
+  TH2D* h2_SameEvent_DataOmegaPS3Sig_EG2          = (TH2D*) ESDFileDataOmegaPS3Sig_EG2->FindObject("ESD_Mother_InvMass_Pt");
+  h2_SameEvent_DataOmegaPS3Sig_EG2->SetName("h2_SameEvent_DataOmegaPS3Sig_EG2");
+  h2_SameEvent_DataOmegaPS3Sig_EG2->SetTitle("OmegaPS");
+  h2_SameEvent_DataOmegaPS3Sig_EG2->Sumw2();
+
+  TH2D* h2_SameEvent_DataOmegaPS4Sig_EG2          = (TH2D*) ESDFileDataOmegaPS4Sig_EG2->FindObject("ESD_Mother_InvMass_Pt");
+  h2_SameEvent_DataOmegaPS4Sig_EG2->SetName("h2_SameEvent_DataOmegaPS4Sig_EG2");
+  h2_SameEvent_DataOmegaPS4Sig_EG2->SetTitle("OmegaPS");
+  h2_SameEvent_DataOmegaPS4Sig_EG2->Sumw2();
+
+  // EG2 SameEvent AngleCUtRecejtion
+  TH2D* h2_AngleCutRejected_DataOmegaPS1Sig_EG2          = (TH2D*) ESDFileDataOmegaPS1Sig_EG2->FindObject("ESD_Mother_AngleCutRejected_InvMass_Pt");
+  h2_AngleCutRejected_DataOmegaPS1Sig_EG2->SetName("h2_AngleCutRejected_DataOmegaPS1Sig_EG2");
+  h2_AngleCutRejected_DataOmegaPS1Sig_EG2->SetTitle("OmegaPS");
+  h2_AngleCutRejected_DataOmegaPS1Sig_EG2->Sumw2();
+
+  TH2D* h2_AngleCutRejected_DataOmegaPS2Sig_EG2          = (TH2D*) ESDFileDataOmegaPS2Sig_EG2->FindObject("ESD_Mother_AngleCutRejected_InvMass_Pt");
+  h2_AngleCutRejected_DataOmegaPS2Sig_EG2->SetName("h2_AngleCutRejected_DataOmegaPS2Sig_EG2");
+  h2_AngleCutRejected_DataOmegaPS2Sig_EG2->SetTitle("OmegaPS");
+  h2_AngleCutRejected_DataOmegaPS2Sig_EG2->Sumw2();
+
+  TH2D* h2_AngleCutRejected_DataOmegaPS3Sig_EG2          = (TH2D*) ESDFileDataOmegaPS3Sig_EG2->FindObject("ESD_Mother_AngleCutRejected_InvMass_Pt");
+  h2_AngleCutRejected_DataOmegaPS3Sig_EG2->SetName("h2_AngleCutRejected_DataOmegaPS3Sig_EG2");
+  h2_AngleCutRejected_DataOmegaPS3Sig_EG2->SetTitle("OmegaPS");
+  h2_AngleCutRejected_DataOmegaPS3Sig_EG2->Sumw2();
+
+  TH2D* h2_AngleCutRejected_DataOmegaPS4Sig_EG2          = (TH2D*) ESDFileDataOmegaPS4Sig_EG2->FindObject("ESD_Mother_AngleCutRejected_InvMass_Pt");
+  h2_AngleCutRejected_DataOmegaPS4Sig_EG2->SetName("h2_AngleCutRejected_DataOmegaPS4Sig_EG2");
+  h2_AngleCutRejected_DataOmegaPS4Sig_EG2->SetTitle("OmegaPS");
+  h2_AngleCutRejected_DataOmegaPS4Sig_EG2->Sumw2();
+
+  // EG2 mixed event DiffPi0SameGamma
+  TH2D* h2_MixedEventDiffPi0SameGamma_DataOmegaPS1Sig_EG2          = (TH2D*) ESDFileDataOmegaPS1Sig_EG2->FindObject("ESD_Mother_DiffPi0SameGamma_InvMass_Pt");
+  h2_MixedEventDiffPi0SameGamma_DataOmegaPS1Sig_EG2->SetName("h2_MixedEventDiffPi0SameGamma_DataOmegaPS1Sig_EG2");
+  h2_MixedEventDiffPi0SameGamma_DataOmegaPS1Sig_EG2->SetTitle("OmegaPS");
+  h2_MixedEventDiffPi0SameGamma_DataOmegaPS1Sig_EG2->Sumw2();
+
+  TH2D* h2_MixedEventDiffPi0SameGamma_DataOmegaPS2Sig_EG2          = (TH2D*) ESDFileDataOmegaPS2Sig_EG2->FindObject("ESD_Mother_DiffPi0SameGamma_InvMass_Pt");
+  h2_MixedEventDiffPi0SameGamma_DataOmegaPS2Sig_EG2->SetName("h2_MixedEventDiffPi0SameGamma_DataOmegaPS2Sig_EG2");
+  h2_MixedEventDiffPi0SameGamma_DataOmegaPS2Sig_EG2->SetTitle("OmegaPS");
+  h2_MixedEventDiffPi0SameGamma_DataOmegaPS2Sig_EG2->Sumw2();
+
+  TH2D* h2_MixedEventDiffPi0SameGamma_DataOmegaPS3Sig_EG2          = (TH2D*) ESDFileDataOmegaPS3Sig_EG2->FindObject("ESD_Mother_DiffPi0SameGamma_InvMass_Pt");
+  h2_MixedEventDiffPi0SameGamma_DataOmegaPS3Sig_EG2->SetName("h2_MixedEventDiffPi0SameGamma_DataOmegaPS3Sig_EG2");
+  h2_MixedEventDiffPi0SameGamma_DataOmegaPS3Sig_EG2->SetTitle("OmegaPS");
+  h2_MixedEventDiffPi0SameGamma_DataOmegaPS3Sig_EG2->Sumw2();
+
+  TH2D* h2_MixedEventDiffPi0SameGamma_DataOmegaPS4Sig_EG2          = (TH2D*) ESDFileDataOmegaPS4Sig_EG2->FindObject("ESD_Mother_DiffPi0SameGamma_InvMass_Pt");
+  h2_MixedEventDiffPi0SameGamma_DataOmegaPS4Sig_EG2->SetName("h2_MixedEventDiffPi0SameGamma_DataOmegaPS4Sig_EG2");
+  h2_MixedEventDiffPi0SameGamma_DataOmegaPS4Sig_EG2->SetTitle("OmegaPS");
+  h2_MixedEventDiffPi0SameGamma_DataOmegaPS4Sig_EG2->Sumw2();
+
+  // EG2 mixed event SamePi0DiffGamma
+  TH2D* h2_MixedEventSamePi0DiffGamma_DataOmegaPS1Sig_EG2          = (TH2D*) ESDFileDataOmegaPS1Sig_EG2->FindObject("ESD_Mother_SamePi0DiffGamma_InvMass_Pt");
+  h2_MixedEventSamePi0DiffGamma_DataOmegaPS1Sig_EG2->SetName("h2_MixedEventSamePi0DiffGamma_DataOmegaPS1Sig_EG2");
+  h2_MixedEventSamePi0DiffGamma_DataOmegaPS1Sig_EG2->SetTitle("OmegaPS");
+  h2_MixedEventSamePi0DiffGamma_DataOmegaPS1Sig_EG2->Sumw2();
+
+  TH2D* h2_MixedEventSamePi0DiffGamma_DataOmegaPS2Sig_EG2          = (TH2D*) ESDFileDataOmegaPS2Sig_EG2->FindObject("ESD_Mother_SamePi0DiffGamma_InvMass_Pt");
+  h2_MixedEventSamePi0DiffGamma_DataOmegaPS2Sig_EG2->SetName("h2_MixedEventSamePi0DiffGamma_DataOmegaPS2Sig_EG2");
+  h2_MixedEventSamePi0DiffGamma_DataOmegaPS2Sig_EG2->SetTitle("OmegaPS");
+  h2_MixedEventSamePi0DiffGamma_DataOmegaPS2Sig_EG2->Sumw2();
+
+  TH2D* h2_MixedEventSamePi0DiffGamma_DataOmegaPS3Sig_EG2          = (TH2D*) ESDFileDataOmegaPS3Sig_EG2->FindObject("ESD_Mother_SamePi0DiffGamma_InvMass_Pt");
+  h2_MixedEventSamePi0DiffGamma_DataOmegaPS3Sig_EG2->SetName("h2_MixedEventSamePi0DiffGamma_DataOmegaPS3Sig_EG2");
+  h2_MixedEventSamePi0DiffGamma_DataOmegaPS3Sig_EG2->SetTitle("OmegaPS");
+  h2_MixedEventSamePi0DiffGamma_DataOmegaPS3Sig_EG2->Sumw2();
+
+  TH2D* h2_MixedEventSamePi0DiffGamma_DataOmegaPS4Sig_EG2          = (TH2D*) ESDFileDataOmegaPS4Sig_EG2->FindObject("ESD_Mother_SamePi0DiffGamma_InvMass_Pt");
+  h2_MixedEventSamePi0DiffGamma_DataOmegaPS4Sig_EG2->SetName("h2_MixedEventSamePi0DiffGamma_DataOmegaPS4Sig_EG2");
+  h2_MixedEventSamePi0DiffGamma_DataOmegaPS4Sig_EG2->SetTitle("OmegaPS");
+  h2_MixedEventSamePi0DiffGamma_DataOmegaPS4Sig_EG2->Sumw2();
+
+
   /****************************************************************************/
   /*                                                                          */
   /*                     Read the MC data from the MC files                   */
@@ -1416,6 +1620,293 @@ void plotting()
 
   // ---------------------------------------------------------------------------
   //
+  // Mixed Event Omega with PhotonSelection Variation
+  //
+  // ---------------------------------------------------------------------------
+  // HARDCODED!
+  TFile* FMCOmegaPSVari_EG1                     = SafelyOpenRootfile("/mnt/wwn-0x50000395b2b85149-part1/PreparedData2/2021_03_16_pp13TeV/OmegaToPiZeroGamma_2083.root");
+  TFile* FMCOmegaPSVari_EG2                     = SafelyOpenRootfile("/mnt/wwn-0x50000395b2b85149-part1/PreparedData2/2021_03_16_pp13TeV/OmegaToPiZeroGamma_2073.root");
+
+  TList* UpperListMCOmegaPSVari_EG1             = (TList*) FMCOmegaPSVari_EG1->Get("OmegaToPiZeroGamma_2083");
+  TList* UpperListMCOmegaPSVari_EG2             = (TList*) FMCOmegaPSVari_EG2->Get("OmegaToPiZeroGamma_2073");
+
+
+  TList* CutNumberListMCOmegaPS1Sig_EG1 = (TList*) UpperListMCOmegaPSVari_EG1->FindObject("Cut Number 0008d113_00200009327000008250400000_411792109fe32220000_0163103u000000d0_01631031000000d0");
+  TList* CutNumberListMCOmegaPS2Sig_EG1 = (TList*) UpperListMCOmegaPSVari_EG1->FindObject("Cut Number 0008d113_00200009327000008250400000_411792109fe32220000_01631031000000d0_01631031000000d0");
+  TList* CutNumberListMCOmegaPS3Sig_EG1 = (TList*) UpperListMCOmegaPSVari_EG1->FindObject("Cut Number 0008d113_00200009327000008250400000_411792109fe32220000_0163103v000000d0_01631031000000d0");
+  TList* CutNumberListMCOmegaPS4Sig_EG1 = (TList*) UpperListMCOmegaPSVari_EG1->FindObject("Cut Number 0008d113_00200009327000008250400000_411792109fe32220000_0163103w000000d0_01631031000000d0");
+
+  TList* CutNumberListMCOmegaPS1Sig_EG2 = (TList*) UpperListMCOmegaPSVari_EG2->FindObject("Cut Number 0008e113_00200009327000008250400000_411792109fe32220000_0163103u000000d0_01631031000000d0");
+  TList* CutNumberListMCOmegaPS2Sig_EG2 = (TList*) UpperListMCOmegaPSVari_EG2->FindObject("Cut Number 0008e113_00200009327000008250400000_411792109fe32220000_01631031000000d0_01631031000000d0");
+  TList* CutNumberListMCOmegaPS3Sig_EG2 = (TList*) UpperListMCOmegaPSVari_EG2->FindObject("Cut Number 0008e113_00200009327000008250400000_411792109fe32220000_0163103v000000d0_01631031000000d0");
+  TList* CutNumberListMCOmegaPS4Sig_EG2 = (TList*) UpperListMCOmegaPSVari_EG2->FindObject("Cut Number 0008e113_00200009327000008250400000_411792109fe32220000_0163103w000000d0_01631031000000d0");
+
+  TList* ESDFileMCOmegaPS1Sig_EG1       = (TList*) CutNumberListMCOmegaPS1Sig_EG1->FindObject("0008d113_00200009327000008250400000_411792109fe32220000_0163103u000000d0_01631031000000d0 ESD histograms");
+  TList* ESDFileMCOmegaPS2Sig_EG1       = (TList*) CutNumberListMCOmegaPS2Sig_EG1->FindObject("0008d113_00200009327000008250400000_411792109fe32220000_01631031000000d0_01631031000000d0 ESD histograms");
+  TList* ESDFileMCOmegaPS3Sig_EG1       = (TList*) CutNumberListMCOmegaPS3Sig_EG1->FindObject("0008d113_00200009327000008250400000_411792109fe32220000_0163103v000000d0_01631031000000d0 ESD histograms");
+  TList* ESDFileMCOmegaPS4Sig_EG1       = (TList*) CutNumberListMCOmegaPS4Sig_EG1->FindObject("0008d113_00200009327000008250400000_411792109fe32220000_0163103w000000d0_01631031000000d0 ESD histograms");
+
+  TList* ESDFileMCOmegaPS1Sig_EG2       = (TList*) CutNumberListMCOmegaPS1Sig_EG2->FindObject("0008e113_00200009327000008250400000_411792109fe32220000_0163103u000000d0_01631031000000d0 ESD histograms");
+  TList* ESDFileMCOmegaPS2Sig_EG2       = (TList*) CutNumberListMCOmegaPS2Sig_EG2->FindObject("0008e113_00200009327000008250400000_411792109fe32220000_01631031000000d0_01631031000000d0 ESD histograms");
+  TList* ESDFileMCOmegaPS3Sig_EG2       = (TList*) CutNumberListMCOmegaPS3Sig_EG2->FindObject("0008e113_00200009327000008250400000_411792109fe32220000_0163103v000000d0_01631031000000d0 ESD histograms");
+  TList* ESDFileMCOmegaPS4Sig_EG2       = (TList*) CutNumberListMCOmegaPS4Sig_EG2->FindObject("0008e113_00200009327000008250400000_411792109fe32220000_0163103w000000d0_01631031000000d0 ESD histograms");
+
+  TList* TrueFileMCOmegaPS1Sig_EG1       = (TList*) CutNumberListMCOmegaPS1Sig_EG1->FindObject("0008d113_00200009327000008250400000_411792109fe32220000_0163103u000000d0_01631031000000d0 True histograms");
+  TList* TrueFileMCOmegaPS2Sig_EG1       = (TList*) CutNumberListMCOmegaPS2Sig_EG1->FindObject("0008d113_00200009327000008250400000_411792109fe32220000_01631031000000d0_01631031000000d0 True histograms");
+  TList* TrueFileMCOmegaPS3Sig_EG1       = (TList*) CutNumberListMCOmegaPS3Sig_EG1->FindObject("0008d113_00200009327000008250400000_411792109fe32220000_0163103v000000d0_01631031000000d0 True histograms");
+  TList* TrueFileMCOmegaPS4Sig_EG1       = (TList*) CutNumberListMCOmegaPS4Sig_EG1->FindObject("0008d113_00200009327000008250400000_411792109fe32220000_0163103w000000d0_01631031000000d0 True histograms");
+
+  TList* TrueFileMCOmegaPS1Sig_EG2       = (TList*) CutNumberListMCOmegaPS1Sig_EG2->FindObject("0008e113_00200009327000008250400000_411792109fe32220000_0163103u000000d0_01631031000000d0 True histograms");
+  TList* TrueFileMCOmegaPS2Sig_EG2       = (TList*) CutNumberListMCOmegaPS2Sig_EG2->FindObject("0008e113_00200009327000008250400000_411792109fe32220000_01631031000000d0_01631031000000d0 True histograms");
+  TList* TrueFileMCOmegaPS3Sig_EG2       = (TList*) CutNumberListMCOmegaPS3Sig_EG2->FindObject("0008e113_00200009327000008250400000_411792109fe32220000_0163103v000000d0_01631031000000d0 True histograms");
+  TList* TrueFileMCOmegaPS4Sig_EG2       = (TList*) CutNumberListMCOmegaPS4Sig_EG2->FindObject("0008e113_00200009327000008250400000_411792109fe32220000_0163103w000000d0_01631031000000d0 True histograms");
+
+
+
+  // EG1 SameEvent
+  TH2D* h2_SameEvent_MCOmegaPS1Sig_EG1          = (TH2D*) ESDFileMCOmegaPS1Sig_EG1->FindObject("ESD_Mother_InvMass_Pt");
+  h2_SameEvent_MCOmegaPS1Sig_EG1->SetName("h2_SameEvent_MCOmegaPS1Sig_EG1");
+  h2_SameEvent_MCOmegaPS1Sig_EG1->SetTitle("OmegaPS");
+  h2_SameEvent_MCOmegaPS1Sig_EG1->Sumw2();
+
+  TH2D* h2_SameEvent_MCOmegaPS2Sig_EG1          = (TH2D*) ESDFileMCOmegaPS2Sig_EG1->FindObject("ESD_Mother_InvMass_Pt");
+  h2_SameEvent_MCOmegaPS2Sig_EG1->SetName("h2_SameEvent_MCOmegaPS2Sig_EG1");
+  h2_SameEvent_MCOmegaPS2Sig_EG1->SetTitle("OmegaPS");
+  h2_SameEvent_MCOmegaPS2Sig_EG1->Sumw2();
+
+  TH2D* h2_SameEvent_MCOmegaPS3Sig_EG1          = (TH2D*) ESDFileMCOmegaPS3Sig_EG1->FindObject("ESD_Mother_InvMass_Pt");
+  h2_SameEvent_MCOmegaPS3Sig_EG1->SetName("h2_SameEvent_MCOmegaPS3Sig_EG1");
+  h2_SameEvent_MCOmegaPS3Sig_EG1->SetTitle("OmegaPS");
+  h2_SameEvent_MCOmegaPS3Sig_EG1->Sumw2();
+
+  TH2D* h2_SameEvent_MCOmegaPS4Sig_EG1          = (TH2D*) ESDFileMCOmegaPS4Sig_EG1->FindObject("ESD_Mother_InvMass_Pt");
+  h2_SameEvent_MCOmegaPS4Sig_EG1->SetName("h2_SameEvent_MCOmegaPS4Sig_EG1");
+  h2_SameEvent_MCOmegaPS4Sig_EG1->SetTitle("OmegaPS");
+  h2_SameEvent_MCOmegaPS4Sig_EG1->Sumw2();
+
+  // EG1 SameEvent AngleCUtRecejtion
+  TH2D* h2_AngleCutRejected_MCOmegaPS1Sig_EG1          = (TH2D*) ESDFileMCOmegaPS1Sig_EG1->FindObject("ESD_Mother_AngleCutRejected_InvMass_Pt");
+  h2_AngleCutRejected_MCOmegaPS1Sig_EG1->SetName("h2_AngleCutRejected_MCOmegaPS1Sig_EG1");
+  h2_AngleCutRejected_MCOmegaPS1Sig_EG1->SetTitle("OmegaPS");
+  h2_AngleCutRejected_MCOmegaPS1Sig_EG1->Sumw2();
+
+  TH2D* h2_AngleCutRejected_MCOmegaPS2Sig_EG1          = (TH2D*) ESDFileMCOmegaPS2Sig_EG1->FindObject("ESD_Mother_AngleCutRejected_InvMass_Pt");
+  h2_AngleCutRejected_MCOmegaPS2Sig_EG1->SetName("h2_AngleCutRejected_MCOmegaPS2Sig_EG1");
+  h2_AngleCutRejected_MCOmegaPS2Sig_EG1->SetTitle("OmegaPS");
+  h2_AngleCutRejected_MCOmegaPS2Sig_EG1->Sumw2();
+
+  TH2D* h2_AngleCutRejected_MCOmegaPS3Sig_EG1          = (TH2D*) ESDFileMCOmegaPS3Sig_EG1->FindObject("ESD_Mother_AngleCutRejected_InvMass_Pt");
+  h2_AngleCutRejected_MCOmegaPS3Sig_EG1->SetName("h2_AngleCutRejected_MCOmegaPS3Sig_EG1");
+  h2_AngleCutRejected_MCOmegaPS3Sig_EG1->SetTitle("OmegaPS");
+  h2_AngleCutRejected_MCOmegaPS3Sig_EG1->Sumw2();
+
+  TH2D* h2_AngleCutRejected_MCOmegaPS4Sig_EG1          = (TH2D*) ESDFileMCOmegaPS4Sig_EG1->FindObject("ESD_Mother_AngleCutRejected_InvMass_Pt");
+  h2_AngleCutRejected_MCOmegaPS4Sig_EG1->SetName("h2_AngleCutRejected_MCOmegaPS4Sig_EG1");
+  h2_AngleCutRejected_MCOmegaPS4Sig_EG1->SetTitle("OmegaPS");
+  h2_AngleCutRejected_MCOmegaPS4Sig_EG1->Sumw2();
+
+  // EG1 mixed event DiffPi0SameGamma
+  TH2D* h2_MixedEventDiffPi0SameGamma_MCOmegaPS1Sig_EG1          = (TH2D*) ESDFileMCOmegaPS1Sig_EG1->FindObject("ESD_Mother_DiffPi0SameGamma_InvMass_Pt");
+  h2_MixedEventDiffPi0SameGamma_MCOmegaPS1Sig_EG1->SetName("h2_MixedEventDiffPi0SameGamma_MCOmegaPS1Sig_EG1");
+  h2_MixedEventDiffPi0SameGamma_MCOmegaPS1Sig_EG1->SetTitle("OmegaPS");
+  h2_MixedEventDiffPi0SameGamma_MCOmegaPS1Sig_EG1->Sumw2();
+
+  TH2D* h2_MixedEventDiffPi0SameGamma_MCOmegaPS2Sig_EG1          = (TH2D*) ESDFileMCOmegaPS2Sig_EG1->FindObject("ESD_Mother_DiffPi0SameGamma_InvMass_Pt");
+  h2_MixedEventDiffPi0SameGamma_MCOmegaPS2Sig_EG1->SetName("h2_MixedEventDiffPi0SameGamma_MCOmegaPS2Sig_EG1");
+  h2_MixedEventDiffPi0SameGamma_MCOmegaPS2Sig_EG1->SetTitle("OmegaPS");
+  h2_MixedEventDiffPi0SameGamma_MCOmegaPS2Sig_EG1->Sumw2();
+
+  TH2D* h2_MixedEventDiffPi0SameGamma_MCOmegaPS3Sig_EG1          = (TH2D*) ESDFileMCOmegaPS3Sig_EG1->FindObject("ESD_Mother_DiffPi0SameGamma_InvMass_Pt");
+  h2_MixedEventDiffPi0SameGamma_MCOmegaPS3Sig_EG1->SetName("h2_MixedEventDiffPi0SameGamma_MCOmegaPS3Sig_EG1");
+  h2_MixedEventDiffPi0SameGamma_MCOmegaPS3Sig_EG1->SetTitle("OmegaPS");
+  h2_MixedEventDiffPi0SameGamma_MCOmegaPS3Sig_EG1->Sumw2();
+
+  TH2D* h2_MixedEventDiffPi0SameGamma_MCOmegaPS4Sig_EG1          = (TH2D*) ESDFileMCOmegaPS4Sig_EG1->FindObject("ESD_Mother_DiffPi0SameGamma_InvMass_Pt");
+  h2_MixedEventDiffPi0SameGamma_MCOmegaPS4Sig_EG1->SetName("h2_MixedEventDiffPi0SameGamma_MCOmegaPS4Sig_EG1");
+  h2_MixedEventDiffPi0SameGamma_MCOmegaPS4Sig_EG1->SetTitle("OmegaPS");
+  h2_MixedEventDiffPi0SameGamma_MCOmegaPS4Sig_EG1->Sumw2();
+
+  // EG 1mixed event SamePi0DiffGamma
+  TH2D* h2_MixedEventSamePi0DiffGamma_MCOmegaPS1Sig_EG1          = (TH2D*) ESDFileMCOmegaPS1Sig_EG1->FindObject("ESD_Mother_SamePi0DiffGamma_InvMass_Pt");
+  h2_MixedEventSamePi0DiffGamma_MCOmegaPS1Sig_EG1->SetName("h2_MixedEventSamePi0DiffGamma_MCOmegaPS1Sig_EG1");
+  h2_MixedEventSamePi0DiffGamma_MCOmegaPS1Sig_EG1->SetTitle("OmegaPS");
+  h2_MixedEventSamePi0DiffGamma_MCOmegaPS1Sig_EG1->Sumw2();
+
+  TH2D* h2_MixedEventSamePi0DiffGamma_MCOmegaPS2Sig_EG1          = (TH2D*) ESDFileMCOmegaPS2Sig_EG1->FindObject("ESD_Mother_SamePi0DiffGamma_InvMass_Pt");
+  h2_MixedEventSamePi0DiffGamma_MCOmegaPS2Sig_EG1->SetName("h2_MixedEventSamePi0DiffGamma_MCOmegaPS2Sig_EG1");
+  h2_MixedEventSamePi0DiffGamma_MCOmegaPS2Sig_EG1->SetTitle("OmegaPS");
+  h2_MixedEventSamePi0DiffGamma_MCOmegaPS2Sig_EG1->Sumw2();
+
+  TH2D* h2_MixedEventSamePi0DiffGamma_MCOmegaPS3Sig_EG1          = (TH2D*) ESDFileMCOmegaPS3Sig_EG1->FindObject("ESD_Mother_SamePi0DiffGamma_InvMass_Pt");
+  h2_MixedEventSamePi0DiffGamma_MCOmegaPS3Sig_EG1->SetName("h2_MixedEventSamePi0DiffGamma_MCOmegaPS3Sig_EG1");
+  h2_MixedEventSamePi0DiffGamma_MCOmegaPS3Sig_EG1->SetTitle("OmegaPS");
+  h2_MixedEventSamePi0DiffGamma_MCOmegaPS3Sig_EG1->Sumw2();
+
+  TH2D* h2_MixedEventSamePi0DiffGamma_MCOmegaPS4Sig_EG1          = (TH2D*) ESDFileMCOmegaPS4Sig_EG1->FindObject("ESD_Mother_SamePi0DiffGamma_InvMass_Pt");
+  h2_MixedEventSamePi0DiffGamma_MCOmegaPS4Sig_EG1->SetName("h2_MixedEventSamePi0DiffGamma_MCOmegaPS4Sig_EG1");
+  h2_MixedEventSamePi0DiffGamma_MCOmegaPS4Sig_EG1->SetTitle("OmegaPS");
+  h2_MixedEventSamePi0DiffGamma_MCOmegaPS4Sig_EG1->Sumw2();
+
+
+  // EG2 SameEvent
+  TH2D* h2_SameEvent_MCOmegaPS1Sig_EG2          = (TH2D*) ESDFileMCOmegaPS1Sig_EG2->FindObject("ESD_Mother_InvMass_Pt");
+  h2_SameEvent_MCOmegaPS1Sig_EG2->SetName("h2_SameEvent_MCOmegaPS1Sig_EG2");
+  h2_SameEvent_MCOmegaPS1Sig_EG2->SetTitle("OmegaPS");
+  h2_SameEvent_MCOmegaPS1Sig_EG2->Sumw2();
+
+  TH2D* h2_SameEvent_MCOmegaPS2Sig_EG2          = (TH2D*) ESDFileMCOmegaPS2Sig_EG2->FindObject("ESD_Mother_InvMass_Pt");
+  h2_SameEvent_MCOmegaPS2Sig_EG2->SetName("h2_SameEvent_MCOmegaPS2Sig_EG2");
+  h2_SameEvent_MCOmegaPS2Sig_EG2->SetTitle("OmegaPS");
+  h2_SameEvent_MCOmegaPS2Sig_EG2->Sumw2();
+
+  TH2D* h2_SameEvent_MCOmegaPS3Sig_EG2          = (TH2D*) ESDFileMCOmegaPS3Sig_EG2->FindObject("ESD_Mother_InvMass_Pt");
+  h2_SameEvent_MCOmegaPS3Sig_EG2->SetName("h2_SameEvent_MCOmegaPS3Sig_EG2");
+  h2_SameEvent_MCOmegaPS3Sig_EG2->SetTitle("OmegaPS");
+  h2_SameEvent_MCOmegaPS3Sig_EG2->Sumw2();
+
+  TH2D* h2_SameEvent_MCOmegaPS4Sig_EG2          = (TH2D*) ESDFileMCOmegaPS4Sig_EG2->FindObject("ESD_Mother_InvMass_Pt");
+  h2_SameEvent_MCOmegaPS4Sig_EG2->SetName("h2_SameEvent_MCOmegaPS4Sig_EG2");
+  h2_SameEvent_MCOmegaPS4Sig_EG2->SetTitle("OmegaPS");
+  h2_SameEvent_MCOmegaPS4Sig_EG2->Sumw2();
+
+  // EG2 SameEvent AngleCUtRecejtion
+  // TH2D* h2_AngleCutRejected_MCOmegaPS1Sig_EG2          = (TH2D*) ESDFileMCOmegaPS1Sig_EG2->FindObject("ESD_Mother_AngleCutRejected_InvMass_Pt");
+  // h2_AngleCutRejected_MCOmegaPS1Sig_EG2->SetName("h2_AngleCutRejected_MCOmegaPS1Sig_EG2");
+  // h2_AngleCutRejected_MCOmegaPS1Sig_EG2->SetTitle("OmegaPS");
+  // h2_AngleCutRejected_MCOmegaPS1Sig_EG2->Sumw2();
+  //
+  // TH2D* h2_AngleCutRejected_MCOmegaPS2Sig_EG2          = (TH2D*) ESDFileMCOmegaPS2Sig_EG2->FindObject("ESD_Mother_AngleCutRejected_InvMass_Pt");
+  // h2_AngleCutRejected_MCOmegaPS2Sig_EG2->SetName("h2_AngleCutRejected_MCOmegaPS2Sig_EG2");
+  // h2_AngleCutRejected_MCOmegaPS2Sig_EG2->SetTitle("OmegaPS");
+  // h2_AngleCutRejected_MCOmegaPS2Sig_EG2->Sumw2();
+  //
+  // TH2D* h2_AngleCutRejected_MCOmegaPS3Sig_EG2          = (TH2D*) ESDFileMCOmegaPS3Sig_EG2->FindObject("ESD_Mother_AngleCutRejected_InvMass_Pt");
+  // h2_AngleCutRejected_MCOmegaPS3Sig_EG2->SetName("h2_AngleCutRejected_MCOmegaPS3Sig_EG2");
+  // h2_AngleCutRejected_MCOmegaPS3Sig_EG2->SetTitle("OmegaPS");
+  // h2_AngleCutRejected_MCOmegaPS3Sig_EG2->Sumw2();
+  //
+  // TH2D* h2_AngleCutRejected_MCOmegaPS4Sig_EG2          = (TH2D*) ESDFileMCOmegaPS4Sig_EG2->FindObject("ESD_Mother_AngleCutRejected_InvMass_Pt");
+  // h2_AngleCutRejected_MCOmegaPS4Sig_EG2->SetName("h2_AngleCutRejected_MCOmegaPS4Sig_EG2");
+  // h2_AngleCutRejected_MCOmegaPS4Sig_EG2->SetTitle("OmegaPS");
+  // h2_AngleCutRejected_MCOmegaPS4Sig_EG2->Sumw2();
+
+  // EG2 mixed event DiffPi0SameGamma
+  TH2D* h2_MixedEventDiffPi0SameGamma_MCOmegaPS1Sig_EG2          = (TH2D*) ESDFileMCOmegaPS1Sig_EG2->FindObject("ESD_Mother_DiffPi0SameGamma_InvMass_Pt");
+  h2_MixedEventDiffPi0SameGamma_MCOmegaPS1Sig_EG2->SetName("h2_MixedEventDiffPi0SameGamma_MCOmegaPS1Sig_EG2");
+  h2_MixedEventDiffPi0SameGamma_MCOmegaPS1Sig_EG2->SetTitle("OmegaPS");
+  h2_MixedEventDiffPi0SameGamma_MCOmegaPS1Sig_EG2->Sumw2();
+
+  TH2D* h2_MixedEventDiffPi0SameGamma_MCOmegaPS2Sig_EG2          = (TH2D*) ESDFileMCOmegaPS2Sig_EG2->FindObject("ESD_Mother_DiffPi0SameGamma_InvMass_Pt");
+  h2_MixedEventDiffPi0SameGamma_MCOmegaPS2Sig_EG2->SetName("h2_MixedEventDiffPi0SameGamma_MCOmegaPS2Sig_EG2");
+  h2_MixedEventDiffPi0SameGamma_MCOmegaPS2Sig_EG2->SetTitle("OmegaPS");
+  h2_MixedEventDiffPi0SameGamma_MCOmegaPS2Sig_EG2->Sumw2();
+
+  TH2D* h2_MixedEventDiffPi0SameGamma_MCOmegaPS3Sig_EG2          = (TH2D*) ESDFileMCOmegaPS3Sig_EG2->FindObject("ESD_Mother_DiffPi0SameGamma_InvMass_Pt");
+  h2_MixedEventDiffPi0SameGamma_MCOmegaPS3Sig_EG2->SetName("h2_MixedEventDiffPi0SameGamma_MCOmegaPS3Sig_EG2");
+  h2_MixedEventDiffPi0SameGamma_MCOmegaPS3Sig_EG2->SetTitle("OmegaPS");
+  h2_MixedEventDiffPi0SameGamma_MCOmegaPS3Sig_EG2->Sumw2();
+
+  TH2D* h2_MixedEventDiffPi0SameGamma_MCOmegaPS4Sig_EG2          = (TH2D*) ESDFileMCOmegaPS4Sig_EG2->FindObject("ESD_Mother_DiffPi0SameGamma_InvMass_Pt");
+  h2_MixedEventDiffPi0SameGamma_MCOmegaPS4Sig_EG2->SetName("h2_MixedEventDiffPi0SameGamma_MCOmegaPS4Sig_EG2");
+  h2_MixedEventDiffPi0SameGamma_MCOmegaPS4Sig_EG2->SetTitle("OmegaPS");
+  h2_MixedEventDiffPi0SameGamma_MCOmegaPS4Sig_EG2->Sumw2();
+
+  // EG2 mixed event SamePi0DiffGamma
+  TH2D* h2_MixedEventSamePi0DiffGamma_MCOmegaPS1Sig_EG2          = (TH2D*) ESDFileMCOmegaPS1Sig_EG2->FindObject("ESD_Mother_SamePi0DiffGamma_InvMass_Pt");
+  h2_MixedEventSamePi0DiffGamma_MCOmegaPS1Sig_EG2->SetName("h2_MixedEventSamePi0DiffGamma_MCOmegaPS1Sig_EG2");
+  h2_MixedEventSamePi0DiffGamma_MCOmegaPS1Sig_EG2->SetTitle("OmegaPS");
+  h2_MixedEventSamePi0DiffGamma_MCOmegaPS1Sig_EG2->Sumw2();
+
+  TH2D* h2_MixedEventSamePi0DiffGamma_MCOmegaPS2Sig_EG2          = (TH2D*) ESDFileMCOmegaPS2Sig_EG2->FindObject("ESD_Mother_SamePi0DiffGamma_InvMass_Pt");
+  h2_MixedEventSamePi0DiffGamma_MCOmegaPS2Sig_EG2->SetName("h2_MixedEventSamePi0DiffGamma_MCOmegaPS2Sig_EG2");
+  h2_MixedEventSamePi0DiffGamma_MCOmegaPS2Sig_EG2->SetTitle("OmegaPS");
+  h2_MixedEventSamePi0DiffGamma_MCOmegaPS2Sig_EG2->Sumw2();
+
+  TH2D* h2_MixedEventSamePi0DiffGamma_MCOmegaPS3Sig_EG2          = (TH2D*) ESDFileMCOmegaPS3Sig_EG2->FindObject("ESD_Mother_SamePi0DiffGamma_InvMass_Pt");
+  h2_MixedEventSamePi0DiffGamma_MCOmegaPS3Sig_EG2->SetName("h2_MixedEventSamePi0DiffGamma_MCOmegaPS3Sig_EG2");
+  h2_MixedEventSamePi0DiffGamma_MCOmegaPS3Sig_EG2->SetTitle("OmegaPS");
+  h2_MixedEventSamePi0DiffGamma_MCOmegaPS3Sig_EG2->Sumw2();
+
+  TH2D* h2_MixedEventSamePi0DiffGamma_MCOmegaPS4Sig_EG2          = (TH2D*) ESDFileMCOmegaPS4Sig_EG2->FindObject("ESD_Mother_SamePi0DiffGamma_InvMass_Pt");
+  h2_MixedEventSamePi0DiffGamma_MCOmegaPS4Sig_EG2->SetName("h2_MixedEventSamePi0DiffGamma_MCOmegaPS4Sig_EG2");
+  h2_MixedEventSamePi0DiffGamma_MCOmegaPS4Sig_EG2->SetTitle("OmegaPS");
+  h2_MixedEventSamePi0DiffGamma_MCOmegaPS4Sig_EG2->Sumw2();
+
+  // True Signal (omega and Pi0)
+  TH2D* h2_TrueOmega_MCOmegaPS1Sig_EG1 = (TH2D*) TrueFileMCOmegaPS1Sig_EG1->FindObject("True_Omega_InvMass_Pt");
+  h2_TrueOmega_MCOmegaPS1Sig_EG1->SetName("h2_TrueOmega_MCOmegaPS1Sig_EG1");
+  // h2_TrueOmega_MCOmegaPS1Sig_EG1->Sumw2();
+
+  TH2D* h2_TruePi0_MCOmegaPS1Sig_EG1 = (TH2D*) TrueFileMCOmegaPS1Sig_EG1->FindObject("True_Pi0FromOmega_InvMass_Pt");
+  h2_TruePi0_MCOmegaPS1Sig_EG1->SetName("h2_TruePi0_MCOmegaPS1Sig_EG1");
+  // h2_TruePi0_MCOmegaPS1Sig_EG1->Sumw2();
+
+  // True Signal (omega and Pi0)
+  TH2D* h2_TrueOmega_MCOmegaPS2Sig_EG1 = (TH2D*) TrueFileMCOmegaPS2Sig_EG1->FindObject("True_Omega_InvMass_Pt");
+  h2_TrueOmega_MCOmegaPS2Sig_EG1->SetName("h2_TrueOmega_MCOmegaPS2Sig_EG1");
+  // h2_TrueOmega_MCOmegaPS2Sig_EG1->Sumw2();
+
+  TH2D* h2_TruePi0_MCOmegaPS2Sig_EG1 = (TH2D*) TrueFileMCOmegaPS2Sig_EG1->FindObject("True_Pi0FromOmega_InvMass_Pt");
+  h2_TruePi0_MCOmegaPS2Sig_EG1->SetName("h2_TruePi0_MCOmegaPS2Sig_EG1");
+  // h2_TruePi0_MCOmegaPS2Sig_EG1->Sumw2();
+
+  // True Signal (omega and Pi0)
+  TH2D* h2_TrueOmega_MCOmegaPS3Sig_EG1 = (TH2D*) TrueFileMCOmegaPS3Sig_EG1->FindObject("True_Omega_InvMass_Pt");
+  h2_TrueOmega_MCOmegaPS3Sig_EG1->SetName("h2_TrueOmega_MCOmegaPS3Sig_EG1");
+  // h2_TrueOmega_MCOmegaPS3Sig_EG1->Sumw2();
+
+  TH2D* h2_TruePi0_MCOmegaPS3Sig_EG1 = (TH2D*) TrueFileMCOmegaPS3Sig_EG1->FindObject("True_Pi0FromOmega_InvMass_Pt");
+  h2_TruePi0_MCOmegaPS3Sig_EG1->SetName("h2_TruePi0_MCOmegaPS3Sig_EG1");
+  // h2_TruePi0_MCOmegaPS3Sig_EG1->Sumw2();
+
+  // True Signal (omega and Pi0)
+  TH2D* h2_TrueOmega_MCOmegaPS4Sig_EG1 = (TH2D*) TrueFileMCOmegaPS4Sig_EG1->FindObject("True_Omega_InvMass_Pt");
+  h2_TrueOmega_MCOmegaPS4Sig_EG1->SetName("h2_TrueOmega_MCOmegaPS4Sig_EG1");
+  // h2_TrueOmega_MCOmegaPS4Sig_EG1->Sumw2();
+
+  TH2D* h2_TruePi0_MCOmegaPS4Sig_EG1 = (TH2D*) TrueFileMCOmegaPS4Sig_EG1->FindObject("True_Pi0FromOmega_InvMass_Pt");
+  h2_TruePi0_MCOmegaPS4Sig_EG1->SetName("h2_TruePi0_MCOmegaPS4Sig_EG1");
+  // h2_TruePi0_MCOmegaPS4Sig_EG1->Sumw2();
+
+  // True Signal (omega and Pi0)
+  TH2D* h2_TrueOmega_MCOmegaPS1Sig_EG2 = (TH2D*) TrueFileMCOmegaPS1Sig_EG2->FindObject("True_Omega_InvMass_Pt");
+  h2_TrueOmega_MCOmegaPS1Sig_EG2->SetName("h2_TrueOmega_MCOmegaPS1Sig_EG2");
+  // h2_TrueOmega_MCOmegaPS1Sig_EG2->Sumw2();
+
+  TH2D* h2_TruePi0_MCOmegaPS1Sig_EG2 = (TH2D*) TrueFileMCOmegaPS1Sig_EG2->FindObject("True_Pi0FromOmega_InvMass_Pt");
+  h2_TruePi0_MCOmegaPS1Sig_EG2->SetName("h2_TruePi0_MCOmegaPS1Sig_EG2");
+  // h2_TruePi0_MCOmegaPS1Sig_EG2->Sumw2();
+
+  // True Signal (omega and Pi0)
+  TH2D* h2_TrueOmega_MCOmegaPS2Sig_EG2 = (TH2D*) TrueFileMCOmegaPS2Sig_EG2->FindObject("True_Omega_InvMass_Pt");
+  h2_TrueOmega_MCOmegaPS2Sig_EG2->SetName("h2_TrueOmega_MCOmegaPS2Sig_EG2");
+  // h2_TrueOmega_MCOmegaPS2Sig_EG2->Sumw2();
+
+  TH2D* h2_TruePi0_MCOmegaPS2Sig_EG2 = (TH2D*) TrueFileMCOmegaPS2Sig_EG2->FindObject("True_Pi0FromOmega_InvMass_Pt");
+  h2_TruePi0_MCOmegaPS2Sig_EG2->SetName("h2_TruePi0_MCOmegaPS2Sig_EG2");
+  // h2_TruePi0_MCOmegaPS2Sig_EG2->Sumw2();
+
+  // True Signal (omega and Pi0)
+  TH2D* h2_TrueOmega_MCOmegaPS3Sig_EG2 = (TH2D*) TrueFileMCOmegaPS3Sig_EG2->FindObject("True_Omega_InvMass_Pt");
+  h2_TrueOmega_MCOmegaPS3Sig_EG2->SetName("h2_TrueOmega_MCOmegaPS3Sig_EG2");
+  // h2_TrueOmega_MCOmegaPS3Sig_EG2->Sumw2();
+
+  TH2D* h2_TruePi0_MCOmegaPS3Sig_EG2 = (TH2D*) TrueFileMCOmegaPS3Sig_EG2->FindObject("True_Pi0FromOmega_InvMass_Pt");
+  h2_TruePi0_MCOmegaPS3Sig_EG2->SetName("h2_TruePi0_MCOmegaPS3Sig_EG2");
+  // h2_TruePi0_MCOmegaPS3Sig_EG2->Sumw2();
+
+  // True Signal (omega and Pi0)
+  TH2D* h2_TrueOmega_MCOmegaPS4Sig_EG2 = (TH2D*) TrueFileMCOmegaPS4Sig_EG2->FindObject("True_Omega_InvMass_Pt");
+  h2_TrueOmega_MCOmegaPS4Sig_EG2->SetName("h2_TrueOmega_MCOmegaPS4Sig_EG2");
+  // h2_TrueOmega_MCOmegaPS4Sig_EG2->Sumw2();
+
+  TH2D* h2_TruePi0_MCOmegaPS4Sig_EG2 = (TH2D*) TrueFileMCOmegaPS4Sig_EG2->FindObject("True_Pi0FromOmega_InvMass_Pt");
+  h2_TruePi0_MCOmegaPS4Sig_EG2->SetName("h2_TruePi0_MCOmegaPS4Sig_EG2");
+  // h2_TruePi0_MCOmegaPS4Sig_EG2->Sumw2();
+
+
+  // ---------------------------------------------------------------------------
+  //
   // MB Rot omega with PhotonSelection
   //
   // ---------------------------------------------------------------------------
@@ -1883,6 +2374,10 @@ void plotting()
   // ---------------------------------------------------------------------------
   std::unique_ptr<TF1> f1Gaus_TrueOmega_MCPS_Pol1_EG1         (new TF1("f1Gaus_TrueOmega_MCPS_Pol1_EG1", "gaus(0)", 0.1, 1.6, ""));
   std::unique_ptr<TF1> f1Gaus_TrueOmega_MCWOPS_Pol1_EG1       (new TF1("f1Gaus_TrueOmega_MCWOPS_Pol1_EG1", "gaus(0)", 0.1, 1.6, ""));
+  std::unique_ptr<TF1> f1Gaus_TrueOmega_MCOmegaPS1Sig_EG1     (new TF1("f1Gaus_TrueOmega_MCOmegaPS1Sig_EG1", "gaus(0)", 0.1, 1.6, ""));
+  std::unique_ptr<TF1> f1Gaus_TrueOmega_MCOmegaPS2Sig_EG1     (new TF1("f1Gaus_TrueOmega_MCOmegaPS2Sig_EG1", "gaus(0)", 0.1, 1.6, ""));
+  std::unique_ptr<TF1> f1Gaus_TrueOmega_MCOmegaPS3Sig_EG1     (new TF1("f1Gaus_TrueOmega_MCOmegaPS3Sig_EG1", "gaus(0)", 0.1, 1.6, ""));
+  std::unique_ptr<TF1> f1Gaus_TrueOmega_MCOmegaPS4Sig_EG1     (new TF1("f1Gaus_TrueOmega_MCOmegaPS4Sig_EG1", "gaus(0)", 0.1, 1.6, ""));
   std::unique_ptr<TF1> f1Gaus_MCOmegaRotPS_Pol1_EG1           (new TF1("f1Gaus_MCOmegaRotPS_Pol1_EG1", "gaus(0)", 0.1, 1.6, ""));
   std::unique_ptr<TF1> f1Gaus_MCOmegaRotPS_Pol2_EG1           (new TF1("f1Gaus_MCOmegaRotPS_Pol2_EG1", "gaus(0)", 0.1, 1.6, ""));
   std::unique_ptr<TF1> f1Gaus_MCOmegaTGPSPS_Pol1_EG1          (new TF1("f1Gaus_MCOmegaTGPSPS_Pol1_EG1", "gaus(0)", 0.1, 1.6, ""));
@@ -1945,6 +2440,10 @@ void plotting()
   std::unique_ptr<TF1> f1Gaus_MCOmegaTGPSPlusPS_Pol2_MB2  (new TF1("f1Gaus_MCOmegaTGPSPlusPS_Pol2_MB2", "gaus(0)", 0.1, 1.6, ""));
 
   vFunctions.push_back(f1Gaus_TrueOmega_MCPS_Pol1_EG1.get());
+  vFunctions.push_back(f1Gaus_TrueOmega_MCOmegaPS1Sig_EG1.get());
+  vFunctions.push_back(f1Gaus_TrueOmega_MCOmegaPS2Sig_EG1.get());
+  vFunctions.push_back(f1Gaus_TrueOmega_MCOmegaPS3Sig_EG1.get());
+  vFunctions.push_back(f1Gaus_TrueOmega_MCOmegaPS4Sig_EG1.get());
   vFunctions.push_back(f1Gaus_TrueOmega_MCWOPS_Pol1_EG1.get());
   vFunctions.push_back(f1Gaus_MCOmegaRotPS_Pol1_EG1.get());
   vFunctions.push_back(f1Gaus_MCOmegaRotPS_Pol2_EG1.get());
@@ -3398,13 +3897,32 @@ void plotting()
     h1_TrueOmega_MCWOPS_EG1                     = h2_TrueOmega_MCWOPS_EG1                     ->ProjectionX(Form("h1_TrueOmega_MCWOPS_EG1%02d",                      pTBin_EG1),h2_TrueOmega_MCWOPS_EG1                    ->GetYaxis()->FindBin(lowerBinEdge), h2_TrueOmega_MCWOPS_EG1                    ->GetYaxis()->FindBin(upperBinEdge)-1);
     h1_TrueOmega_MCPSNCell_EG1                  = h2_TrueOmega_MCPSNCell_EG1                  ->ProjectionX(Form("h1_TrueOmega_MCPSNCell_EG1%02d",                   pTBin_EG1),h2_TrueOmega_MCPSNCell_EG1                 ->GetYaxis()->FindBin(lowerBinEdge), h2_TrueOmega_MCPSNCell_EG1                 ->GetYaxis()->FindBin(upperBinEdge)-1);
 
+    h1_TrueOmega_MCOmegaPS1Sig_EG1              = h2_TrueOmega_MCOmegaPS1Sig_EG1              ->ProjectionX(Form("h1_TrueOmega_MCOmegaPS1Sig_EG1%02d",               pTBin_EG1),h2_TrueOmega_MCOmegaPS1Sig_EG1             ->GetYaxis()->FindBin(lowerBinEdge), h2_TrueOmega_MCOmegaPS1Sig_EG1             ->GetYaxis()->FindBin(upperBinEdge)-1);
+    h1_TrueOmega_MCOmegaPS2Sig_EG1              = h2_TrueOmega_MCOmegaPS2Sig_EG1              ->ProjectionX(Form("h1_TrueOmega_MCOmegaPS2Sig_EG1%02d",               pTBin_EG1),h2_TrueOmega_MCOmegaPS2Sig_EG1             ->GetYaxis()->FindBin(lowerBinEdge), h2_TrueOmega_MCOmegaPS2Sig_EG1             ->GetYaxis()->FindBin(upperBinEdge)-1);
+    h1_TrueOmega_MCOmegaPS3Sig_EG1              = h2_TrueOmega_MCOmegaPS3Sig_EG1              ->ProjectionX(Form("h1_TrueOmega_MCOmegaPS3Sig_EG1%02d",               pTBin_EG1),h2_TrueOmega_MCOmegaPS3Sig_EG1             ->GetYaxis()->FindBin(lowerBinEdge), h2_TrueOmega_MCOmegaPS3Sig_EG1             ->GetYaxis()->FindBin(upperBinEdge)-1);
+    h1_TrueOmega_MCOmegaPS4Sig_EG1              = h2_TrueOmega_MCOmegaPS4Sig_EG1              ->ProjectionX(Form("h1_TrueOmega_MCOmegaPS4Sig_EG1%02d",               pTBin_EG1),h2_TrueOmega_MCOmegaPS4Sig_EG1             ->GetYaxis()->FindBin(lowerBinEdge), h2_TrueOmega_MCOmegaPS4Sig_EG1             ->GetYaxis()->FindBin(upperBinEdge)-1);
+
+
+
+
+
     h1_TrueOmega_MCPS_EG1->SetTitle("true signal");
     h1_TrueOmega_MCWOPS_EG1->SetTitle("true signal");
     h1_TrueOmega_MCPSNCell_EG1->SetTitle("true signal");
 
+    h1_TrueOmega_MCOmegaPS1Sig_EG1->SetTitle("true signal");
+    h1_TrueOmega_MCOmegaPS2Sig_EG1->SetTitle("true signal");
+    h1_TrueOmega_MCOmegaPS3Sig_EG1->SetTitle("true signal");
+    h1_TrueOmega_MCOmegaPS4Sig_EG1->SetTitle("true signal");
+
     h1_TrueOmega_MCPS_EG1->Fit("f1Gaus_TrueOmega_MCPS_Pol1_EG1", "QMNE", "", fitLower_Pol1, fitHigher_Pol1);
     h1_TrueOmega_MCWOPS_EG1->Fit("f1Gaus_TrueOmega_MCWOPS_Pol1_EG1", "QMNE", "", fitLower_Pol1, fitHigher_Pol1);
     h1_TrueOmega_MCPSNCell_EG1->Fit("f1Gaus_TrueOmega_MCPSNCell_Pol1_EG1", "QMNE", "", fitLower_Pol1, fitHigher_Pol1);
+
+    h1_TrueOmega_MCOmegaPS1Sig_EG1->Fit("f1Gaus_TrueOmega_MCOmegaPS1Sig_EG1", "QMNE", "", fitLower_Pol1, fitHigher_Pol1);
+    h1_TrueOmega_MCOmegaPS2Sig_EG1->Fit("f1Gaus_TrueOmega_MCOmegaPS2Sig_EG1", "QMNE", "", fitLower_Pol1, fitHigher_Pol1);
+    h1_TrueOmega_MCOmegaPS3Sig_EG1->Fit("f1Gaus_TrueOmega_MCOmegaPS3Sig_EG1", "QMNE", "", fitLower_Pol1, fitHigher_Pol1);
+    h1_TrueOmega_MCOmegaPS4Sig_EG1->Fit("f1Gaus_TrueOmega_MCOmegaPS4Sig_EG1", "QMNE", "", fitLower_Pol1, fitHigher_Pol1);
 
     PeakLower = f1Gaus_TrueOmega_MCPS_Pol1_EG1->GetParameter(1)-2.* f1Gaus_TrueOmega_MCPS_Pol1_EG1->GetParameter(2);
     PeakHigher  = f1Gaus_TrueOmega_MCPS_Pol1_EG1->GetParameter(1)+2.* f1Gaus_TrueOmega_MCPS_Pol1_EG1->GetParameter(2);
@@ -3442,6 +3960,24 @@ void plotting()
     h1_Background_DataOmegaTGPSPSNCell_EG1        = h2_Background_DataOmegaTGPSPSNCell_EG1        ->ProjectionX(Form("h1_Background_DataOmegaTGPSPSNCell_EG1_%02d",        pTBin_EG1),h2_Background_DataOmegaTGPSPSNCell_EG1       ->GetYaxis()->FindBin(lowerBinEdge), h2_Background_DataOmegaTGPSPSNCell_EG1       ->GetYaxis()->FindBin(upperBinEdge)-1);
     h1_Background_DataOmegaTGPSPlusPSNCell_EG1    = h2_Background_DataOmegaTGPSPlusPSNCell_EG1    ->ProjectionX(Form("h1_Background_DataOmegaTGPSPlusPSNCell_EG1_%02d",    pTBin_EG1),h2_Background_DataOmegaTGPSPlusPSNCell_EG1   ->GetYaxis()->FindBin(lowerBinEdge), h2_Background_DataOmegaTGPSPlusPSNCell_EG1   ->GetYaxis()->FindBin(upperBinEdge)-1);
 
+    h1_SameEvent_DataOmegaPS1Sig_EG1              = h2_SameEvent_DataOmegaPS1Sig_EG1              ->ProjectionX(Form("h1_SameEvent_DataOmegaPS1Sig_EG1_%02d",              pTBin_EG1),h2_SameEvent_DataOmegaPS1Sig_EG1             ->GetYaxis()->FindBin(lowerBinEdge), h2_SameEvent_DataOmegaPS1Sig_EG1             ->GetYaxis()->FindBin(upperBinEdge)-1);
+    h1_SameEvent_DataOmegaPS2Sig_EG1              = h2_SameEvent_DataOmegaPS2Sig_EG1              ->ProjectionX(Form("h1_SameEvent_DataOmegaPS2Sig_EG1_%02d",              pTBin_EG1),h2_SameEvent_DataOmegaPS2Sig_EG1             ->GetYaxis()->FindBin(lowerBinEdge), h2_SameEvent_DataOmegaPS2Sig_EG1             ->GetYaxis()->FindBin(upperBinEdge)-1);
+    h1_SameEvent_DataOmegaPS3Sig_EG1              = h2_SameEvent_DataOmegaPS3Sig_EG1              ->ProjectionX(Form("h1_SameEvent_DataOmegaPS3Sig_EG1_%02d",              pTBin_EG1),h2_SameEvent_DataOmegaPS3Sig_EG1             ->GetYaxis()->FindBin(lowerBinEdge), h2_SameEvent_DataOmegaPS3Sig_EG1             ->GetYaxis()->FindBin(upperBinEdge)-1);
+    h1_SameEvent_DataOmegaPS4Sig_EG1              = h2_SameEvent_DataOmegaPS4Sig_EG1              ->ProjectionX(Form("h1_SameEvent_DataOmegaPS4Sig_EG1_%02d",              pTBin_EG1),h2_SameEvent_DataOmegaPS4Sig_EG1             ->GetYaxis()->FindBin(lowerBinEdge), h2_SameEvent_DataOmegaPS4Sig_EG1             ->GetYaxis()->FindBin(upperBinEdge)-1);
+
+    h1_AngleCutRejected_DataOmegaPS1Sig_EG1       = h2_AngleCutRejected_DataOmegaPS1Sig_EG1       ->ProjectionX(Form("h1_AngleCutRejected_DataOmegaPS1Sig_EG1_%02d",       pTBin_EG1), h2_AngleCutRejected_DataOmegaPS1Sig_EG1     ->GetYaxis()->FindBin(lowerBinEdge), h2_AngleCutRejected_DataOmegaPS1Sig_EG1      ->GetYaxis()->FindBin(upperBinEdge)-1);
+    h1_AngleCutRejected_DataOmegaPS2Sig_EG1       = h2_AngleCutRejected_DataOmegaPS2Sig_EG1       ->ProjectionX(Form("h1_AngleCutRejected_DataOmegaPS2Sig_EG1_%02d",       pTBin_EG1), h2_AngleCutRejected_DataOmegaPS2Sig_EG1     ->GetYaxis()->FindBin(lowerBinEdge), h2_AngleCutRejected_DataOmegaPS2Sig_EG1      ->GetYaxis()->FindBin(upperBinEdge)-1);
+    h1_AngleCutRejected_DataOmegaPS3Sig_EG1       = h2_AngleCutRejected_DataOmegaPS3Sig_EG1       ->ProjectionX(Form("h1_AngleCutRejected_DataOmegaPS3Sig_EG1_%02d",       pTBin_EG1), h2_AngleCutRejected_DataOmegaPS3Sig_EG1     ->GetYaxis()->FindBin(lowerBinEdge), h2_AngleCutRejected_DataOmegaPS3Sig_EG1      ->GetYaxis()->FindBin(upperBinEdge)-1);
+    h1_AngleCutRejected_DataOmegaPS4Sig_EG1       = h2_AngleCutRejected_DataOmegaPS4Sig_EG1       ->ProjectionX(Form("h1_AngleCutRejected_DataOmegaPS4Sig_EG1_%02d",       pTBin_EG1), h2_AngleCutRejected_DataOmegaPS4Sig_EG1     ->GetYaxis()->FindBin(lowerBinEdge), h2_AngleCutRejected_DataOmegaPS4Sig_EG1      ->GetYaxis()->FindBin(upperBinEdge)-1);
+
+    h1_MixedEventDiffPi0SameGamma_DataOmegaPS1Sig_EG1 = h2_MixedEventDiffPi0SameGamma_DataOmegaPS1Sig_EG1->ProjectionX(Form("h1_MixedEventDiffPi0SameGamma_DataOmegaPS1Sig_EG1_%02d", pTBin_EG1), h2_MixedEventDiffPi0SameGamma_DataOmegaPS1Sig_EG1->GetYaxis()->FindBin(lowerBinEdge), h2_MixedEventDiffPi0SameGamma_DataOmegaPS1Sig_EG1->GetYaxis()->FindBin(upperBinEdge)-1);
+    h1_MixedEventDiffPi0SameGamma_DataOmegaPS2Sig_EG1 = h2_MixedEventDiffPi0SameGamma_DataOmegaPS2Sig_EG1->ProjectionX(Form("h1_MixedEventDiffPi0SameGamma_DataOmegaPS2Sig_EG1_%02d", pTBin_EG1), h2_MixedEventDiffPi0SameGamma_DataOmegaPS2Sig_EG1->GetYaxis()->FindBin(lowerBinEdge), h2_MixedEventDiffPi0SameGamma_DataOmegaPS2Sig_EG1->GetYaxis()->FindBin(upperBinEdge)-1);
+    h1_MixedEventDiffPi0SameGamma_DataOmegaPS3Sig_EG1 = h2_MixedEventDiffPi0SameGamma_DataOmegaPS3Sig_EG1->ProjectionX(Form("h1_MixedEventDiffPi0SameGamma_DataOmegaPS3Sig_EG1_%02d", pTBin_EG1), h2_MixedEventDiffPi0SameGamma_DataOmegaPS3Sig_EG1->GetYaxis()->FindBin(lowerBinEdge), h2_MixedEventDiffPi0SameGamma_DataOmegaPS3Sig_EG1->GetYaxis()->FindBin(upperBinEdge)-1);
+    h1_MixedEventDiffPi0SameGamma_DataOmegaPS4Sig_EG1 = h2_MixedEventDiffPi0SameGamma_DataOmegaPS4Sig_EG1->ProjectionX(Form("h1_MixedEventDiffPi0SameGamma_DataOmegaPS4Sig_EG1_%02d", pTBin_EG1), h2_MixedEventDiffPi0SameGamma_DataOmegaPS4Sig_EG1->GetYaxis()->FindBin(lowerBinEdge), h2_MixedEventDiffPi0SameGamma_DataOmegaPS4Sig_EG1->GetYaxis()->FindBin(upperBinEdge)-1);
+    h1_MixedEventSamePi0DiffGamma_DataOmegaPS1Sig_EG1 = h2_MixedEventSamePi0DiffGamma_DataOmegaPS1Sig_EG1->ProjectionX(Form("h1_MixedEventSamePi0DiffGamma_DataOmegaPS1Sig_EG1_%02d", pTBin_EG1), h2_MixedEventSamePi0DiffGamma_DataOmegaPS1Sig_EG1->GetYaxis()->FindBin(lowerBinEdge), h2_MixedEventSamePi0DiffGamma_DataOmegaPS1Sig_EG1->GetYaxis()->FindBin(upperBinEdge)-1);
+    h1_MixedEventSamePi0DiffGamma_DataOmegaPS2Sig_EG1 = h2_MixedEventSamePi0DiffGamma_DataOmegaPS2Sig_EG1->ProjectionX(Form("h1_MixedEventSamePi0DiffGamma_DataOmegaPS2Sig_EG1_%02d", pTBin_EG1), h2_MixedEventSamePi0DiffGamma_DataOmegaPS2Sig_EG1->GetYaxis()->FindBin(lowerBinEdge), h2_MixedEventSamePi0DiffGamma_DataOmegaPS2Sig_EG1->GetYaxis()->FindBin(upperBinEdge)-1);
+    h1_MixedEventSamePi0DiffGamma_DataOmegaPS3Sig_EG1 = h2_MixedEventSamePi0DiffGamma_DataOmegaPS3Sig_EG1->ProjectionX(Form("h1_MixedEventSamePi0DiffGamma_DataOmegaPS3Sig_EG1_%02d", pTBin_EG1), h2_MixedEventSamePi0DiffGamma_DataOmegaPS3Sig_EG1->GetYaxis()->FindBin(lowerBinEdge), h2_MixedEventSamePi0DiffGamma_DataOmegaPS3Sig_EG1->GetYaxis()->FindBin(upperBinEdge)-1);
+    h1_MixedEventSamePi0DiffGamma_DataOmegaPS4Sig_EG1 = h2_MixedEventSamePi0DiffGamma_DataOmegaPS4Sig_EG1->ProjectionX(Form("h1_MixedEventSamePi0DiffGamma_DataOmegaPS4Sig_EG1_%02d", pTBin_EG1), h2_MixedEventSamePi0DiffGamma_DataOmegaPS4Sig_EG1->GetYaxis()->FindBin(lowerBinEdge), h2_MixedEventSamePi0DiffGamma_DataOmegaPS4Sig_EG1->GetYaxis()->FindBin(upperBinEdge)-1);
 
     // -------------------------------------------------------------------------
     //
@@ -3453,7 +3989,7 @@ void plotting()
     h1_Background_DataOmegaTGPSPS_EG1             ->Rebin(arrRebinning_MB1[pTBin_EG1-1]);
     h1_Background_DataOmegaTGPSPlusPS_EG1         ->Rebin(arrRebinning_MB1[pTBin_EG1-1]);
     h1_Background_DataPi0RotPS_EG1                ->Rebin(arrRebinning_MB1[pTBin_EG1-1]);
-    h1_Background_DataPi0TGPSPS_EG1           ->Rebin(arrRebinning_MB1[pTBin_EG1-1]);
+    h1_Background_DataPi0TGPSPS_EG1               ->Rebin(arrRebinning_MB1[pTBin_EG1-1]);
     h1_SameEvent_DataOmegaWOPS_EG1                ->Rebin(arrRebinning_MB1[pTBin_EG1-1]);
     h1_Background_DataOmegaRotWOPS_EG1            ->Rebin(arrRebinning_MB1[pTBin_EG1-1]);
     h1_Background_DataOmegaTGPSWOPS_EG1           ->Rebin(arrRebinning_MB1[pTBin_EG1-1]);
@@ -3475,6 +4011,22 @@ void plotting()
     h1_Background_DataOmegaTGPSPSNCell_EG1        ->Rebin(arrRebinning_MB1[pTBin_EG1-1]);
     h1_Background_DataOmegaTGPSPlusPSNCell_EG1    ->Rebin(arrRebinning_MB1[pTBin_EG1-1]);
 
+    h1_SameEvent_DataOmegaPS1Sig_EG1              ->Rebin(arrRebinning_MB1[pTBin_EG1-1]);
+    h1_SameEvent_DataOmegaPS2Sig_EG1              ->Rebin(arrRebinning_MB1[pTBin_EG1-1]);
+    h1_SameEvent_DataOmegaPS3Sig_EG1              ->Rebin(arrRebinning_MB1[pTBin_EG1-1]);
+    h1_SameEvent_DataOmegaPS4Sig_EG1              ->Rebin(arrRebinning_MB1[pTBin_EG1-1]);
+    h1_AngleCutRejected_DataOmegaPS1Sig_EG1       ->Rebin(arrRebinning_MB1[pTBin_EG1-1]);
+    h1_AngleCutRejected_DataOmegaPS2Sig_EG1       ->Rebin(arrRebinning_MB1[pTBin_EG1-1]);
+    h1_AngleCutRejected_DataOmegaPS3Sig_EG1       ->Rebin(arrRebinning_MB1[pTBin_EG1-1]);
+    h1_AngleCutRejected_DataOmegaPS4Sig_EG1       ->Rebin(arrRebinning_MB1[pTBin_EG1-1]);
+    h1_MixedEventDiffPi0SameGamma_DataOmegaPS1Sig_EG1->Rebin(arrRebinning_MB1[pTBin_EG1-1]);
+    h1_MixedEventDiffPi0SameGamma_DataOmegaPS2Sig_EG1->Rebin(arrRebinning_MB1[pTBin_EG1-1]);
+    h1_MixedEventDiffPi0SameGamma_DataOmegaPS3Sig_EG1->Rebin(arrRebinning_MB1[pTBin_EG1-1]);
+    h1_MixedEventDiffPi0SameGamma_DataOmegaPS4Sig_EG1->Rebin(arrRebinning_MB1[pTBin_EG1-1]);
+    h1_MixedEventSamePi0DiffGamma_DataOmegaPS1Sig_EG1->Rebin(arrRebinning_MB1[pTBin_EG1-1]);
+    h1_MixedEventSamePi0DiffGamma_DataOmegaPS2Sig_EG1->Rebin(arrRebinning_MB1[pTBin_EG1-1]);
+    h1_MixedEventSamePi0DiffGamma_DataOmegaPS3Sig_EG1->Rebin(arrRebinning_MB1[pTBin_EG1-1]);
+    h1_MixedEventSamePi0DiffGamma_DataOmegaPS4Sig_EG1->Rebin(arrRebinning_MB1[pTBin_EG1-1]);
     // -------------------------------------------------------------------------
     //
     // Data: Draw the SameEvent and Background onto one Canvas
@@ -3510,6 +4062,41 @@ void plotting()
 
     BeforeScaling(h1_SameEvent_DataOmegaPSNCell_EG1, h1_Background_DataOmegaTGPSPlusPSNCell_EG1, legSystem.get(), Form("Data/EG1/OmegaTGPSPlusPSNCell/SameEventAndBackgroundBeforeScaling_%02d.svg", pTBin_EG1));
 
+    BeforeScalingAC(h1_SameEvent_DataOmegaPS1Sig_EG1, h1_AngleCutRejected_DataOmegaPS1Sig_EG1,  h1_MixedEventDiffPi0SameGamma_DataOmegaPS1Sig_EG1, legSystem.get(), Form("Data/EG1/OmegaPS1Sig/SameEventAndBackgroundBeforeScaling_SamePi0DiffGamma_AngleCut_%02d.svg", pTBin_EG1));
+
+    BeforeScalingAC(h1_SameEvent_DataOmegaPS2Sig_EG1, h1_AngleCutRejected_DataOmegaPS2Sig_EG1,  h1_MixedEventDiffPi0SameGamma_DataOmegaPS2Sig_EG1, legSystem.get(), Form("Data/EG1/OmegaPS2Sig/SameEventAndBackgroundBeforeScaling_SamePi0DiffGamma_AngleCut_%02d.svg", pTBin_EG1));
+
+    BeforeScalingAC(h1_SameEvent_DataOmegaPS3Sig_EG1, h1_AngleCutRejected_DataOmegaPS3Sig_EG1,  h1_MixedEventDiffPi0SameGamma_DataOmegaPS3Sig_EG1, legSystem.get(), Form("Data/EG1/OmegaPS3Sig/SameEventAndBackgroundBeforeScaling_SamePi0DiffGamma_AngleCut_%02d.svg", pTBin_EG1));
+
+    BeforeScalingAC(h1_SameEvent_DataOmegaPS4Sig_EG1, h1_AngleCutRejected_DataOmegaPS4Sig_EG1,  h1_MixedEventDiffPi0SameGamma_DataOmegaPS4Sig_EG1, legSystem.get(), Form("Data/EG1/OmegaPS4Sig/SameEventAndBackgroundBeforeScaling_SamePi0DiffGamma_AngleCut_%02d.svg", pTBin_EG1));
+
+    BeforeScalingAC(h1_SameEvent_DataOmegaPS1Sig_EG1, h1_AngleCutRejected_DataOmegaPS1Sig_EG1,  h1_MixedEventSamePi0DiffGamma_DataOmegaPS1Sig_EG1, legSystem.get(), Form("Data/EG1/OmegaPS1Sig/SameEventAndBackgroundBeforeScaling_DiffPi0SameGamma_AngleCut_%02d.svg", pTBin_EG1));
+
+    BeforeScalingAC(h1_SameEvent_DataOmegaPS2Sig_EG1, h1_AngleCutRejected_DataOmegaPS2Sig_EG1,  h1_MixedEventSamePi0DiffGamma_DataOmegaPS2Sig_EG1, legSystem.get(), Form("Data/EG1/OmegaPS2Sig/SameEventAndBackgroundBeforeScaling_DiffPi0SameGamma_AngleCut_%02d.svg", pTBin_EG1));
+
+    BeforeScalingAC(h1_SameEvent_DataOmegaPS3Sig_EG1, h1_AngleCutRejected_DataOmegaPS3Sig_EG1,  h1_MixedEventSamePi0DiffGamma_DataOmegaPS3Sig_EG1, legSystem.get(), Form("Data/EG1/OmegaPS3Sig/SameEventAndBackgroundBeforeScaling_DiffPi0SameGamma_AngleCut_%02d.svg", pTBin_EG1));
+
+    BeforeScalingAC(h1_SameEvent_DataOmegaPS4Sig_EG1, h1_AngleCutRejected_DataOmegaPS4Sig_EG1,  h1_MixedEventSamePi0DiffGamma_DataOmegaPS4Sig_EG1, legSystem.get(), Form("Data/EG1/OmegaPS4Sig/SameEventAndBackgroundBeforeScaling_DiffPi0SameGamma_AngleCut_%02d.svg", pTBin_EG1));
+
+    h1_SameEvent_DataOmegaPS1Sig_EG1->Add(h1_AngleCutRejected_DataOmegaPS1Sig_EG1);
+    h1_SameEvent_DataOmegaPS2Sig_EG1->Add(h1_AngleCutRejected_DataOmegaPS2Sig_EG1);
+    h1_SameEvent_DataOmegaPS3Sig_EG1->Add(h1_AngleCutRejected_DataOmegaPS3Sig_EG1);
+    h1_SameEvent_DataOmegaPS4Sig_EG1->Add(h1_AngleCutRejected_DataOmegaPS4Sig_EG1);
+    BeforeScaling(h1_SameEvent_DataOmegaPS1Sig_EG1, h1_MixedEventDiffPi0SameGamma_DataOmegaPS1Sig_EG1, legSystem.get(), Form("Data/EG1/OmegaPS1Sig/SameEventAndBackgroundBeforeScaling_SamePi0DiffGamma_%02d.svg", pTBin_EG1));
+
+    BeforeScaling(h1_SameEvent_DataOmegaPS2Sig_EG1, h1_MixedEventDiffPi0SameGamma_DataOmegaPS2Sig_EG1, legSystem.get(), Form("Data/EG1/OmegaPS2Sig/SameEventAndBackgroundBeforeScaling_SamePi0DiffGamma_%02d.svg", pTBin_EG1));
+
+    BeforeScaling(h1_SameEvent_DataOmegaPS3Sig_EG1, h1_MixedEventDiffPi0SameGamma_DataOmegaPS3Sig_EG1, legSystem.get(), Form("Data/EG1/OmegaPS3Sig/SameEventAndBackgroundBeforeScaling_SamePi0DiffGamma_%02d.svg", pTBin_EG1));
+
+    BeforeScaling(h1_SameEvent_DataOmegaPS4Sig_EG1, h1_MixedEventDiffPi0SameGamma_DataOmegaPS4Sig_EG1, legSystem.get(), Form("Data/EG1/OmegaPS4Sig/SameEventAndBackgroundBeforeScaling_SamePi0DiffGamma_%02d.svg", pTBin_EG1));
+
+    BeforeScaling(h1_SameEvent_DataOmegaPS1Sig_EG1, h1_MixedEventSamePi0DiffGamma_DataOmegaPS1Sig_EG1, legSystem.get(), Form("Data/EG1/OmegaPS1Sig/SameEventAndBackgroundBeforeScaling_DiffPi0SameGamma_%02d.svg", pTBin_EG1));
+
+    BeforeScaling(h1_SameEvent_DataOmegaPS2Sig_EG1, h1_MixedEventSamePi0DiffGamma_DataOmegaPS2Sig_EG1, legSystem.get(), Form("Data/EG1/OmegaPS2Sig/SameEventAndBackgroundBeforeScaling_DiffPi0SameGamma_%02d.svg", pTBin_EG1));
+
+    BeforeScaling(h1_SameEvent_DataOmegaPS3Sig_EG1, h1_MixedEventSamePi0DiffGamma_DataOmegaPS3Sig_EG1, legSystem.get(), Form("Data/EG1/OmegaPS3Sig/SameEventAndBackgroundBeforeScaling_DiffPi0SameGamma_%02d.svg", pTBin_EG1));
+
+    BeforeScaling(h1_SameEvent_DataOmegaPS4Sig_EG1, h1_MixedEventSamePi0DiffGamma_DataOmegaPS4Sig_EG1, legSystem.get(), Form("Data/EG1/OmegaPS4Sig/SameEventAndBackgroundBeforeScaling_DiffPi0SameGamma_%02d.svg", pTBin_EG1));
 
     h1_Ratio_BackToSame_DataOmegaRotPS_EG1        = (TH1D*) h1_SameEvent_DataOmegaPS_EG1    ->Clone("h1_Ratio_BackToSame_DataOmegaRotPS_EG1       ");
     h1_Ratio_BackToSame_DataOmegaRotPS_EG1        ->Divide(h1_Ratio_BackToSame_DataOmegaRotPS_EG1       , h1_Background_DataOmegaRotPS_EG1      , 1, 1, "B");
@@ -4331,6 +4918,10 @@ void plotting()
     h1_TrueOmega_MCWOPS_EG1                     ->Rebin(arrRebinning_MB1[pTBin_EG1-1]);
     h1_TrueOmega_MCPSNCell_EG1                  ->Rebin(arrRebinning_MB1[pTBin_EG1-1]);
 
+    h1_SameEvent_MCOmegaPS_EG1->SetTitle("MC OmegaPS");
+    h1_SameEvent_MCOmegaWOPS_EG1->SetTitle("MC OmegaWOPS");
+    h1_SameEvent_MCOmegaPSNCell_EG1->SetTitle("MC OmegaPSNCell");
+
     // -------------------------------------------------------------------------
     //
     // MC: Draw the SameEvent and Background onto one Canvas
@@ -4371,6 +4962,9 @@ void plotting()
     BeforeScalingMCData(h1_SameEvent_MCOmegaWOPS_EG1, h1_SameEvent_DataOmegaWOPS_EG1, legSystem.get(), Form("Data/EG1/Comp/SameEventMCvsData_OmegaWOPS_%02d.svg", pTBin_EG1));
 
     BeforeScalingMCData(h1_SameEvent_MCOmegaPSNCell_EG1, h1_SameEvent_DataOmegaPSNCell_EG1, legSystem.get(), Form("Data/EG1/Comp/SameEventMCvsData_OmegaPSNCell_%02d.svg", pTBin_EG1));
+
+    BeforeScalingMCData(h1_SameEvent_DataOmegaPS_EG1, h1_SameEvent_DataOmegaWOPS_EG1, legSystem.get(), Form("Data/EG1/Comp/SameEventDataWithVsWOPS_%02d.svg", pTBin_EG1));
+
 
 
     h1_Ratio_BackToSame_MCOmegaRotPS_EG1          = (TH1D*) h1_SameEvent_MCOmegaPS_EG1    ->Clone("h1_Ratio_BackToSame_MCOmegaRotPS_EG1");

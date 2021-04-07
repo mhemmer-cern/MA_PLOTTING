@@ -38,6 +38,40 @@ void BeforeScaling(TH1D* SE, TH1D* Background, TPaveText* lSys, TString outname)
 
 }
 
+void BeforeScalingAC(TH1D* SE, TH1D* AngleCut, TH1D* Background, TPaveText* lSys, TString outname){
+  // --- Create TObjArrays -----------------------------------------------------
+
+  std::unique_ptr<TObjArray> main(new TObjArray);
+  main->Add(Background);
+  main->Add(AngleCut);
+  main->Add(SE);
+
+  // --- Legends ---------------------------------------------------------------
+
+  main->Add(lSys);
+  std::unique_ptr<Legend> l(new Legend(main.get(), "background\n angle cut rejected\n same event", "lp lp lp"));
+  l->SetFillStyle(0);
+
+  // --- Marker ----------------------------------------------------------------
+
+  vector<Color_t> colors = {kRed-2, kBlue-2, kBlack, 0, 0};
+  vector<Style_t> markers = {kFullSquare, kOpenCircle, kFullCircle, 0, 0};
+  vector<Size_t>  sizes = {2., 2., 2., 0, 0};
+
+  // --- Canvasses -------------------------------------------------------------
+
+  Legend::SetPosition((Legend*) l.get(), 0.15, 0.5, 0.65, 0.75);
+
+  SquarePlot square = SquarePlot(main.get(), minv_str, count_str);
+  square.SetMode(Plot::Thesis);
+  square.SetStyle(colors, markers, sizes);
+  square.SetRanges(0.0, 1.6, SE->GetMinimum(), Background->GetMaximum()*1.8);
+  square.SetCanvasMargins(0.025, .1, 0.03, .1);
+
+  square.Draw(outname);
+  return;
+
+}
 
 void BeforeScalingMCData(TH1D* SE, TH1D* Background, TPaveText* lSys, TString outname){
   // --- Create TObjArrays -----------------------------------------------------
@@ -48,10 +82,13 @@ void BeforeScalingMCData(TH1D* SE, TH1D* Background, TPaveText* lSys, TString ou
   h2_Clone->Scale(1./h2_Clone->Integral());
   main->Add(h1_Clone);
   main->Add(h2_Clone);
+  TString legString = "";
+  legString += TString(h1_Clone->GetTitle());
+  legString += TString("\n ") + TString(h2_Clone->GetTitle());
 
   // --- Legends ---------------------------------------------------------------
   main->Add(lSys);
-  std::unique_ptr<Legend> l(new Legend(main.get(), "MC\n data", "lp lp", "same event"));
+  std::unique_ptr<Legend> l(new Legend(main.get(), legString.Data(), "lp lp", "same event"));
   l->SetFillStyle(0);
 
   // --- Marker ----------------------------------------------------------------
