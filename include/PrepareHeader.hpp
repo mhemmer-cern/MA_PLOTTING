@@ -151,3 +151,13 @@ Double_t ReversedLogNom(Double_t* x, Double_t* par)
   Double_t x1 = x[0];
   return par[3]*exp(-pow(log(par[2]-x1)-par[0], 2.)/(2*pow(par[1], 2.) ) )/( (par[2]-x1)*par[1] );
 }
+
+void ScaleMixedEvent(std::vector<TH1D*> vSE, std::vector<TH1D*> vBack, Double_t low, Double_t high)
+{
+  if(vSE.size() != vBack.size()) {printf("ERROR in ScaleMixedEvent:\n SE and Back vetor unequal lenght!"); exit(4);}
+  for (int i = 0; i < vSE.size(); i++)
+  {
+    vBack.at(i)->Scale(vSE.at(i)->Integral(vSE.at(i)->FindBin(low), vSE.at(i)->FindBin(high) ) / vBack.at(i)->Integral(vBack.at(i)->FindBin(low), vBack.at(i)->FindBin(high) ) );
+  }
+  return;
+}

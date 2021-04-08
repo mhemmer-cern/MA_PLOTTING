@@ -2311,6 +2311,22 @@ void plotting()
   std::unique_ptr<TF1> f1Back_DataOmegaTGPSPSNCell_Pol2_EG1         (new TF1("f1Back_DataOmegaTGPSPSNCell_Pol2_EG1", "pol2", 0.1, 1.6, ""));
   std::unique_ptr<TF1> f1Back_DataOmegaTGPSPlusPSNCell_Pol1_EG1     (new TF1("f1Back_DataOmegaTGPSPlusPSNCell_Pol1_EG1", "pol1", 0.1, 1.6, ""));
   std::unique_ptr<TF1> f1Back_DataOmegaTGPSPlusPSNCell_Pol2_EG1     (new TF1("f1Back_DataOmegaTGPSPlusPSNCell_Pol2_EG1", "pol2", 0.1, 1.6, ""));
+  std::unique_ptr<TF1> f1Back_DataOmegaPS1Sig_Pol1_EG1              (new TF1("f1Back_DataOmegaPS1Sig_Pol1_EG1", "pol1", 0.1, 1.6, ""));
+  std::unique_ptr<TF1> f1Back_DataOmegaPS1Sig_Pol2_EG1              (new TF1("f1Back_DataOmegaPS1Sig_Pol2_EG1", "pol2", 0.1, 1.6, ""));
+  std::unique_ptr<TF1> f1Back_DataOmegaPS2Sig_Pol1_EG1              (new TF1("f1Back_DataOmegaPS2Sig_Pol1_EG1", "pol1", 0.1, 1.6, ""));
+  std::unique_ptr<TF1> f1Back_DataOmegaPS2Sig_Pol2_EG1              (new TF1("f1Back_DataOmegaPS2Sig_Pol2_EG1", "pol2", 0.1, 1.6, ""));
+  std::unique_ptr<TF1> f1Back_DataOmegaPS3Sig_Pol1_EG1              (new TF1("f1Back_DataOmegaPS3Sig_Pol1_EG1", "pol1", 0.1, 1.6, ""));
+  std::unique_ptr<TF1> f1Back_DataOmegaPS3Sig_Pol2_EG1              (new TF1("f1Back_DataOmegaPS3Sig_Pol2_EG1", "pol2", 0.1, 1.6, ""));
+  std::unique_ptr<TF1> f1Back_DataOmegaPS4Sig_Pol1_EG1              (new TF1("f1Back_DataOmegaPS4Sig_Pol1_EG1", "pol1", 0.1, 1.6, ""));
+  std::unique_ptr<TF1> f1Back_DataOmegaPS4Sig_Pol2_EG1              (new TF1("f1Back_DataOmegaPS4Sig_Pol2_EG1", "pol2", 0.1, 1.6, ""));
+  std::unique_ptr<TF1> f1Back_DataOmegaPS1Sig_Pol1_EG2              (new TF1("f1Back_DataOmegaPS1Sig_Pol1_EG2", "pol1", 0.1, 1.6, ""));
+  std::unique_ptr<TF1> f1Back_DataOmegaPS1Sig_Pol2_EG2              (new TF1("f1Back_DataOmegaPS1Sig_Pol2_EG2", "pol2", 0.1, 1.6, ""));
+  std::unique_ptr<TF1> f1Back_DataOmegaPS2Sig_Pol1_EG2              (new TF1("f1Back_DataOmegaPS2Sig_Pol1_EG2", "pol1", 0.1, 1.6, ""));
+  std::unique_ptr<TF1> f1Back_DataOmegaPS2Sig_Pol2_EG2              (new TF1("f1Back_DataOmegaPS2Sig_Pol2_EG2", "pol2", 0.1, 1.6, ""));
+  std::unique_ptr<TF1> f1Back_DataOmegaPS3Sig_Pol1_EG2              (new TF1("f1Back_DataOmegaPS3Sig_Pol1_EG2", "pol1", 0.1, 1.6, ""));
+  std::unique_ptr<TF1> f1Back_DataOmegaPS3Sig_Pol2_EG2              (new TF1("f1Back_DataOmegaPS3Sig_Pol2_EG2", "pol2", 0.1, 1.6, ""));
+  std::unique_ptr<TF1> f1Back_DataOmegaPS4Sig_Pol1_EG2              (new TF1("f1Back_DataOmegaPS4Sig_Pol1_EG2", "pol1", 0.1, 1.6, ""));
+  std::unique_ptr<TF1> f1Back_DataOmegaPS4Sig_Pol2_EG2              (new TF1("f1Back_DataOmegaPS4Sig_Pol2_EG2", "pol2", 0.1, 1.6, ""));
 
   vFunctions.push_back(f1Back_DataOmegaRotPS_Pol1_EG1.get());
   vFunctions.push_back(f1Back_DataOmegaRotPS_Pol2_EG1.get());
@@ -2362,6 +2378,22 @@ void plotting()
   vFunctions.push_back(f1Back_DataOmegaTGPSPSNCell_Pol2_EG1.get());
   vFunctions.push_back(f1Back_DataOmegaTGPSPlusPSNCell_Pol1_EG1.get());
   vFunctions.push_back(f1Back_DataOmegaTGPSPlusPSNCell_Pol2_EG1.get());
+  vFunctions.push_back(f1Back_DataOmegaPS1Sig_Pol1_EG1.get());
+  vFunctions.push_back(f1Back_DataOmegaPS1Sig_Pol2_EG1.get());
+  vFunctions.push_back(f1Back_DataOmegaPS2Sig_Pol1_EG1.get());
+  vFunctions.push_back(f1Back_DataOmegaPS2Sig_Pol2_EG1.get());
+  vFunctions.push_back(f1Back_DataOmegaPS3Sig_Pol1_EG1.get());
+  vFunctions.push_back(f1Back_DataOmegaPS3Sig_Pol2_EG1.get());
+  vFunctions.push_back(f1Back_DataOmegaPS4Sig_Pol1_EG1.get());
+  vFunctions.push_back(f1Back_DataOmegaPS4Sig_Pol2_EG1.get());
+  vFunctions.push_back(f1Back_DataOmegaPS1Sig_Pol1_EG2.get());
+  vFunctions.push_back(f1Back_DataOmegaPS1Sig_Pol2_EG2.get());
+  vFunctions.push_back(f1Back_DataOmegaPS2Sig_Pol1_EG2.get());
+  vFunctions.push_back(f1Back_DataOmegaPS2Sig_Pol2_EG2.get());
+  vFunctions.push_back(f1Back_DataOmegaPS3Sig_Pol1_EG2.get());
+  vFunctions.push_back(f1Back_DataOmegaPS3Sig_Pol2_EG2.get());
+  vFunctions.push_back(f1Back_DataOmegaPS4Sig_Pol1_EG2.get());
+  vFunctions.push_back(f1Back_DataOmegaPS4Sig_Pol2_EG2.get());
 
   PrepareBackground(vFunctions);
   vFunctions.clear();
@@ -3111,9 +3143,9 @@ void plotting()
   std::unique_ptr<TH1D> h1_RawYield_MCOmegaTGPSPS_Pol1_EG2          (new TH1D("h1_RawYield_MCOmegaTGPSPS_Pol1_EG2",             "", nBinsPt_MB2-1, &arrPtBinning_EG2[0]));
   std::unique_ptr<TH1D> h1_RawYield_MCOmegaTGPSPlusPS_Pol1_EG2      (new TH1D("h1_RawYield_MCOmegaTGPSPlusPS_Pol1_EG2",         "", nBinsPt_MB2-1, &arrPtBinning_EG2[0]));
   std::unique_ptr<TH1D> h1_RawYield_MCPi0RotPS_Pol1_EG1             (new TH1D("h1_RawYield_MCPi0RotPS_Pol1_EG1",                "", nBinsPt_MB1-1, &arrPtBinning_MB1[0]));
-  std::unique_ptr<TH1D> h1_RawYield_MCPi0TGPSPS_Pol1_EG1        (new TH1D("h1_RawYield_MCPi0TGPSPS_Pol1_EG1",           "", nBinsPt_MB1-1, &arrPtBinning_MB1[0]));
+  std::unique_ptr<TH1D> h1_RawYield_MCPi0TGPSPS_Pol1_EG1            (new TH1D("h1_RawYield_MCPi0TGPSPS_Pol1_EG1",           "", nBinsPt_MB1-1, &arrPtBinning_MB1[0]));
   std::unique_ptr<TH1D> h1_RawYield_MCPi0RotPS_Pol1_EG2             (new TH1D("h1_RawYield_MCPi0RotPS_Pol1_EG2",                "", nBinsPt_MB2-1, &arrPtBinning_EG2[0]));
-  std::unique_ptr<TH1D> h1_RawYield_MCPi0TGPSPS_Pol1_EG2        (new TH1D("h1_RawYield_MCPi0TGPSPS_Pol1_EG2",           "", nBinsPt_MB2-1, &arrPtBinning_EG2[0]));
+  std::unique_ptr<TH1D> h1_RawYield_MCPi0TGPSPS_Pol1_EG2            (new TH1D("h1_RawYield_MCPi0TGPSPS_Pol1_EG2",           "", nBinsPt_MB2-1, &arrPtBinning_EG2[0]));
   std::unique_ptr<TH1D> h1_RawYield_MCOmegaRotWOPS_Pol1_EG1         (new TH1D("h1_RawYield_MCOmegaRotWOPS_Pol1_EG1",            "", nBinsPt_MB1-1, &arrPtBinning_MB1[0]));
   std::unique_ptr<TH1D> h1_RawYield_MCOmegaTGPSWOPS_Pol1_EG1        (new TH1D("h1_RawYield_MCOmegaTGPSWOPS_Pol1_EG1",           "", nBinsPt_MB1-1, &arrPtBinning_MB1[0]));
   std::unique_ptr<TH1D> h1_RawYield_MCOmegaTGPSPlusWOPS_Pol1_EG1    (new TH1D("h1_RawYield_MCOmegaTGPSPlusWOPS_Pol1_EG1",       "", nBinsPt_MB1-1, &arrPtBinning_MB1[0]));
@@ -4082,6 +4114,21 @@ void plotting()
     h1_SameEvent_DataOmegaPS2Sig_EG1->Add(h1_AngleCutRejected_DataOmegaPS2Sig_EG1);
     h1_SameEvent_DataOmegaPS3Sig_EG1->Add(h1_AngleCutRejected_DataOmegaPS3Sig_EG1);
     h1_SameEvent_DataOmegaPS4Sig_EG1->Add(h1_AngleCutRejected_DataOmegaPS4Sig_EG1);
+
+    vHistos.push_back(h1_SameEvent_DataOmegaPS1Sig_EG1);
+    vHistos.push_back(h1_SameEvent_DataOmegaPS2Sig_EG1);
+    vHistos.push_back(h1_SameEvent_DataOmegaPS3Sig_EG1);
+    vHistos.push_back(h1_SameEvent_DataOmegaPS4Sig_EG1);
+    vSignal.push_back(h1_TrueOmega_MCOmegaPS1Sig_EG1);
+    vSignal.push_back(h1_TrueOmega_MCOmegaPS2Sig_EG1);
+    vSignal.push_back(h1_TrueOmega_MCOmegaPS3Sig_EG1);
+    vSignal.push_back(h1_TrueOmega_MCOmegaPS4Sig_EG1);
+    StoB(vHistos, vSignal, pTBin_EG1, legSystem.get());
+    vHistos.clear();
+    vHistos.resize(0);
+    vSignal.clear();
+    vSignal.resize(0);
+
     BeforeScaling(h1_SameEvent_DataOmegaPS1Sig_EG1, h1_MixedEventDiffPi0SameGamma_DataOmegaPS1Sig_EG1, legSystem.get(), Form("Data/EG1/OmegaPS1Sig/SameEventAndBackgroundBeforeScaling_SamePi0DiffGamma_%02d.svg", pTBin_EG1));
 
     BeforeScaling(h1_SameEvent_DataOmegaPS2Sig_EG1, h1_MixedEventDiffPi0SameGamma_DataOmegaPS2Sig_EG1, legSystem.get(), Form("Data/EG1/OmegaPS2Sig/SameEventAndBackgroundBeforeScaling_SamePi0DiffGamma_%02d.svg", pTBin_EG1));
@@ -4097,6 +4144,46 @@ void plotting()
     BeforeScaling(h1_SameEvent_DataOmegaPS3Sig_EG1, h1_MixedEventSamePi0DiffGamma_DataOmegaPS3Sig_EG1, legSystem.get(), Form("Data/EG1/OmegaPS3Sig/SameEventAndBackgroundBeforeScaling_DiffPi0SameGamma_%02d.svg", pTBin_EG1));
 
     BeforeScaling(h1_SameEvent_DataOmegaPS4Sig_EG1, h1_MixedEventSamePi0DiffGamma_DataOmegaPS4Sig_EG1, legSystem.get(), Form("Data/EG1/OmegaPS4Sig/SameEventAndBackgroundBeforeScaling_DiffPi0SameGamma_%02d.svg", pTBin_EG1));
+
+    // vHistos.push_back(h1_SameEvent_DataOmegaPS1Sig_EG1);
+    // vHistos.push_back(h1_SameEvent_DataOmegaPS2Sig_EG1);
+    // vHistos.push_back(h1_SameEvent_DataOmegaPS3Sig_EG1);
+    // vHistos.push_back(h1_SameEvent_DataOmegaPS4Sig_EG1);
+    // vBack.push_back(h1_MixedEventDiffPi0SameGamma_DataOmegaPS1Sig_EG1);
+    // vBack.push_back(h1_MixedEventDiffPi0SameGamma_DataOmegaPS2Sig_EG1);
+    // vBack.push_back(h1_MixedEventDiffPi0SameGamma_DataOmegaPS3Sig_EG1);
+    // vBack.push_back(h1_MixedEventDiffPi0SameGamma_DataOmegaPS4Sig_EG1);
+    //
+    // ScaleMixedEvent(vHistos, vBack, fitMixedLow, fitMixedHigh);
+    // vBack.clear();
+    // vBack.resize(0);
+    //
+    // vBack.push_back(h1_MixedEventSamePi0DiffGamma_DataOmegaPS1Sig_EG1);
+    // vBack.push_back(h1_MixedEventSamePi0DiffGamma_DataOmegaPS2Sig_EG1);
+    // vBack.push_back(h1_MixedEventSamePi0DiffGamma_DataOmegaPS3Sig_EG1);
+    // vBack.push_back(h1_MixedEventSamePi0DiffGamma_DataOmegaPS4Sig_EG1);
+    //
+    // ScaleMixedEvent(vHistos, vBack, fitMixedLow, fitMixedHigh);
+    // vBack.clear();
+    // vBack.resize(0);
+    // vHistos.clear();
+    // vHistos.resize(0);
+
+    BeforeScaling(h1_SameEvent_DataOmegaPS1Sig_EG1, h1_MixedEventDiffPi0SameGamma_DataOmegaPS1Sig_EG1, legSystem.get(), Form("Data/EG1/OmegaPS1Sig/SameEventAndBackgroundAfterScaling_SamePi0DiffGamma_%02d.svg", pTBin_EG1));
+
+    BeforeScaling(h1_SameEvent_DataOmegaPS2Sig_EG1, h1_MixedEventDiffPi0SameGamma_DataOmegaPS2Sig_EG1, legSystem.get(), Form("Data/EG1/OmegaPS2Sig/SameEventAndBackgroundAfterScaling_SamePi0DiffGamma_%02d.svg", pTBin_EG1));
+
+    BeforeScaling(h1_SameEvent_DataOmegaPS3Sig_EG1, h1_MixedEventDiffPi0SameGamma_DataOmegaPS3Sig_EG1, legSystem.get(), Form("Data/EG1/OmegaPS3Sig/SameEventAndBackgroundAfterScaling_SamePi0DiffGamma_%02d.svg", pTBin_EG1));
+
+    BeforeScaling(h1_SameEvent_DataOmegaPS4Sig_EG1, h1_MixedEventDiffPi0SameGamma_DataOmegaPS4Sig_EG1, legSystem.get(), Form("Data/EG1/OmegaPS4Sig/SameEventAndBackgroundAfterScaling_SamePi0DiffGamma_%02d.svg", pTBin_EG1));
+
+    BeforeScaling(h1_SameEvent_DataOmegaPS1Sig_EG1, h1_MixedEventSamePi0DiffGamma_DataOmegaPS1Sig_EG1, legSystem.get(), Form("Data/EG1/OmegaPS1Sig/SameEventAndBackgroundAfterScaling_DiffPi0SameGamma_%02d.svg", pTBin_EG1));
+
+    BeforeScaling(h1_SameEvent_DataOmegaPS2Sig_EG1, h1_MixedEventSamePi0DiffGamma_DataOmegaPS2Sig_EG1, legSystem.get(), Form("Data/EG1/OmegaPS2Sig/SameEventAndBackgroundAfterScaling_DiffPi0SameGamma_%02d.svg", pTBin_EG1));
+
+    BeforeScaling(h1_SameEvent_DataOmegaPS3Sig_EG1, h1_MixedEventSamePi0DiffGamma_DataOmegaPS3Sig_EG1, legSystem.get(), Form("Data/EG1/OmegaPS3Sig/SameEventAndBackgroundAfterScaling_DiffPi0SameGamma_%02d.svg", pTBin_EG1));
+
+    BeforeScaling(h1_SameEvent_DataOmegaPS4Sig_EG1, h1_MixedEventSamePi0DiffGamma_DataOmegaPS4Sig_EG1, legSystem.get(), Form("Data/EG1/OmegaPS4Sig/SameEventAndBackgroundAfterScaling_DiffPi0SameGamma_%02d.svg", pTBin_EG1));
 
     h1_Ratio_BackToSame_DataOmegaRotPS_EG1        = (TH1D*) h1_SameEvent_DataOmegaPS_EG1    ->Clone("h1_Ratio_BackToSame_DataOmegaRotPS_EG1       ");
     h1_Ratio_BackToSame_DataOmegaRotPS_EG1        ->Divide(h1_Ratio_BackToSame_DataOmegaRotPS_EG1       , h1_Background_DataOmegaRotPS_EG1      , 1, 1, "B");
@@ -4120,6 +4207,14 @@ void plotting()
     h1_Ratio_BackToSame_DataOmegaTGPSPSNCell_EG1    ->Divide(h1_Ratio_BackToSame_DataOmegaTGPSPSNCell_EG1      , h1_Background_DataOmegaTGPSPSNCell_EG1     , 1, 1, "B");
     h1_Ratio_BackToSame_DataOmegaTGPSPlusPSNCell_EG1= (TH1D*) h1_SameEvent_DataOmegaPSNCell_EG1    ->Clone("h1_Ratio_BackToSame_DataOmegaTGPSPlusPSNCell_EG1  ");
     h1_Ratio_BackToSame_DataOmegaTGPSPlusPSNCell_EG1->Divide(h1_Ratio_BackToSame_DataOmegaTGPSPlusPSNCell_EG1  , h1_Background_DataOmegaTGPSPlusPSNCell_EG1 , 1, 1, "B");
+    h1_Ratio_BackToSame_DataOmegaPS1Sig_EG1= (TH1D*) h1_SameEvent_DataOmegaPS1Sig_EG1->Clone("h1_Ratio_BackToSame_DataOmegaPS1Sig_EG1  ");
+    h1_Ratio_BackToSame_DataOmegaPS1Sig_EG1->Divide(h1_Ratio_BackToSame_DataOmegaPS1Sig_EG1  , h1_MixedEventDiffPi0SameGamma_DataOmegaPS1Sig_EG1 , 1, 1, "B");
+    h1_Ratio_BackToSame_DataOmegaPS2Sig_EG1= (TH1D*) h1_SameEvent_DataOmegaPS2Sig_EG1->Clone("h1_Ratio_BackToSame_DataOmegaPS2Sig_EG1  ");
+    h1_Ratio_BackToSame_DataOmegaPS2Sig_EG1->Divide(h1_Ratio_BackToSame_DataOmegaPS2Sig_EG1  , h1_MixedEventDiffPi0SameGamma_DataOmegaPS2Sig_EG1 , 1, 1, "B");
+    h1_Ratio_BackToSame_DataOmegaPS3Sig_EG1= (TH1D*) h1_SameEvent_DataOmegaPS3Sig_EG1->Clone("h1_Ratio_BackToSame_DataOmegaPS3Sig_EG1  ");
+    h1_Ratio_BackToSame_DataOmegaPS3Sig_EG1->Divide(h1_Ratio_BackToSame_DataOmegaPS3Sig_EG1  , h1_MixedEventDiffPi0SameGamma_DataOmegaPS3Sig_EG1 , 1, 1, "B");
+    h1_Ratio_BackToSame_DataOmegaPS4Sig_EG1= (TH1D*) h1_SameEvent_DataOmegaPS4Sig_EG1->Clone("h1_Ratio_BackToSame_DataOmegaPS4Sig_EG1  ");
+    h1_Ratio_BackToSame_DataOmegaPS4Sig_EG1->Divide(h1_Ratio_BackToSame_DataOmegaPS4Sig_EG1  , h1_MixedEventDiffPi0SameGamma_DataOmegaPS4Sig_EG1 , 1, 1, "B");
 
 
     h1_Peak_BackToSame_DataOmegaRotPS_EG1           = (TH1D*) h1_Ratio_BackToSame_DataOmegaRotPS_EG1            ->Clone("h1_Peak_BackToSame_DataOmegaRotPS_EG1          ");
@@ -4133,6 +4228,11 @@ void plotting()
     h1_Peak_BackToSame_DataOmegaRotPSNCell_EG1      = (TH1D*) h1_Ratio_BackToSame_DataOmegaRotPSNCell_EG1       ->Clone("h1_Peak_BackToSame_DataOmegaRotPSNCell_EG1     ");
     h1_Peak_BackToSame_DataOmegaTGPSPSNCell_EG1     = (TH1D*) h1_Ratio_BackToSame_DataOmegaTGPSPSNCell_EG1      ->Clone("h1_Peak_BackToSame_DataOmegaTGPSPSNCell_EG1    ");
     h1_Peak_BackToSame_DataOmegaTGPSPlusPSNCell_EG1 = (TH1D*) h1_Ratio_BackToSame_DataOmegaTGPSPlusPSNCell_EG1  ->Clone("h1_Peak_BackToSame_DataOmegaTGPSPlusPSNCell_EG1");
+
+    h1_Peak_BackToSame_DataOmegaPS1Sig_EG1          = (TH1D*) h1_Ratio_BackToSame_DataOmegaPS1Sig_EG1           ->Clone("h1_Peak_BackToSame_DataOmegaPS1Sig_EG1");
+    h1_Peak_BackToSame_DataOmegaPS2Sig_EG1          = (TH1D*) h1_Ratio_BackToSame_DataOmegaPS2Sig_EG1           ->Clone("h1_Peak_BackToSame_DataOmegaPS2Sig_EG1");
+    h1_Peak_BackToSame_DataOmegaPS3Sig_EG1          = (TH1D*) h1_Ratio_BackToSame_DataOmegaPS3Sig_EG1           ->Clone("h1_Peak_BackToSame_DataOmegaPS3Sig_EG1");
+    h1_Peak_BackToSame_DataOmegaPS4Sig_EG1          = (TH1D*) h1_Ratio_BackToSame_DataOmegaPS4Sig_EG1           ->Clone("h1_Peak_BackToSame_DataOmegaPS4Sig_EG1");
 
 
     for (Int_t i = 1; i <= h1_SameEvent_DataOmegaPS_EG1->GetNbinsX(); i++)
@@ -4161,6 +4261,14 @@ void plotting()
         h1_Ratio_BackToSame_DataOmegaTGPSPSNCell_EG1->SetBinError(i, 0.0);
         h1_Ratio_BackToSame_DataOmegaTGPSPlusPSNCell_EG1->SetBinContent(i, 0.0);
         h1_Ratio_BackToSame_DataOmegaTGPSPlusPSNCell_EG1->SetBinError(i, 0.0);
+        h1_Ratio_BackToSame_DataOmegaPS1Sig_EG1->SetBinContent(i, 0.0);
+        h1_Ratio_BackToSame_DataOmegaPS1Sig_EG1->SetBinError(i, 0.0);
+        h1_Ratio_BackToSame_DataOmegaPS2Sig_EG1->SetBinContent(i, 0.0);
+        h1_Ratio_BackToSame_DataOmegaPS2Sig_EG1->SetBinError(i, 0.0);
+        h1_Ratio_BackToSame_DataOmegaPS3Sig_EG1->SetBinContent(i, 0.0);
+        h1_Ratio_BackToSame_DataOmegaPS3Sig_EG1->SetBinError(i, 0.0);
+        h1_Ratio_BackToSame_DataOmegaPS4Sig_EG1->SetBinContent(i, 0.0);
+        h1_Ratio_BackToSame_DataOmegaPS4Sig_EG1->SetBinError(i, 0.0);
       }
       else
       {
@@ -4186,7 +4294,14 @@ void plotting()
         h1_Peak_BackToSame_DataOmegaTGPSPSNCell_EG1->SetBinError(i, 0.0);
         h1_Peak_BackToSame_DataOmegaTGPSPlusPSNCell_EG1->SetBinContent(i, 0.0);
         h1_Peak_BackToSame_DataOmegaTGPSPlusPSNCell_EG1->SetBinError(i, 0.0);
-
+        h1_Peak_BackToSame_DataOmegaPS1Sig_EG1->SetBinContent(i, 0.0);
+        h1_Peak_BackToSame_DataOmegaPS1Sig_EG1->SetBinError(i, 0.0);
+        h1_Peak_BackToSame_DataOmegaPS2Sig_EG1->SetBinContent(i, 0.0);
+        h1_Peak_BackToSame_DataOmegaPS2Sig_EG1->SetBinError(i, 0.0);
+        h1_Peak_BackToSame_DataOmegaPS3Sig_EG1->SetBinContent(i, 0.0);
+        h1_Peak_BackToSame_DataOmegaPS3Sig_EG1->SetBinError(i, 0.0);
+        h1_Peak_BackToSame_DataOmegaPS4Sig_EG1->SetBinContent(i, 0.0);
+        h1_Peak_BackToSame_DataOmegaPS4Sig_EG1->SetBinError(i, 0.0);
       }
     }
 
@@ -4208,6 +4323,11 @@ void plotting()
     std::unique_ptr<TGraphErrors> gConvInt_DataOmegaTGPSPSNCell_Pol1_EG1      (new TGraphErrors(h1_SameEvent_DataOmegaPS_EG1->GetNbinsX() ) );
     std::unique_ptr<TGraphErrors> gConvInt_DataOmegaTGPSPlusPSNCell_Pol1_EG1  (new TGraphErrors(h1_SameEvent_DataOmegaPS_EG1->GetNbinsX() ) );
 
+    std::unique_ptr<TGraphErrors> gConvInt_DataOmegaPS1Sig_Pol1_EG1           (new TGraphErrors(h1_SameEvent_DataOmegaPS1Sig_EG1->GetNbinsX() ) );
+    std::unique_ptr<TGraphErrors> gConvInt_DataOmegaPS2Sig_Pol1_EG1           (new TGraphErrors(h1_SameEvent_DataOmegaPS2Sig_EG1->GetNbinsX() ) );
+    std::unique_ptr<TGraphErrors> gConvInt_DataOmegaPS3Sig_Pol1_EG1           (new TGraphErrors(h1_SameEvent_DataOmegaPS3Sig_EG1->GetNbinsX() ) );
+    std::unique_ptr<TGraphErrors> gConvInt_DataOmegaPS4Sig_Pol1_EG1           (new TGraphErrors(h1_SameEvent_DataOmegaPS4Sig_EG1->GetNbinsX() ) );
+
     std::unique_ptr<TGraphErrors> gConvInt_DataOmegaRotPS_Pol2_EG1            (new TGraphErrors(h1_SameEvent_DataOmegaPS_EG1->GetNbinsX() ) );
     std::unique_ptr<TGraphErrors> gConvInt_DataOmegaTGPSPS_Pol2_EG1           (new TGraphErrors(h1_SameEvent_DataOmegaPS_EG1->GetNbinsX() ) );
     std::unique_ptr<TGraphErrors> gConvInt_DataOmegaTGPSPlusPS_Pol2_EG1       (new TGraphErrors(h1_SameEvent_DataOmegaPS_EG1->GetNbinsX() ) );
@@ -4219,6 +4339,11 @@ void plotting()
     std::unique_ptr<TGraphErrors> gConvInt_DataOmegaRotPSNCell_Pol2_EG1       (new TGraphErrors(h1_SameEvent_DataOmegaPS_EG1->GetNbinsX() ) );
     std::unique_ptr<TGraphErrors> gConvInt_DataOmegaTGPSPSNCell_Pol2_EG1      (new TGraphErrors(h1_SameEvent_DataOmegaPS_EG1->GetNbinsX() ) );
     std::unique_ptr<TGraphErrors> gConvInt_DataOmegaTGPSPlusPSNCell_Pol2_EG1  (new TGraphErrors(h1_SameEvent_DataOmegaPS_EG1->GetNbinsX() ) );
+
+    std::unique_ptr<TGraphErrors> gConvInt_DataOmegaPS1Sig_Pol2_EG1           (new TGraphErrors(h1_SameEvent_DataOmegaPS1Sig_EG1->GetNbinsX() ) );
+    std::unique_ptr<TGraphErrors> gConvInt_DataOmegaPS2Sig_Pol2_EG1           (new TGraphErrors(h1_SameEvent_DataOmegaPS2Sig_EG1->GetNbinsX() ) );
+    std::unique_ptr<TGraphErrors> gConvInt_DataOmegaPS3Sig_Pol2_EG1           (new TGraphErrors(h1_SameEvent_DataOmegaPS3Sig_EG1->GetNbinsX() ) );
+    std::unique_ptr<TGraphErrors> gConvInt_DataOmegaPS4Sig_Pol2_EG1           (new TGraphErrors(h1_SameEvent_DataOmegaPS4Sig_EG1->GetNbinsX() ) );
 
 
     vHistos.push_back(h1_Ratio_BackToSame_DataOmegaRotPS_EG1);
@@ -4232,6 +4357,10 @@ void plotting()
     vHistos.push_back(h1_Ratio_BackToSame_DataOmegaRotPSNCell_EG1);
     vHistos.push_back(h1_Ratio_BackToSame_DataOmegaTGPSPSNCell_EG1);
     vHistos.push_back(h1_Ratio_BackToSame_DataOmegaTGPSPlusPSNCell_EG1);
+    vHistos.push_back(h1_Ratio_BackToSame_DataOmegaPS1Sig_EG1);
+    vHistos.push_back(h1_Ratio_BackToSame_DataOmegaPS2Sig_EG1);
+    vHistos.push_back(h1_Ratio_BackToSame_DataOmegaPS3Sig_EG1);
+    vHistos.push_back(h1_Ratio_BackToSame_DataOmegaPS4Sig_EG1);
 
     vGraphs.push_back(gConvInt_DataOmegaRotPS_Pol1_EG1.get());
     vGraphs.push_back(gConvInt_DataOmegaTGPSPS_Pol1_EG1.get());
@@ -4244,6 +4373,10 @@ void plotting()
     vGraphs.push_back(gConvInt_DataOmegaRotPSNCell_Pol1_EG1.get());
     vGraphs.push_back(gConvInt_DataOmegaTGPSPSNCell_Pol1_EG1.get());
     vGraphs.push_back(gConvInt_DataOmegaTGPSPlusPSNCell_Pol1_EG1.get());
+    vGraphs.push_back(gConvInt_DataOmegaPS1Sig_Pol1_EG1.get());
+    vGraphs.push_back(gConvInt_DataOmegaPS2Sig_Pol1_EG1.get());
+    vGraphs.push_back(gConvInt_DataOmegaPS3Sig_Pol1_EG1.get());
+    vGraphs.push_back(gConvInt_DataOmegaPS4Sig_Pol1_EG1.get());
 
     vFunctions.push_back(f1Back_DataOmegaRotPS_Pol1_EG1.get());
     vFunctions.push_back(f1Back_DataOmegaTGPSPS_Pol1_EG1.get());
@@ -4256,6 +4389,10 @@ void plotting()
     vFunctions.push_back(f1Back_DataOmegaRotPSNCell_Pol1_EG1.get());
     vFunctions.push_back(f1Back_DataOmegaTGPSPSNCell_Pol1_EG1.get());
     vFunctions.push_back(f1Back_DataOmegaTGPSPlusPSNCell_Pol1_EG1.get());
+    vFunctions.push_back(f1Back_DataOmegaPS1Sig_Pol1_EG1.get());
+    vFunctions.push_back(f1Back_DataOmegaPS2Sig_Pol1_EG1.get());
+    vFunctions.push_back(f1Back_DataOmegaPS3Sig_Pol1_EG1.get());
+    vFunctions.push_back(f1Back_DataOmegaPS4Sig_Pol1_EG1.get());
 
     FitBackground(vHistos, vFunctions, vGraphs, fitLower_Pol1, fitHigher_Pol1);
     vFunctions.clear();
@@ -4274,6 +4411,10 @@ void plotting()
     vGraphs.push_back(gConvInt_DataOmegaRotPSNCell_Pol2_EG1.get());
     vGraphs.push_back(gConvInt_DataOmegaTGPSPSNCell_Pol2_EG1.get());
     vGraphs.push_back(gConvInt_DataOmegaTGPSPlusPSNCell_Pol2_EG1.get());
+    vGraphs.push_back(gConvInt_DataOmegaPS1Sig_Pol2_EG1.get());
+    vGraphs.push_back(gConvInt_DataOmegaPS2Sig_Pol2_EG1.get());
+    vGraphs.push_back(gConvInt_DataOmegaPS3Sig_Pol2_EG1.get());
+    vGraphs.push_back(gConvInt_DataOmegaPS4Sig_Pol2_EG1.get());
 
     vFunctions.push_back(f1Back_DataOmegaRotPS_Pol2_EG1.get());
     vFunctions.push_back(f1Back_DataOmegaTGPSPS_Pol2_EG1.get());
@@ -4286,6 +4427,10 @@ void plotting()
     vFunctions.push_back(f1Back_DataOmegaRotPSNCell_Pol2_EG1.get());
     vFunctions.push_back(f1Back_DataOmegaTGPSPSNCell_Pol2_EG1.get());
     vFunctions.push_back(f1Back_DataOmegaTGPSPlusPSNCell_Pol2_EG1.get());
+    vFunctions.push_back(f1Back_DataOmegaPS1Sig_Pol2_EG1.get());
+    vFunctions.push_back(f1Back_DataOmegaPS2Sig_Pol2_EG1.get());
+    vFunctions.push_back(f1Back_DataOmegaPS3Sig_Pol2_EG1.get());
+    vFunctions.push_back(f1Back_DataOmegaPS4Sig_Pol2_EG1.get());
 
     FitBackground(vHistos, vFunctions, vGraphs, fitLower_Pol2, fitHigher_Pol2);
     vHistos.clear();
@@ -4308,6 +4453,11 @@ void plotting()
     TH1D* h1_Background_DataOmegaTGPSPSNCell_Pol1_EG1     = (TH1D*) h1_Background_DataOmegaTGPSPSNCell_EG1    ->Clone("h1_Background_DataOmegaTGPSPSNCell_Pol1_EG1");
     TH1D* h1_Background_DataOmegaTGPSPlusPSNCell_Pol1_EG1 = (TH1D*) h1_Background_DataOmegaTGPSPlusPSNCell_EG1->Clone("h1_Background_DataOmegaTGPSPlusPSNCell_Pol1_EG1");
 
+    TH1D* h1_Background_DataOmegaPS1Sig_Pol1_EG1          = (TH1D*) h1_MixedEventDiffPi0SameGamma_DataOmegaPS1Sig_EG1->Clone("h1_Background_DataOmegaPS1Sig_Pol1_EG1");
+    TH1D* h1_Background_DataOmegaPS2Sig_Pol1_EG1          = (TH1D*) h1_MixedEventDiffPi0SameGamma_DataOmegaPS2Sig_EG1->Clone("h1_Background_DataOmegaPS2Sig_Pol1_EG1");
+    TH1D* h1_Background_DataOmegaPS3Sig_Pol1_EG1          = (TH1D*) h1_MixedEventDiffPi0SameGamma_DataOmegaPS3Sig_EG1->Clone("h1_Background_DataOmegaPS3Sig_Pol1_EG1");
+    TH1D* h1_Background_DataOmegaPS4Sig_Pol1_EG1          = (TH1D*) h1_MixedEventDiffPi0SameGamma_DataOmegaPS4Sig_EG1->Clone("h1_Background_DataOmegaPS4Sig_Pol1_EG1");
+
 
     TH1D* h1_Background_DataOmegaRotPS_Pol2_EG1           = (TH1D*) h1_Background_DataOmegaRotPS_EG1          ->Clone("h1_Background_DataOmegaRotPS_Pol2_EG1");
     TH1D* h1_Background_DataOmegaTGPSPS_Pol2_EG1          = (TH1D*) h1_Background_DataOmegaTGPSPS_EG1         ->Clone("h1_Background_DataOmegaTGPSPS_Pol2_EG1");
@@ -4321,6 +4471,11 @@ void plotting()
     TH1D* h1_Background_DataOmegaTGPSPSNCell_Pol2_EG1     = (TH1D*) h1_Background_DataOmegaTGPSPSNCell_EG1    ->Clone("h1_Background_DataOmegaTGPSPSNCell_Pol2_EG1");
     TH1D* h1_Background_DataOmegaTGPSPlusPSNCell_Pol2_EG1 = (TH1D*) h1_Background_DataOmegaTGPSPlusPSNCell_EG1->Clone("h1_Background_DataOmegaTGPSPlusPSNCell_Pol2_EG1");
 
+    TH1D* h1_Background_DataOmegaPS1Sig_Pol2_EG1          = (TH1D*) h1_MixedEventDiffPi0SameGamma_DataOmegaPS1Sig_EG1->Clone("h1_Background_DataOmegaPS1Sig_Pol2_EG1");
+    TH1D* h1_Background_DataOmegaPS2Sig_Pol2_EG1          = (TH1D*) h1_MixedEventDiffPi0SameGamma_DataOmegaPS2Sig_EG1->Clone("h1_Background_DataOmegaPS2Sig_Pol2_EG1");
+    TH1D* h1_Background_DataOmegaPS3Sig_Pol2_EG1          = (TH1D*) h1_MixedEventDiffPi0SameGamma_DataOmegaPS3Sig_EG1->Clone("h1_Background_DataOmegaPS3Sig_Pol2_EG1");
+    TH1D* h1_Background_DataOmegaPS4Sig_Pol2_EG1          = (TH1D*) h1_MixedEventDiffPi0SameGamma_DataOmegaPS4Sig_EG1->Clone("h1_Background_DataOmegaPS4Sig_Pol2_EG1");
+
     h1_Background_DataOmegaRotPS_Pol1_EG1->Multiply(f1Back_DataOmegaRotPS_Pol1_EG1.get());
     h1_Background_DataOmegaTGPSPS_Pol1_EG1->Multiply(f1Back_DataOmegaTGPSPS_Pol1_EG1.get());
     h1_Background_DataOmegaTGPSPlusPS_Pol1_EG1->Multiply(f1Back_DataOmegaTGPSPlusPS_Pol1_EG1.get());
@@ -4332,6 +4487,10 @@ void plotting()
     h1_Background_DataOmegaRotPSNCell_Pol1_EG1->Multiply(f1Back_DataOmegaRotPSNCell_Pol1_EG1.get());
     h1_Background_DataOmegaTGPSPSNCell_Pol1_EG1->Multiply(f1Back_DataOmegaTGPSPSNCell_Pol1_EG1.get());
     h1_Background_DataOmegaTGPSPlusPSNCell_Pol1_EG1->Multiply(f1Back_DataOmegaTGPSPlusPSNCell_Pol1_EG1.get());
+    h1_Background_DataOmegaPS1Sig_Pol1_EG1->Multiply(f1Back_DataOmegaPS1Sig_Pol1_EG1.get());
+    h1_Background_DataOmegaPS2Sig_Pol1_EG1->Multiply(f1Back_DataOmegaPS2Sig_Pol1_EG1.get());
+    h1_Background_DataOmegaPS3Sig_Pol1_EG1->Multiply(f1Back_DataOmegaPS3Sig_Pol1_EG1.get());
+    h1_Background_DataOmegaPS4Sig_Pol1_EG1->Multiply(f1Back_DataOmegaPS4Sig_Pol1_EG1.get());
 
     h1_Background_DataOmegaRotPS_Pol2_EG1->Multiply(f1Back_DataOmegaRotPS_Pol2_EG1.get());
     h1_Background_DataOmegaTGPSPS_Pol2_EG1->Multiply(f1Back_DataOmegaTGPSPS_Pol2_EG1.get());
@@ -4344,12 +4503,16 @@ void plotting()
     h1_Background_DataOmegaRotPSNCell_Pol2_EG1->Multiply(f1Back_DataOmegaRotPSNCell_Pol2_EG1.get());
     h1_Background_DataOmegaTGPSPSNCell_Pol2_EG1->Multiply(f1Back_DataOmegaTGPSPSNCell_Pol2_EG1.get());
     h1_Background_DataOmegaTGPSPlusPSNCell_Pol2_EG1->Multiply(f1Back_DataOmegaTGPSPlusPSNCell_Pol2_EG1.get());
+    h1_Background_DataOmegaPS1Sig_Pol2_EG1->Multiply(f1Back_DataOmegaPS1Sig_Pol2_EG1.get());
+    h1_Background_DataOmegaPS2Sig_Pol2_EG1->Multiply(f1Back_DataOmegaPS2Sig_Pol2_EG1.get());
+    h1_Background_DataOmegaPS3Sig_Pol2_EG1->Multiply(f1Back_DataOmegaPS3Sig_Pol2_EG1.get());
+    h1_Background_DataOmegaPS4Sig_Pol2_EG1->Multiply(f1Back_DataOmegaPS4Sig_Pol2_EG1.get());
 
     // ScaleWithUncer(h1_Background_DataOmegaRotPS_Pol1_EG1           , gConvInt_DataOmegaRotPS_Pol1_EG1          , f1Back_DataOmegaRotPS_Pol1_EG1);
     // ScaleWithUncer(h1_Background_DataOmegaTGPSPS_Pol1_EG1          , gConvInt_DataOmegaTGPSPS_Pol1_EG1         , f1Back_DataOmegaTGPSPS_Pol1_EG1);
     // ScaleWithUncer(h1_Background_DataOmegaTGPSPlusPS_Pol1_EG1      , gConvInt_DataOmegaTGPSPlusPS_Pol1_EG1     , f1Back_DataOmegaTGPSPlusPS_Pol1_EG1);
     // ScaleWithUncer(h1_Background_DataPi0RotPS_Pol1_EG1             , gConvInt_DataPi0RotPS_Pol1_EG1            , f1Back_DataPi0RotPS_Pol1_EG1);
-    // ScaleWithUncer(h1_Background_DataPi0TGPSPS_Pol1_EG1        , gConvInt_DataPi0TGPSPS_Pol1_EG1       , f1Back_DataPi0TGPSPS_Pol1_EG1);
+    // ScaleWithUncer(h1_Background_DataPi0TGPSPS_Pol1_EG1            , gConvInt_DataPi0TGPSPS_Pol1_EG1           , f1Back_DataPi0TGPSPS_Pol1_EG1);
     // ScaleWithUncer(h1_Background_DataOmegaRotWOPS_Pol1_EG1         , gConvInt_DataOmegaRotWOPS_Pol1_EG1        , f1Back_DataOmegaRotWOPS_Pol1_EG1);
     // ScaleWithUncer(h1_Background_DataOmegaTGPSWOPS_Pol1_EG1        , gConvInt_DataOmegaTGPSWOPS_Pol1_EG1       , f1Back_DataOmegaTGPSWOPS_Pol1_EG1);
     // ScaleWithUncer(h1_Background_DataOmegaTGPSPlusWOPS_Pol1_EG1    , gConvInt_DataOmegaTGPSPlusWOPS_Pol1_EG1   , f1Back_DataOmegaTGPSPlusWOPS_Pol1_EG1);
@@ -4361,7 +4524,7 @@ void plotting()
     // ScaleWithUncer(h1_Background_DataOmegaTGPSPS_Pol2_EG1          , gConvInt_DataOmegaTGPSPS_Pol2_EG1         , f1Back_DataOmegaTGPSPS_Pol2_EG1);
     // ScaleWithUncer(h1_Background_DataOmegaTGPSPlusPS_Pol2_EG1      , gConvInt_DataOmegaTGPSPlusPS_Pol2_EG1     , f1Back_DataOmegaTGPSPlusPS_Pol2_EG1);
     // ScaleWithUncer(h1_Background_DataPi0RotPS_Pol2_EG1             , gConvInt_DataPi0RotPS_Pol2_EG1            , f1Back_DataPi0RotPS_Pol2_EG1);
-    // ScaleWithUncer(h1_Background_DataPi0TGPSPS_Pol2_EG1        , gConvInt_DataPi0TGPSPS_Pol2_EG1       , f1Back_DataPi0TGPSPS_Pol2_EG1);
+    // ScaleWithUncer(h1_Background_DataPi0TGPSPS_Pol2_EG1            , gConvInt_DataPi0TGPSPS_Pol2_EG1           , f1Back_DataPi0TGPSPS_Pol2_EG1);
     // ScaleWithUncer(h1_Background_DataOmegaRotWOPS_Pol2_EG1         , gConvInt_DataOmegaRotWOPS_Pol2_EG1        , f1Back_DataOmegaRotWOPS_Pol2_EG1);
     // ScaleWithUncer(h1_Background_DataOmegaTGPSWOPS_Pol2_EG1        , gConvInt_DataOmegaTGPSWOPS_Pol2_EG1       , f1Back_DataOmegaTGPSWOPS_Pol2_EG1);
     // ScaleWithUncer(h1_Background_DataOmegaTGPSPlusWOPS_Pol2_EG1    , gConvInt_DataOmegaTGPSPlusWOPS_Pol2_EG1   , f1Back_DataOmegaTGPSPlusWOPS_Pol2_EG1);
@@ -4371,6 +4534,10 @@ void plotting()
 
     h1_SameEvent_DataOmegaPS_EG1->SetMaximum(h1_SameEvent_DataOmegaPS_EG1->GetMaximum()*1.8);
     h1_SameEvent_DataOmegaWOPS_EG1->SetMaximum(h1_SameEvent_DataOmegaWOPS_EG1->GetMaximum()*1.8);
+    h1_SameEvent_DataOmegaPS1Sig_EG1->SetMaximum(h1_SameEvent_DataOmegaPS1Sig_EG1->GetMaximum()*1.8);
+    h1_SameEvent_DataOmegaPS2Sig_EG1->SetMaximum(h1_SameEvent_DataOmegaPS2Sig_EG1->GetMaximum()*1.8);
+    h1_SameEvent_DataOmegaPS3Sig_EG1->SetMaximum(h1_SameEvent_DataOmegaPS3Sig_EG1->GetMaximum()*1.8);
+    h1_SameEvent_DataOmegaPS4Sig_EG1->SetMaximum(h1_SameEvent_DataOmegaPS4Sig_EG1->GetMaximum()*1.8);
 
     h1_Ratio_BackToSame_DataOmegaRotPS_EG1->SetMaximum(h1_Ratio_BackToSame_DataOmegaRotPS_EG1->GetMaximum()*1.6);
     h1_Ratio_BackToSame_DataOmegaTGPSPS_EG1->SetMaximum(h1_Ratio_BackToSame_DataOmegaTGPSPS_EG1->GetMaximum()*1.6);
@@ -4383,6 +4550,10 @@ void plotting()
     h1_Ratio_BackToSame_DataOmegaRotPSNCell_EG1->SetMaximum(h1_Ratio_BackToSame_DataOmegaRotPSNCell_EG1->GetMaximum()*1.6);
     h1_Ratio_BackToSame_DataOmegaTGPSPSNCell_EG1->SetMaximum(h1_Ratio_BackToSame_DataOmegaTGPSPSNCell_EG1->GetMaximum()*1.6);
     h1_Ratio_BackToSame_DataOmegaTGPSPlusPSNCell_EG1->SetMaximum(h1_Ratio_BackToSame_DataOmegaTGPSPlusPSNCell_EG1->GetMaximum()*1.6);
+    h1_Ratio_BackToSame_DataOmegaPS1Sig_EG1->SetMaximum(h1_Ratio_BackToSame_DataOmegaPS1Sig_EG1->GetBinContent(h1_Ratio_BackToSame_DataOmegaPS1Sig_EG1->FindBin(0.4))*1.8);
+    h1_Ratio_BackToSame_DataOmegaPS2Sig_EG1->SetMaximum(h1_Ratio_BackToSame_DataOmegaPS2Sig_EG1->GetBinContent(h1_Ratio_BackToSame_DataOmegaPS2Sig_EG1->FindBin(0.4))*1.8);
+    h1_Ratio_BackToSame_DataOmegaPS3Sig_EG1->SetMaximum(h1_Ratio_BackToSame_DataOmegaPS3Sig_EG1->GetBinContent(h1_Ratio_BackToSame_DataOmegaPS3Sig_EG1->FindBin(0.4))*1.8);
+    h1_Ratio_BackToSame_DataOmegaPS4Sig_EG1->SetMaximum(h1_Ratio_BackToSame_DataOmegaPS4Sig_EG1->GetBinContent(h1_Ratio_BackToSame_DataOmegaPS4Sig_EG1->FindBin(0.4))*1.8);
 
     SameEventToBackgroundRatio(h1_Ratio_BackToSame_DataOmegaRotPS_EG1, h1_Peak_BackToSame_DataOmegaRotPS_EG1, f1Back_DataOmegaRotPS_Pol1_EG1.get(), f1Back_DataOmegaRotPS_Pol2_EG1.get(), legSystem.get(), Form("Data/EG1/OmegaRotPS/SameEventToBackgroundRatio_%02d.svg", pTBin_EG1), fitLower_Pol1, fitHigher_Pol1);
 
@@ -4406,6 +4577,13 @@ void plotting()
 
     SameEventToBackgroundRatio(h1_Ratio_BackToSame_DataOmegaTGPSPlusPSNCell_EG1, h1_Peak_BackToSame_DataOmegaTGPSPlusPSNCell_EG1, f1Back_DataOmegaTGPSPlusPSNCell_Pol1_EG1.get(), f1Back_DataOmegaTGPSPlusPSNCell_Pol2_EG1.get(), legSystem.get(), Form("Data/EG1/OmegaTGPSPlusPSNCell/SameEventToBackgroundRatio_%02d.svg", pTBin_EG1), fitLower_Pol1, fitHigher_Pol1);
 
+    SameEventToBackgroundRatio(h1_Ratio_BackToSame_DataOmegaPS1Sig_EG1, h1_Peak_BackToSame_DataOmegaPS1Sig_EG1, f1Back_DataOmegaPS1Sig_Pol1_EG1.get(), f1Back_DataOmegaPS1Sig_Pol2_EG1.get(), legSystem.get(), Form("Data/EG1/OmegaPS1Sig/SameEventToBackgroundRatio_%02d.svg", pTBin_EG1), fitLower_Pol1, fitHigher_Pol1);
+
+    SameEventToBackgroundRatio(h1_Ratio_BackToSame_DataOmegaPS2Sig_EG1, h1_Peak_BackToSame_DataOmegaPS2Sig_EG1, f1Back_DataOmegaPS2Sig_Pol1_EG1.get(), f1Back_DataOmegaPS2Sig_Pol2_EG1.get(), legSystem.get(), Form("Data/EG1/OmegaPS2Sig/SameEventToBackgroundRatio_%02d.svg", pTBin_EG1), fitLower_Pol1, fitHigher_Pol1);
+
+    SameEventToBackgroundRatio(h1_Ratio_BackToSame_DataOmegaPS3Sig_EG1, h1_Peak_BackToSame_DataOmegaPS3Sig_EG1, f1Back_DataOmegaPS3Sig_Pol1_EG1.get(), f1Back_DataOmegaPS3Sig_Pol2_EG1.get(), legSystem.get(), Form("Data/EG1/OmegaPS3Sig/SameEventToBackgroundRatio_%02d.svg", pTBin_EG1), fitLower_Pol1, fitHigher_Pol1);
+
+    SameEventToBackgroundRatio(h1_Ratio_BackToSame_DataOmegaPS4Sig_EG1, h1_Peak_BackToSame_DataOmegaPS4Sig_EG1, f1Back_DataOmegaPS4Sig_Pol1_EG1.get(), f1Back_DataOmegaPS4Sig_Pol2_EG1.get(), legSystem.get(), Form("Data/EG1/OmegaPS4Sig/SameEventToBackgroundRatio_%02d.svg", pTBin_EG1), fitLower_Pol1, fitHigher_Pol1);
 
 
     FitAfterScalig(h1_SameEvent_DataOmegaPS_EG1, h1_Background_DataOmegaRotPS_Pol1_EG1, h1_Background_DataOmegaRotPS_Pol2_EG1, legSystem.get(), Form("Data/EG1/OmegaRotPS/SignalAndBackgroundFit_%02d.svg", pTBin_EG1));
@@ -4430,6 +4608,14 @@ void plotting()
 
     FitAfterScalig(h1_SameEvent_DataOmegaPSNCell_EG1, h1_Background_DataOmegaTGPSPlusPSNCell_Pol1_EG1, h1_Background_DataOmegaTGPSPlusPSNCell_Pol2_EG1, legSystem.get(), Form("Data/EG1/OmegaTGPSPlusPS/SignalAndBackgroundFit_%02d.svg", pTBin_EG1));
 
+    FitAfterScalig(h1_SameEvent_DataOmegaPS1Sig_EG1, h1_Background_DataOmegaPS1Sig_Pol1_EG1, h1_Background_DataOmegaPS1Sig_Pol2_EG1, legSystem.get(), Form("Data/EG1/OmegaPS1Sig/SignalAndBackgroundFit_%02d.svg", pTBin_EG1));
+
+    FitAfterScalig(h1_SameEvent_DataOmegaPS2Sig_EG1, h1_Background_DataOmegaPS2Sig_Pol1_EG1, h1_Background_DataOmegaPS2Sig_Pol2_EG1, legSystem.get(), Form("Data/EG1/OmegaPS2Sig/SignalAndBackgroundFit_%02d.svg", pTBin_EG1));
+
+    FitAfterScalig(h1_SameEvent_DataOmegaPS3Sig_EG1, h1_Background_DataOmegaPS3Sig_Pol1_EG1, h1_Background_DataOmegaPS3Sig_Pol2_EG1, legSystem.get(), Form("Data/EG1/OmegaPS3Sig/SignalAndBackgroundFit_%02d.svg", pTBin_EG1));
+
+    FitAfterScalig(h1_SameEvent_DataOmegaPS4Sig_EG1, h1_Background_DataOmegaPS4Sig_Pol1_EG1, h1_Background_DataOmegaPS4Sig_Pol2_EG1, legSystem.get(), Form("Data/EG1/OmegaPS4Sig/SignalAndBackgroundFit_%02d.svg", pTBin_EG1));
+
 
     /**************************************************************************/
     /*                                                                        */
@@ -4446,7 +4632,7 @@ void plotting()
     TH1D* h1_Peak_DataOmegaTGPSPS_Pol1_EG1          = (TH1D*) h1_SameEvent_DataOmegaPS_EG1      ->Clone("h1_Peak_DataOmegaTGPSPS_Pol1_EG1");
     TH1D* h1_Peak_DataOmegaTGPSPlusPS_Pol1_EG1      = (TH1D*) h1_SameEvent_DataOmegaPS_EG1      ->Clone("h1_Peak_DataOmegaTGPSPlusPS_Pol1_EG1");
     TH1D* h1_Peak_DataPi0RotPS_Pol1_EG1             = (TH1D*) h1_SameEvent_DataOmegaPS_EG1      ->Clone("h1_Peak_DataPi0RotPS_Pol1_EG1");
-    TH1D* h1_Peak_DataPi0TGPSPS_Pol1_EG1        = (TH1D*) h1_SameEvent_DataOmegaPS_EG1      ->Clone("h1_Peak_DataPi0TGPSPS_Pol1_EG1");
+    TH1D* h1_Peak_DataPi0TGPSPS_Pol1_EG1            = (TH1D*) h1_SameEvent_DataOmegaPS_EG1      ->Clone("h1_Peak_DataPi0TGPSPS_Pol1_EG1");
     TH1D* h1_Peak_DataOmegaRotWOPS_Pol1_EG1         = (TH1D*) h1_SameEvent_DataOmegaWOPS_EG1    ->Clone("h1_Peak_DataOmegaRotWOPS_Pol1_EG1");
     TH1D* h1_Peak_DataOmegaTGPSWOPS_Pol1_EG1        = (TH1D*) h1_SameEvent_DataOmegaWOPS_EG1    ->Clone("h1_Peak_DataOmegaTGPSWOPS_Pol1_EG1");
     TH1D* h1_Peak_DataOmegaTGPSPlusWOPS_Pol1_EG1    = (TH1D*) h1_SameEvent_DataOmegaWOPS_EG1    ->Clone("h1_Peak_DataOmegaTGPSPlusWOPS_Pol1_EG1");

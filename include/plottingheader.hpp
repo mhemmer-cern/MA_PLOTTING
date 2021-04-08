@@ -14,6 +14,7 @@
 #include "PeakComp.hpp"
 #include "SignificanceMC.hpp"
 #include "QAPlots.hpp"
+#include "SignalToBackground.hpp"
 #include "test.hpp"
 #include "TText.h"
 
@@ -31,6 +32,9 @@ Double_t fitLower_Pol1  = 0.6;                                                  
 Double_t fitHigher_Pol1 = 1.1;                                                  // upper boundary for fitting the background
 Double_t fitLower_Pol2  = 0.6;                                                  // lower boundary for fitting the background
 Double_t fitHigher_Pol2 = 1.1;                                                  // upper boundary for fitting the background
+
+Double_t fitMixedLow    = 0.9;
+Double_t fitMixedHigh   = 1.3;
 
 const Int_t nBinsPt_EG1 = 8;                                                    // pT binning for EG 1
 std::vector<Double_t> arrPtBinning_EG1
@@ -201,6 +205,10 @@ TH1D* h1_Ratio_BackToSame_DataOmegaTGPSPlusWOPS_EG2     = nullptr;
 TH1D* h1_Ratio_BackToSame_DataOmegaRotPSNCell_EG1       = nullptr;
 TH1D* h1_Ratio_BackToSame_DataOmegaTGPSPSNCell_EG1      = nullptr;
 TH1D* h1_Ratio_BackToSame_DataOmegaTGPSPlusPSNCell_EG1  = nullptr;
+TH1D* h1_Ratio_BackToSame_DataOmegaPS1Sig_EG1           = nullptr;
+TH1D* h1_Ratio_BackToSame_DataOmegaPS2Sig_EG1           = nullptr;
+TH1D* h1_Ratio_BackToSame_DataOmegaPS3Sig_EG1           = nullptr;
+TH1D* h1_Ratio_BackToSame_DataOmegaPS4Sig_EG1           = nullptr;
 
 
 // ---------------------------------------------------------------------------
@@ -227,6 +235,10 @@ TH1D* h1_Peak_BackToSame_DataOmegaTGPSPlusWOPS_EG2    = nullptr;
 TH1D* h1_Peak_BackToSame_DataOmegaRotPSNCell_EG1      = nullptr;
 TH1D* h1_Peak_BackToSame_DataOmegaTGPSPSNCell_EG1     = nullptr;
 TH1D* h1_Peak_BackToSame_DataOmegaTGPSPlusPSNCell_EG1 = nullptr;
+TH1D* h1_Peak_BackToSame_DataOmegaPS1Sig_EG1          = nullptr;
+TH1D* h1_Peak_BackToSame_DataOmegaPS2Sig_EG1          = nullptr;
+TH1D* h1_Peak_BackToSame_DataOmegaPS3Sig_EG1          = nullptr;
+TH1D* h1_Peak_BackToSame_DataOmegaPS4Sig_EG1          = nullptr;
 
 
 // ---------------------------------------------------------------------------
