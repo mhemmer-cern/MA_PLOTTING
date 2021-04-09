@@ -24,7 +24,7 @@ void PlotStoB(std::vector<TH1D*> v, int pTBin, TPaveText* leg)
   // --- Marker ----------------------------------------------------------------
   vector<Color_t> colors = {kViolet-3, kBlack, kGreen-3, kAzure-3, 1, 1};
   vector<Style_t> markers = {kOpenCircle, kFullCircle, kOpenCircle, kOpenCircle, 1, 1};
-  vector<Size_t>  sizes = {3., 3., 3., 3., 1, 1};
+  vector<Size_t>  sizes = {4., 3.5, 4., 4., 1, 1};
 
   // --- Canvasses -------------------------------------------------------------
 
@@ -35,7 +35,7 @@ void PlotStoB(std::vector<TH1D*> v, int pTBin, TPaveText* leg)
   square.SetStyle(colors, markers, sizes);
   square.SetRanges(0.5, 3.5, v.at(0)->GetMinimum()*0.6, v.at(0)->GetMaximum()*1.1);
   square.SetCanvasMargins(0.025, .1, 0.03, .1);
-  square.Draw(Form("Data/EG1/Comp/SignalToBackground_%02d.svg", pTBin));
+  square.Draw(Form("MC/EG1/Comp/SignalToBackground_%02d.svg", pTBin));
   return;
 }
 
@@ -60,7 +60,7 @@ void PlotSignificance(std::vector<TH1D*> v, int pTBin, TPaveText* leg)
   // --- Marker ----------------------------------------------------------------
   vector<Color_t> colors = {kViolet-3, kBlack, kGreen-3, kAzure-3, 1, 1};
   vector<Style_t> markers = {kOpenCircle, kFullCircle, kOpenCircle, kOpenCircle, 1, 1};
-  vector<Size_t>  sizes = {3., 3., 3., 3., 1, 1};
+  vector<Size_t>  sizes = {4., 3.5, 4., 4., 1, 1};
 
   // --- Canvasses -------------------------------------------------------------
 
@@ -69,31 +69,39 @@ void PlotSignificance(std::vector<TH1D*> v, int pTBin, TPaveText* leg)
   SquarePlot square = SquarePlot(main.get(), "x #sigma around  #it{m}_{#omega}", "significance");
   square.SetMode(Plot::Thesis);
   square.SetStyle(colors, markers, sizes);
-  square.SetRanges(0.5, 3.5, v.at(0)->GetMinimum()*0.75, v.at(0)->GetMaximum()*2.);
+  square.SetRanges(0.5, 3.5, 3.E0, 3.E1);
   square.SetLog();
   square.SetCanvasMargins(0.025, .1, 0.03, .1);
-  square.Draw(Form("Data/EG1/Comp/Significance%02d.svg", pTBin));
+  square.Draw(Form("MC/EG1/Comp/Significance%02d.svg", pTBin));
   return;
 }
 
 Double_t CalcSignificance(TH1D* hS, TH1D* hB, Double_t low, Double_t high, Double_t& err)
 {
-  Double_t val = 0.0;
-  val = hS->Integral(low, high)/sqrt(hS->Integral(low, high)+hB->Integral(low, high));
-  err = sqrt(hS->Integral(low, high))/sqrt(hS->Integral(low, high)+hB->Integral(low, high));
-  return val;
+  Double_t valS = 0.0;
+  Double_t valB = 0.0;
+  Double_t uncerS = 0.0;
+  Double_t uncerB = 0.0;
+  valS = hS->IntegralAndError(low, high, uncerS);
+  valB = hB->IntegralAndError(low, high, uncerB);
+  err = uncerS/(uncerS+uncerB);
+  return valS/(uncerS+uncerB);
 }
 
 
 Double_t CalcStoB(TH1D* hS, TH1D* hB, Double_t low, Double_t high, Double_t& err)
 {
-  Double_t val = 0.0;
-  val = hS->Integral(low, high)/hB->Integral(low, high);
-  err = sqrt(pow(sqrt(hS->Integral(low, high))/hB->Integral(low, high), 2)+ pow(hS->Integral(low, high)/(hB->Integral(low, high)*sqrt(hB->Integral(low, high)) ) ,2.));
-  return val;
+  Double_t valS = 0.0;
+  Double_t valB = 0.0;
+  Double_t uncerS = 0.0;
+  Double_t uncerB = 0.0;
+  valS = hS->IntegralAndError(low, high, uncerS);
+  valB = hB->IntegralAndError(low, high, uncerB);
+  err = sqrt( pow(uncerS/valB, 2.) + pow( (valS*uncerB) / pow(valB, 2.), 2.) );
+  return valS/valB;
 }
 
-void StoB(std::vector<TH1D*> vHist, std::vector<TH1D*> vSignal, int pTBin, TPaveText* leg)
+void StoB(std::vector<TH1D*> vHist, std::vector<TH1D*> vSignal, std::vector<TH1D*> vYield, std::vector<TH1D*> vYieldSB, int pTBin, TPaveText* leg)
 {
   // Make the Signal to Background histos
   std::unique_ptr<TH1D> h1_StoB_DataOmegaPS1Sig (new TH1D("h1_StoB_DataOmegaPS1Sig", "", 3, 0.5, 3.5));
@@ -141,7 +149,7 @@ void StoB(std::vector<TH1D*> vHist, std::vector<TH1D*> vSignal, int pTBin, TPave
         uncer
         )
       );
-      // vStoB.at(vn)->SetBinError(sigma, uncer);
+      vStoB.at(vn)->SetBinError(sigma, uncer);
       vSignificance.at(vn)->SetBinContent(sigma, CalcSignificance(
         vSignal.at(vn),
         h1_TrueBack,
@@ -150,7 +158,14 @@ void StoB(std::vector<TH1D*> vHist, std::vector<TH1D*> vSignal, int pTBin, TPave
         uncer
         )
       );
-      // vSignificance.at(vn)->SetBinError(sigma, uncer);
+      vSignificance.at(vn)->SetBinError(sigma, uncer);
+      if(sigma == 2)
+      {
+        vYield.at(vn)->SetBinContent(pTBin, vSignificance.at(vn)->GetBinContent(2));
+        vYield.at(vn)->SetBinError(pTBin, vSignificance.at(vn)->GetBinError(2));
+        vYieldSB.at(vn)->SetBinContent(pTBin, vStoB.at(vn)->GetBinContent(2));
+        vYieldSB.at(vn)->SetBinError(pTBin, vStoB.at(vn)->GetBinError(2));
+      }
     }
     PlotStoB(vStoB, pTBin, leg);
     PlotSignificance(vSignificance, pTBin, leg);
