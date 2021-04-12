@@ -451,6 +451,10 @@ TH1D* h1_Ratio_BackToSame_MCOmegaTGPSPlusPSNCell_EG1  = nullptr;
 TH1D* h1_Ratio_BackToSame_MCOmegaRotPSNCell_EG2       = nullptr;
 TH1D* h1_Ratio_BackToSame_MCOmegaTGPSPSNCell_EG2      = nullptr;
 TH1D* h1_Ratio_BackToSame_MCOmegaTGPSPlusPSNCell_EG2  = nullptr;
+TH1D* h1_Ratio_BackToSame_MCOmegaPS1Sig_EG1           = nullptr;
+TH1D* h1_Ratio_BackToSame_MCOmegaPS2Sig_EG1           = nullptr;
+TH1D* h1_Ratio_BackToSame_MCOmegaPS3Sig_EG1           = nullptr;
+TH1D* h1_Ratio_BackToSame_MCOmegaPS4Sig_EG1           = nullptr;
 
 // MB for Turn On
 TH1D* h1_Ratio_BackToSame_MCOmegaRotPS_MB1            = nullptr;
@@ -487,6 +491,10 @@ TH1D* h1_Peak_BackToSame_MCOmegaTGPSPlusPSNCell_EG1 = nullptr;
 TH1D* h1_Peak_BackToSame_MCOmegaRotPSNCell_EG2      = nullptr;
 TH1D* h1_Peak_BackToSame_MCOmegaTGPSPSNCell_EG2     = nullptr;
 TH1D* h1_Peak_BackToSame_MCOmegaTGPSPlusPSNCell_EG2 = nullptr;
+TH1D* h1_Peak_BackToSame_MCOmegaPS1Sig_EG1          = nullptr;
+TH1D* h1_Peak_BackToSame_MCOmegaPS2Sig_EG1          = nullptr;
+TH1D* h1_Peak_BackToSame_MCOmegaPS3Sig_EG1          = nullptr;
+TH1D* h1_Peak_BackToSame_MCOmegaPS4Sig_EG1          = nullptr;
 
 // MB for Turn on
 TH1D* h1_Peak_BackToSame_MCOmegaRotPS_MB1           = nullptr;
