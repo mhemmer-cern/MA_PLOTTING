@@ -433,15 +433,15 @@ void EffiRatio(std::vector<TH1D*> v, TPaveText* lSys, TString outname, TString l
   std::unique_ptr<Legend> l (new Legend(main.get(), legString.Data(), legOpt.Data(), legHeader.Data()) );
 
   // --- Marker ----------------------------------------------------------------
-  vector<Color_t> colors = {kBlack, 1, 1};
-  vector<Style_t> markers = {kFullCircle, 1, 1};
-  vector<Size_t>  sizes = {3., 1, 1};
+  vector<Color_t> colors = {kBlack, kRed+2, kBlue+2, 1, 1};
+  vector<Style_t> markers = {kFullCircle, kOpenCircle, kOpenSquare, 1, 1};
+  vector<Size_t>  sizes = {3.,3., 3., 1, 1};
 
   // --- Canvasses -------------------------------------------------------------
 
-  Legend::SetPosition(l.get(), 0.5, 0.9, 0.85-(v.size()+1)*0.025, 0.85);
+  Legend::SetPosition(l.get(), 0.5, 0.9, 0.85-(v.size()+1)*0.03, 0.85);
 
-  SquarePlot square = SquarePlot(main.get(), pt_str, "efficiency trigger/MB");
+  SquarePlot square = SquarePlot(main.get(), pt_str, "efficiency ratio");
   square.SetMode(Plot::Thesis);
   square.SetStyle(colors, markers, sizes);
   square.SetRanges(lowX, highX, v.at(0)->GetMinimum()*0.3, v.at(0)->GetMaximum()*1.8);
@@ -449,6 +449,42 @@ void EffiRatio(std::vector<TH1D*> v, TPaveText* lSys, TString outname, TString l
   square.Draw(outname);
   return;
 
+}
+
+void YieldRatio(std::vector<TH1D*> v, TPaveText* lSys, TString outname, TString legHead, Double_t lowX, Double_t highX)
+{
+  // --- Create TObjArrays -----------------------------------------------------
+  std::unique_ptr<TObjArray> main (new TObjArray);
+  TString legString = "";
+  TString legOpt = "";
+  for (int i = 0; i < v.size(); i++) {
+    main->Add(v.at(i));
+    legOpt += "lp ";
+    if(i < v.size()-1) legString += TString(v.at(i)->GetTitle()) + "\n ";
+  }
+
+  // --- Legends ---------------------------------------------------------------
+
+  main->Add(lSys);
+  std::unique_ptr<Legend> l (new Legend(main.get(), legString.Data(), legOpt.Data(), legHead.Data()) );
+
+  // --- Marker ----------------------------------------------------------------
+  vector<Color_t> colors = {kOrange-3, kViolet-3, kGreen-3, kRed-3, kBlue-3, kPink-3, kAzure-3, kSpring-3, 1, 1};
+  vector<Style_t> markers = {kOpenCircle, kOpenCircle, kOpenCircle, kOpenDiamond, kOpenDiamond, kOpenSquare, kOpenSquare, kOpenSquare, 1, 1};
+  vector<Size_t>  sizes = {3., 3., 3., 3., 3., 3., 2.5, 2.5, 2.5, 1, 1};
+
+  // --- Canvasses -------------------------------------------------------------
+
+  Legend::SetPosition(l.get(), 0.5, 0.9, 0.6, 0.875);
+
+  SquarePlot square = SquarePlot(main.get(), pt_str, "raw yield #frac{EG1}{EG2}");
+  square.SetMode(Plot::Thesis);
+  square.SetStyle(colors, markers, sizes);
+  square.SetRanges(lowX, highX, v.at(0)->GetMinimum(), v.at(0)->GetMaximum());
+  square.SetCanvasMargins(0.025, .15, 0.03, .1);
+  square.SetCanvasOffsets(1.2, 1.8);
+  square.Draw(outname);
+  return;
 }
 
 void CorrYieldRatio(std::vector<TH1D*> v, TPaveText* lSys, TString outname, TString legHead, Double_t lowX, Double_t highX)

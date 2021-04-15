@@ -46,13 +46,12 @@ std::vector<Int_t> arrRebinning_EG1
 // {2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 4};
 
 
-const Int_t nBinsPt_EG2 = 7;                                                  // pT binning for EG 1
+const Int_t nBinsPt_EG2 = 11;                                                  // pT binning for EG 1
 std::vector<Double_t> arrPtBinning_EG2
-{  8.0, 12.0, 16.0, 20.0, 24.0,
-  28.0, 32.0};
+{06.0, 08.0, 10.0, 12.0, 14.0, 16.0, 18.0, 20.0, 24.0, 28.0, 32.0};
 
 std::vector<Int_t> arrRebinning_EG2
-{2, 2, 2, 2, 4, 4};
+{2, 2, 2, 2, 2, 4, 4};
 
 const Int_t nBinsPt_MB1 = 13;                                                  // pT binning for MB 1
 std::vector<Double_t> arrPtBinning_MB1
@@ -209,6 +208,13 @@ TH1D* h1_Ratio_BackToSame_DataOmegaPS1Sig_EG1           = nullptr;
 TH1D* h1_Ratio_BackToSame_DataOmegaPS2Sig_EG1           = nullptr;
 TH1D* h1_Ratio_BackToSame_DataOmegaPS3Sig_EG1           = nullptr;
 TH1D* h1_Ratio_BackToSame_DataOmegaPS4Sig_EG1           = nullptr;
+TH1D* h1_Ratio_BackToSame_DataOmegaRotPSNCell_EG2       = nullptr;
+TH1D* h1_Ratio_BackToSame_DataOmegaTGPSPSNCell_EG2      = nullptr;
+TH1D* h1_Ratio_BackToSame_DataOmegaTGPSPlusPSNCell_EG2  = nullptr;
+TH1D* h1_Ratio_BackToSame_DataOmegaPS1Sig_EG2           = nullptr;
+TH1D* h1_Ratio_BackToSame_DataOmegaPS2Sig_EG2           = nullptr;
+TH1D* h1_Ratio_BackToSame_DataOmegaPS3Sig_EG2           = nullptr;
+TH1D* h1_Ratio_BackToSame_DataOmegaPS4Sig_EG2           = nullptr;
 
 
 // ---------------------------------------------------------------------------
@@ -239,6 +245,13 @@ TH1D* h1_Peak_BackToSame_DataOmegaPS1Sig_EG1          = nullptr;
 TH1D* h1_Peak_BackToSame_DataOmegaPS2Sig_EG1          = nullptr;
 TH1D* h1_Peak_BackToSame_DataOmegaPS3Sig_EG1          = nullptr;
 TH1D* h1_Peak_BackToSame_DataOmegaPS4Sig_EG1          = nullptr;
+TH1D* h1_Peak_BackToSame_DataOmegaRotPSNCell_EG2      = nullptr;
+TH1D* h1_Peak_BackToSame_DataOmegaTGPSPSNCell_EG2     = nullptr;
+TH1D* h1_Peak_BackToSame_DataOmegaTGPSPlusPSNCell_EG2 = nullptr;
+TH1D* h1_Peak_BackToSame_DataOmegaPS1Sig_EG2          = nullptr;
+TH1D* h1_Peak_BackToSame_DataOmegaPS2Sig_EG2          = nullptr;
+TH1D* h1_Peak_BackToSame_DataOmegaPS3Sig_EG2          = nullptr;
+TH1D* h1_Peak_BackToSame_DataOmegaPS4Sig_EG2          = nullptr;
 
 
 // ---------------------------------------------------------------------------
@@ -273,11 +286,13 @@ TH1D* h1_Background_MCPi0RotPS_EG1                = nullptr;
 TH1D* h1_Background_MCPi0TGPSPS_EG1               = nullptr;
 TH1D* h1_TrueOmega_MCPS_EG1                       = nullptr;
 TH1D* h1_TrueOmega_MCPS_MB1                       = nullptr;
+TH1D* h1_TrueOmega_MCPS_EG2                       = nullptr;
+TH1D* h1_TrueOmega_MCPS_MB2                       = nullptr;
 TH1D* h1_TrueOmega_MCPSNCell_EG1                  = nullptr;
+TH1D* h1_TrueOmega_MCPSNCell_EG2                  = nullptr;
 TH1D* h1_TruePi0_MCPS_EG1                         = nullptr;
 TH1D* h1_Background_MCPi0RotPS_EG2                = nullptr;
 TH1D* h1_Background_MCPi0TGPSPS_EG2               = nullptr;
-TH1D* h1_TrueOmega_MCPS_EG2                       = nullptr;
 TH1D* h1_TruePi0_MCPS_EG2                         = nullptr;
 TH1D* h1_DalitzBack_MCPi0RotPS_EG1                = nullptr;
 TH1D* h1_DalitzBack_MCPi0TGPSPS_EG1               = nullptr;
@@ -352,6 +367,7 @@ TH1D* h1_DalitzBack_MCOmegaTGPSPSNCell_EG2        = nullptr;
 TH1D* h1_DalitzBack_MCOmegaTGPSPlusPSNCell_EG2    = nullptr;
 TH1D* h1_TrueDalitz_MCOmegaPSNCell_EG2            = nullptr;
 TH1D* h1_TrueBackDalitz_MCOmegaPS_EG1             = nullptr;
+TH1D* h1_TrueBackDalitz_MCOmegaPS_EG2             = nullptr;
 
 TH1D* h1_SameEvent_MCOmegaPS1Sig_EG1                  = nullptr;
 TH1D* h1_SameEvent_MCOmegaPS2Sig_EG1                  = nullptr;
@@ -455,6 +471,10 @@ TH1D* h1_Ratio_BackToSame_MCOmegaPS1Sig_EG1           = nullptr;
 TH1D* h1_Ratio_BackToSame_MCOmegaPS2Sig_EG1           = nullptr;
 TH1D* h1_Ratio_BackToSame_MCOmegaPS3Sig_EG1           = nullptr;
 TH1D* h1_Ratio_BackToSame_MCOmegaPS4Sig_EG1           = nullptr;
+TH1D* h1_Ratio_BackToSame_MCOmegaPS1Sig_EG2           = nullptr;
+TH1D* h1_Ratio_BackToSame_MCOmegaPS2Sig_EG2           = nullptr;
+TH1D* h1_Ratio_BackToSame_MCOmegaPS3Sig_EG2           = nullptr;
+TH1D* h1_Ratio_BackToSame_MCOmegaPS4Sig_EG2           = nullptr;
 
 // MB for Turn On
 TH1D* h1_Ratio_BackToSame_MCOmegaRotPS_MB1            = nullptr;
@@ -495,6 +515,10 @@ TH1D* h1_Peak_BackToSame_MCOmegaPS1Sig_EG1          = nullptr;
 TH1D* h1_Peak_BackToSame_MCOmegaPS2Sig_EG1          = nullptr;
 TH1D* h1_Peak_BackToSame_MCOmegaPS3Sig_EG1          = nullptr;
 TH1D* h1_Peak_BackToSame_MCOmegaPS4Sig_EG1          = nullptr;
+TH1D* h1_Peak_BackToSame_MCOmegaPS1Sig_EG2          = nullptr;
+TH1D* h1_Peak_BackToSame_MCOmegaPS2Sig_EG2          = nullptr;
+TH1D* h1_Peak_BackToSame_MCOmegaPS3Sig_EG2          = nullptr;
+TH1D* h1_Peak_BackToSame_MCOmegaPS4Sig_EG2          = nullptr;
 
 // MB for Turn on
 TH1D* h1_Peak_BackToSame_MCOmegaRotPS_MB1           = nullptr;
