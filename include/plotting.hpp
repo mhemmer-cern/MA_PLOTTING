@@ -5836,18 +5836,25 @@ void plotting()
     h1_SameEvent_MCOmegaPS3Sig_EG1->Add(h1_AngleCutRejected_MCOmegaPS3Sig_EG1);
     h1_SameEvent_MCOmegaPS4Sig_EG1->Add(h1_AngleCutRejected_MCOmegaPS4Sig_EG1);
 
+    vHistos.push_back(h1_SameEvent_MCOmegaWOPS_EG1);
     vHistos.push_back(h1_SameEvent_MCOmegaPS1Sig_EG1);
-    vHistos.push_back(h1_SameEvent_MCOmegaPS2Sig_EG1);
+    vHistos.push_back(h1_SameEvent_MCOmegaPS_EG1);
     vHistos.push_back(h1_SameEvent_MCOmegaPS3Sig_EG1);
     vHistos.push_back(h1_SameEvent_MCOmegaPS4Sig_EG1);
+
+    vSignal.push_back(h1_TrueOmega_MCWOPS_EG1);
     vSignal.push_back(h1_TrueOmega_MCOmegaPS1Sig_EG1);
-    vSignal.push_back(h1_TrueOmega_MCOmegaPS2Sig_EG1);
+    vSignal.push_back(h1_TrueOmega_MCPS_EG1);
     vSignal.push_back(h1_TrueOmega_MCOmegaPS3Sig_EG1);
     vSignal.push_back(h1_TrueOmega_MCOmegaPS4Sig_EG1);
+
+    vSigma.push_back(h1_Significance_DataOmegaWOPS_EG1.get());
     vSigma.push_back(h1_Significance_DataOmegaPS1Sig_EG1.get());
     vSigma.push_back(h1_Significance_DataOmegaPS2Sig_EG1.get());
     vSigma.push_back(h1_Significance_DataOmegaPS3Sig_EG1.get());
     vSigma.push_back(h1_Significance_DataOmegaPS4Sig_EG1.get());
+
+    vMean.push_back(h1_SignalToBackground_DataOmegaWOPS_EG1.get());
     vMean.push_back(h1_SignalToBackground_DataOmegaPS1Sig_EG1.get());
     vMean.push_back(h1_SignalToBackground_DataOmegaPS2Sig_EG1.get());
     vMean.push_back(h1_SignalToBackground_DataOmegaPS3Sig_EG1.get());
@@ -9431,18 +9438,25 @@ void plotting()
     h1_SameEvent_MCOmegaPS3Sig_EG2->Add(h1_AngleCutRejected_MCOmegaPS3Sig_EG2);
     h1_SameEvent_MCOmegaPS4Sig_EG2->Add(h1_AngleCutRejected_MCOmegaPS4Sig_EG2);
 
+    vHistos.push_back(h1_SameEvent_MCOmegaWOPS_EG2);
     vHistos.push_back(h1_SameEvent_MCOmegaPS1Sig_EG2);
-    vHistos.push_back(h1_SameEvent_MCOmegaPS2Sig_EG2);
+    vHistos.push_back(h1_SameEvent_MCOmegaPS_EG2);
     vHistos.push_back(h1_SameEvent_MCOmegaPS3Sig_EG2);
     vHistos.push_back(h1_SameEvent_MCOmegaPS4Sig_EG2);
+
+    vSignal.push_back(h1_TrueOmega_MCWOPS_EG2);
     vSignal.push_back(h1_TrueOmega_MCOmegaPS1Sig_EG2);
-    vSignal.push_back(h1_TrueOmega_MCOmegaPS2Sig_EG2);
+    vSignal.push_back(h1_TrueOmega_MCPS_EG2);
     vSignal.push_back(h1_TrueOmega_MCOmegaPS3Sig_EG2);
     vSignal.push_back(h1_TrueOmega_MCOmegaPS4Sig_EG2);
+
+    vSigma.push_back(h1_Significance_DataOmegaWOPS_EG2.get());
     vSigma.push_back(h1_Significance_DataOmegaPS1Sig_EG2.get());
     vSigma.push_back(h1_Significance_DataOmegaPS2Sig_EG2.get());
     vSigma.push_back(h1_Significance_DataOmegaPS3Sig_EG2.get());
     vSigma.push_back(h1_Significance_DataOmegaPS4Sig_EG2.get());
+
+    vMean.push_back(h1_SignalToBackground_DataOmegaWOPS_EG2.get());
     vMean.push_back(h1_SignalToBackground_DataOmegaPS1Sig_EG2.get());
     vMean.push_back(h1_SignalToBackground_DataOmegaPS2Sig_EG2.get());
     vMean.push_back(h1_SignalToBackground_DataOmegaPS3Sig_EG2.get());
@@ -12649,10 +12663,12 @@ void plotting()
   vHistos.clear();
   vHistos.resize(0);
 
+  h1_Significance_DataOmegaWOPS_EG1->SetTitle("wo PS");
   h1_Significance_DataOmegaPS1Sig_EG1->SetTitle("1 #sigma");
   h1_Significance_DataOmegaPS2Sig_EG1->SetTitle("2 #sigma");
   h1_Significance_DataOmegaPS3Sig_EG1->SetTitle("3 #sigma");
   h1_Significance_DataOmegaPS4Sig_EG1->SetTitle("4 #sigma");
+  vHistos.push_back(h1_Significance_DataOmegaWOPS_EG1.get());
   vHistos.push_back(h1_Significance_DataOmegaPS1Sig_EG1.get());
   vHistos.push_back(h1_Significance_DataOmegaPS2Sig_EG1.get());
   vHistos.push_back(h1_Significance_DataOmegaPS3Sig_EG1.get());
@@ -12661,10 +12677,12 @@ void plotting()
   vHistos.clear();
   vHistos.resize(0);
 
+  h1_SignalToBackground_DataOmegaWOPS_EG1->SetTitle("wo PS");
   h1_SignalToBackground_DataOmegaPS1Sig_EG1->SetTitle("1 #sigma");
   h1_SignalToBackground_DataOmegaPS2Sig_EG1->SetTitle("2 #sigma");
   h1_SignalToBackground_DataOmegaPS3Sig_EG1->SetTitle("3 #sigma");
   h1_SignalToBackground_DataOmegaPS4Sig_EG1->SetTitle("4 #sigma");
+  vHistos.push_back(h1_SignalToBackground_DataOmegaWOPS_EG1.get());
   vHistos.push_back(h1_SignalToBackground_DataOmegaPS1Sig_EG1.get());
   vHistos.push_back(h1_SignalToBackground_DataOmegaPS2Sig_EG1.get());
   vHistos.push_back(h1_SignalToBackground_DataOmegaPS3Sig_EG1.get());
@@ -13706,10 +13724,12 @@ void plotting()
   vHistos.clear();
   vHistos.resize(0);
 
+  h1_Significance_DataOmegaWOPS_EG2->SetTitle("wo PS");
   h1_Significance_DataOmegaPS1Sig_EG2->SetTitle("1 #sigma");
   h1_Significance_DataOmegaPS2Sig_EG2->SetTitle("2 #sigma");
   h1_Significance_DataOmegaPS3Sig_EG2->SetTitle("3 #sigma");
   h1_Significance_DataOmegaPS4Sig_EG2->SetTitle("4 #sigma");
+  vHistos.push_back(h1_Significance_DataOmegaWOPS_EG2.get());
   vHistos.push_back(h1_Significance_DataOmegaPS1Sig_EG2.get());
   vHistos.push_back(h1_Significance_DataOmegaPS2Sig_EG2.get());
   vHistos.push_back(h1_Significance_DataOmegaPS3Sig_EG2.get());
@@ -13718,10 +13738,12 @@ void plotting()
   vHistos.clear();
   vHistos.resize(0);
 
+  h1_SignalToBackground_DataOmegaWOPS_EG2->SetTitle("wo PS");
   h1_SignalToBackground_DataOmegaPS1Sig_EG2->SetTitle("1 #sigma");
   h1_SignalToBackground_DataOmegaPS2Sig_EG2->SetTitle("2 #sigma");
   h1_SignalToBackground_DataOmegaPS3Sig_EG2->SetTitle("3 #sigma");
   h1_SignalToBackground_DataOmegaPS4Sig_EG2->SetTitle("4 #sigma");
+  vHistos.push_back(h1_SignalToBackground_DataOmegaWOPS_EG2.get());
   vHistos.push_back(h1_SignalToBackground_DataOmegaPS1Sig_EG2.get());
   vHistos.push_back(h1_SignalToBackground_DataOmegaPS2Sig_EG2.get());
   vHistos.push_back(h1_SignalToBackground_DataOmegaPS3Sig_EG2.get());

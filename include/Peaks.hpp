@@ -82,13 +82,19 @@ void PeaksDataWithFits(TH1D* Background1, TH1D* Background2, TH1D* Background3, 
   // --- Legends ---------------------------------------------------------------
 
   main->Add(lSys);
-  std::unique_ptr<Legend> l (new Legend(main.get(), "extracted signal pol1\n extracted signal pol2\n extracted signal pol3\n extracted signal pol4", "lp lp lp lp") );
+  std::unique_ptr<Legend> l (new Legend(main.get(), "extracted signal pol1\n extracted signal pol2", "lp lp l l") );
 
   // --- Marker ----------------------------------------------------------------
+  std::vector<Color_t> colors = {kCyan-3, kPink-3, 1, 1, 1, 1};
+  std::vector<Style_t> markers = {kOpenSquare, kOpenCircle, 1, 1, 1, 1};
+  std::vector<Size_t>  sizes = {2., 2., 1, 1};
 
-  vector<Color_t> colors = {kMagenta+3, kBlue+3, kCyan+1, kOrange+2, kMagenta+3, kBlue+3, kCyan+1, kOrange+2};
-  vector<Style_t> markers = {kFullDiamond, kOpenCircle, kOpenSquare, kOpenDiamond, kDot, kDot, kDot, kDot};
-  vector<Size_t>  sizes = {3., 2., 2. ,2.5, 0., 0., 0., 0.};
+  // --- Marker ----------------------------------------------------------------
+  std::vector<Color_t> colors     = {kBlack, kGray+3, kCyan-3, kPink-3, kGray+1, 1, 1};
+  std::vector<Style_t> markers    = {kFullCircle, kOpenCircle, 1, 1, 1, 1, 1};
+  std::vector<Size_t>  sizes      = {3., 2.5, 3., 3., 5., 1, 1};
+  std::vector<Style_t> linestyle  = {1, 1, 1, 1, 1, 1, 1 };
+  std::vector<Size_t> linewidth   = {2., 2., 3., 3., 7., 1 ,1 };
 
   // --- Canvasses -------------------------------------------------------------
 
@@ -97,7 +103,7 @@ void PeaksDataWithFits(TH1D* Background1, TH1D* Background2, TH1D* Background3, 
   SquarePlot square = SquarePlot(main.get(), minv_str, count_str);
   square.SetMode(Plot::Thesis);
   square.SetRanges(0.5, 1.2, Background1->GetMinimum(), Background1->GetMaximum());
-  square.SetStyle(colors, markers, sizes);
+  square.SetStyle(colors, markers, sizes, linestyle, linewidth);
   square.SetCanvasMargins(0.025, .1, 0.03, .1);
 
   square.Draw(outname);

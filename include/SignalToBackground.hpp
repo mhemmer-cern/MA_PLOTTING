@@ -22,9 +22,9 @@ void PlotStoB(std::vector<TH1D*> v, int pTBin, TPaveText* leg)
   std::unique_ptr<Legend> l (new Legend(main.get(), legString.Data(), legOpt.Data(), "PS range around #it{m}_{#pi^{0}}") );
 
   // --- Marker ----------------------------------------------------------------
-  vector<Color_t> colors = {kViolet-3, kBlack, kGreen-3, kAzure-3, 1, 1};
-  vector<Style_t> markers = {kOpenCircle, kFullCircle, kOpenCircle, kOpenCircle, 1, 1};
-  vector<Size_t>  sizes = {4., 3.5, 4., 4., 1, 1};
+  vector<Color_t> colors = {kRed-3, kViolet-3, kBlack, kGreen-3, kAzure-3, 1, 1};
+  vector<Style_t> markers = {24, kOpenCircle, 25, 27, 28, 1, 1};
+  vector<Size_t>  sizes = {3.5, 4., 3.5, 4., 4., 1, 1};
 
   // --- Canvasses -------------------------------------------------------------
 
@@ -58,9 +58,9 @@ void PlotSignificance(std::vector<TH1D*> v, int pTBin, TPaveText* leg)
   std::unique_ptr<Legend> l (new Legend(main.get(), legString.Data(), legOpt.Data(), "PS range around #it{m}_{#pi^{0}}") );
 
   // --- Marker ----------------------------------------------------------------
-  vector<Color_t> colors = {kViolet-3, kBlack, kGreen-3, kAzure-3, 1, 1};
-  vector<Style_t> markers = {kOpenCircle, kFullCircle, kOpenCircle, kOpenCircle, 1, 1};
-  vector<Size_t>  sizes = {4., 3.5, 4., 4., 1, 1};
+  vector<Color_t> colors = {kRed-3, kViolet-3, kBlack, kGreen-3, kAzure-3, 1, 1};
+  vector<Style_t> markers = {24, kOpenCircle, 25, 27, 28, 1, 1};
+  vector<Size_t>  sizes = {3.5, 4., 3.5, 4., 4., 1, 1};
 
   // --- Canvasses -------------------------------------------------------------
 
@@ -104,26 +104,30 @@ Double_t CalcStoB(TH1D* hS, TH1D* hB, Double_t low, Double_t high, Double_t& err
 void StoB(std::vector<TH1D*> vHist, std::vector<TH1D*> vSignal, std::vector<TH1D*> vYield, std::vector<TH1D*> vYieldSB, int pTBin, TPaveText* leg)
 {
   // Make the Signal to Background histos
+  std::unique_ptr<TH1D> h1_StoB_DataOmegaWOPS   (new TH1D("h1_StoB_DataOmegaWOPS",   "", 3, 0.5, 3.5));
   std::unique_ptr<TH1D> h1_StoB_DataOmegaPS1Sig (new TH1D("h1_StoB_DataOmegaPS1Sig", "", 3, 0.5, 3.5));
   std::unique_ptr<TH1D> h1_StoB_DataOmegaPS2Sig (new TH1D("h1_StoB_DataOmegaPS2Sig", "", 3, 0.5, 3.5));
   std::unique_ptr<TH1D> h1_StoB_DataOmegaPS3Sig (new TH1D("h1_StoB_DataOmegaPS3Sig", "", 3, 0.5, 3.5));
   std::unique_ptr<TH1D> h1_StoB_DataOmegaPS4Sig (new TH1D("h1_StoB_DataOmegaPS4Sig", "", 3, 0.5, 3.5));
+  h1_StoB_DataOmegaWOPS  ->SetTitle("wo PS");
   h1_StoB_DataOmegaPS1Sig->SetTitle("1 #sigma");
   h1_StoB_DataOmegaPS2Sig->SetTitle("2 #sigma");
   h1_StoB_DataOmegaPS3Sig->SetTitle("3 #sigma");
   h1_StoB_DataOmegaPS4Sig->SetTitle("4 #sigma");
-  std::vector<TH1D*> vStoB = {h1_StoB_DataOmegaPS1Sig.get(), h1_StoB_DataOmegaPS2Sig.get(), h1_StoB_DataOmegaPS3Sig.get(), h1_StoB_DataOmegaPS4Sig.get()};
+  std::vector<TH1D*> vStoB = {h1_StoB_DataOmegaWOPS.get(), h1_StoB_DataOmegaPS1Sig.get(), h1_StoB_DataOmegaPS2Sig.get(), h1_StoB_DataOmegaPS3Sig.get(), h1_StoB_DataOmegaPS4Sig.get()};
 
   // Make the Signal to Background histos
+  std::unique_ptr<TH1D> h1_Significance_DataOmegaWOPS   (new TH1D("h1_Significance_DataOmegaWOPS",   "", 3, 0.5, 3.5));
   std::unique_ptr<TH1D> h1_Significance_DataOmegaPS1Sig (new TH1D("h1_Significance_DataOmegaPS1Sig", "", 3, 0.5, 3.5));
   std::unique_ptr<TH1D> h1_Significance_DataOmegaPS2Sig (new TH1D("h1_Significance_DataOmegaPS2Sig", "", 3, 0.5, 3.5));
   std::unique_ptr<TH1D> h1_Significance_DataOmegaPS3Sig (new TH1D("h1_Significance_DataOmegaPS3Sig", "", 3, 0.5, 3.5));
   std::unique_ptr<TH1D> h1_Significance_DataOmegaPS4Sig (new TH1D("h1_Significance_DataOmegaPS4Sig", "", 3, 0.5, 3.5));
+  h1_Significance_DataOmegaWOPS  ->SetTitle("wo PS");
   h1_Significance_DataOmegaPS1Sig->SetTitle("1 #sigma");
   h1_Significance_DataOmegaPS2Sig->SetTitle("2 #sigma");
   h1_Significance_DataOmegaPS3Sig->SetTitle("3 #sigma");
   h1_Significance_DataOmegaPS4Sig->SetTitle("4 #sigma");
-  std::vector<TH1D*> vSignificance = {h1_Significance_DataOmegaPS1Sig.get(), h1_Significance_DataOmegaPS2Sig.get(), h1_Significance_DataOmegaPS3Sig.get(), h1_Significance_DataOmegaPS4Sig.get()};
+  std::vector<TH1D*> vSignificance = {h1_Significance_DataOmegaWOPS.get(), h1_Significance_DataOmegaPS1Sig.get(), h1_Significance_DataOmegaPS2Sig.get(), h1_Significance_DataOmegaPS3Sig.get(), h1_Significance_DataOmegaPS4Sig.get()};
 
   for (int vn = 0; vn < vHist.size(); vn++)
   {

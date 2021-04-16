@@ -578,9 +578,9 @@ void PlotSignificanceYield(std::vector<TH1D*> v, TPaveText* lSys, TString outnam
   std::unique_ptr<Legend> l (new Legend(main.get(), legString.Data(), legOpt.Data(), legHead.Data()) );
 
   // --- Marker ----------------------------------------------------------------
-  vector<Color_t> colors = {kViolet-3, kBlack, kGreen-3, kAzure-3, 1, 1};
-  vector<Style_t> markers = {kOpenCircle, kFullCircle, kOpenCircle, kOpenCircle, 1, 1};
-  vector<Size_t>  sizes = {3., 3.5, 3., 3., 1, 1};
+  vector<Color_t> colors = {kRed-3, kViolet-3, kBlack, kGreen-3, kAzure-3, 1, 1};
+  vector<Style_t> markers = {24, 42, 25, 27, 28, 1, 1};
+  vector<Size_t>  sizes = {3.5, 4., 3.5, 4., 4., 1, 1};
 
   // --- Canvasses -------------------------------------------------------------
 
@@ -614,9 +614,9 @@ void PlotStoBYield(std::vector<TH1D*> v, TPaveText* lSys, TString outname, TStri
   std::unique_ptr<Legend> l (new Legend(main.get(), legString.Data(), legOpt.Data(), legHead.Data()) );
 
   // --- Marker ----------------------------------------------------------------
-  vector<Color_t> colors = {kViolet-3, kBlack, kGreen-3, kAzure-3, 1, 1};
-  vector<Style_t> markers = {kOpenCircle, kFullCircle, kOpenCircle, kOpenCircle, 1, 1};
-  vector<Size_t>  sizes = {3., 3.5, 3., 3., 1, 1};
+  vector<Color_t> colors = {kRed-3, kViolet-3, kBlack, kGreen-3, kAzure-3, 1, 1};
+  vector<Style_t> markers = {24, 42, 25, 27, 28, 1, 1};
+  vector<Size_t>  sizes = {3.5, 4., 3.5, 4., 4., 1, 1};
 
   // --- Canvasses -------------------------------------------------------------
 
