@@ -1,6 +1,6 @@
-#include "/home/tavlin/C_Headers/Plotting_Patrick.h"
-#include "/home/tavlin/C_Headers/CommonHeader.h"
-#include "/home/tavlin/Documents/git/Header/Plot.h"
+#include "/home/marvin/C_Headers/Plotting_Patrick.h"
+#include "/home/marvin/C_Headers/CommonHeader.h"
+#include "/home/marvin/Documents/git/Header/Plot.h"
 #include "TFractionFitter.h"
 #include <vector>
 
@@ -65,40 +65,50 @@ void PeaksData(TH1D* PeakPol1, TH1D* PeakPol2, TPaveText* lSys, TString outname)
 
 }
 
-void PeaksDataWithFits(TH1D* Background1, TH1D* Background2, TH1D* Background3, TH1D* Background4, TF1* f1, TF1* f2, TF1* f3, TF1* f4, TPaveText* lSys, TString outname)
+void PeaksDataWithFits(TH1D* Background1, TH1D* Background2, TF1* f1, TF1* f2, TPaveText* lSys, TString outname)
 {
   // --- Create TObjArrays -----------------------------------------------------
 
   std::unique_ptr<TObjArray> main (new TObjArray);
   main->Add(Background1);
   main->Add(Background2);
-  main->Add(Background3);
-  main->Add(Background4);
   main->Add(f1);
   main->Add(f2);
-  main->Add(f3);
-  main->Add(f4);
+  std::unique_ptr<TLine> ll1 (new TLine(f1->GetParameter(1)-2.*f1->GetParameter(2),
+                                        Background1->GetMinimum()*0.75,
+                                        f1->GetParameter(1)-2.*f1->GetParameter(2),
+                                        Background1->GetMaximum()*0.75));
+  std::unique_ptr<TLine> lr1 (new TLine(f1->GetParameter(1)+2.*f1->GetParameter(2),
+                                        Background1->GetMinimum()*0.75,
+                                        f1->GetParameter(1)+2.*f1->GetParameter(2),
+                                        Background1->GetMaximum()*0.75));
+  std::unique_ptr<TLine> ll2 (new TLine(f2->GetParameter(1)-2.*f2->GetParameter(2),
+                                        Background1->GetMinimum()*0.75,
+                                        f2->GetParameter(1)-2.*f2->GetParameter(2),
+                                        Background1->GetMaximum()*0.75));
+  std::unique_ptr<TLine> lr2 (new TLine(f2->GetParameter(1)+2.*f2->GetParameter(2),
+                                        Background1->GetMinimum()*0.75,
+                                        f2->GetParameter(1)+2.*f2->GetParameter(2),
+                                        Background1->GetMaximum()*0.75));
+  main->Add(ll1.get());
+  main->Add(ll2.get());
+  main->Add(lr1.get());
+  main->Add(lr2.get());
 
   // --- Legends ---------------------------------------------------------------
 
   main->Add(lSys);
-  std::unique_ptr<Legend> l (new Legend(main.get(), "extracted signal pol1\n extracted signal pol2", "lp lp l l") );
+  std::unique_ptr<Legend> l (new Legend(main.get(), "extracted signal (pol1)\n extracted signal (pol2)\n gaus fit (pol1)\n gaus fit (pol2)\n 2 #sigma (pol1)\n 2 #sigma (pol2)", "lp lp l l l l") );
 
   // --- Marker ----------------------------------------------------------------
-  std::vector<Color_t> colors = {kCyan-3, kPink-3, 1, 1, 1, 1};
-  std::vector<Style_t> markers = {kOpenSquare, kOpenCircle, 1, 1, 1, 1};
-  std::vector<Size_t>  sizes = {2., 2., 1, 1};
-
-  // --- Marker ----------------------------------------------------------------
-  std::vector<Color_t> colors     = {kBlack, kGray+3, kCyan-3, kPink-3, kGray+1, 1, 1};
-  std::vector<Style_t> markers    = {kFullCircle, kOpenCircle, 1, 1, 1, 1, 1};
-  std::vector<Size_t>  sizes      = {3., 2.5, 3., 3., 5., 1, 1};
-  std::vector<Style_t> linestyle  = {1, 1, 1, 1, 1, 1, 1 };
-  std::vector<Size_t> linewidth   = {2., 2., 3., 3., 7., 1 ,1 };
+  std::vector<Color_t> colors     = {kCyan-3, kPink-3, kCyan-3, kPink-3, kCyan-3, kPink-3, kCyan-3, kPink-3, 1, 1};
+  std::vector<Style_t> markers    = {kOpenCircle, kOpenCircle, 1, 1, 1, 1, 1, 1, 1, 1};
+  std::vector<Size_t>  sizes      = {3., 3., 1, 1, 1, 1, 1, 1, 1, 1};
+  std::vector<Style_t> linestyle  = {1, 1, 1, 1, 2, 3, 2, 3, 1, 1};
+  std::vector<Size_t> linewidth   = {3., 3., 3., 3., 3., 3., 3. , 3., 1, 1};
 
   // --- Canvasses -------------------------------------------------------------
-
-  Legend::SetPosition(l.get(), 0.55, 0.9, 0.67, 0.875);
+  Legend::SetPosition(l.get(), 0.6, 0.9, 0.875-(6.*0.03), 0.875);
 
   SquarePlot square = SquarePlot(main.get(), minv_str, count_str);
   square.SetMode(Plot::Thesis);

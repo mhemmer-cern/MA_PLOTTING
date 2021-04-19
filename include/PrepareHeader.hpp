@@ -4,10 +4,10 @@ void PrepareGaussians(std::vector<TF1*> v)
 {
   for (int vn = 0; vn < v.size(); vn++)
   {
-    v.at(vn)->SetParameters(1.0, 0.782, 0.05);
+    v.at(vn)->SetParameters(1.0, 0.782, 0.04);
     v.at(vn)->SetParLimits(0, 0.0, 10000.);
     v.at(vn)->SetParLimits(1, 0.7, 0.85);
-    v.at(vn)->SetParLimits(2, 0.01, 0.15);
+    v.at(vn)->SetParLimits(2, 0.01, 0.1);
   }
   return;
 }
@@ -28,13 +28,13 @@ void FitBackground(std::vector<TH1D*> vHist, std::vector<TF1*> vFunction, std::v
 {
   for (int vn = 0; vn < vHist.size(); vn++)
   {
-    vHist.at(vn)->Fit(vFunction.at(vn), "QMNE", "", low, high);
+    vHist.at(vn)->Fit(vFunction.at(vn), "QM0E", "", low, high);
     vGraph.at(vn)->SetTitle("Fitted pol1 with 1#sigma conf. band");
     for (int i = 1; i <= vHist.at(vn)->GetNbinsX(); i++)
     {
       vGraph.at(vn)->SetPoint(i, vHist.at(vn)->GetBinContent(i), 0);
     }
-    (TVirtualFitter::GetFitter())->GetConfidenceIntervals(vGraph.at(vn), 0.68);
+    // (TVirtualFitter::GetFitter())->GetConfidenceIntervals(vGraph.at(vn), 0.68);
   }
   return;
 }
@@ -44,7 +44,7 @@ void FitPeak(std::vector<TH1D*> vSignal, std::vector<TH1D*> vBack, std::vector<T
   for (int vn = 0; vn < vSignal.size(); vn++)
   {
     vSignal.at(vn)->Add(vSignal.at(vn), vBack.at(vn), 1, -1);
-    vSignal.at(vn)->Fit(vFunction.at(vn), "QMNE", "", low, high);
+    vSignal.at(vn)->Fit(vFunction.at(vn), "QM0EB", "", low, high);
     vMu.at(vn)->SetBinContent(pTBin,   vFunction.at(vn)->GetParameter(1));
     vMu.at(vn)->SetBinError(pTBin,     vFunction.at(vn)->GetParError(1));
     vSigma.at(vn)->SetBinContent(pTBin,  vFunction.at(vn)->GetParameter(2));

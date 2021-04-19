@@ -1,6 +1,6 @@
-#include "/home/tavlin/C_Headers/Plotting_Patrick.h"
-#include "/home/tavlin/C_Headers/CommonHeader.h"
-#include "/home/tavlin/Documents/git/Header/Plot.h"
+#include "/home/marvin/C_Headers/Plotting_Patrick.h"
+#include "/home/marvin/C_Headers/CommonHeader.h"
+#include "/home/marvin/Documents/git/Header/Plot.h"
 
 
 void YieldScaling(TObjArray* array, Double_t NEVENTS, const Int_t NBINS){

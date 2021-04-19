@@ -19,8 +19,8 @@ void plotting()
   //
   // ---------------------------------------------------------------------------
   // HARDCODED!
-  TFile* FDataOmegaPS_EG1                     = SafelyOpenRootfile("/mnt/wwn-0x50000395b2b85149-part1/PreparedData2/2021_04_15_pp13TeV/OmegaToPiZeroGamma_2084.root");
-  TFile* FDataOmegaPS_EG2                     = SafelyOpenRootfile("/mnt/wwn-0x50000395b2b85149-part1/PreparedData2/2021_04_15_pp13TeV/OmegaToPiZeroGamma_2074.root");
+  TFile* FDataOmegaPS_EG1                     = SafelyOpenRootfile("/media/marvin/TOSHIBA EXT/PreparedData2/2021_04_15_pp13TeV/OmegaToPiZeroGamma_2084.root");
+  TFile* FDataOmegaPS_EG2                     = SafelyOpenRootfile("/media/marvin/TOSHIBA EXT/PreparedData2/2021_04_15_pp13TeV/OmegaToPiZeroGamma_2074.root");
 
   TList* UpperListDataOmegaPS_EG1             = (TList*) FDataOmegaPS_EG1->Get("OmegaToPiZeroGamma_2084");
   TList* UpperListDataOmegaPS_EG2             = (TList*) FDataOmegaPS_EG2->Get("OmegaToPiZeroGamma_2074");
@@ -222,8 +222,8 @@ void plotting()
   //
   // ---------------------------------------------------------------------------
   // HARDCODED!
-  TFile* FDataPi0PS_EG1                     = SafelyOpenRootfile("/mnt/wwn-0x50000395b2b85149-part1/PreparedData2/2021_04_15_pp13TeV/OmegaToPiZeroGamma_2088.root");
-  TFile* FDataPi0PS_EG2                     = SafelyOpenRootfile("/mnt/wwn-0x50000395b2b85149-part1/PreparedData2/2021_04_15_pp13TeV/OmegaToPiZeroGamma_2078.root");
+  TFile* FDataPi0PS_EG1                     = SafelyOpenRootfile("/media/marvin/TOSHIBA EXT/PreparedData2/2021_04_15_pp13TeV/OmegaToPiZeroGamma_2088.root");
+  TFile* FDataPi0PS_EG2                     = SafelyOpenRootfile("/media/marvin/TOSHIBA EXT/PreparedData2/2021_04_15_pp13TeV/OmegaToPiZeroGamma_2078.root");
 
   TList* UpperListDataPi0PS_EG1             = (TList*) FDataPi0PS_EG1->Get("OmegaToPiZeroGamma_2088");
   TList* UpperListDataPi0PS_EG2             = (TList*) FDataPi0PS_EG2->Get("OmegaToPiZeroGamma_2078");
@@ -298,8 +298,8 @@ void plotting()
   //
   // ---------------------------------------------------------------------------
   // HARDCODED!
-  TFile* FDataOmegaWOPS_EG1                     = SafelyOpenRootfile("/mnt/wwn-0x50000395b2b85149-part1/PreparedData2/2021_04_15_pp13TeV/OmegaToPiZeroGamma_6084.root");
-  TFile* FDataOmegaWOPS_EG2                     = SafelyOpenRootfile("/mnt/wwn-0x50000395b2b85149-part1/PreparedData2/2021_04_15_pp13TeV/OmegaToPiZeroGamma_6074.root");
+  TFile* FDataOmegaWOPS_EG1                     = SafelyOpenRootfile("/media/marvin/TOSHIBA EXT/PreparedData2/2021_04_15_pp13TeV/OmegaToPiZeroGamma_6084.root");
+  TFile* FDataOmegaWOPS_EG2                     = SafelyOpenRootfile("/media/marvin/TOSHIBA EXT/PreparedData2/2021_04_15_pp13TeV/OmegaToPiZeroGamma_6074.root");
 
   TList* UpperListDataOmegaWOPS_EG1             = (TList*) FDataOmegaWOPS_EG1->Get("OmegaToPiZeroGamma_6084");
   TList* UpperListDataOmegaWOPS_EG2             = (TList*) FDataOmegaWOPS_EG2->Get("OmegaToPiZeroGamma_6074");
@@ -422,8 +422,8 @@ void plotting()
   // ---------------------------------------------------------------------------
 
   // HARDCODED!
-  TFile* FDataOmegaPSAP_EG1                     = SafelyOpenRootfile("/mnt/wwn-0x50000395b2b85149-part1/PreparedData2/2021_04_15_pp13TeV/OmegaToPiZeroGamma_2087.root");
-  TFile* FDataOmegaPSAP_EG2                     = SafelyOpenRootfile("/mnt/wwn-0x50000395b2b85149-part1/PreparedData2/2021_04_15_pp13TeV/OmegaToPiZeroGamma_2077.root");
+  TFile* FDataOmegaPSAP_EG1                     = SafelyOpenRootfile("/media/marvin/TOSHIBA EXT/PreparedData2/2021_04_15_pp13TeV/OmegaToPiZeroGamma_2087.root");
+  TFile* FDataOmegaPSAP_EG2                     = SafelyOpenRootfile("/media/marvin/TOSHIBA EXT/PreparedData2/2021_04_15_pp13TeV/OmegaToPiZeroGamma_2077.root");
 
   TList* UpperListDataOmegaPSAP_EG1             = (TList*) FDataOmegaPSAP_EG1->Get("OmegaToPiZeroGamma_2087");
   TList* UpperListDataOmegaPSAP_EG2             = (TList*) FDataOmegaPSAP_EG2->Get("OmegaToPiZeroGamma_2077");
@@ -520,8 +520,8 @@ void plotting()
   //
   // ---------------------------------------------------------------------------
   // HARDCODED!
-  TFile* FDataOmegaPSNCell_EG1                     = SafelyOpenRootfile("/mnt/wwn-0x50000395b2b85149-part1/PreparedData2/2021_03_17_pp13TeV/OmegaToPiZeroGamma_6044.root");
-  TFile* FDataOmegaPSNCell_EG2                     = SafelyOpenRootfile("/mnt/wwn-0x50000395b2b85149-part1/PreparedData2/2021_03_17_pp13TeV/OmegaToPiZeroGamma_6034.root");
+  TFile* FDataOmegaPSNCell_EG1                     = SafelyOpenRootfile("/media/marvin/TOSHIBA EXT/PreparedData2/2021_03_17_pp13TeV/OmegaToPiZeroGamma_6044.root");
+  TFile* FDataOmegaPSNCell_EG2                     = SafelyOpenRootfile("/media/marvin/TOSHIBA EXT/PreparedData2/2021_03_17_pp13TeV/OmegaToPiZeroGamma_6034.root");
 
   TList* UpperListDataOmegaPSNCell_EG1             = (TList*) FDataOmegaPSNCell_EG1->Get("OmegaToPiZeroGamma_6044");
   TList* UpperListDataOmegaPSNCell_EG2             = (TList*) FDataOmegaPSNCell_EG2->Get("OmegaToPiZeroGamma_6034");
@@ -594,8 +594,8 @@ void plotting()
   //
   // ---------------------------------------------------------------------------
   // HARDCODED!
-  TFile* FDataOmegaPSVari_EG1                     = SafelyOpenRootfile("/mnt/wwn-0x50000395b2b85149-part1/PreparedData2/2021_04_15_pp13TeV/OmegaToPiZeroGamma_2083.root");
-  TFile* FDataOmegaPSVari_EG2                     = SafelyOpenRootfile("/mnt/wwn-0x50000395b2b85149-part1/PreparedData2/2021_04_15_pp13TeV/OmegaToPiZeroGamma_2073.root");
+  TFile* FDataOmegaPSVari_EG1                     = SafelyOpenRootfile("/media/marvin/TOSHIBA EXT/PreparedData2/2021_04_15_pp13TeV/OmegaToPiZeroGamma_2083.root");
+  TFile* FDataOmegaPSVari_EG2                     = SafelyOpenRootfile("/media/marvin/TOSHIBA EXT/PreparedData2/2021_04_15_pp13TeV/OmegaToPiZeroGamma_2073.root");
 
   TList* UpperListDataOmegaPSVari_EG1             = (TList*) FDataOmegaPSVari_EG1->Get("OmegaToPiZeroGamma_2083");
   TList* UpperListDataOmegaPSVari_EG2             = (TList*) FDataOmegaPSVari_EG2->Get("OmegaToPiZeroGamma_2073");
@@ -805,8 +805,8 @@ void plotting()
   // ---------------------------------------------------------------------------
   // HARDCODED!
   //Files
-  TFile* FMCOmegaPS_EG1                     = SafelyOpenRootfile("/mnt/wwn-0x50000395b2b85149-part1/PreparedData2/2021_04_17_pp13TeV/MC/OmegaToPiZeroGamma_2084.root");
-  TFile* FMCOmegaPS_EG2                     = SafelyOpenRootfile("/mnt/wwn-0x50000395b2b85149-part1/PreparedData2/2021_04_17_pp13TeV/MC/OmegaToPiZeroGamma_2074.root");
+  TFile* FMCOmegaPS_EG1                     = SafelyOpenRootfile("/media/marvin/TOSHIBA EXT/PreparedData2/2021_04_17_pp13TeV/MC/OmegaToPiZeroGamma_2084.root");
+  TFile* FMCOmegaPS_EG2                     = SafelyOpenRootfile("/media/marvin/TOSHIBA EXT/PreparedData2/2021_04_17_pp13TeV/MC/OmegaToPiZeroGamma_2074.root");
 
   // First Upper List
   TList* UpperListMCOmegaPS_EG1             = (TList*) FMCOmegaPS_EG1->Get("OmegaToPiZeroGamma_2084");
@@ -1024,8 +1024,8 @@ void plotting()
   // HARDCODED!
 
   //Files
-  TFile* FMCPi0PS_EG1                     = SafelyOpenRootfile("/mnt/wwn-0x50000395b2b85149-part1/PreparedData2/2021_04_17_pp13TeV/MC/OmegaToPiZeroGamma_2088.root");
-  TFile* FMCPi0PS_EG2                     = SafelyOpenRootfile("/mnt/wwn-0x50000395b2b85149-part1/PreparedData2/2021_04_17_pp13TeV/MC/OmegaToPiZeroGamma_2078.root");
+  TFile* FMCPi0PS_EG1                     = SafelyOpenRootfile("/media/marvin/TOSHIBA EXT/PreparedData2/2021_04_17_pp13TeV/MC/OmegaToPiZeroGamma_2088.root");
+  TFile* FMCPi0PS_EG2                     = SafelyOpenRootfile("/media/marvin/TOSHIBA EXT/PreparedData2/2021_04_17_pp13TeV/MC/OmegaToPiZeroGamma_2078.root");
 
   // First Upper List
   TList* UpperListMCPi0PS_EG1             = (TList*) FMCPi0PS_EG1->Get("OmegaToPiZeroGamma_2088");
@@ -1135,8 +1135,8 @@ void plotting()
   // ---------------------------------------------------------------------------
   // HARDCODED!
   //Files
-  TFile* FMCOmegaWOPS_EG1                     = SafelyOpenRootfile("/mnt/wwn-0x50000395b2b85149-part1/PreparedData2/2021_04_17_pp13TeV/MC/OmegaToPiZeroGamma_6084.root");
-  TFile* FMCOmegaWOPS_EG2                     = SafelyOpenRootfile("/mnt/wwn-0x50000395b2b85149-part1/PreparedData2/2021_04_17_pp13TeV/MC/OmegaToPiZeroGamma_6074.root");
+  TFile* FMCOmegaWOPS_EG1                     = SafelyOpenRootfile("/media/marvin/TOSHIBA EXT/PreparedData2/2021_04_17_pp13TeV/MC/OmegaToPiZeroGamma_6084.root");
+  TFile* FMCOmegaWOPS_EG2                     = SafelyOpenRootfile("/media/marvin/TOSHIBA EXT/PreparedData2/2021_04_17_pp13TeV/MC/OmegaToPiZeroGamma_6074.root");
 
   // First Upper List
   TList* UpperListMCOmegaWOPS_EG1             = (TList*) FMCOmegaWOPS_EG1->Get("OmegaToPiZeroGamma_6084");
@@ -1306,8 +1306,8 @@ void plotting()
   // ---------------------------------------------------------------------------
   // HARDCODED!
   //Files
-  TFile* FMCOmegaPSAP_EG1                     = SafelyOpenRootfile("/mnt/wwn-0x50000395b2b85149-part1/PreparedData2/2021_04_17_pp13TeV/MC/OmegaToPiZeroGamma_2087.root");
-  TFile* FMCOmegaPSAP_EG2                     = SafelyOpenRootfile("/mnt/wwn-0x50000395b2b85149-part1/PreparedData2/2021_04_17_pp13TeV/MC/OmegaToPiZeroGamma_2077.root");
+  TFile* FMCOmegaPSAP_EG1                     = SafelyOpenRootfile("/media/marvin/TOSHIBA EXT/PreparedData2/2021_04_17_pp13TeV/MC/OmegaToPiZeroGamma_2087.root");
+  TFile* FMCOmegaPSAP_EG2                     = SafelyOpenRootfile("/media/marvin/TOSHIBA EXT/PreparedData2/2021_04_17_pp13TeV/MC/OmegaToPiZeroGamma_2077.root");
 
   // First Upper List
   TList* UpperListMCOmegaPSAP_EG1             = (TList*) FMCOmegaPSAP_EG1->Get("OmegaToPiZeroGamma_2087");
@@ -1479,8 +1479,8 @@ void plotting()
   //
   // ---------------------------------------------------------------------------
   // HARDCODED!
-  TFile* FMCOmegaPSNCell_EG1                     = SafelyOpenRootfile("/mnt/wwn-0x50000395b2b85149-part1/PreparedData2/2021_03_16_pp13TeV/OmegaToPiZeroGamma_6044.root");
-  TFile* FMCOmegaPSNCell_EG2                     = SafelyOpenRootfile("/mnt/wwn-0x50000395b2b85149-part1/PreparedData2/2021_03_16_pp13TeV/OmegaToPiZeroGamma_6034.root");
+  TFile* FMCOmegaPSNCell_EG1                     = SafelyOpenRootfile("/media/marvin/TOSHIBA EXT/PreparedData2/2021_03_16_pp13TeV/OmegaToPiZeroGamma_6044.root");
+  TFile* FMCOmegaPSNCell_EG2                     = SafelyOpenRootfile("/media/marvin/TOSHIBA EXT/PreparedData2/2021_03_16_pp13TeV/OmegaToPiZeroGamma_6034.root");
 
   TList* UpperListMCOmegaPSNCell_EG1             = (TList*) FMCOmegaPSNCell_EG1->Get("OmegaToPiZeroGamma_6044");
   TList* UpperListMCOmegaPSNCell_EG2             = (TList*) FMCOmegaPSNCell_EG2->Get("OmegaToPiZeroGamma_6034");
@@ -1639,8 +1639,8 @@ void plotting()
   //
   // ---------------------------------------------------------------------------
   // HARDCODED!
-  TFile* FMCOmegaPSVari_EG1                     = SafelyOpenRootfile("/mnt/wwn-0x50000395b2b85149-part1/PreparedData2/2021_04_17_pp13TeV/MC/OmegaToPiZeroGamma_2083.root");
-  TFile* FMCOmegaPSVari_EG2                     = SafelyOpenRootfile("/mnt/wwn-0x50000395b2b85149-part1/PreparedData2/2021_04_17_pp13TeV/MC/OmegaToPiZeroGamma_2073.root");
+  TFile* FMCOmegaPSVari_EG1                     = SafelyOpenRootfile("/media/marvin/TOSHIBA EXT/PreparedData2/2021_04_17_pp13TeV/MC/OmegaToPiZeroGamma_2083.root");
+  TFile* FMCOmegaPSVari_EG2                     = SafelyOpenRootfile("/media/marvin/TOSHIBA EXT/PreparedData2/2021_04_17_pp13TeV/MC/OmegaToPiZeroGamma_2073.root");
 
   TList* UpperListMCOmegaPSVari_EG1             = (TList*) FMCOmegaPSVari_EG1->Get("OmegaToPiZeroGamma_2083");
   TList* UpperListMCOmegaPSVari_EG2             = (TList*) FMCOmegaPSVari_EG2->Get("OmegaToPiZeroGamma_2073");
@@ -1927,8 +1927,8 @@ void plotting()
   // ---------------------------------------------------------------------------
   // HARDCODED!
   //Files
-  TFile* FMCOmegaPS_MB1                     = SafelyOpenRootfile("/mnt/wwn-0x50000395b2b85149-part1/PreparedData2/2021_04_17_pp13TeV/MC/OmegaToPiZeroGamma_8_2064.root");
-  TFile* FMCOmegaPS_MB2                     = SafelyOpenRootfile("/mnt/wwn-0x50000395b2b85149-part1/PreparedData2/2021_04_17_pp13TeV/MC/OmegaToPiZeroGamma_7_2064.root");
+  TFile* FMCOmegaPS_MB1                     = SafelyOpenRootfile("/media/marvin/TOSHIBA EXT/PreparedData2/2021_04_17_pp13TeV/MC/OmegaToPiZeroGamma_8_2064.root");
+  TFile* FMCOmegaPS_MB2                     = SafelyOpenRootfile("/media/marvin/TOSHIBA EXT/PreparedData2/2021_04_17_pp13TeV/MC/OmegaToPiZeroGamma_7_2064.root");
 
   // First Upper List
   TList* UpperListMCOmegaPS_MB1             = (TList*) FMCOmegaPS_MB1->Get("OmegaToPiZeroGamma_2064");
@@ -5640,6 +5640,22 @@ void plotting()
     vHistos.resize(0);
     vFunctions.clear();
     vFunctions.resize(0);
+
+    PeaksDataWithFits(h1_Peak_DataOmegaRotPS_Pol1_EG1,            h1_Peak_DataOmegaRotPS_Pol2_EG1,            f1Gaus_DataOmegaRotPS_Pol1_EG1.get(),             f1Gaus_DataOmegaRotPS_Pol2_EG1.get(),             legSystem.get(), Form("Data/EG1/OmegaRotPS/PeaksWithFits_%02d.svg", pTBin_EG1));
+    PeaksDataWithFits(h1_Peak_DataOmegaTGPSPS_Pol1_EG1,           h1_Peak_DataOmegaTGPSPS_Pol2_EG1,           f1Gaus_DataOmegaTGPSPS_Pol1_EG1.get(),            f1Gaus_DataOmegaTGPSPS_Pol2_EG1.get(),            legSystem.get(), Form("Data/EG1/OmegaTGPSPS/PeaksWithFits_%02d.svg", pTBin_EG1));
+    PeaksDataWithFits(h1_Peak_DataOmegaTGPSPlusPS_Pol1_EG1,       h1_Peak_DataOmegaTGPSPlusPS_Pol2_EG1,       f1Gaus_DataOmegaTGPSPlusPS_Pol1_EG1.get(),        f1Gaus_DataOmegaTGPSPlusPS_Pol2_EG1.get(),        legSystem.get(), Form("Data/EG1/OmegaTGPSPlusPS/PeaksWithFits_%02d.svg", pTBin_EG1));
+    PeaksDataWithFits(h1_Peak_DataPi0RotPS_Pol1_EG1,              h1_Peak_DataPi0RotPS_Pol2_EG1,              f1Gaus_DataPi0RotPS_Pol1_EG1.get(),               f1Gaus_DataPi0RotPS_Pol2_EG1.get(),               legSystem.get(), Form("Data/EG1/Pi0RotPS/PeaksWithFits_%02d.svg", pTBin_EG1));
+    PeaksDataWithFits(h1_Peak_DataPi0TGPSPS_Pol1_EG1,             h1_Peak_DataPi0TGPSPS_Pol2_EG1,             f1Gaus_DataPi0TGPSPS_Pol1_EG1.get(),              f1Gaus_DataPi0TGPSPS_Pol2_EG1.get(),              legSystem.get(), Form("Data/EG1/Pi0TGPSPS/PeaksWithFits_%02d.svg", pTBin_EG1));
+    PeaksDataWithFits(h1_Peak_DataOmegaRotWOPS_Pol1_EG1,          h1_Peak_DataOmegaRotWOPS_Pol2_EG1,          f1Gaus_DataOmegaRotWOPS_Pol1_EG1.get(),           f1Gaus_DataOmegaRotWOPS_Pol2_EG1.get(),           legSystem.get(), Form("Data/EG1/OmegaRotWOPS/PeaksWithFits_%02d.svg", pTBin_EG1));
+    PeaksDataWithFits(h1_Peak_DataOmegaTGPSWOPS_Pol1_EG1,         h1_Peak_DataOmegaTGPSWOPS_Pol2_EG1,         f1Gaus_DataOmegaTGPSWOPS_Pol1_EG1.get(),          f1Gaus_DataOmegaTGPSWOPS_Pol2_EG1.get(),          legSystem.get(), Form("Data/EG1/OmegaTGPSWOPS/PeaksWithFits_%02d.svg", pTBin_EG1));
+    PeaksDataWithFits(h1_Peak_DataOmegaTGPSPlusWOPS_Pol1_EG1,     h1_Peak_DataOmegaTGPSPlusWOPS_Pol2_EG1,     f1Gaus_DataOmegaTGPSPlusWOPS_Pol1_EG1.get(),      f1Gaus_DataOmegaTGPSPlusWOPS_Pol2_EG1.get(),      legSystem.get(), Form("Data/EG1/OmegaTGPSPlusWOPS/PeaksWithFits_%02d.svg", pTBin_EG1));
+    PeaksDataWithFits(h1_Peak_DataOmegaRotPSNCell_Pol1_EG1,       h1_Peak_DataOmegaRotPSNCell_Pol2_EG1,       f1Gaus_DataOmegaRotPSNCell_Pol1_EG1.get(),        f1Gaus_DataOmegaRotPSNCell_Pol2_EG1.get(),        legSystem.get(), Form("Data/EG1/OmegaRotPSNCell/PeaksWithFits_%02d.svg", pTBin_EG1));
+    PeaksDataWithFits(h1_Peak_DataOmegaTGPSPSNCell_Pol1_EG1,      h1_Peak_DataOmegaTGPSPSNCell_Pol2_EG1,      f1Gaus_DataOmegaTGPSPSNCell_Pol1_EG1.get(),       f1Gaus_DataOmegaTGPSPSNCell_Pol2_EG1.get(),       legSystem.get(), Form("Data/EG1/OmegaTGPSPSNCell/PeaksWithFits_%02d.svg", pTBin_EG1));
+    PeaksDataWithFits(h1_Peak_DataOmegaTGPSPlusPSNCell_Pol1_EG1,  h1_Peak_DataOmegaTGPSPlusPSNCell_Pol2_EG1,  f1Gaus_DataOmegaTGPSPlusPSNCell_Pol1_EG1.get(),   f1Gaus_DataOmegaTGPSPlusPSNCell_Pol2_EG1.get(),   legSystem.get(), Form("Data/EG1/OmegaTGPSPlusPSNCell/PeaksWithFits_%02d.svg", pTBin_EG1));
+    PeaksDataWithFits(h1_Peak_DataOmegaPS1Sig_Pol1_EG1,           h1_Peak_DataOmegaPS1Sig_Pol2_EG1,           f1Gaus_DataOmegaPS1Sig_Pol1_EG1.get(),            f1Gaus_DataOmegaPS1Sig_Pol2_EG1.get(),            legSystem.get(), Form("Data/EG1/OmegaPS1Sig/PeaksWithFits_%02d.svg", pTBin_EG1));
+    PeaksDataWithFits(h1_Peak_DataOmegaPS2Sig_Pol1_EG1,           h1_Peak_DataOmegaPS2Sig_Pol2_EG1,           f1Gaus_DataOmegaPS2Sig_Pol1_EG1.get(),            f1Gaus_DataOmegaPS2Sig_Pol2_EG1.get(),            legSystem.get(), Form("Data/EG1/OmegaPS2Sig/PeaksWithFits_%02d.svg", pTBin_EG1));
+    PeaksDataWithFits(h1_Peak_DataOmegaPS3Sig_Pol1_EG1,           h1_Peak_DataOmegaPS3Sig_Pol2_EG1,           f1Gaus_DataOmegaPS3Sig_Pol1_EG1.get(),            f1Gaus_DataOmegaPS3Sig_Pol2_EG1.get(),            legSystem.get(), Form("Data/EG1/OmegaPS3Sig/PeaksWithFits_%02d.svg", pTBin_EG1));
+    PeaksDataWithFits(h1_Peak_DataOmegaPS4Sig_Pol1_EG1,           h1_Peak_DataOmegaPS4Sig_Pol2_EG1,           f1Gaus_DataOmegaPS4Sig_Pol1_EG1.get(),            f1Gaus_DataOmegaPS4Sig_Pol2_EG1.get(),            legSystem.get(), Form("Data/EG1/OmegaPS4Sig/PeaksWithFits_%02d.svg", pTBin_EG1));
 
     // ███╗░░░███╗░█████╗░
     // ████╗░████║██╔══██╗

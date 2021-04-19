@@ -38,7 +38,7 @@ Double_t fitMixedHigh   = 1.3;
 
 const Int_t nBinsPt_EG1 = 8;                                                    // pT binning for EG 1
 std::vector<Double_t> arrPtBinning_EG1
-{12.0, 14.0, 16.0, 18.0, 20.0, 24.0, 28.0, 32.0};
+{12.0, 14.0, 16.0, 18.0, 20.0, 24.0, 28.0, 40.0};
 // {02.0, 04.0, 06.0, 08.0, 10.0, 12.0, 14.0, 16.0, 18.0, 20.0, 24.0, 28.0, 32.0};
 
 std::vector<Int_t> arrRebinning_EG1
@@ -46,26 +46,26 @@ std::vector<Int_t> arrRebinning_EG1
 // {2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 4};
 
 
-const Int_t nBinsPt_EG2 = 11;                                                  // pT binning for EG 1
+const Int_t nBinsPt_EG2 = 11;                                                   // pT binning for EG 1
 std::vector<Double_t> arrPtBinning_EG2
-{06.0, 08.0, 10.0, 12.0, 14.0, 16.0, 18.0, 20.0, 24.0, 28.0, 32.0};
+{06.0, 08.0, 10.0, 12.0, 14.0, 16.0, 18.0, 20.0, 24.0, 28.0, 40.0};
 
 std::vector<Int_t> arrRebinning_EG2
-{2, 2, 2, 2, 2, 4, 4};
+{2, 2, 2, 2, 2, 2, 2, 2, 4, 4};
 
-const Int_t nBinsPt_MB1 = 13;                                                  // pT binning for MB 1
+const Int_t nBinsPt_MB1 = 13;                                                   // pT binning for MB 1
 std::vector<Double_t> arrPtBinning_MB1
-{02.0, 04.0, 06.0, 08.0, 10.0, 12.0, 14.0, 16.0, 18.0, 20.0, 24.0, 28.0, 32.0};
+{02.0, 04.0, 06.0, 08.0, 10.0, 12.0, 14.0, 16.0, 18.0, 20.0, 24.0, 28.0, 40.0};
 
 std::vector<Int_t> arrRebinning_MB1
 {2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 4};
 
-const Int_t nBinsPt_MB2 = 13;                                                  // pT binning for MB 2
+const Int_t nBinsPt_MB2 = 13;                                                   // pT binning for MB 2
 std::vector<Double_t> arrPtBinning_MB2
-{02.0, 04.0, 06.0, 08.0, 10.0, 12.0, 14.0, 16.0, 18.0, 20.0, 24.0, 28.0, 32.0};
+{02.0, 04.0, 06.0, 08.0, 10.0, 12.0, 14.0, 16.0, 18.0, 20.0, 24.0, 28.0, 40.0};
 
 std::vector<Int_t> arrRebinning_MB2
-{2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 4};
+{2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 4, 4};
 
 /****************************************************************************/
 /*                                                                          */
