@@ -19,7 +19,7 @@ void BeforeScaling(TH1D* SE, TH1D* Background, TPaveText* lSys, TString outname)
 
   // --- Marker ----------------------------------------------------------------
 
-  vector<Color_t> colors = {kRed-2, kBlack, 0, 0};
+  vector<Color_t> colors = {kRed-7, kBlack, 0, 0};
   vector<Style_t> markers = {kFullSquare, kFullCircle, 0, 0};
   vector<Size_t>  sizes = {2., 2., 0, 0};
 
@@ -54,7 +54,7 @@ void BeforeScalingAC(TH1D* SE, TH1D* AngleCut, TH1D* Background, TPaveText* lSys
 
   // --- Marker ----------------------------------------------------------------
 
-  vector<Color_t> colors = {kRed-2, kBlue-2, kBlack, 0, 0};
+  vector<Color_t> colors = {kRed-7, kBlue-7, kBlack, 0, 0};
   vector<Style_t> markers = {kFullSquare, kOpenCircle, kFullCircle, 0, 0};
   vector<Size_t>  sizes = {2., 2., 2., 0, 0};
 
@@ -92,7 +92,7 @@ void BeforeScalingMCData(TH1D* SE, TH1D* Background, TPaveText* lSys, TString ou
   l->SetFillStyle(0);
 
   // --- Marker ----------------------------------------------------------------
-  vector<Color_t> colors = {kBlack, kRed-2, 0, 0};
+  vector<Color_t> colors = {kBlack, kRed-7, 0, 0};
   vector<Style_t> markers = {kFullCircle, kOpenSquare, 0, 0};
   vector<Size_t>  sizes = {2., 2., 0, 0};
 
@@ -125,7 +125,7 @@ void BeforeScalingAPLikeCut(TH1D* SE1, TH1D* SE2, TH1D* SE3, TH1D* SE4, TPaveTex
 
   // --- Marker ----------------------------------------------------------------
 
-  vector<Color_t> colors = {kRed-2, kBlue+3, kTeal-7, kBlack, 0, 0};
+  vector<Color_t> colors = {kRed-7, kBlue-7, kGreen-7, kBlack, 0, 0};
   vector<Style_t> markers = {kFullSquare, kOpenCircle, kOpenDiamond, kOpenSquare, 0, 0};
   vector<Size_t>  sizes = {2., 2., 2., 2., 0, 0};
 

@@ -18,8 +18,8 @@ void FitAfterScalig(TH1D* SE, TH1D* Background1, TH1D* Background2, TPaveText* l
   std::unique_ptr<Legend> l (new Legend(main.get(), "same event\n background pol1\n background pol2", "lp lp lp") );
 
   // --- Marker ----------------------------------------------------------------
-  vector<Color_t> colors = {kBlack, kCyan-3, kPink-3, 1, 1};
-  vector<Style_t> markers = {kFullCircle, kOpenSquare, kOpenCircle, 1, 1};
+  vector<Color_t> colors = {kBlack, kViolet+9, kOrange+9, 1, 1};
+  vector<Style_t> markers = {kFullCircle, kOpenCircle, kOpenSquare, 1, 1};
   vector<Size_t>  sizes = {3., 2.5, 2.5, 1. , 1.};
 
   // --- Canvasses -------------------------------------------------------------

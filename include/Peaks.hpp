@@ -17,8 +17,8 @@ void PeaksMC(TH1D* TruePeak, TH1D* Background1, TH1D* Background2, TPaveText* lS
   std::unique_ptr<Legend> l (new Legend(main.get(), "true signal\n extracted signal pol1\n extracted signal pol2", "lp lp lp") );
 
   // --- Marker ----------------------------------------------------------------
-  std::vector<Color_t> colors = {kBlack, kCyan-3, kPink-3, 1, 1};
-  std::vector<Style_t> markers = {kFullCircle, kOpenSquare, kOpenCircle, 1, 1};
+  std::vector<Color_t> colors = {kBlack, kViolet+9, kOrange+9, 1, 1};
+  std::vector<Style_t> markers = {kFullCircle, kOpenCircle, kOpenSquare, 1, 1};
   std::vector<Size_t>  sizes = {3., 2., 2., 1, 1};
 
   // --- Canvasses -------------------------------------------------------------
@@ -46,8 +46,8 @@ void PeaksData(TH1D* PeakPol1, TH1D* PeakPol2, TPaveText* lSys, TString outname)
   std::unique_ptr<Legend> l (new Legend(main.get(), "extracted signal pol1\n extracted signal pol2", "lp lp") );
 
   // --- Marker ----------------------------------------------------------------
-  std::vector<Color_t> colors = {kCyan-3, kPink-3, 1, 1};
-  std::vector<Style_t> markers = {kOpenSquare, kOpenCircle, 1, 1};
+  std::vector<Color_t> colors = {kViolet+9, kOrange+9, 1, 1};
+  std::vector<Style_t> markers = {kOpenCircle, kOpenSquare, 1, 1};
   std::vector<Size_t>  sizes = {2., 2., 1, 1};
 
   // --- Canvasses -------------------------------------------------------------
@@ -98,11 +98,11 @@ void PeaksDataWithFits(TH1D* Background1, TH1D* Background2, TF1* f1, TF1* f2, T
   // --- Legends ---------------------------------------------------------------
 
   main->Add(lSys);
-  std::unique_ptr<Legend> l (new Legend(main.get(), "extracted signal (pol1)\n extracted signal (pol2)\n gaus fit (pol1)\n gaus fit (pol2)\n 2 #sigma (pol1)\n 2 #sigma (pol2)", "lp lp l l l l") );
+  std::unique_ptr<Legend> l (new Legend(main.get(), "extracted signal (pol1)\n extracted signal (pol2)\n gaus fit (pol1)\n gaus fit (pol2)\n 2 #sigma (pol1)\n 2 #sigma (pol2)", "lp lp l l l l", "", 6) );
 
   // --- Marker ----------------------------------------------------------------
-  std::vector<Color_t> colors     = {kCyan-3, kPink-3, kCyan-3, kPink-3, kCyan-3, kPink-3, kCyan-3, kPink-3, 1, 1};
-  std::vector<Style_t> markers    = {kOpenCircle, kOpenCircle, 1, 1, 1, 1, 1, 1, 1, 1};
+  std::vector<Color_t> colors     = {kViolet+9, kOrange+9, kViolet+9, kOrange+9, kViolet+9, kOrange+9, kViolet+9, kOrange+9, 1, 1};
+  std::vector<Style_t> markers    = {kOpenCircle, kOpenSquare, 1, 1, 1, 1, 1, 1, 1, 1};
   std::vector<Size_t>  sizes      = {3., 3., 1, 1, 1, 1, 1, 1, 1, 1};
   std::vector<Style_t> linestyle  = {1, 1, 1, 1, 2, 3, 2, 3, 1, 1};
   std::vector<Size_t> linewidth   = {3., 3., 3., 3., 3., 3., 3. , 3., 1, 1};
@@ -138,7 +138,7 @@ void PeaksNormalized(TH1D* h1, TH1D* h2, TPaveText* lSys, TString outname)
 
   // --- Marker ----------------------------------------------------------------
 
-  vector<Color_t> colors = {kMagenta+3, kTeal-5};
+  vector<Color_t> colors = {kOrange+9, kBlack};
   vector<Style_t> markers = {kOpenSquare, kFullSquare};
   vector<Size_t>  sizes = {3., 2.5};
 
@@ -160,7 +160,6 @@ void PeaksNormalized(TH1D* h1, TH1D* h2, TPaveText* lSys, TString outname)
 void PeakRatio(std::vector<TH1D*> v, TPaveText* lSys, TString outname, TString legHead, Double_t lowX, Double_t highX)
 {
   // --- Create TObjArrays -----------------------------------------------------
-
   std::unique_ptr<TObjArray> main (new TObjArray);
   TString legString = "";
   TString legOpt = "";
@@ -177,8 +176,8 @@ void PeakRatio(std::vector<TH1D*> v, TPaveText* lSys, TString outname, TString l
   std::unique_ptr<Legend> l (new Legend(main.get(), legString.Data(), legOpt.Data(), legHead.Data()) );
 
   // --- Marker ----------------------------------------------------------------
-  vector<Color_t> colors = {kOrange-3, kViolet-3, kRed-3, kBlue-3, kPink-3, kAzure-3, 1, 1};
-  vector<Style_t> markers = {kOpenCircle, kOpenCircle, kOpenDiamond, kOpenDiamond, kOpenSquare, kOpenSquare, 1, 1};
+  vector<Color_t> colors = {kOrange+9, kOrange+9, kViolet+9, kViolet+9, kTeal+9, kTeal+9, 1, 1};
+  vector<Style_t> markers = {kOpenCircle, kOpenSquare, kOpenCircle, kOpenSquare, kOpenCircle, kOpenSquare, 1, 1};
   vector<Size_t>  sizes = {3., 3., 3., 3., 2.5, 2.5, 1, 1};
 
   // --- Canvasses -------------------------------------------------------------

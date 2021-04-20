@@ -22,7 +22,7 @@ void PlotStoB(std::vector<TH1D*> v, int pTBin, TPaveText* leg)
   std::unique_ptr<Legend> l (new Legend(main.get(), legString.Data(), legOpt.Data(), "PS range around #it{m}_{#pi^{0}}") );
 
   // --- Marker ----------------------------------------------------------------
-  vector<Color_t> colors = {kRed-3, kViolet-3, kBlack, kGreen-3, kAzure-3, 1, 1};
+  vector<Color_t> colors = {kOrange+9, kPink+9, kBlack, kAzure+9, kTeal+7, 1, 1};
   vector<Style_t> markers = {24, kOpenCircle, 25, 27, 28, 1, 1};
   vector<Size_t>  sizes = {3.5, 4., 3.5, 4., 4., 1, 1};
 
@@ -58,7 +58,7 @@ void PlotSignificance(std::vector<TH1D*> v, int pTBin, TPaveText* leg)
   std::unique_ptr<Legend> l (new Legend(main.get(), legString.Data(), legOpt.Data(), "PS range around #it{m}_{#pi^{0}}") );
 
   // --- Marker ----------------------------------------------------------------
-  vector<Color_t> colors = {kRed-3, kViolet-3, kBlack, kGreen-3, kAzure-3, 1, 1};
+  vector<Color_t> colors = {kOrange+9, kPink+9, kBlack, kAzure+9, kTeal+7, 1, 1};
   vector<Style_t> markers = {24, kOpenCircle, 25, 27, 28, 1, 1};
   vector<Size_t>  sizes = {3.5, 4., 3.5, 4., 4., 1, 1};
 

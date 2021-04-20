@@ -29,7 +29,7 @@ void SameEventToBackgroundRatio(TH1D* Background, TH1D* Peak, TF1* Background1, 
 
 
   // --- Marker ----------------------------------------------------------------
-  std::vector<Color_t> colors     = {kBlack, kGray+3, kCyan-3, kPink-3, kGray+1, 1, 1};
+  std::vector<Color_t> colors     = {kBlack, kGray+3, kViolet+9, kOrange+9, kGray+1, 1, 1};
   std::vector<Style_t> markers    = {kFullCircle, kOpenCircle, 1, 1, 1, 1, 1};
   std::vector<Size_t>  sizes      = {3., 2.5, 3., 3., 5., 1, 1};
   std::vector<Style_t> linestyle  = {1, 1, 1, 1, 1, 1, 1 };
