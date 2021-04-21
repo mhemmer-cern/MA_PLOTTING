@@ -17,6 +17,7 @@
 #include "SignalToBackground.hpp"
 #include "test.hpp"
 #include "TText.h"
+#include "StatThermModel.hpp"
 
 
 

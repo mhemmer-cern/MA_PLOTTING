@@ -2,7 +2,6 @@
 
 void plotting()
 {
-
   gStyle->SetPalette(109);                                                      // violet blue palette much cooler then standard
   gStyle->SetOptTitle(0);                                                       // no titles will be plottet
   TGaxis::SetMaxDigits(3);
@@ -13140,7 +13139,7 @@ void plotting()
   vHistos.push_back(h1_Effi_DataOmegaRotWOPS_Pol1_EG2.get());
   vHistos.push_back(h1_Effi_DataOmegaTGPSWOPS_Pol1_EG2.get());
   // vHistos.push_back(h1_Effi_DataOmegaTGPSPlusWOPS_Pol1_EG2.get());
-  Efficiency(vHistos, legYields_EG1.get(), "MC/EG2/Efficiency_Pol1.svg", "efficiency pol1", arrPtBinning_EG1[0], arrPtBinning_EG1.back());
+  Efficiency(vHistos, legYields_EG1.get(), "MC/EG2/Efficiency_Pol1.svg", "efficiency pol1", arrPtBinning_EG2[0], arrPtBinning_EG2.back());
   vHistos.clear();
   vHistos.resize(0);
 
@@ -13153,7 +13152,7 @@ void plotting()
   vHistos.push_back(h1_Effi_DataOmegaRotWOPS_Pol2_EG2.get());
   vHistos.push_back(h1_Effi_DataOmegaTGPSWOPS_Pol2_EG2.get());
   // vHistos.push_back(h1_Effi_DataOmegaTGPSPlusWOPS_Pol2_EG2.get());
-  Efficiency(vHistos, legYields_EG1.get(), "MC/EG2/Efficiency_Pol2.svg", "efficiency pol2", arrPtBinning_EG1[0], arrPtBinning_EG1.back());
+  Efficiency(vHistos, legYields_EG1.get(), "MC/EG2/Efficiency_Pol2.svg", "efficiency pol2", arrPtBinning_EG2[0], arrPtBinning_EG2.back());
   vHistos.clear();
   vHistos.resize(0);
 
@@ -13164,7 +13163,7 @@ void plotting()
   vHistos.push_back(h1_Effi_DataPi0TGPSPS_Pol1_EG2.get());
   vHistos.push_back(h1_Effi_DataOmegaPS2Sig_Pol1_EG2.get());
   vHistos.push_back(h1_Effi_DataOmegaPS3Sig_Pol1_EG2.get());
-  Efficiency(vHistos, legYields_EG1.get(), "MC/EG2/EfficiencyWithMixedEvent_Pol1.svg", "efficiency pol1", arrPtBinning_EG1[0], arrPtBinning_EG1.back());
+  Efficiency(vHistos, legYields_EG1.get(), "MC/EG2/EfficiencyWithMixedEvent_Pol1.svg", "efficiency pol1", arrPtBinning_EG2[0], arrPtBinning_EG2.back());
   vHistos.clear();
   vHistos.resize(0);
 
@@ -13175,7 +13174,7 @@ void plotting()
   vHistos.push_back(h1_Effi_DataPi0TGPSPS_Pol2_EG2.get());
   vHistos.push_back(h1_Effi_DataOmegaPS2Sig_Pol2_EG2.get());
   vHistos.push_back(h1_Effi_DataOmegaPS3Sig_Pol2_EG2.get());
-  Efficiency(vHistos, legYields_EG1.get(), "MC/EG2/EfficiencyWithMixedEvent_Pol2.svg", "efficiency pol2", arrPtBinning_EG1[0], arrPtBinning_EG1.back());
+  Efficiency(vHistos, legYields_EG1.get(), "MC/EG2/EfficiencyWithMixedEvent_Pol2.svg", "efficiency pol2", arrPtBinning_EG2[0], arrPtBinning_EG2.back());
   vHistos.clear();
   vHistos.resize(0);
 
@@ -14148,6 +14147,14 @@ void plotting()
 
   AlphaPlot(h2_Pi0_Alpha_DataOmegaPS_EG2, legAlpha.get(), "Data/EG2/Alpha_Pi0.svg");
   AlphaPlot(h2_Omega_Alpha_DataOmegaPS_EG2, legAlpha.get(), "Data/EG2/Alpha_Omega.svg");
+
+  // ---------------------------------------------------------------------------
+  //
+  // statistical-thermal model
+  //
+  // ---------------------------------------------------------------------------
+  modelCalc(nBinsPt_MB1, arrPtBinning_MB1);
+
   // ---------------------------------------------------------------------------
   //
   // Garbage collection
