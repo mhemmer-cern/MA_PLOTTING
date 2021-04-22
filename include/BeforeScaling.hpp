@@ -19,7 +19,7 @@ void BeforeScaling(TH1D* SE, TH1D* Background, TPaveText* lSys, TString outname)
 
   // --- Marker ----------------------------------------------------------------
 
-  vector<Color_t> colors = {kRed-7, kBlack, 0, 0};
+  vector<Color_t> colors = {kRed-3, kBlack, 0, 0};
   vector<Style_t> markers = {kFullSquare, kFullCircle, 0, 0};
   vector<Size_t>  sizes = {2., 2., 0, 0};
 

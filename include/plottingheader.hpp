@@ -17,9 +17,6 @@
 #include "SignalToBackground.hpp"
 #include "test.hpp"
 #include "TText.h"
-#include "StatThermModel.hpp"
-
-
 
 std::vector<TH1D*> vHistos;
 std::vector<TH1D*> vSignal;

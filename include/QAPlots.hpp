@@ -4,7 +4,8 @@
 #include <vector>
 
 
-void Dalitz01(std::vector<TH1D*> v, TPaveText* lSys, TString outname, TString legHead, Double_t lowX, Double_t highX){
+void Dalitz01(std::vector<TH1D*> v, TPaveText* lSys, TString outname, TString legHead, Double_t lowX, Double_t highX)
+{
   // --- Create TObjArrays -----------------------------------------------------
   std::unique_ptr<TObjArray> main (new TObjArray);
   TString legString = "";
@@ -118,7 +119,8 @@ void DalitzFit(TH1D* h1, TF1* f1, TPaveText* lSys, TString outname, TString legH
   return;
 }
 
-SquarePlot OmegaPiZeroCosTheta(TH1D* hData, TH1D* hTrue, TPaveText* lSys){
+SquarePlot OmegaPiZeroCosTheta(TH1D* hData, TH1D* hTrue, TPaveText* lSys)
+{
   // --- Create TObjArrays -----------------------------------------------------
 
   TObjArray* main = new TObjArray();
@@ -148,7 +150,8 @@ SquarePlot OmegaPiZeroCosTheta(TH1D* hData, TH1D* hTrue, TPaveText* lSys){
   return square;
 }
 
-SquarePlot OmegaPiZeroCosThetaRatio(TH1D* hRatio, TPaveText* lSys){
+SquarePlot OmegaPiZeroCosThetaRatio(TH1D* hRatio, TPaveText* lSys)
+{
   // --- Create TObjArrays -----------------------------------------------------
 
   TObjArray* main = new TObjArray();
@@ -179,15 +182,29 @@ SquarePlot OmegaPiZeroCosThetaRatio(TH1D* hRatio, TPaveText* lSys){
 
 void AlphaPlot(TH2D* h2, TLegend* lSys, TString outname)
 {
-  h2->SetContour(100);
+  h2->SetContour(500);
   // --- Canvasses -------------------------------------------------------------
-  HeatMapPlot plot = HeatMapPlot(h2, lSys, "#it{p}_{T}", "#alpha", "count");
+  HeatMapPlot plot = HeatMapPlot(h2, lSys, "#it{p}_{T} (GeV/#it{c})", "#alpha", "count");
   plot.SetMode(Plot::Thesis);
   plot.SetPalette(109);
   plot.SetRanges(h2->GetXaxis()->GetBinLowEdge(1), h2->GetXaxis()->GetBinLowEdge(-1), -1, 1, 0, h2->GetMaximum());
   plot.SetCanvasMargins(0.16, .1, 0.05, .1);
   // plot.SetCanvasOffsets(1.2, 1.8);
   plot.SetLog(0, 0, 0);
+  plot.Draw(outname);
+  return;
+}
+
+void Pi0Plot(TH2D* h2, TLegend* lSys, TString outname)
+{
+  h2->SetContour(500);
+  // --- Canvasses -------------------------------------------------------------
+  HeatMapPlot plot = HeatMapPlot(h2, lSys, minv_str, pt_str, "count");
+  plot.SetMode(Plot::Thesis);
+  plot.SetPalette(109);
+  plot.SetRanges(h2->GetXaxis()->GetBinLowEdge(1), h2->GetXaxis()->GetBinLowEdge(-1), h2->GetYaxis()->GetBinLowEdge(1), h2->GetYaxis()->GetBinLowEdge(-1), h2->GetMinimum(), h2->GetMaximum());
+  plot.SetCanvasMargins(0.16, .12, 0.05, .1);
+  plot.SetLog(0, 0, 1);
   plot.Draw(outname);
   return;
 }

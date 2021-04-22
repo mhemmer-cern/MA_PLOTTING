@@ -17,7 +17,7 @@ void PeaksMC(TH1D* TruePeak, TH1D* Background1, TH1D* Background2, TPaveText* lS
   std::unique_ptr<Legend> l (new Legend(main.get(), "true signal\n extracted signal pol1\n extracted signal pol2", "lp lp lp") );
 
   // --- Marker ----------------------------------------------------------------
-  std::vector<Color_t> colors = {kBlack, kViolet+9, kOrange+9, 1, 1};
+  std::vector<Color_t> colors = {kBlack, kSpring+9, kOrange+9, 1, 1};
   std::vector<Style_t> markers = {kFullCircle, kOpenCircle, kOpenSquare, 1, 1};
   std::vector<Size_t>  sizes = {3., 2., 2., 1, 1};
 
@@ -26,7 +26,7 @@ void PeaksMC(TH1D* TruePeak, TH1D* Background1, TH1D* Background2, TPaveText* lS
 
   SquarePlot square = SquarePlot(main.get(), minv_str, count_str);
   square.SetMode(Plot::Thesis);
-  square.SetRanges(0.5, 1.2, TruePeak->GetMinimum(), TruePeak->GetMaximum());
+  square.SetRanges(0.6, 1.2, TruePeak->GetMinimum(), TruePeak->GetMaximum());
   square.SetStyle(colors, markers, sizes);
   square.SetCanvasMargins(0.025, .1, 0.03, .1);
   square.Draw(outname);
@@ -46,7 +46,7 @@ void PeaksData(TH1D* PeakPol1, TH1D* PeakPol2, TPaveText* lSys, TString outname)
   std::unique_ptr<Legend> l (new Legend(main.get(), "extracted signal pol1\n extracted signal pol2", "lp lp") );
 
   // --- Marker ----------------------------------------------------------------
-  std::vector<Color_t> colors = {kViolet+9, kOrange+9, 1, 1};
+  std::vector<Color_t> colors = {kSpring+9, kOrange+9, 1, 1};
   std::vector<Style_t> markers = {kOpenCircle, kOpenSquare, 1, 1};
   std::vector<Size_t>  sizes = {2., 2., 1, 1};
 
@@ -56,7 +56,7 @@ void PeaksData(TH1D* PeakPol1, TH1D* PeakPol2, TPaveText* lSys, TString outname)
 
   SquarePlot square = SquarePlot(main.get(), minv_str, count_str);
   square.SetMode(Plot::Thesis);
-  square.SetRanges(0.5, 1.2, PeakPol1->GetMinimum(), PeakPol1->GetMaximum());
+  square.SetRanges(0.6, 1.2, PeakPol1->GetMinimum(), PeakPol1->GetMaximum());
   square.SetStyle(colors, markers, sizes);
   square.SetCanvasMargins(0.025, .1, 0.03, .1);
 
@@ -101,7 +101,7 @@ void PeaksDataWithFits(TH1D* Background1, TH1D* Background2, TF1* f1, TF1* f2, T
   std::unique_ptr<Legend> l (new Legend(main.get(), "extracted signal (pol1)\n extracted signal (pol2)\n gaus fit (pol1)\n gaus fit (pol2)\n 2 #sigma (pol1)\n 2 #sigma (pol2)", "lp lp l l l l", "", 6) );
 
   // --- Marker ----------------------------------------------------------------
-  std::vector<Color_t> colors     = {kViolet+9, kOrange+9, kViolet+9, kOrange+9, kViolet+9, kOrange+9, kViolet+9, kOrange+9, 1, 1};
+  std::vector<Color_t> colors     = {kSpring+9, kOrange+9, kSpring+9, kOrange+9, kSpring+9, kOrange+9, kSpring+9, kOrange+9, 1, 1};
   std::vector<Style_t> markers    = {kOpenCircle, kOpenSquare, 1, 1, 1, 1, 1, 1, 1, 1};
   std::vector<Size_t>  sizes      = {3., 3., 1, 1, 1, 1, 1, 1, 1, 1};
   std::vector<Style_t> linestyle  = {1, 1, 1, 1, 2, 3, 2, 3, 1, 1};
@@ -112,7 +112,7 @@ void PeaksDataWithFits(TH1D* Background1, TH1D* Background2, TF1* f1, TF1* f2, T
 
   SquarePlot square = SquarePlot(main.get(), minv_str, count_str);
   square.SetMode(Plot::Thesis);
-  square.SetRanges(0.5, 1.2, Background1->GetMinimum(), Background1->GetMaximum());
+  square.SetRanges(0.6, 1.2, Background1->GetMinimum(), Background1->GetMaximum());
   square.SetStyle(colors, markers, sizes, linestyle, linewidth);
   square.SetCanvasMargins(0.025, .1, 0.03, .1);
 
@@ -148,7 +148,7 @@ void PeaksNormalized(TH1D* h1, TH1D* h2, TPaveText* lSys, TString outname)
 
   SquarePlot square = SquarePlot(main.get(), minv_str, count_str);
   square.SetMode(Plot::Thesis);
-  square.SetRanges(0.4, 1.2, h1->GetMinimum(), h1->GetMaximum());
+  square.SetRanges(0.6, 1.2, h1->GetMinimum(), h1->GetMaximum());
   square.SetStyle(colors, markers, sizes);
   square.SetCanvasMargins(0.025, .1, 0.03, .1);
 
@@ -176,7 +176,7 @@ void PeakRatio(std::vector<TH1D*> v, TPaveText* lSys, TString outname, TString l
   std::unique_ptr<Legend> l (new Legend(main.get(), legString.Data(), legOpt.Data(), legHead.Data()) );
 
   // --- Marker ----------------------------------------------------------------
-  vector<Color_t> colors = {kOrange+9, kOrange+9, kViolet+9, kViolet+9, kTeal+9, kTeal+9, 1, 1};
+  vector<Color_t> colors = {kOrange+9, kOrange+9, kViolet+9, kSpring+9, kTeal+9, kTeal+9, 1, 1};
   vector<Style_t> markers = {kOpenCircle, kOpenSquare, kOpenCircle, kOpenSquare, kOpenCircle, kOpenSquare, 1, 1};
   vector<Size_t>  sizes = {3., 3., 3., 3., 2.5, 2.5, 1, 1};
 
