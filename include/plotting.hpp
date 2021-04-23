@@ -3264,6 +3264,43 @@ void plotting()
   std::unique_ptr<TH1D> h1_Effi_DataOmegaPS4Sig_Pol2_EG1          (new TH1D("h1_Effi_DataOmegaPS4Sig_Pol2_EG1 ",            "", nBinsPt_MB1-1, &arrPtBinning_MB1[0]));
   std::unique_ptr<TH1D> h1_Effi_DataOmegaPS4Sig_Pol2_EG2          (new TH1D("h1_Effi_DataOmegaPS4Sig_Pol2_EG2",             "", nBinsPt_MB2-1, &arrPtBinning_MB2[0]));
 
+  h1_Effi_DataOmegaRotPS_Pol2_EG1->SetTitle("OmegaRotPS");
+  h1_Effi_DataOmegaTGPSPS_Pol2_EG1->SetTitle("OmegaTGPSPS");
+  h1_Effi_DataOmegaTGPSPlusPS_Pol2_EG1->SetTitle("OmegaTGPSPlusPS");
+  h1_Effi_DataOmegaRotPS_Pol2_EG2->SetTitle("OmegaRotPS");
+  h1_Effi_DataOmegaTGPSPS_Pol2_EG2->SetTitle("OmegaTGPSPS");
+  h1_Effi_DataOmegaTGPSPlusPS_Pol2_EG2->SetTitle("OmegaTGPSPlusPS");
+  h1_Effi_DataPi0RotPS_Pol2_EG1->SetTitle("Pi0RotPS");
+  h1_Effi_DataPi0TGPSPS_Pol2_EG1->SetTitle("Pi0TGPSPS");
+  h1_Effi_DataPi0RotPS_Pol2_EG2->SetTitle("Pi0RotPS");
+  h1_Effi_DataPi0TGPSPS_Pol2_EG2->SetTitle("Pi0TGPSPS");
+  h1_Effi_DataOmegaRotWOPS_Pol2_EG1->SetTitle("OmegaRotWOPS");
+  h1_Effi_DataOmegaTGPSWOPS_Pol2_EG1->SetTitle("OmegaTGPSWOPS");
+  h1_Effi_DataOmegaTGPSPlusWOPS_Pol2_EG1->SetTitle("OmegaTGPSPlusWOPS");
+  h1_Effi_DataOmegaRotWOPS_Pol2_EG2->SetTitle("OmegaRotWOPS");
+  h1_Effi_DataOmegaTGPSWOPS_Pol2_EG2->SetTitle("OmegaTGPSWOPS");
+  h1_Effi_DataOmegaTGPSPlusWOPS_Pol2_EG2->SetTitle("OmegaTGPSPlusWOPS");
+  h1_Effi_DataOmegaRotPSNCell_Pol2_EG1->SetTitle("OmegaRotPSNCell");
+  h1_Effi_DataOmegaTGPSPSNCell_Pol2_EG1->SetTitle("OmegaTGPSPSNCell");
+  h1_Effi_DataOmegaTGPSPlusPSNCell_Pol2_EG1->SetTitle("OmegaTGPSPlusPSNCell");
+  h1_Effi_DataOmegaRotPSNCell_Pol2_EG2->SetTitle("OmegaRotPSNCell");
+  h1_Effi_DataOmegaTGPSPSNCell_Pol2_EG2->SetTitle("OmegaTGPSPSNCell");
+  h1_Effi_DataOmegaTGPSPlusPSNCell_Pol2_EG2->SetTitle("OmegaTGPSPlusPSNCell");
+  h1_Effi_DataOmegaRotPS_Pol2_MB1->SetTitle("OmegaRotPS");
+  h1_Effi_DataOmegaTGPSPS_Pol2_MB1->SetTitle("OmegaTGPSPS");
+  h1_Effi_DataOmegaTGPSPlusPS_Pol2_MB1->SetTitle("OmegaTGPSPlusPS");
+  h1_Effi_DataOmegaRotPS_Pol2_MB2->SetTitle("OmegaRotPS");
+  h1_Effi_DataOmegaTGPSPS_Pol2_MB2->SetTitle("OmegaTGPSPS");
+  h1_Effi_DataOmegaTGPSPlusPS_Pol2_MB2->SetTitle("OmegaTGPSPlusPS");
+  h1_Effi_DataOmegaPS1Sig_Pol2_EG1->SetTitle("OmegaPS1Sig");
+  h1_Effi_DataOmegaPS1Sig_Pol2_EG2->SetTitle("OmegaPS1Sig");
+  h1_Effi_DataOmegaPS2Sig_Pol2_EG1->SetTitle("OmegaPS2Sig");
+  h1_Effi_DataOmegaPS2Sig_Pol2_EG2->SetTitle("OmegaPS2Sig");
+  h1_Effi_DataOmegaPS3Sig_Pol2_EG1->SetTitle("OmegaPS3Sig");
+  h1_Effi_DataOmegaPS3Sig_Pol2_EG2->SetTitle("OmegaPS3Sig");
+  h1_Effi_DataOmegaPS4Sig_Pol2_EG1->SetTitle("OmegaPS4Sig");
+  h1_Effi_DataOmegaPS4Sig_Pol2_EG2->SetTitle("OmegaPS4Sig");
+
   // ---------------------------------------------------------------------------
   //
   // Data Pol2 Mean
