@@ -28,7 +28,40 @@ void FitAfterScalig(TH1D* SE, TH1D* Background1, TH1D* Background2, TPaveText* l
   SquarePlot square = SquarePlot(main.get(), minv_str, count_str);
   square.SetMode(Plot::Thesis);
   square.SetStyle(colors, markers, sizes);
-  square.SetRanges(0.0, 1.6, SE->GetMinimum(), SE->GetMaximum()*1.4);
+  square.SetRanges(0.0, 1.6, SE->GetMinimum(), SE->GetMaximum());
+  square.SetCanvasMargins(0.025, .1, 0.03, .1);
+
+  square.Draw(outname);
+  return;
+
+}
+
+void FitAfterScaligVari(TH1D* SE, TH1D* Background1, TH1D* Background2, TPaveText* lSys, TString outname){
+
+  // --- Create TObjArrays -----------------------------------------------------
+  std::unique_ptr<TObjArray> main (new TObjArray);
+  main->Add(SE);
+  main->Add(Background1);
+  main->Add(Background2);
+
+  TString str = "same event\n background " + TString(Background1->GetTitle()) + "\n background " +  TString(Background2->GetTitle());
+
+  // --- Legends ---------------------------------------------------------------
+  main->Add(lSys);
+  std::unique_ptr<Legend> l (new Legend(main.get(), str.Data(), "lp lp lp") );
+
+  // --- Marker ----------------------------------------------------------------
+  vector<Color_t> colors = {kBlack, kOrange+9, kTeal+9, 1, 1};
+  vector<Style_t> markers = {kFullCircle, kOpenSquare, kOpenDiamond, 1, 1};
+  vector<Size_t>  sizes = {3., 2.5, 2.5, 1. , 1.};
+
+  // --- Canvasses -------------------------------------------------------------
+  Legend::SetPosition(l.get(), 0.55, 0.9, 0.67, 0.875);
+
+  SquarePlot square = SquarePlot(main.get(), minv_str, count_str);
+  square.SetMode(Plot::Thesis);
+  square.SetStyle(colors, markers, sizes);
+  square.SetRanges(0.0, 1.6, SE->GetMinimum(), SE->GetMaximum());
   square.SetCanvasMargins(0.025, .1, 0.03, .1);
 
   square.Draw(outname);

@@ -29,7 +29,14 @@ std::vector<TGraphErrors*> vGraphs;
 Double_t fitLower_Pol1  = 0.6;                                                  // lower boundary for fitting the background
 Double_t fitHigher_Pol1 = 1.1;                                                  // upper boundary for fitting the background
 Double_t fitLower_Pol2  = 0.6;                                                  // lower boundary for fitting the background
-Double_t fitHigher_Pol2 = 1.1;                                                  // upper boundary for fitting the background
+Double_t fitHigher_Pol2 = 1.4;                                                  // upper boundary for fitting the background
+
+Double_t fitLower_VariLow  = 0.9;                                               // lower boundary for fitting the background Variation
+Double_t fitHigher_VariLow = 1.4;                                               // upper boundary for fitting the background Variation
+
+Double_t fitLower_VariHigh  = 0.6;                                               // lower boundary for fitting the background Variation
+Double_t fitHigher_VariHigh = 1.2;                                               // upper boundary for fitting the background Variation
+
 
 Double_t fitMixedLow    = 0.9;
 Double_t fitMixedHigh   = 1.3;
