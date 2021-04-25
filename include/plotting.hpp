@@ -13928,7 +13928,7 @@ void plotting()
   vHistos.clear();
   vHistos.resize(0);
 
-  h1_RawYield_DataOmegaTGPSPS_Pol1_Ratio->Scale(1./h1_RawYield_DataOmegaTGPSPS_Pol1_Ratio->GetBinContent(h1_RawYield_DataOmegaTGPSPS_Pol1_Ratio->FindBin(25.)));
+  h1_RawYield_DataOmegaTGPSPS_Pol1_Ratio->Scale(1./h1_RawYield_DataOmegaTGPSPS_Pol1_Ratio->GetBinContent(h1_RawYield_DataOmegaTGPSPS_Pol1_Ratio->FindBin(22.)));
   h1_EffiRatio_MCTruePS_Pol1_EG1EG2->SetTitle("true efficiency (MC)");
   h1_EffiRatio_MCTruePS_Pol1_EG1EG2->SetMinimum(0);
   vHistos.push_back(h1_EffiRatio_MCTruePS_Pol1_EG1EG2);
