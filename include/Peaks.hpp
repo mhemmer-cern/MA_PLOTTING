@@ -75,21 +75,21 @@ void PeaksDataWithFits(TH1D* Background1, TH1D* Background2, TF1* f1, TF1* f2, T
   main->Add(f1);
   main->Add(f2);
   std::unique_ptr<TLine> ll1 (new TLine(f1->GetParameter(1)-2.*f1->GetParameter(2),
-                                        Background1->GetMinimum()*0.75,
+                                        Background1->GetMinimum()*0.6,
                                         f1->GetParameter(1)-2.*f1->GetParameter(2),
-                                        Background1->GetMaximum()*0.75));
+                                        Background1->GetMaximum()*0.8));
   std::unique_ptr<TLine> lr1 (new TLine(f1->GetParameter(1)+2.*f1->GetParameter(2),
-                                        Background1->GetMinimum()*0.75,
+                                        Background1->GetMinimum()*0.6,
                                         f1->GetParameter(1)+2.*f1->GetParameter(2),
-                                        Background1->GetMaximum()*0.75));
+                                        Background1->GetMaximum()*0.8));
   std::unique_ptr<TLine> ll2 (new TLine(f2->GetParameter(1)-2.*f2->GetParameter(2),
-                                        Background1->GetMinimum()*0.75,
+                                        Background1->GetMinimum()*0.6,
                                         f2->GetParameter(1)-2.*f2->GetParameter(2),
-                                        Background1->GetMaximum()*0.75));
+                                        Background1->GetMaximum()*0.8));
   std::unique_ptr<TLine> lr2 (new TLine(f2->GetParameter(1)+2.*f2->GetParameter(2),
-                                        Background1->GetMinimum()*0.75,
+                                        Background1->GetMinimum()*0.6,
                                         f2->GetParameter(1)+2.*f2->GetParameter(2),
-                                        Background1->GetMaximum()*0.75));
+                                        Background1->GetMaximum()*0.8));
   main->Add(ll1.get());
   main->Add(ll2.get());
   main->Add(lr1.get());
@@ -105,7 +105,7 @@ void PeaksDataWithFits(TH1D* Background1, TH1D* Background2, TF1* f1, TF1* f2, T
   std::vector<Style_t> markers    = {kOpenCircle, kOpenSquare, 1, 1, 1, 1, 1, 1, 1, 1};
   std::vector<Size_t>  sizes      = {3., 3., 1, 1, 1, 1, 1, 1, 1, 1};
   std::vector<Style_t> linestyle  = {1, 1, 1, 1, 2, 3, 2, 3, 1, 1};
-  std::vector<Size_t> linewidth   = {3., 3., 3., 3., 3., 3., 3. , 3., 1, 1};
+  std::vector<Size_t> linewidth   = {3., 3., 3., 3., 3., 3., 3., 3., 1, 1};
 
   // --- Canvasses -------------------------------------------------------------
   Legend::SetPosition(l.get(), 0.6, 0.9, 0.875-(6.*0.03), 0.875);
