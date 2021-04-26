@@ -75,21 +75,21 @@ void PeaksDataWithFits(TH1D* Background1, TH1D* Background2, TF1* f1, TF1* f2, T
   main->Add(f1);
   main->Add(f2);
   std::unique_ptr<TLine> ll1 (new TLine(f1->GetParameter(1)-2.*f1->GetParameter(2),
-                                        Background1->GetMinimum()*0.6,
+                                        Background1->GetMinimum()*0.8,
                                         f1->GetParameter(1)-2.*f1->GetParameter(2),
-                                        Background1->GetMaximum()*0.8));
+                                        Background1->GetMaximum()*0.6));
   std::unique_ptr<TLine> lr1 (new TLine(f1->GetParameter(1)+2.*f1->GetParameter(2),
-                                        Background1->GetMinimum()*0.6,
+                                        Background1->GetMinimum()*0.8,
                                         f1->GetParameter(1)+2.*f1->GetParameter(2),
-                                        Background1->GetMaximum()*0.8));
+                                        Background1->GetMaximum()*0.6));
   std::unique_ptr<TLine> ll2 (new TLine(f2->GetParameter(1)-2.*f2->GetParameter(2),
-                                        Background1->GetMinimum()*0.6,
+                                        Background1->GetMinimum()*0.8,
                                         f2->GetParameter(1)-2.*f2->GetParameter(2),
-                                        Background1->GetMaximum()*0.8));
+                                        Background1->GetMaximum()*0.6));
   std::unique_ptr<TLine> lr2 (new TLine(f2->GetParameter(1)+2.*f2->GetParameter(2),
-                                        Background1->GetMinimum()*0.6,
+                                        Background1->GetMinimum()*0.8,
                                         f2->GetParameter(1)+2.*f2->GetParameter(2),
-                                        Background1->GetMaximum()*0.8));
+                                        Background1->GetMaximum()*0.6));
   main->Add(ll1.get());
   main->Add(ll2.get());
   main->Add(lr1.get());
