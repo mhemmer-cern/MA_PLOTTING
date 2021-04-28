@@ -5,53 +5,53 @@
 #include <vector>
 
 
-SquarePlot PeakComp(TH1D* &hTruePeak, TH1D* &hTrueReco, TH1D* &DataReco, TPaveText* lSys, TString legstring){
+void PeakComp(std::vector<TH1D*> v, TPaveText* lSys, TString outname, TString legHeader){
   // --- Create TObjArrays -----------------------------------------------------
+  std::unique_ptr<TObjArray> main (new TObjArray);
+  TH1D* TruePeak = (TH1D*) v.at(0)->Clone("TruePeak");
+  TH1D* TrueReco = (TH1D*) v.at(1)->Clone("TrueReco");
 
-  TH1D* TruePeak = (TH1D*) hTruePeak->Clone("TruePeak");
-  TH1D* TrueReco = (TH1D*) hTrueReco->Clone("TrueReco");
-
-  Double_t scale = DataReco->Integral(TruePeak->FindBin(0.7), TruePeak->FindBin(0.85))/TruePeak->Integral(TruePeak->FindBin(0.7), TruePeak->FindBin(0.85));
+  Double_t scale = v.at(2)->Integral(TruePeak->FindBin(0.7), TruePeak->FindBin(0.85))/TruePeak->Integral(TruePeak->FindBin(0.7), TruePeak->FindBin(0.85));
   TruePeak->Scale(scale);
-  scale = DataReco->Integral(TrueReco->FindBin(0.7), TrueReco->FindBin(0.85))/TrueReco->Integral(TrueReco->FindBin(0.7), TrueReco->FindBin(0.85));
+  scale = v.at(2)->Integral(TrueReco->FindBin(0.7), TrueReco->FindBin(0.85))/TrueReco->Integral(TrueReco->FindBin(0.7), TrueReco->FindBin(0.85));
   TrueReco->Scale(scale);
 
-  // TH1D* TrueDiff = (TH1D*) hTruePeak->Clone("TrueDiff");
-  // TrueDiff->Add(TruePeak, TrueReco, 1, -1);
-  // for (int i = 0; i < TrueDiff->GetNbinsX(); i++) {
-  //   TrueDiff->SetBinContent(i, fabs(TrueDiff->GetBinContent(i)));
-  // }
-
-
-  TObjArray* main = new TObjArray();
-  DataReco->SetMaximum(DataReco->GetMaximum()*0.6);
-  DataReco->SetMinimum(-0.1*DataReco->GetMaximum());
-  main->Add(DataReco);
+  if(v.at(2)->GetMinimum() < 0)
+  {
+    v.at(2)->SetMinimum(v.at(2)->GetMinimum()*1.2);
+  }
+  else
+  {
+    v.at(2)->SetMinimum(v.at(2)->GetMinimum()*0.8);
+  }
+  main->Add(v.at(2));
   main->Add(TruePeak);
   main->Add(TrueReco);
-  // main->Add(TrueDiff);
 
   // --- Legends ---------------------------------------------------------------
 
   main->Add(lSys);
-  TLegend l = Legend(main, legstring.Data(), "lp lp lp");
+  std::unique_ptr<Legend> l (new Legend(main.get(), "data\n MC true\n MC reco", "lp lp lp", legHeader.Data() ) );
 
   // --- Marker ----------------------------------------------------------------
 
-  vector<Color_t> colors = {kBlack, kBlue+3, kRed-2};
+  vector<Color_t> colors = {kBlack, kBlue-4, kRed-4};
   vector<Style_t> markers = {kFullCircle, kOpenSquare, kFullSquare};
-  vector<Size_t>  sizes = {2., 2., 2.};
+  vector<Size_t>  sizes = {3., 3., 3.};
+  std::vector<Style_t> linestyle  = {1, 1, 1, 1, 1};
+  std::vector<Size_t> linewidth   = {3., 3., 3., 1, 1};
 
   // --- Canvasses -------------------------------------------------------------
 
-  Legend::SetPosition(&l, 0.55, 0.9, 0.67, 0.875);
+  Legend::SetPosition(l.get(), 0.55, 0.9, 0.755, 0.875);
 
-  SquarePlot square = SquarePlot(main, minv_str, count_str);
+  SquarePlot square = SquarePlot(main.get(), minv_str, count_str);
   square.SetMode(Plot::Thesis);
-  square.SetRanges(0.4, 1.2, DataReco->GetMinimum(), DataReco->GetMaximum()*2.);
-  square.SetStyle(colors, markers, sizes);
-  return square;
-
+  square.SetRanges(0.4, 1.2, v.at(2)->GetMinimum(), TruePeak->GetMaximum()*1.6);
+  square.SetStyle(colors, markers, sizes, linestyle, linewidth);
+  square.SetCanvasMargins(0.025, .1, 0.03, .1);
+  square.Draw(outname);
+  return;
 }
 
 
@@ -72,12 +72,12 @@ void PeaksDataComp(std::vector<TH1D*> v, TPaveText* lSys, TString outname, TStri
   std::unique_ptr<Legend> l (new Legend(main.get(), legString.Data(), legOpt.Data(), legHeader.Data()) );
 
   // --- Marker ----------------------------------------------------------------
-  vector<Color_t> colors = {kOrange-3, kViolet-3, kRed-3, kBlue-3, kPink-3, kAzure-3, 1, 1};
-  vector<Style_t> markers = {kOpenCircle, kOpenCircle, kOpenDiamond, kOpenDiamond, kOpenSquare, kOpenSquare, 1, 1};
+  vector<Color_t> colors = {kOrange+9, kOrange+9, kViolet+9, kSpring+9, kTeal+9, kTeal+9, 1, 1};
+  vector<Style_t> markers = {kOpenCircle, kOpenSquare, kOpenCircle, kOpenSquare, kOpenCircle, kOpenSquare, 1, 1};
   vector<Size_t>  sizes = {3., 3., 3., 3., 2.5, 2.5, 1, 1};
 
   // --- Canvasses -------------------------------------------------------------
-  Legend::SetPosition(l.get(), 0.55, 0.9, 0.85-(v.size()+1)*0.025, 0.85);
+  Legend::SetPosition(l.get(), 0.55, 0.9, 0.85-(v.size()+1)*0.03, 0.85);
   SquarePlot square = SquarePlot(main.get(), minv_str, count_str);
   square.SetMode(Plot::Thesis);
   square.SetRanges(0.5, 1.2, v.at(1)->GetMinimum(), v.at(1)->GetMaximum());
@@ -106,12 +106,12 @@ void PeaksMCComp(std::vector<TH1D*> v, TPaveText* lSys, TString outname, TString
   std::unique_ptr<Legend> l (new Legend(main.get(), legString.Data(), legOpt.Data(), legHeader.Data()) );
 
   // --- Marker ----------------------------------------------------------------
-  vector<Color_t> colors = {kBlack, kOrange-3, kViolet-3, kRed-3, kBlue-3, kPink-3, kAzure-3, 1, 1};
-  vector<Style_t> markers = {kFullCircle, kOpenCircle, kOpenCircle, kOpenDiamond, kOpenDiamond, kOpenSquare, kOpenSquare, 1, 1};
+  vector<Color_t> colors = {kBlack, kOrange+9, kOrange+9, kViolet+9, kSpring+9, kTeal+9, kTeal+9, 1, 1};
+  vector<Style_t> markers = {kFullCircle, kOpenCircle, kOpenSquare, kOpenCircle, kOpenSquare, kOpenCircle, kOpenSquare, 1, 1};
   vector<Size_t>  sizes = {3., 3., 3., 3., 3., 2.5, 2.5, 1, 1};
 
   // --- Canvasses -------------------------------------------------------------
-  Legend::SetPosition(l.get(), 0.55, 0.9, 0.85-(v.size()+1)*0.025, 0.85);
+  Legend::SetPosition(l.get(), 0.55, 0.9, 0.85-(v.size()+1)*0.03, 0.85);
   SquarePlot square = SquarePlot(main.get(), minv_str, count_str);
   square.SetMode(Plot::Thesis);
   square.SetRanges(0.5, 1.2, v.at(0)->GetMinimum(), v.at(0)->GetMaximum());

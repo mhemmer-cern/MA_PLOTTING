@@ -4,7 +4,7 @@
 #include "TFractionFitter.h"
 #include <vector>
 
-void PlotStoB(std::vector<TH1D*> v, int pTBin, TPaveText* leg)
+void PlotStoB(std::vector<TH1D*> v, int pTBin, TPaveText* leg, const int iTrigger)
 {
   // --- Create TObjArrays -----------------------------------------------------
   std::unique_ptr<TObjArray> main (new TObjArray);
@@ -22,24 +22,24 @@ void PlotStoB(std::vector<TH1D*> v, int pTBin, TPaveText* leg)
   std::unique_ptr<Legend> l (new Legend(main.get(), legString.Data(), legOpt.Data(), "PS range around #it{m}_{#pi^{0}}") );
 
   // --- Marker ----------------------------------------------------------------
-  vector<Color_t> colors = {kOrange+9, kPink+9, kBlack, kAzure+9, kTeal+7, 1, 1};
+  vector<Color_t> colors = {kOrange+9, kPink+9, kBlack, kAzure+9, kTeal+9, 1, 1};
   vector<Style_t> markers = {24, kOpenCircle, 25, 27, 28, 1, 1};
   vector<Size_t>  sizes = {3.5, 4., 3.5, 4., 4., 1, 1};
 
   // --- Canvasses -------------------------------------------------------------
 
-  Legend::SetPosition(l.get(), 0.5, 0.9, 0.875-(v.size()+1)*0.025, 0.875);
+  Legend::SetPosition(l.get(), 0.5, 0.9, 0.875-(v.size()+1)*0.03, 0.875);
 
   SquarePlot square = SquarePlot(main.get(), "x #sigma around  #it{m}_{#omega}", "S/B");
   square.SetMode(Plot::Thesis);
   square.SetStyle(colors, markers, sizes);
-  square.SetRanges(0.5, 3.5, v.at(0)->GetMinimum()*0.6, v.at(0)->GetMaximum()*1.1);
+  square.SetRanges(0.5, 3.5, v.at(0)->GetMinimum()*0.8, v.at(1)->GetMaximum()*1.5);
   square.SetCanvasMargins(0.025, .1, 0.03, .1);
-  square.Draw(Form("MC/EG1/Comp/SignalToBackground_%02d.svg", pTBin));
+  square.Draw(Form("MC/EG%d/Comp/SignalToBackground_%02d.svg", iTrigger, pTBin));
   return;
 }
 
-void PlotSignificance(std::vector<TH1D*> v, int pTBin, TPaveText* leg)
+void PlotSignificance(std::vector<TH1D*> v, int pTBin, TPaveText* leg, const int iTrigger)
 {
   // --- Create TObjArrays -----------------------------------------------------
   std::unique_ptr<TObjArray> main (new TObjArray);
@@ -58,21 +58,23 @@ void PlotSignificance(std::vector<TH1D*> v, int pTBin, TPaveText* leg)
   std::unique_ptr<Legend> l (new Legend(main.get(), legString.Data(), legOpt.Data(), "PS range around #it{m}_{#pi^{0}}") );
 
   // --- Marker ----------------------------------------------------------------
-  vector<Color_t> colors = {kOrange+9, kPink+9, kBlack, kAzure+9, kTeal+7, 1, 1};
+  vector<Color_t> colors = {kOrange+9, kPink+9, kBlack, kAzure+9, kTeal+9, 1, 1};
   vector<Style_t> markers = {24, kOpenCircle, 25, 27, 28, 1, 1};
   vector<Size_t>  sizes = {3.5, 4., 3.5, 4., 4., 1, 1};
 
   // --- Canvasses -------------------------------------------------------------
 
-  Legend::SetPosition(l.get(), 0.5, 0.9, 0.875-(v.size()+1)*0.025, 0.875);
+  Legend::SetPosition(l.get(), 0.5, 0.9, 0.875-(v.size()+1)*0.03, 0.875);
 
   SquarePlot square = SquarePlot(main.get(), "x #sigma around  #it{m}_{#omega}", "significance");
   square.SetMode(Plot::Thesis);
   square.SetStyle(colors, markers, sizes);
-  square.SetRanges(0.5, 3.5, 3.E0, 3.E1);
+  if(iTrigger == 1) square.SetRanges(0.5, 3.5, 7.E0, 6.E1);
+  else if(iTrigger == 2) square.SetRanges(0.5, 3.5, 1.E0, 4.E1);
+  else square.SetRanges(0.5, 3.5, 1.E0, 6.E1);
   square.SetLog();
   square.SetCanvasMargins(0.025, .1, 0.03, .1);
-  square.Draw(Form("MC/EG1/Comp/Significance%02d.svg", pTBin));
+  square.Draw(Form("MC/EG%d/Comp/Significance%02d.svg", iTrigger, pTBin));
   return;
 }
 
@@ -101,7 +103,7 @@ Double_t CalcStoB(TH1D* hS, TH1D* hB, Double_t low, Double_t high, Double_t& err
   return valS/valB;
 }
 
-void StoB(std::vector<TH1D*> vHist, std::vector<TH1D*> vSignal, std::vector<TH1D*> vYield, std::vector<TH1D*> vYieldSB, int pTBin, TPaveText* leg)
+void StoB(std::vector<TH1D*> vHist, std::vector<TH1D*> vSignal, std::vector<TH1D*> vYield, std::vector<TH1D*> vYieldSB, int pTBin, TPaveText* leg, const int iTrigger)
 {
   // Make the Signal to Background histos
   std::unique_ptr<TH1D> h1_StoB_DataOmegaWOPS   (new TH1D("h1_StoB_DataOmegaWOPS",   "", 3, 0.5, 3.5));
@@ -142,7 +144,7 @@ void StoB(std::vector<TH1D*> vHist, std::vector<TH1D*> vSignal, std::vector<TH1D
     f1_Gaus->SetParLimits(0, 0.0, 10000.);
     f1_Gaus->SetParLimits(1, 0.7, 0.85);
     f1_Gaus->SetParLimits(2, 0.01, 0.15);
-    vSignal.at(vn)->Fit(f1_Gaus.get(), "QMN", "", 0.5, 1.1);
+    vSignal.at(vn)->Fit(f1_Gaus.get(), "QMNB", "", 0.5, 1.1);
     for (int sigma = 1; sigma <= 3; sigma++)
     {
       vStoB.at(vn)->SetBinContent(sigma, CalcStoB(
@@ -171,8 +173,8 @@ void StoB(std::vector<TH1D*> vHist, std::vector<TH1D*> vSignal, std::vector<TH1D
         vYieldSB.at(vn)->SetBinError(pTBin, vStoB.at(vn)->GetBinError(2));
       }
     }
-    PlotStoB(vStoB, pTBin, leg);
-    PlotSignificance(vSignificance, pTBin, leg);
+    PlotStoB(vStoB, pTBin, leg, iTrigger);
+    PlotSignificance(vSignificance, pTBin, leg, iTrigger);
 
   }
   return;

@@ -157,7 +157,7 @@ void PeaksNormalized(TH1D* h1, TH1D* h2, TPaveText* lSys, TString outname)
 
 }
 
-void PeakRatio(std::vector<TH1D*> v, TPaveText* lSys, TString outname, TString legHead, Double_t lowX, Double_t highX)
+void PeakDiff(std::vector<TH1D*> v, TPaveText* lSys, TString outname, TString legHead, Double_t lowX, Double_t highX)
 {
   // --- Create TObjArrays -----------------------------------------------------
   std::unique_ptr<TObjArray> main (new TObjArray);
@@ -184,7 +184,7 @@ void PeakRatio(std::vector<TH1D*> v, TPaveText* lSys, TString outname, TString l
 
   Legend::SetPosition(l.get(), 0.5, 0.9, 0.875-(v.size()+1)*0.025, 0.875);
 
-  SquarePlot square = SquarePlot(main.get(), minv_str, "peak ratio #frac{data}{MC}");
+  SquarePlot square = SquarePlot(main.get(), minv_str, "peak difference data-MC");
   square.SetMode(Plot::Thesis);
   square.SetStyle(colors, markers, sizes);
   square.SetRanges(lowX, highX, -2., +3.5);

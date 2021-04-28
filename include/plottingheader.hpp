@@ -12,7 +12,6 @@
 #include "ScaleWithUncer.hpp"
 #include "YieldScaling.hpp"
 #include "PeakComp.hpp"
-#include "SignificanceMC.hpp"
 #include "QAPlots.hpp"
 #include "SignalToBackground.hpp"
 #include "test.hpp"

@@ -9,6 +9,16 @@ void SingleSysCalc(std::vector<TH1D*> v)
   Double_t diff = 0.;
   for (int bin = 1; bin <= v.at(1)->GetNbinsX(); bin++)
   {
+    if(v.at(0)->GetBinContent(bin) <= 0.)
+    {
+      v.at(n-3)->SetBinContent(bin, 0.0);
+      v.at(n-3)->SetBinError(bin, 0.0);
+      v.at(n-2)->SetBinContent(bin, 0.0);
+      v.at(n-2)->SetBinError(bin, 0.0);
+      v.at(n-1)->SetBinContent(bin, 0.0);
+      v.at(n-1)->SetBinError(bin, 0.0);
+      continue;
+    }
     for(int vi = 1; vi < n-3; vi++)
     {
       if( TMath::Abs(v.at(0)->GetBinContent(bin)-v.at(vi)->GetBinContent(bin)) > diff ) diff = TMath::Abs(v.at(0)->GetBinContent(bin)-v.at(vi)->GetBinContent(bin));
@@ -107,7 +117,7 @@ void PlotYieldsWithSys(std::vector<TH1D*> v, TPaveText* lSys, TString outname,
   std::vector<Style_t> linestyle  = {1, 1, 1, 1, 1, 1};
   std::vector<Size_t> linewidth   = {3., 3., 3., 3., 1, 1};
 
-  std::vector< std::string > optns = {"E2", "SAME E2", "SAME P E", "SAME P E", "SAME", "SAME"};
+  std::vector< std::string > optns = {"E2", "E2 SAME", "P E SAME", "P E SAME", "SAME", "SAME"};
   // --- Canvasses -------------------------------------------------------------
   Legend::SetPosition(l.get(), 0.5, 0.9, 0.875-(3*0.03), 0.875);
 
