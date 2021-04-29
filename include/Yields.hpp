@@ -43,9 +43,9 @@ void Yields(std::vector<TH1D*> v, TPaveText* lSys, TString outname, TString legH
   vector<Size_t>  sizes = {3., 3., 3., 3., 3., 2.5, 2.5, 1, 1};
 
   // --- Canvasses -------------------------------------------------------------
-  Legend::SetPosition(l.get(), 0.5, 0.9, 0.875-((v.size()+1)*0.03), 0.875);
+  Legend::SetPosition(l.get(), 0.55, 0.9, 0.875-((v.size()+1)*0.03), 0.875);
 
-  SquarePlot square = SquarePlot(main.get(), pt_str, rawyield);
+  SquarePlot square = SquarePlot(main.get(), pt_str, strCorrectedYield);
   square.SetMode(Plot::Thesis);
   square.SetStyle(colors, markers, sizes);
   square.SetRanges(lowX, highX, v.at(0)->GetMinimum(), v.at(0)->GetMaximum());
@@ -115,7 +115,7 @@ void Efficiency(std::vector<TH1D*> v, TPaveText* lSys, TString outname, TString 
 
   // --- Canvasses -------------------------------------------------------------
 
-  Legend::SetPosition(l.get(), 0.5, 0.9, 0.875-((v.size()+1)*0.03), 0.875);
+  Legend::SetPosition(l.get(), 0.55, 0.9, 0.875-((v.size()+1)*0.03), 0.875);
 
   SquarePlot square = SquarePlot(main.get(), pt_str, "efficiency");
   square.SetMode(Plot::Thesis);
@@ -153,7 +153,7 @@ void CorrYields(std::vector<TH1D*> v, TPaveText* lSys, TString outname, TString 
 
   // --- Canvasses -------------------------------------------------------------
 
-  Legend::SetPosition(l.get(), 0.5, 0.9, 0.875-((v.size()+1)*0.03), 0.875);
+  Legend::SetPosition(l.get(), 0.55, 0.9, 0.875-((v.size()+1)*0.03), 0.875);
 
   SquarePlot square = SquarePlot(main.get(), pt_str, strCorrectedYield);
   square.SetMode(Plot::Thesis);
@@ -516,7 +516,7 @@ void EffiRatio(std::vector<TH1D*> v, TPaveText* lSys, TString outname, TString l
 
   Legend::SetPosition(l.get(), 0.5, 0.9, 0.85-(v.size()+1)*0.03, 0.85);
 
-  SquarePlot square = SquarePlot(main.get(), pt_str, "efficiency ratio");
+  SquarePlot square = SquarePlot(main.get(), pt_str, "ratio");
   square.SetMode(Plot::Thesis);
   square.SetStyle(colors, markers, sizes);
   square.SetRanges(lowX, highX, v.at(0)->GetMinimum()*0.3, v.at(0)->GetMaximum()*1.8);

@@ -1,4 +1,5 @@
 #include "TFractionFitter.h"
+#include "TGraphAsymmErrors.h"
 #include <vector>
 #include "BeforeScaling.hpp"
 #include "FitAfterScaling.hpp"

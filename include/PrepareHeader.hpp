@@ -161,3 +161,21 @@ void ScaleMixedEvent(std::vector<TH1D*> vSE, std::vector<TH1D*> vBack, Double_t 
   }
   return;
 }
+
+void CopyInRange(TH1D* h1, TH1D* h2, Double_t low, Double_t high)
+{
+  for (int iBin = 1, k = 1; iBin <= h1->GetNbinsX(); iBin++)
+  {
+    if( (h1->GetBinLowEdge(iBin) < low) || (h1->GetBinLowEdge(iBin) >= high) )
+    {
+      continue;
+    }
+    else
+    {
+      h2->SetBinContent(k, h1->GetBinContent(iBin));
+      h2->SetBinError(k, h1->GetBinError(iBin));
+      k++;
+    }
+  }
+  return;
+}

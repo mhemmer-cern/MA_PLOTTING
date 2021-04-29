@@ -4628,7 +4628,7 @@ void plotting()
   h1_Chi2Narrow_OmegaTGPSPS_HighFitVari_Pol2_EG2->SetTitle("OmegaTGPSPS HighFitVari");
   h1_Chi2Narrow_OmegaTGPSPS_Pol3_EG2->SetTitle("OmegaTGPSPS Pol3");
 
-  std::unique_ptr<TPaveText> legYields_Data_EG1  (new TPaveText(0.15, 0.75, 0.88, 0.93, "NDC"));
+  std::unique_ptr<TPaveText> legYields_Data_EG1  (new TPaveText(0.2, 0.75, 0.88, 0.93, "NDC"));
   legYields_Data_EG1->SetMargin(0.01);
   legYields_Data_EG1->AddText("pp #sqrt{#it{s}} = 13 TeV, EG1, data");
   legYields_Data_EG1->AddText("#omega #rightarrow #pi^{0}#gamma #rightarrow #gamma#gamma#gamma with EMC");
@@ -4636,7 +4636,15 @@ void plotting()
   legYields_Data_EG1->SetTextAlign(11);
   legYields_Data_EG1->SetFillStyle(0);
 
-  std::unique_ptr<TPaveText> legYields_MC_EG1  (new TPaveText(0.15, 0.75, 0.88, 0.93, "NDC"));
+  std::unique_ptr<TPaveText> legEffi_Data_EG1  (new TPaveText(0.15, 0.75, 0.88, 0.93, "NDC"));
+  legEffi_Data_EG1->SetMargin(0.01);
+  legEffi_Data_EG1->AddText("pp #sqrt{#it{s}} = 13 TeV, EG1, data");
+  legEffi_Data_EG1->AddText("#omega #rightarrow #pi^{0}#gamma #rightarrow #gamma#gamma#gamma with EMC");
+  legEffi_Data_EG1->AddText("ALICE work in progress");
+  legEffi_Data_EG1->SetTextAlign(11);
+  legEffi_Data_EG1->SetFillStyle(0);
+
+  std::unique_ptr<TPaveText> legYields_MC_EG1  (new TPaveText(0.2, 0.75, 0.88, 0.93, "NDC"));
   legYields_MC_EG1->SetMargin(0.01);
   legYields_MC_EG1->AddText("pp #sqrt{#it{s}} = 13 TeV, EG1, MC");
   legYields_MC_EG1->AddText("#omega #rightarrow #pi^{0}#gamma #rightarrow #gamma#gamma#gamma with EMC");
@@ -4644,7 +4652,15 @@ void plotting()
   legYields_MC_EG1->SetTextAlign(11);
   legYields_MC_EG1->SetFillStyle(0);
 
-  std::unique_ptr<TPaveText> legYields_Comp_EG1  (new TPaveText(0.15, 0.75, 0.88, 0.93, "NDC"));
+  std::unique_ptr<TPaveText> legEffi_MC_EG1  (new TPaveText(0.15, 0.75, 0.88, 0.93, "NDC"));
+  legEffi_MC_EG1->SetMargin(0.01);
+  legEffi_MC_EG1->AddText("pp #sqrt{#it{s}} = 13 TeV, EG1, MC");
+  legEffi_MC_EG1->AddText("#omega #rightarrow #pi^{0}#gamma #rightarrow #gamma#gamma#gamma with EMC");
+  legEffi_MC_EG1->AddText("ALICE work in progress");
+  legEffi_MC_EG1->SetTextAlign(11);
+  legEffi_MC_EG1->SetFillStyle(0);
+
+  std::unique_ptr<TPaveText> legYields_Comp_EG1  (new TPaveText(0.2, 0.75, 0.88, 0.93, "NDC"));
   legYields_Comp_EG1->SetMargin(0.01);
   legYields_Comp_EG1->AddText("pp #sqrt{#it{s}} = 13 TeV, EG1, MC - data comparison");
   legYields_Comp_EG1->AddText("#omega #rightarrow #pi^{0}#gamma #rightarrow #gamma#gamma#gamma with EMC");
@@ -4668,7 +4684,7 @@ void plotting()
   legPi0->SetTextAlign(11);
   legPi0->SetFillStyle(0);
 
-  std::unique_ptr<TPaveText> legYields_Data_EG2  (new TPaveText(0.15, 0.75, 0.88, 0.93, "NDC"));
+  std::unique_ptr<TPaveText> legYields_Data_EG2  (new TPaveText(0.2, 0.75, 0.88, 0.93, "NDC"));
   legYields_Data_EG2->SetMargin(0.01);
   legYields_Data_EG2->AddText("pp #sqrt{#it{s}} = 13 TeV, EG2, data");
   legYields_Data_EG2->AddText("#omega #rightarrow #pi^{0}#gamma #rightarrow #gamma#gamma#gamma with EMC");
@@ -4676,7 +4692,15 @@ void plotting()
   legYields_Data_EG2->SetTextAlign(11);
   legYields_Data_EG2->SetFillStyle(0);
 
-  std::unique_ptr<TPaveText> legYields_MC_EG2  (new TPaveText(0.15, 0.75, 0.88, 0.93, "NDC"));
+  std::unique_ptr<TPaveText> legEffi_Data_EG2  (new TPaveText(0.15, 0.75, 0.88, 0.93, "NDC"));
+  legEffi_Data_EG2->SetMargin(0.01);
+  legEffi_Data_EG2->AddText("pp #sqrt{#it{s}} = 13 TeV, EG2, data");
+  legEffi_Data_EG2->AddText("#omega #rightarrow #pi^{0}#gamma #rightarrow #gamma#gamma#gamma with EMC");
+  legEffi_Data_EG2->AddText("ALICE work in progress");
+  legEffi_Data_EG2->SetTextAlign(11);
+  legEffi_Data_EG2->SetFillStyle(0);
+
+  std::unique_ptr<TPaveText> legYields_MC_EG2  (new TPaveText(0.2, 0.75, 0.88, 0.93, "NDC"));
   legYields_MC_EG2->SetMargin(0.01);
   legYields_MC_EG2->AddText("pp #sqrt{#it{s}} = 13 TeV, EG2, MC");
   legYields_MC_EG2->AddText("#omega #rightarrow #pi^{0}#gamma #rightarrow #gamma#gamma#gamma with EMC");
@@ -4684,7 +4708,15 @@ void plotting()
   legYields_MC_EG2->SetTextAlign(11);
   legYields_MC_EG2->SetFillStyle(0);
 
-  std::unique_ptr<TPaveText> legYields_Comp_EG2  (new TPaveText(0.15, 0.75, 0.88, 0.93, "NDC"));
+  std::unique_ptr<TPaveText> legEffi_MC_EG2  (new TPaveText(0.15, 0.75, 0.88, 0.93, "NDC"));
+  legEffi_MC_EG2->SetMargin(0.01);
+  legEffi_MC_EG2->AddText("pp #sqrt{#it{s}} = 13 TeV, EG2, MC");
+  legEffi_MC_EG2->AddText("#omega #rightarrow #pi^{0}#gamma #rightarrow #gamma#gamma#gamma with EMC");
+  legEffi_MC_EG2->AddText("ALICE work in progress");
+  legEffi_MC_EG2->SetTextAlign(11);
+  legEffi_MC_EG2->SetFillStyle(0);
+
+  std::unique_ptr<TPaveText> legYields_Comp_EG2  (new TPaveText(0.2, 0.75, 0.88, 0.93, "NDC"));
   legYields_Comp_EG2->SetMargin(0.01);
   legYields_Comp_EG2->AddText("pp #sqrt{#it{s}} = 13 TeV, EG2, MC - data comparison");
   legYields_Comp_EG2->AddText("#omega #rightarrow #pi^{0}#gamma #rightarrow #gamma#gamma#gamma with EMC");
@@ -4692,15 +4724,15 @@ void plotting()
   legYields_Comp_EG2->SetTextAlign(11);
   legYields_Comp_EG2->SetFillStyle(0);
 
-  std::unique_ptr<TPaveText> legYields_Data_Comb  (new TPaveText(0.15, 0.75, 0.88, 0.93, "NDC"));
+  std::unique_ptr<TPaveText> legYields_Data_Comb  (new TPaveText(0.2, 0.75, 0.88, 0.93, "NDC"));
   legYields_Data_Comb->SetMargin(0.01);
-  legYields_Data_Comb->AddText("pp #sqrt{#it{s}} = 13 TeV, EG1 & EG2, data");
+  legYields_Data_Comb->AddText("pp #sqrt{#it{s}} = 13 TeV, data");
   legYields_Data_Comb->AddText("#omega #rightarrow #pi^{0}#gamma #rightarrow #gamma#gamma#gamma with EMC");
   legYields_Data_Comb->AddText("ALICE work in progress");
   legYields_Data_Comb->SetTextAlign(11);
   legYields_Data_Comb->SetFillStyle(0);
 
-  std::unique_ptr<TPaveText> legYields_MC_Comb  (new TPaveText(0.15, 0.75, 0.88, 0.93, "NDC"));
+  std::unique_ptr<TPaveText> legYields_MC_Comb  (new TPaveText(0.2, 0.75, 0.88, 0.93, "NDC"));
   legYields_MC_Comb->SetMargin(0.01);
   legYields_MC_Comb->AddText("pp #sqrt{#it{s}} = 13 TeV, EG1 & EG2, MC");
   legYields_MC_Comb->AddText("#omega #rightarrow #pi^{0}#gamma #rightarrow #gamma#gamma#gamma with EMC");
@@ -4724,7 +4756,7 @@ void plotting()
   legYields_MB2->SetTextAlign(11);
   legYields_MB2->SetFillStyle(0);
 
-  std::unique_ptr<TPaveText> legYields_Comp (new TPaveText(0.15, 0.75, 0.88, 0.93, "NDC"));
+  std::unique_ptr<TPaveText> legYields_Comp (new TPaveText(0.2, 0.75, 0.88, 0.93, "NDC"));
   legYields_Comp->SetMargin(0.01);
   legYields_Comp->AddText("pp #sqrt{#it{s}} = 13 TeV, EG1 & EG2, MC - data comparison");
   legYields_Comp->AddText("#omega #rightarrow #pi^{0}#gamma #rightarrow #gamma#gamma#gamma with EMC");
@@ -12871,9 +12903,12 @@ void plotting()
   vHistos.clear();
   vHistos.resize(0);
 
-  vHistos.push_back(h1_RawYieldTrueOmega_MCPS_EG1.get());
-  vHistos.push_back(h1_RawYield_DataOmegaTGPSPS_Pol1_EG1.get());
-  Yields(vHistos, legYields_Data_EG1.get(), "Data/EG1/OmegaTGPSPS/RawYields_Pol1.svg", "extracted yield pol1", arrPtBinning_EG1[0], arrPtBinning_EG1.back());
+  std::unique_ptr<TH1D> h1_RawYield_DataOmegaTGPSPS_Pol1_EG1_Copy(new TH1D("h1_RawYield_DataOmegaTGPSPS_Pol1_EG1_Copy", "pol1", nBinsPt_EG1-1, &arrPtBinning_EG1[0]));
+  CopyInRange(h1_RawYield_DataOmegaTGPSPS_Pol1_EG1.get(), h1_RawYield_DataOmegaTGPSPS_Pol1_EG1_Copy.get(), 12., 40.);
+  h1_RawYield_DataOmegaTGPSPS_Pol1_EG1_Copy->SetMaximum(h1_RawYield_DataOmegaTGPSPS_Pol1_EG1_Copy->GetMaximum()*50);
+  h1_RawYield_DataOmegaTGPSPS_Pol1_EG1_Copy->SetMinimum(h1_RawYield_DataOmegaTGPSPS_Pol1_EG1_Copy->GetMinimum()*0.4);
+  vHistos.push_back(h1_RawYield_DataOmegaTGPSPS_Pol1_EG1_Copy.get());
+  Yields(vHistos, legYields_Data_EG1.get(), "Data/EG1/OmegaTGPSPS/RawYields_Pol1.svg", "raw yield", arrPtBinning_EG1[0], arrPtBinning_EG1.back());
   vHistos.clear();
   vHistos.resize(0);
 
@@ -12888,9 +12923,12 @@ void plotting()
   vHistos.clear();
   vHistos.resize(0);
 
-  vHistos.push_back(h1_RawYieldTrueOmega_MCPS_EG1.get());
-  vHistos.push_back(h1_RawYield_DataOmegaTGPSPS_Pol2_EG1.get());
-  Yields(vHistos, legYields_Data_EG1.get(), "Data/EG1/OmegaTGPSPS/RawYields_Pol2.svg", "extracted yield pol2", arrPtBinning_EG1[0], arrPtBinning_EG1.back());
+  std::unique_ptr<TH1D> h1_RawYield_DataOmegaTGPSPS_Pol2_EG1_Copy(new TH1D("h1_RawYield_DataOmegaTGPSPS_Pol2_EG1_Copy", "pol2", nBinsPt_EG1-1, &arrPtBinning_EG1[0]));
+  CopyInRange(h1_RawYield_DataOmegaTGPSPS_Pol2_EG1.get(), h1_RawYield_DataOmegaTGPSPS_Pol2_EG1_Copy.get(), 12., 40.);
+  h1_RawYield_DataOmegaTGPSPS_Pol2_EG1_Copy->SetMaximum(h1_RawYield_DataOmegaTGPSPS_Pol2_EG1_Copy->GetMaximum()*50);
+  h1_RawYield_DataOmegaTGPSPS_Pol2_EG1_Copy->SetMinimum(h1_RawYield_DataOmegaTGPSPS_Pol2_EG1_Copy->GetMinimum()*0.4);
+  vHistos.push_back(h1_RawYield_DataOmegaTGPSPS_Pol2_EG1_Copy.get());
+  Yields(vHistos, legYields_Data_EG1.get(), "Data/EG1/OmegaTGPSPS/RawYields_Pol2.svg", "raw yield", arrPtBinning_EG1[0], arrPtBinning_EG1.back());
   vHistos.clear();
   vHistos.resize(0);
 
@@ -12931,9 +12969,11 @@ void plotting()
   vHistos.clear();
   vHistos.resize(0);
 
-  vHistos.push_back(h1_RawYieldTrueOmega_MCPS_EG1.get());
-  vHistos.push_back(h1_RawYield_MCOmegaTGPSPS_Pol2_EG1.get());
-  Yields(vHistos, legYields_MC_EG1.get(), "MC/EG1/OmegaTGPSPS/RawYields_Pol2.svg", "extracted yield pol2", arrPtBinning_EG1[0], arrPtBinning_EG1.back());
+  std::unique_ptr<TH1D> h1_RawYield_MCOmegaTGPSPS_Pol2_EG1_Copy(new TH1D("h1_RawYield_MCOmegaTGPSPS_Pol2_EG1_Copy", "pol2", nBinsPt_EG1-1, &arrPtBinning_EG1[0]));
+  CopyInRange(h1_RawYield_MCOmegaTGPSPS_Pol2_EG1.get(), h1_RawYield_MCOmegaTGPSPS_Pol2_EG1_Copy.get(), 12., 40.);
+  h1_RawYield_MCOmegaTGPSPS_Pol2_EG1_Copy->SetMaximum(h1_RawYield_MCOmegaTGPSPS_Pol2_EG1_Copy->GetMaximum()*100);
+  vHistos.push_back(h1_RawYield_MCOmegaTGPSPS_Pol2_EG1_Copy.get());
+  Yields(vHistos, legYields_MC_EG1.get(), "MC/EG1/OmegaTGPSPS/RawYields_Pol2.svg", "raw yield", arrPtBinning_EG1[0], arrPtBinning_EG1.back());
   vHistos.clear();
   vHistos.resize(0);
 
@@ -12989,13 +13029,13 @@ void plotting()
   vHistos.push_back(h1_Effi_DataOmegaTGPSWOPS_Pol1_EG1.get());
   // vHistos.push_back(h1_Effi_DataOmegaTGPSPlusWOPS_Pol1_EG1.get());
 
-  Efficiency(vHistos, legYields_Data_EG1.get(), "MC/EG1/Efficiency_Pol1.svg", "efficiency pol1", arrPtBinning_EG1[0], arrPtBinning_EG1.back());
+  Efficiency(vHistos, legEffi_MC_EG1.get(), "MC/EG1/Efficiency_Pol1.svg", "efficiency pol1", arrPtBinning_EG1[0], arrPtBinning_EG1.back());
   vHistos.clear();
   vHistos.resize(0);
 
   vHistos.push_back(h1_Effi_MCTruePS_Pol1_EG1.get());
   vHistos.push_back(h1_Effi_DataOmegaTGPSPS_Pol1_EG1.get());
-  Efficiency(vHistos, legYields_Data_EG1.get(), "MC/EG1/OmegaTGPSPS/Efficiency_Pol1.svg", "efficiency pol1", arrPtBinning_EG1[0], arrPtBinning_EG1.back());
+  Efficiency(vHistos, legEffi_MC_EG1.get(), "MC/EG1/OmegaTGPSPS/Efficiency_Pol1.svg", "efficiency pol1", arrPtBinning_EG1[0], arrPtBinning_EG1.back());
   vHistos.clear();
   vHistos.resize(0);
 
@@ -13008,13 +13048,13 @@ void plotting()
   vHistos.push_back(h1_Effi_DataOmegaRotWOPS_Pol2_EG1.get());
   vHistos.push_back(h1_Effi_DataOmegaTGPSWOPS_Pol2_EG1.get());
   // vHistos.push_back(h1_Effi_DataOmegaTGPSPlusWOPS_Pol2_EG1.get());
-  Efficiency(vHistos, legYields_Data_EG1.get(), "MC/EG1/Efficiency_Pol2.svg", "efficiency pol2", arrPtBinning_EG1[0], arrPtBinning_EG1.back());
+  Efficiency(vHistos, legEffi_MC_EG1.get(), "MC/EG1/Efficiency_Pol2.svg", "efficiency pol2", arrPtBinning_EG1[0], arrPtBinning_EG1.back());
   vHistos.clear();
   vHistos.resize(0);
 
   vHistos.push_back(h1_Effi_MCTruePS_Pol1_EG1.get());
   vHistos.push_back(h1_Effi_DataOmegaTGPSPS_Pol2_EG1.get());
-  Efficiency(vHistos, legYields_Data_EG1.get(), "MC/EG1/OmegaTGPSPS/Efficiency_Pol2.svg", "efficiency pol2", arrPtBinning_EG1[0], arrPtBinning_EG1.back());
+  Efficiency(vHistos, legEffi_MC_EG1.get(), "MC/EG1/OmegaTGPSPS/Efficiency_Pol2.svg", "efficiency pol2", arrPtBinning_EG1[0], arrPtBinning_EG1.back());
   vHistos.clear();
   vHistos.resize(0);
 
@@ -13023,7 +13063,7 @@ void plotting()
   vHistos.push_back(h1_Effi_DataOmegaTGPSPS_Pol3_EG1.get());
   vHistos.push_back(h1_Effi_DataOmegaTGPSPS_LowFitVari_Pol2_EG1.get());
   vHistos.push_back(h1_Effi_DataOmegaTGPSPS_HighFitVari_Pol2_EG1.get());
-  Efficiency(vHistos, legYields_Data_EG1.get(), "MC/EG1/Vari/Efficiency.svg", "efficiency variation", arrPtBinning_EG1[0], arrPtBinning_EG1.back());
+  Efficiency(vHistos, legEffi_MC_EG1.get(), "MC/EG1/Vari/Efficiency.svg", "efficiency variation", arrPtBinning_EG1[0], arrPtBinning_EG1.back());
   vHistos.clear();
   vHistos.resize(0);
 
@@ -13034,7 +13074,7 @@ void plotting()
   vHistos.push_back(h1_Effi_DataPi0TGPSPS_Pol1_EG1.get());
   vHistos.push_back(h1_Effi_DataOmegaPS2Sig_Pol1_EG1.get());
   vHistos.push_back(h1_Effi_DataOmegaPS3Sig_Pol1_EG1.get());
-  Efficiency(vHistos, legYields_Data_EG1.get(), "MC/EG1/EfficiencyWithMixedEvent_Pol1.svg", "efficiency pol1", arrPtBinning_EG1[0], arrPtBinning_EG1.back());
+  Efficiency(vHistos, legEffi_MC_EG1.get(), "MC/EG1/EfficiencyWithMixedEvent_Pol1.svg", "efficiency pol1", arrPtBinning_EG1[0], arrPtBinning_EG1.back());
   vHistos.clear();
   vHistos.resize(0);
 
@@ -13045,7 +13085,7 @@ void plotting()
   vHistos.push_back(h1_Effi_DataPi0TGPSPS_Pol2_EG1.get());
   vHistos.push_back(h1_Effi_DataOmegaPS2Sig_Pol2_EG1.get());
   vHistos.push_back(h1_Effi_DataOmegaPS3Sig_Pol2_EG1.get());
-  Efficiency(vHistos, legYields_Data_EG1.get(), "MC/EG1/EfficiencyWithMixedEvent_Pol2.svg", "efficiency pol2", arrPtBinning_EG1[0], arrPtBinning_EG1.back());
+  Efficiency(vHistos, legEffi_MC_EG1.get(), "MC/EG1/EfficiencyWithMixedEvent_Pol2.svg", "efficiency pol2", arrPtBinning_EG1[0], arrPtBinning_EG1.back());
   vHistos.clear();
   vHistos.resize(0);
 
@@ -13541,9 +13581,12 @@ void plotting()
   vHistos.clear();
   vHistos.resize(0);
 
-  vHistos.push_back(h1_RawYieldTrueOmega_MCPS_EG1.get());
-  vHistos.push_back(h1_RawYield_DataOmegaTGPSPS_Pol1_EG1.get());
-  CorrYields(vHistos, legYields_Data_EG2.get(), "Data/EG1/OmegaTGPSPS/CorrectedYields_Pol1.svg", "corrected yield pol1", arrPtBinning_EG1[0], arrPtBinning_EG1.back());
+  std::unique_ptr<TH1D> h1_CorrYield_DataOmegaTGPSPS_Pol1_EG1_Copy(new TH1D("h1_CorrYield_DataOmegaTGPSPS_Pol1_EG1_Copy", "pol1", nBinsPt_EG1-1, &arrPtBinning_EG1[0]));
+  CopyInRange(h1_RawYield_DataOmegaTGPSPS_Pol1_EG1.get(), h1_CorrYield_DataOmegaTGPSPS_Pol1_EG1_Copy.get(), 12., 40.);
+  h1_CorrYield_DataOmegaTGPSPS_Pol1_EG1_Copy->SetMaximum(h1_CorrYield_DataOmegaTGPSPS_Pol1_EG1_Copy->GetMaximum()*50);
+  h1_CorrYield_DataOmegaTGPSPS_Pol1_EG1_Copy->SetMinimum(h1_CorrYield_DataOmegaTGPSPS_Pol1_EG1_Copy->GetMinimum()*0.4);
+  vHistos.push_back(h1_CorrYield_DataOmegaTGPSPS_Pol1_EG1_Copy.get());
+  CorrYields(vHistos, legYields_Data_EG2.get(), "Data/EG1/OmegaTGPSPS/CorrectedYields_Pol1.svg", "corrected yield", arrPtBinning_EG1[0], arrPtBinning_EG1.back());
   vHistos.clear();
   vHistos.resize(0);
 
@@ -13569,9 +13612,12 @@ void plotting()
   vHistos.clear();
   vHistos.resize(0);
 
-  vHistos.push_back(h1_RawYieldTrueOmega_MCPS_EG1.get());
-  vHistos.push_back(h1_RawYield_DataOmegaTGPSPS_Pol2_EG1.get());
-  CorrYields(vHistos, legYields_Data_EG2.get(), "Data/EG1/OmegaTGPSPS/CorrectedYields_Pol2.svg", "corrected yield pol2", arrPtBinning_EG1[0], arrPtBinning_EG1.back());
+  std::unique_ptr<TH1D> h1_CorrYield_DataOmegaTGPSPS_Pol2_EG1_Copy(new TH1D("h1_CorrYield_DataOmegaTGPSPS_Pol2_EG1_Copy", "pol1", nBinsPt_EG1-1, &arrPtBinning_EG1[0]));
+  CopyInRange(h1_RawYield_DataOmegaTGPSPS_Pol2_EG1.get(), h1_CorrYield_DataOmegaTGPSPS_Pol2_EG1_Copy.get(), 12., 40.);
+  h1_CorrYield_DataOmegaTGPSPS_Pol2_EG1_Copy->SetMaximum(h1_CorrYield_DataOmegaTGPSPS_Pol2_EG1_Copy->GetMaximum()*50);
+  h1_CorrYield_DataOmegaTGPSPS_Pol2_EG1_Copy->SetMinimum(h1_CorrYield_DataOmegaTGPSPS_Pol2_EG1_Copy->GetMinimum()*0.4);
+  vHistos.push_back(h1_CorrYield_DataOmegaTGPSPS_Pol2_EG1_Copy.get());
+  CorrYields(vHistos, legYields_Data_EG2.get(), "Data/EG1/OmegaTGPSPS/CorrectedYields_Pol2.svg", "corrected yield", arrPtBinning_EG1[0], arrPtBinning_EG1.back());
   vHistos.clear();
   vHistos.resize(0);
 
@@ -13824,9 +13870,12 @@ void plotting()
   vHistos.clear();
   vHistos.resize(0);
 
-  vHistos.push_back(h1_RawYieldTrueOmega_MCPS_EG2.get());
-  vHistos.push_back(h1_RawYield_DataOmegaTGPSPS_Pol1_EG2.get());
-  Yields(vHistos, legYields_Data_EG2.get(), "Data/EG2/OmegaTGPSPS/RawYields_Pol1.svg", "extracted yield pol1", arrPtBinning_EG2[0], 18.);
+  std::unique_ptr<TH1D> h1_RawYield_DataOmegaTGPSPS_Pol1_EG2_Copy(new TH1D("h1_RawYield_DataOmegaTGPSPS_Pol1_EG2_Copy", "pol1", 6, &arrPtBinning_EG2[0]));
+  CopyInRange(h1_RawYield_DataOmegaTGPSPS_Pol1_EG2.get(), h1_RawYield_DataOmegaTGPSPS_Pol1_EG2_Copy.get(), 6., 18.);
+  h1_RawYield_DataOmegaTGPSPS_Pol1_EG2_Copy->SetMaximum(h1_RawYield_DataOmegaTGPSPS_Pol1_EG2_Copy->GetMaximum()*50);
+  h1_RawYield_DataOmegaTGPSPS_Pol1_EG2_Copy->SetMinimum(h1_RawYield_DataOmegaTGPSPS_Pol1_EG2_Copy->GetMinimum()*0.4);
+  vHistos.push_back(h1_RawYield_DataOmegaTGPSPS_Pol1_EG2_Copy.get());
+  Yields(vHistos, legYields_Data_EG2.get(), "Data/EG2/OmegaTGPSPS/RawYields_Pol1.svg", "raw yield", arrPtBinning_EG2[0], 18.);
   vHistos.clear();
   vHistos.resize(0);
 
@@ -13841,9 +13890,12 @@ void plotting()
   vHistos.clear();
   vHistos.resize(0);
 
-  vHistos.push_back(h1_RawYieldTrueOmega_MCPS_EG2.get());
-  vHistos.push_back(h1_RawYield_DataOmegaTGPSPS_Pol2_EG2.get());
-  Yields(vHistos, legYields_Data_EG2.get(), "Data/EG2/OmegaTGPSPS/RawYields_Pol2.svg", "extracted yield pol2", arrPtBinning_EG2[0], 18.);
+  std::unique_ptr<TH1D> h1_RawYield_DataOmegaTGPSPS_Pol2_EG2_Copy(new TH1D("h1_RawYield_DataOmegaTGPSPS_Pol2_EG2_Copy", "pol2", 6, &arrPtBinning_EG2[0]));
+  CopyInRange(h1_RawYield_DataOmegaTGPSPS_Pol2_EG2.get(), h1_RawYield_DataOmegaTGPSPS_Pol2_EG2_Copy.get(), 6., 18.);
+  h1_RawYield_DataOmegaTGPSPS_Pol2_EG2_Copy->SetMaximum(h1_RawYield_DataOmegaTGPSPS_Pol2_EG2_Copy->GetMaximum()*50);
+  h1_RawYield_DataOmegaTGPSPS_Pol2_EG2_Copy->SetMinimum(h1_RawYield_DataOmegaTGPSPS_Pol2_EG2_Copy->GetMinimum()*0.4);
+  vHistos.push_back(h1_RawYield_DataOmegaTGPSPS_Pol2_EG2_Copy.get());
+  Yields(vHistos, legYields_Data_EG2.get(), "Data/EG2/OmegaTGPSPS/RawYields_Pol2.svg", "raw yield", arrPtBinning_EG2[0], 18.);
   vHistos.clear();
   vHistos.resize(0);
 
@@ -13909,13 +13961,13 @@ void plotting()
   vHistos.push_back(h1_Effi_DataOmegaRotWOPS_Pol1_EG2.get());
   vHistos.push_back(h1_Effi_DataOmegaTGPSWOPS_Pol1_EG2.get());
   // vHistos.push_back(h1_Effi_DataOmegaTGPSPlusWOPS_Pol1_EG2.get());
-  Efficiency(vHistos, legYields_Data_EG2.get(), "MC/EG2/Efficiency_Pol1.svg", "efficiency pol1", arrPtBinning_EG2[0], arrPtBinning_EG2.back());
+  Efficiency(vHistos, legEffi_MC_EG2.get(), "MC/EG2/Efficiency_Pol1.svg", "efficiency pol1", arrPtBinning_EG2[0], arrPtBinning_EG2.back());
   vHistos.clear();
   vHistos.resize(0);
 
   vHistos.push_back(h1_Effi_MCTruePS_Pol1_EG2.get());
   vHistos.push_back(h1_Effi_DataOmegaTGPSPS_Pol1_EG2.get());
-  Efficiency(vHistos, legYields_Data_EG2.get(), "MC/EG2/OmegaTGPSPS/Efficiency_Pol1.svg", "efficiency pol1", arrPtBinning_EG2[0], arrPtBinning_EG2.back());
+  Efficiency(vHistos, legEffi_MC_EG2.get(), "MC/EG2/OmegaTGPSPS/Efficiency_Pol1.svg", "efficiency pol1", arrPtBinning_EG2[0], 18.);
   vHistos.clear();
   vHistos.resize(0);
 
@@ -13928,13 +13980,13 @@ void plotting()
   vHistos.push_back(h1_Effi_DataOmegaRotWOPS_Pol2_EG2.get());
   vHistos.push_back(h1_Effi_DataOmegaTGPSWOPS_Pol2_EG2.get());
   // vHistos.push_back(h1_Effi_DataOmegaTGPSPlusWOPS_Pol2_EG2.get());
-  Efficiency(vHistos, legYields_Data_EG2.get(), "MC/EG2/Efficiency_Pol2.svg", "efficiency pol2", arrPtBinning_EG2[0], arrPtBinning_EG2.back());
+  Efficiency(vHistos, legEffi_MC_EG2.get(), "MC/EG2/Efficiency_Pol2.svg", "efficiency pol2", arrPtBinning_EG2[0], arrPtBinning_EG2.back());
   vHistos.clear();
   vHistos.resize(0);
 
   vHistos.push_back(h1_Effi_MCTruePS_Pol1_EG2.get());
   vHistos.push_back(h1_Effi_DataOmegaTGPSPS_Pol2_EG2.get());
-  Efficiency(vHistos, legYields_Data_EG2.get(), "MC/EG2/OmegaTGPSPS/Efficiency_Pol2.svg", "efficiency pol2", arrPtBinning_EG2[0], arrPtBinning_EG2.back());
+  Efficiency(vHistos, legEffi_MC_EG2.get(), "MC/EG2/OmegaTGPSPS/Efficiency_Pol2.svg", "efficiency pol2", arrPtBinning_EG2[0], 18.);
   vHistos.clear();
   vHistos.resize(0);
 
@@ -13943,7 +13995,7 @@ void plotting()
   vHistos.push_back(h1_Effi_DataOmegaTGPSPS_Pol3_EG2.get());
   vHistos.push_back(h1_Effi_DataOmegaTGPSPS_LowFitVari_Pol2_EG2.get());
   vHistos.push_back(h1_Effi_DataOmegaTGPSPS_HighFitVari_Pol2_EG2.get());
-  Efficiency(vHistos, legYields_Data_EG2.get(), "MC/EG2/Vari/Efficiency_Pol2.svg", "efficiency variations", arrPtBinning_EG2[0], arrPtBinning_EG2.back());
+  Efficiency(vHistos, legEffi_MC_EG2.get(), "MC/EG2/Vari/Efficiency_Pol2.svg", "efficiency variations", arrPtBinning_EG2[0], arrPtBinning_EG2.back());
   vHistos.clear();
   vHistos.resize(0);
 
@@ -13954,7 +14006,7 @@ void plotting()
   vHistos.push_back(h1_Effi_DataPi0TGPSPS_Pol1_EG2.get());
   vHistos.push_back(h1_Effi_DataOmegaPS2Sig_Pol1_EG2.get());
   vHistos.push_back(h1_Effi_DataOmegaPS3Sig_Pol1_EG2.get());
-  Efficiency(vHistos, legYields_Data_EG2.get(), "MC/EG2/EfficiencyWithMixedEvent_Pol1.svg", "efficiency pol1", arrPtBinning_EG2[0], arrPtBinning_EG2.back());
+  Efficiency(vHistos, legEffi_MC_EG2.get(), "MC/EG2/EfficiencyWithMixedEvent_Pol1.svg", "efficiency pol1", arrPtBinning_EG2[0], arrPtBinning_EG2.back());
   vHistos.clear();
   vHistos.resize(0);
 
@@ -13965,7 +14017,7 @@ void plotting()
   vHistos.push_back(h1_Effi_DataPi0TGPSPS_Pol2_EG2.get());
   vHistos.push_back(h1_Effi_DataOmegaPS2Sig_Pol2_EG2.get());
   vHistos.push_back(h1_Effi_DataOmegaPS3Sig_Pol2_EG2.get());
-  Efficiency(vHistos, legYields_Data_EG2.get(), "MC/EG2/EfficiencyWithMixedEvent_Pol2.svg", "efficiency pol2", arrPtBinning_EG2[0], arrPtBinning_EG2.back());
+  Efficiency(vHistos, legEffi_MC_EG2.get(), "MC/EG2/EfficiencyWithMixedEvent_Pol2.svg", "efficiency pol2", arrPtBinning_EG2[0], arrPtBinning_EG2.back());
   vHistos.clear();
   vHistos.resize(0);
 
@@ -13981,7 +14033,7 @@ void plotting()
   h1_EffiRatio_MCTruePS_Pol1_MBEG1->Divide(h1_Effi_MCTruePS_Pol1_EG1.get(), h1_Effi_MCTruePS_Pol1_MB1.get(), 1, 1);
   h1_EffiRatio_MCTruePS_Pol1_MBEG1->SetTitle("EG1/MB");
   vHistos.push_back(h1_EffiRatio_MCTruePS_Pol1_MBEG2);
-  vHistos.push_back(h1_EffiRatio_MCTruePS_Pol1_MBEG1);
+  // vHistos.push_back(h1_EffiRatio_MCTruePS_Pol1_MBEG1);
   vHistos.push_back(h1_EffiRatio_MCTruePS_Pol1_EG1EG2);
 
 
@@ -14491,9 +14543,12 @@ void plotting()
   vHistos.clear();
   vHistos.resize(0);
 
-  vHistos.push_back(h1_RawYieldTrueOmega_MCPS_EG2.get());
-  vHistos.push_back(h1_RawYield_DataOmegaTGPSPS_Pol1_EG2.get());
-  CorrYields(vHistos, legYields_Data_EG2.get(), "Data/EG2/OmegaTGPSPS/CorrectedYields_Pol1.svg", "corrected yield pol1", arrPtBinning_EG2[0], 18.0);
+  std::unique_ptr<TH1D> h1_CorrYield_DataOmegaTGPSPS_Pol1_EG2_Copy(new TH1D("h1_CorrYield_DataOmegaTGPSPS_Pol1_EG2_Copy", "pol1", 6, &arrPtBinning_EG2[0]));
+  CopyInRange(h1_RawYield_DataOmegaTGPSPS_Pol1_EG2.get(), h1_CorrYield_DataOmegaTGPSPS_Pol1_EG2_Copy.get(), 6., 18.);
+  h1_CorrYield_DataOmegaTGPSPS_Pol1_EG2_Copy->SetMaximum(h1_CorrYield_DataOmegaTGPSPS_Pol1_EG2_Copy->GetMaximum()*50);
+  h1_CorrYield_DataOmegaTGPSPS_Pol1_EG2_Copy->SetMinimum(h1_CorrYield_DataOmegaTGPSPS_Pol1_EG2_Copy->GetMinimum()*0.4);
+  vHistos.push_back(h1_CorrYield_DataOmegaTGPSPS_Pol1_EG2_Copy.get());
+  CorrYields(vHistos, legYields_Data_EG2.get(), "Data/EG2/OmegaTGPSPS/CorrectedYields_Pol1.svg", "corrected yield", arrPtBinning_EG2[0], 18.0);
   vHistos.clear();
   vHistos.resize(0);
 
@@ -14521,9 +14576,12 @@ void plotting()
   vHistos.clear();
   vHistos.resize(0);
 
-  vHistos.push_back(h1_RawYieldTrueOmega_MCPS_EG2.get());
-  vHistos.push_back(h1_RawYield_DataOmegaTGPSPS_Pol2_EG2.get());
-  CorrYields(vHistos, legYields_Data_EG2.get(), "Data/EG2/OmegaTGPSPS/CorrectedYields_Pol2.svg", "corrected yield pol2", arrPtBinning_EG2[0], 18.0);
+  std::unique_ptr<TH1D> h1_CorrYield_DataOmegaTGPSPS_Pol2_EG2_Copy(new TH1D("h1_CorrYield_DataOmegaTGPSPS_Pol2_EG2_Copy", "pol1", 6, &arrPtBinning_EG2[0]));
+  CopyInRange(h1_RawYield_DataOmegaTGPSPS_Pol2_EG2.get(), h1_CorrYield_DataOmegaTGPSPS_Pol2_EG2_Copy.get(), 6., 18.);
+  h1_CorrYield_DataOmegaTGPSPS_Pol2_EG2_Copy->SetMaximum(h1_CorrYield_DataOmegaTGPSPS_Pol2_EG2_Copy->GetMaximum()*50);
+  h1_CorrYield_DataOmegaTGPSPS_Pol2_EG2_Copy->SetMinimum(h1_CorrYield_DataOmegaTGPSPS_Pol2_EG2_Copy->GetMinimum()*0.4);
+  vHistos.push_back(h1_CorrYield_DataOmegaTGPSPS_Pol2_EG2_Copy.get());
+  CorrYields(vHistos, legYields_Data_EG2.get(), "Data/EG2/OmegaTGPSPS/CorrectedYields_Pol2.svg", "corrected yield", arrPtBinning_EG2[0], 18.0);
   vHistos.clear();
   vHistos.resize(0);
 
@@ -14662,32 +14720,55 @@ void plotting()
   // EG1
   //
   // ---------------------------------------------------------------------------
-  TH1D* h1_Systematic_PeakExtraction_EG1 = (TH1D*) h1_RawYield_DataOmegaTGPSPS_Pol2_EG1->Clone("h1_Systematic_PeakExtraction_EG1");
+  h1_CorrYield_DataOmegaTGPSPS_Pol2_EG1_Copy->SaveAs("h1_CorrYield_DataOmegaTGPSPS_Pol2_EG1_Copy.root");
 
-  TH1D* h1_AbsSystematic_PolVari_EG1 = (TH1D*) h1_RawYield_DataOmegaTGPSPS_Pol2_EG1->Clone("h1_AbsSystematic_PolVari_EG1");
-  TH1D* h1_RelSystematic_PolVari_EG1 = (TH1D*) h1_RawYield_DataOmegaTGPSPS_Pol2_EG1->Clone("h1_RelSystematic_PolVari_EG1");
-  TH1D* h1_Systematic_PolVari_EG1 = (TH1D*) h1_RawYield_DataOmegaTGPSPS_Pol2_EG1->Clone("h1_Systematic_PolVari_EG1");
+  std::unique_ptr<TH1D> h1_CorrYield_DataOmegaTGPSPS_Pol3_EG1_Copy(new TH1D("h1_CorrYield_DataOmegaTGPSPS_Pol3_EG1_Copy", "", nBinsPt_EG1-1, &arrPtBinning_EG1[0]));
+  CopyInRange(h1_RawYield_DataOmegaTGPSPS_Pol3_EG1.get(), h1_CorrYield_DataOmegaTGPSPS_Pol3_EG1_Copy.get(), 12., 40.);
+
+  std::unique_ptr<TH1D> h1_CorrYield_DataOmegaRotPS_Pol2_EG1_Copy(new TH1D("h1_CorrYield_DataOmegaRotPS_Pol2_EG1_Copy", "", nBinsPt_EG1-1, &arrPtBinning_EG1[0]));
+  CopyInRange(h1_RawYield_DataOmegaRotPS_Pol2_EG1.get(), h1_CorrYield_DataOmegaRotPS_Pol2_EG1_Copy.get(), 12., 40.);
+
+  std::unique_ptr<TH1D> h1_CorrYield_DataPi0TGPSPS_Pol2_EG1_Copy(new TH1D("h1_CorrYield_DataPi0TGPSPS_Pol2_EG1_Copy", "", nBinsPt_EG1-1, &arrPtBinning_EG1[0]));
+  CopyInRange(h1_RawYield_DataPi0TGPSPS_Pol2_EG1.get(), h1_CorrYield_DataPi0TGPSPS_Pol2_EG1_Copy.get(), 12., 40.);
+
+  h1_CorrYield_DataPi0TGPSPS_Pol2_EG1_Copy->SaveAs("h1_CorrYield_DataPi0TGPSPS_Pol2_EG1_Copy.root");
+
+  std::unique_ptr<TH1D> h1_CorrYield_DataOmegaTGPSPS_LowFitVari_Pol2_EG1_Copy(new TH1D("h1_CorrYield_DataOmegaTGPSPS_LowFitVari_Pol2_EG1_Copy", "", nBinsPt_EG1-1, &arrPtBinning_EG1[0]));
+  CopyInRange(h1_RawYield_DataOmegaTGPSPS_LowFitVari_Pol2_EG1.get(), h1_CorrYield_DataOmegaTGPSPS_LowFitVari_Pol2_EG1_Copy.get(), 12., 40.);
+
+  h1_CorrYield_DataOmegaTGPSPS_LowFitVari_Pol2_EG1_Copy->SaveAs("h1_CorrYield_DataOmegaTGPSPS_LowFitVari_Pol2_EG1_Copy.root");
+
+  std::unique_ptr<TH1D> h1_CorrYield_DataOmegaTGPSPS_HighFitVari_Pol2_EG1_Copy(new TH1D("h1_CorrYield_DataOmegaTGPSPS_HighFitVari_Pol2_EG1_Copy", "", nBinsPt_EG1-1, &arrPtBinning_EG1[0]));
+  CopyInRange(h1_RawYield_DataOmegaTGPSPS_HighFitVari_Pol2_EG1.get(), h1_CorrYield_DataOmegaTGPSPS_HighFitVari_Pol2_EG1_Copy.get(), 12., 40.);
+
+  h1_CorrYield_DataOmegaTGPSPS_HighFitVari_Pol2_EG1_Copy->SaveAs("h1_CorrYield_DataOmegaTGPSPS_HighFitVari_Pol2_EG1_Copy.root");
+
+  TH1D* h1_Systematic_PeakExtraction_EG1 = (TH1D*) h1_CorrYield_DataOmegaTGPSPS_Pol2_EG1_Copy->Clone("h1_Systematic_PeakExtraction_EG1");
+
+  TH1D* h1_AbsSystematic_PolVari_EG1 = (TH1D*) h1_CorrYield_DataOmegaTGPSPS_Pol2_EG1_Copy->Clone("h1_AbsSystematic_PolVari_EG1");
+  TH1D* h1_RelSystematic_PolVari_EG1 = (TH1D*) h1_CorrYield_DataOmegaTGPSPS_Pol2_EG1_Copy->Clone("h1_RelSystematic_PolVari_EG1");
+  TH1D* h1_Systematic_PolVari_EG1 = (TH1D*) h1_CorrYield_DataOmegaTGPSPS_Pol2_EG1_Copy->Clone("h1_Systematic_PolVari_EG1");
   h1_AbsSystematic_PolVari_EG1->SetTitle("h1_AbsSystematic_PolVari_EG1");
   h1_RelSystematic_PolVari_EG1->SetTitle("background fit polynom");
   h1_Systematic_PolVari_EG1->SetTitle("h1_Systematic_PolVari_EG1");
 
-  TH1D* h1_AbsSystematic_MethodVari_EG1 = (TH1D*) h1_RawYield_DataOmegaTGPSPS_Pol2_EG1->Clone("h1_AbsSystematic_MethodVari_EG1");
-  TH1D* h1_RelSystematic_MethodVari_EG1 = (TH1D*) h1_RawYield_DataOmegaTGPSPS_Pol2_EG1->Clone("h1_RelSystematic_MethodVari_EG1");
-  TH1D* h1_Systematic_MethodVari_EG1 = (TH1D*) h1_RawYield_DataOmegaTGPSPS_Pol2_EG1->Clone("h1_Systematic_MethodVari_EG1");
+  TH1D* h1_AbsSystematic_MethodVari_EG1 = (TH1D*) h1_CorrYield_DataOmegaTGPSPS_Pol2_EG1_Copy->Clone("h1_AbsSystematic_MethodVari_EG1");
+  TH1D* h1_RelSystematic_MethodVari_EG1 = (TH1D*) h1_CorrYield_DataOmegaTGPSPS_Pol2_EG1_Copy->Clone("h1_RelSystematic_MethodVari_EG1");
+  TH1D* h1_Systematic_MethodVari_EG1 = (TH1D*) h1_CorrYield_DataOmegaTGPSPS_Pol2_EG1_Copy->Clone("h1_Systematic_MethodVari_EG1");
   h1_AbsSystematic_MethodVari_EG1->SetTitle("h1_AbsSystematic_MethodVari_EG1");
   h1_RelSystematic_MethodVari_EG1->SetTitle("background method");
   h1_Systematic_MethodVari_EG1->SetTitle("h1_Systematic_MethodVari_EG1");
 
-  TH1D* h1_AbsSystematic_FitRangeVari_EG1 = (TH1D*) h1_RawYield_DataOmegaTGPSPS_Pol2_EG1->Clone("h1_AbsSystematic_FitRangeVari_EG1");
-  TH1D* h1_RelSystematic_FitRangeVari_EG1 = (TH1D*) h1_RawYield_DataOmegaTGPSPS_Pol2_EG1->Clone("h1_RelSystematic_FitRangeVari_EG1");
-  TH1D* h1_Systematic_FitRangeVari_EG1 = (TH1D*) h1_RawYield_DataOmegaTGPSPS_Pol2_EG1->Clone("h1_Systematic_FitRangeVari_EG1");
+  TH1D* h1_AbsSystematic_FitRangeVari_EG1 = (TH1D*) h1_CorrYield_DataOmegaTGPSPS_Pol2_EG1_Copy->Clone("h1_AbsSystematic_FitRangeVari_EG1");
+  TH1D* h1_RelSystematic_FitRangeVari_EG1 = (TH1D*) h1_CorrYield_DataOmegaTGPSPS_Pol2_EG1_Copy->Clone("h1_RelSystematic_FitRangeVari_EG1");
+  TH1D* h1_Systematic_FitRangeVari_EG1 = (TH1D*) h1_CorrYield_DataOmegaTGPSPS_Pol2_EG1_Copy->Clone("h1_Systematic_FitRangeVari_EG1");
   h1_AbsSystematic_FitRangeVari_EG1->SetTitle("h1_AbsSystematic_FitRangeVari_EG1");
   h1_RelSystematic_FitRangeVari_EG1->SetTitle("background fit range");
   h1_Systematic_FitRangeVari_EG1->SetTitle("h1_Systematic_FitRangeVari_EG1");
 
-  vHistos.push_back(h1_RawYield_DataOmegaTGPSPS_Pol2_EG1.get());
-  vHistos.push_back(h1_RawYield_DataOmegaTGPSPS_Pol3_EG1.get());
-  vHistos.push_back(h1_RawYield_DataOmegaTGPSPS_Pol1_EG1.get());
+  vHistos.push_back(h1_CorrYield_DataOmegaTGPSPS_Pol2_EG1_Copy.get());
+  vHistos.push_back(h1_CorrYield_DataOmegaTGPSPS_Pol3_EG1_Copy.get());
+  vHistos.push_back(h1_CorrYield_DataOmegaTGPSPS_Pol1_EG1_Copy.get());
   vHistos.push_back(h1_AbsSystematic_PolVari_EG1);
   vHistos.push_back(h1_RelSystematic_PolVari_EG1);
   vHistos.push_back(h1_Systematic_PolVari_EG1);
@@ -14695,9 +14776,9 @@ void plotting()
   vHistos.clear();
   vHistos.resize(0);
 
-  vHistos.push_back(h1_RawYield_DataOmegaTGPSPS_Pol2_EG1.get());
-  vHistos.push_back(h1_RawYield_DataOmegaRotPS_Pol2_EG1.get());
-  vHistos.push_back(h1_RawYield_DataPi0TGPSPS_Pol2_EG1.get());
+  vHistos.push_back(h1_CorrYield_DataOmegaTGPSPS_Pol2_EG1_Copy.get());
+  vHistos.push_back(h1_CorrYield_DataOmegaRotPS_Pol2_EG1_Copy.get());
+  vHistos.push_back(h1_CorrYield_DataPi0TGPSPS_Pol2_EG1_Copy.get());
   vHistos.push_back(h1_AbsSystematic_MethodVari_EG1);
   vHistos.push_back(h1_RelSystematic_MethodVari_EG1);
   vHistos.push_back(h1_Systematic_MethodVari_EG1);
@@ -14705,15 +14786,23 @@ void plotting()
   vHistos.clear();
   vHistos.resize(0);
 
-  vHistos.push_back(h1_RawYield_DataOmegaTGPSPS_Pol2_EG1.get());
-  vHistos.push_back(h1_RawYield_DataOmegaTGPSPS_LowFitVari_Pol2_EG1.get());
-  vHistos.push_back(h1_RawYield_DataOmegaTGPSPS_HighFitVari_Pol2_EG1.get());
+  h1_AbsSystematic_MethodVari_EG1->SaveAs("h1_AbsSystematic_MethodVari_EG1.root");
+  h1_RelSystematic_MethodVari_EG1->SaveAs("h1_RelSystematic_MethodVari_EG1.root");
+  h1_Systematic_MethodVari_EG1->SaveAs("h1_Systematic_MethodVari_EG1.root");
+
+  vHistos.push_back(h1_CorrYield_DataOmegaTGPSPS_Pol2_EG1_Copy.get());
+  vHistos.push_back(h1_CorrYield_DataOmegaTGPSPS_LowFitVari_Pol2_EG1_Copy.get());
+  vHistos.push_back(h1_CorrYield_DataOmegaTGPSPS_HighFitVari_Pol2_EG1_Copy.get());
   vHistos.push_back(h1_AbsSystematic_FitRangeVari_EG1);
   vHistos.push_back(h1_RelSystematic_FitRangeVari_EG1);
   vHistos.push_back(h1_Systematic_FitRangeVari_EG1);
   SingleSysCalc(vHistos);
   vHistos.clear();
   vHistos.resize(0);
+
+  h1_AbsSystematic_FitRangeVari_EG1->SaveAs("h1_AbsSystematic_FitRangeVari_EG1.root");
+  h1_RelSystematic_FitRangeVari_EG1->SaveAs("h1_RelSystematic_FitRangeVari_EG1.root");
+  h1_Systematic_FitRangeVari_EG1->SaveAs("h1_Systematic_FitRangeVari_EG1.root");
 
   vHistos.push_back(h1_Systematic_PolVari_EG1);
   vHistos.push_back(h1_Systematic_MethodVari_EG1);
@@ -14728,19 +14817,19 @@ void plotting()
   vHistos.push_back(h1_RelSystematic_PolVari_EG1);
   vHistos.push_back(h1_RelSystematic_MethodVari_EG1);
   vHistos.push_back(h1_RelSystematic_FitRangeVari_EG1);
-  PlotYieldRelSys(vHistos, legYields_Data_EG1.get(), "Data/EG1/SystematicUncertainties.svg", "variations:", arrPtBinning_EG1[0], arrPtBinning_EG1.back());
+  PlotYieldRelSys(vHistos, legEffi_Data_EG2.get(), "Data/EG1/SystematicUncertainties.svg", "variations:", arrPtBinning_EG1[0], arrPtBinning_EG1.back());
   vHistos.clear();
   vHistos.resize(0);
 
-  h1_RawYield_DataOmegaTGPSPS_Pol2_EG1->SetMaximum(h1_RawYield_DataOmegaTGPSPS_Pol2_EG1->GetMaximum()*100.);
-  h1_RawYield_DataOmegaTGPSPS_Pol2_EG1->SetMinimum(h1_RawYield_DataOmegaTGPSPS_Pol2_EG1->GetMinimum()*0.1);
+  // h1_CorrYield_DataOmegaTGPSPS_Pol2_EG1_Copy->SetMaximum(h1_CorrYield_DataOmegaTGPSPS_Pol2_EG1_Copy->GetMaximum()*100.);
+  // h1_CorrYield_DataOmegaTGPSPS_Pol2_EG1_Copy->SetMinimum(h1_CorrYield_DataOmegaTGPSPS_Pol2_EG1_Copy->GetMinimum()*0.1);
   h1_Systematic_PeakExtraction_EG1->SetFillColorAlpha(kBlack, 0.4);
 
-  h1_RawYield_DataOmegaTGPSPS_Pol2_EG1->SetTitle("statatistical");
+  h1_CorrYield_DataOmegaTGPSPS_Pol2_EG1_Copy->SetTitle("statatistical");
   h1_Systematic_PeakExtraction_EG1->SetTitle("systematical");
-  vHistos.push_back(h1_RawYield_DataOmegaTGPSPS_Pol2_EG1.get());
+  vHistos.push_back(h1_CorrYield_DataOmegaTGPSPS_Pol2_EG1_Copy.get());
   vHistos.push_back(h1_Systematic_PeakExtraction_EG1);
-  vHistos.push_back(h1_RawYield_DataOmegaTGPSPS_Pol2_EG1.get());
+  vHistos.push_back(h1_CorrYield_DataOmegaTGPSPS_Pol2_EG1_Copy.get());
   PlotYieldWithSys(vHistos, legYields_Data_EG1.get(), "Data/EG1/CorrectedYieldWithSys.svg", "uncertrainties:", arrPtBinning_EG1[0], arrPtBinning_EG1.back());
   vHistos.clear();
   vHistos.resize(0);
@@ -14751,32 +14840,57 @@ void plotting()
   // EG2
   //
   // ---------------------------------------------------------------------------
-  TH1D* h1_Systematic_PeakExtraction_EG2 = (TH1D*) h1_RawYield_DataOmegaTGPSPS_Pol2_EG2->Clone("h1_Systematic_PeakExtraction_EG2");
 
-  TH1D* h1_AbsSystematic_PolVari_EG2 = (TH1D*) h1_RawYield_DataOmegaTGPSPS_Pol2_EG2->Clone("h1_AbsSystematic_PolVari_EG2");
-  TH1D* h1_RelSystematic_PolVari_EG2 = (TH1D*) h1_RawYield_DataOmegaTGPSPS_Pol2_EG2->Clone("h1_RelSystematic_PolVari_EG2");
-  TH1D* h1_Systematic_PolVari_EG2 = (TH1D*) h1_RawYield_DataOmegaTGPSPS_Pol2_EG2->Clone("h1_Systematic_PolVari_EG2");
+
+  std::unique_ptr<TH1D> h1_CorrYield_DataOmegaTGPSPS_Pol3_EG2_Copy(new TH1D("h1_CorrYield_DataOmegaTGPSPS_Pol3_EG2_Copy", "", 6, &arrPtBinning_EG2[0]));
+  CopyInRange(h1_RawYield_DataOmegaTGPSPS_Pol3_EG2.get(), h1_CorrYield_DataOmegaTGPSPS_Pol3_EG2_Copy.get(), 6., 18.);
+
+  std::unique_ptr<TH1D> h1_CorrYield_DataOmegaRotPS_Pol2_EG2_Copy(new TH1D("h1_CorrYield_DataOmegaRotPS_Pol2_EG2_Copy", "", 6, &arrPtBinning_EG2[0]));
+  CopyInRange(h1_RawYield_DataOmegaRotPS_Pol2_EG2.get(), h1_CorrYield_DataOmegaRotPS_Pol2_EG2_Copy.get(), 6., 18.);
+
+  std::unique_ptr<TH1D> h1_CorrYield_DataPi0TGPSPS_Pol2_EG2_Copy(new TH1D("h1_CorrYield_DataPi0TGPSPS_Pol2_EG2_Copy", "", 6, &arrPtBinning_EG2[0]));
+  CopyInRange(h1_RawYield_DataPi0TGPSPS_Pol2_EG2.get(), h1_CorrYield_DataPi0TGPSPS_Pol2_EG2_Copy.get(), 6., 18.);
+
+  std::unique_ptr<TH1D> h1_CorrYield_DataOmegaTGPSPS_LowFitVari_Pol2_EG2_Copy(new TH1D("h1_CorrYield_DataOmegaTGPSPS_LowFitVari_Pol2_EG2_Copy", "", 6, &arrPtBinning_EG2[0]));
+  CopyInRange(h1_RawYield_DataOmegaTGPSPS_LowFitVari_Pol2_EG2.get(), h1_CorrYield_DataOmegaTGPSPS_LowFitVari_Pol2_EG2_Copy.get(), 6., 18.);
+
+  std::unique_ptr<TH1D> h1_CorrYield_DataOmegaTGPSPS_HighFitVari_Pol2_EG2_Copy(new TH1D("h1_CorrYield_DataOmegaTGPSPS_HighFitVari_Pol2_EG2_Copy", "", 6, &arrPtBinning_EG2[0]));
+  CopyInRange(h1_RawYield_DataOmegaTGPSPS_HighFitVari_Pol2_EG2.get(), h1_CorrYield_DataOmegaTGPSPS_HighFitVari_Pol2_EG2_Copy.get(), 6., 18.);
+
+  h1_CorrYield_DataOmegaTGPSPS_Pol2_EG2_Copy->SaveAs("h1_CorrYield_DataOmegaTGPSPS_Pol2_EG2_Copy.root");
+  h1_CorrYield_DataOmegaTGPSPS_Pol3_EG2_Copy->SaveAs("h1_CorrYield_DataOmegaTGPSPS_Pol3_EG2_Copy.root");
+  h1_CorrYield_DataOmegaRotPS_Pol2_EG2_Copy->SaveAs("h1_CorrYield_DataOmegaRotPS_Pol2_EG2_Copy.root");
+  h1_CorrYield_DataPi0TGPSPS_Pol2_EG2_Copy->SaveAs("h1_CorrYield_DataPi0TGPSPS_Pol2_EG2_Copy.root");
+  h1_CorrYield_DataOmegaTGPSPS_LowFitVari_Pol2_EG2_Copy->SaveAs("h1_CorrYield_DataOmegaTGPSPS_LowFitVari_Pol2_EG2_Copy.root");
+  h1_CorrYield_DataOmegaTGPSPS_HighFitVari_Pol2_EG2_Copy->SaveAs("h1_CorrYield_DataOmegaTGPSPS_HighFitVari_Pol2_EG2_Copy.root");
+
+
+  TH1D* h1_Systematic_PeakExtraction_EG2 = (TH1D*) h1_CorrYield_DataOmegaTGPSPS_Pol2_EG2_Copy->Clone("h1_Systematic_PeakExtraction_EG2");
+
+  TH1D* h1_AbsSystematic_PolVari_EG2 = (TH1D*) h1_CorrYield_DataOmegaTGPSPS_Pol2_EG2_Copy->Clone("h1_AbsSystematic_PolVari_EG2");
+  TH1D* h1_RelSystematic_PolVari_EG2 = (TH1D*) h1_CorrYield_DataOmegaTGPSPS_Pol2_EG2_Copy->Clone("h1_RelSystematic_PolVari_EG2");
+  TH1D* h1_Systematic_PolVari_EG2 = (TH1D*) h1_CorrYield_DataOmegaTGPSPS_Pol2_EG2_Copy->Clone("h1_Systematic_PolVari_EG2");
   h1_AbsSystematic_PolVari_EG2->SetTitle("h1_AbsSystematic_PolVari_EG2");
   h1_RelSystematic_PolVari_EG2->SetTitle("background fit polynom");
   h1_Systematic_PolVari_EG2->SetTitle("h1_Systematic_PolVari_EG2");
 
-  TH1D* h1_AbsSystematic_MethodVari_EG2 = (TH1D*) h1_RawYield_DataOmegaTGPSPS_Pol2_EG2->Clone("h1_AbsSystematic_MethodVari_EG2");
-  TH1D* h1_RelSystematic_MethodVari_EG2 = (TH1D*) h1_RawYield_DataOmegaTGPSPS_Pol2_EG2->Clone("h1_RelSystematic_MethodVari_EG2");
-  TH1D* h1_Systematic_MethodVari_EG2 = (TH1D*) h1_RawYield_DataOmegaTGPSPS_Pol2_EG2->Clone("h1_Systematic_MethodVari_EG2");
+  TH1D* h1_AbsSystematic_MethodVari_EG2 = (TH1D*) h1_CorrYield_DataOmegaTGPSPS_Pol2_EG2_Copy->Clone("h1_AbsSystematic_MethodVari_EG2");
+  TH1D* h1_RelSystematic_MethodVari_EG2 = (TH1D*) h1_CorrYield_DataOmegaTGPSPS_Pol2_EG2_Copy->Clone("h1_RelSystematic_MethodVari_EG2");
+  TH1D* h1_Systematic_MethodVari_EG2 = (TH1D*) h1_CorrYield_DataOmegaTGPSPS_Pol2_EG2_Copy->Clone("h1_Systematic_MethodVari_EG2");
   h1_AbsSystematic_MethodVari_EG2->SetTitle("h1_AbsSystematic_MethodVari_EG2");
   h1_RelSystematic_MethodVari_EG2->SetTitle("background method");
   h1_Systematic_MethodVari_EG2->SetTitle("h1_Systematic_MethodVari_EG2");
 
-  TH1D* h1_AbsSystematic_FitRangeVari_EG2 = (TH1D*) h1_RawYield_DataOmegaTGPSPS_Pol2_EG2->Clone("h1_AbsSystematic_FitRangeVari_EG2");
-  TH1D* h1_RelSystematic_FitRangeVari_EG2 = (TH1D*) h1_RawYield_DataOmegaTGPSPS_Pol2_EG2->Clone("h1_RelSystematic_FitRangeVari_EG2");
-  TH1D* h1_Systematic_FitRangeVari_EG2 = (TH1D*) h1_RawYield_DataOmegaTGPSPS_Pol2_EG2->Clone("h1_Systematic_FitRangeVari_EG2");
+  TH1D* h1_AbsSystematic_FitRangeVari_EG2 = (TH1D*) h1_CorrYield_DataOmegaTGPSPS_Pol2_EG2_Copy->Clone("h1_AbsSystematic_FitRangeVari_EG2");
+  TH1D* h1_RelSystematic_FitRangeVari_EG2 = (TH1D*) h1_CorrYield_DataOmegaTGPSPS_Pol2_EG2_Copy->Clone("h1_RelSystematic_FitRangeVari_EG2");
+  TH1D* h1_Systematic_FitRangeVari_EG2 = (TH1D*) h1_CorrYield_DataOmegaTGPSPS_Pol2_EG2_Copy->Clone("h1_Systematic_FitRangeVari_EG2");
   h1_AbsSystematic_FitRangeVari_EG2->SetTitle("h1_AbsSystematic_FitRangeVari_EG2");
   h1_RelSystematic_FitRangeVari_EG2->SetTitle("background fit range");
   h1_Systematic_FitRangeVari_EG2->SetTitle("h1_Systematic_FitRangeVari_EG2");
 
-  vHistos.push_back(h1_RawYield_DataOmegaTGPSPS_Pol2_EG2.get());
-  vHistos.push_back(h1_RawYield_DataOmegaTGPSPS_Pol3_EG2.get());
-  vHistos.push_back(h1_RawYield_DataOmegaTGPSPS_Pol1_EG2.get());
+  vHistos.push_back(h1_CorrYield_DataOmegaTGPSPS_Pol2_EG2_Copy.get());
+  vHistos.push_back(h1_CorrYield_DataOmegaTGPSPS_Pol3_EG2_Copy.get());
+  vHistos.push_back(h1_CorrYield_DataOmegaTGPSPS_Pol1_EG2_Copy.get());
   vHistos.push_back(h1_AbsSystematic_PolVari_EG2);
   vHistos.push_back(h1_RelSystematic_PolVari_EG2);
   vHistos.push_back(h1_Systematic_PolVari_EG2);
@@ -14784,9 +14898,9 @@ void plotting()
   vHistos.clear();
   vHistos.resize(0);
 
-  vHistos.push_back(h1_RawYield_DataOmegaTGPSPS_Pol2_EG2.get());
-  vHistos.push_back(h1_RawYield_DataOmegaRotPS_Pol2_EG2.get());
-  vHistos.push_back(h1_RawYield_DataPi0TGPSPS_Pol2_EG2.get());
+  vHistos.push_back(h1_CorrYield_DataOmegaTGPSPS_Pol2_EG2_Copy.get());
+  vHistos.push_back(h1_CorrYield_DataOmegaRotPS_Pol2_EG2_Copy.get());
+  vHistos.push_back(h1_CorrYield_DataPi0TGPSPS_Pol2_EG2_Copy.get());
   vHistos.push_back(h1_AbsSystematic_MethodVari_EG2);
   vHistos.push_back(h1_RelSystematic_MethodVari_EG2);
   vHistos.push_back(h1_Systematic_MethodVari_EG2);
@@ -14794,9 +14908,13 @@ void plotting()
   vHistos.clear();
   vHistos.resize(0);
 
-  vHistos.push_back(h1_RawYield_DataOmegaTGPSPS_Pol2_EG2.get());
-  vHistos.push_back(h1_RawYield_DataOmegaTGPSPS_LowFitVari_Pol2_EG2.get());
-  vHistos.push_back(h1_RawYield_DataOmegaTGPSPS_HighFitVari_Pol2_EG2.get());
+  h1_AbsSystematic_MethodVari_EG2->SaveAs("h1_AbsSystematic_MethodVari_EG2.root");
+  h1_RelSystematic_MethodVari_EG2->SaveAs("h1_RelSystematic_MethodVari_EG2.root");
+  h1_Systematic_MethodVari_EG2->SaveAs("h1_Systematic_MethodVari_EG2.root");
+
+  vHistos.push_back(h1_CorrYield_DataOmegaTGPSPS_Pol2_EG2_Copy.get());
+  vHistos.push_back(h1_CorrYield_DataOmegaTGPSPS_LowFitVari_Pol2_EG2_Copy.get());
+  vHistos.push_back(h1_CorrYield_DataOmegaTGPSPS_HighFitVari_Pol2_EG2_Copy.get());
   vHistos.push_back(h1_AbsSystematic_FitRangeVari_EG2);
   vHistos.push_back(h1_RelSystematic_FitRangeVari_EG2);
   vHistos.push_back(h1_Systematic_FitRangeVari_EG2);
@@ -14817,20 +14935,20 @@ void plotting()
   vHistos.push_back(h1_RelSystematic_PolVari_EG2);
   vHistos.push_back(h1_RelSystematic_MethodVari_EG2);
   vHistos.push_back(h1_RelSystematic_FitRangeVari_EG2);
-  PlotYieldRelSys(vHistos, legYields_Data_EG2.get(), "Data/EG2/SystematicUncertainties.svg", "variations:", arrPtBinning_EG2[0], arrPtBinning_EG2.back());
+  PlotYieldRelSys(vHistos, legEffi_Data_EG2.get(), "Data/EG2/SystematicUncertainties.svg", "variations:", arrPtBinning_EG2[0], 18.);
   vHistos.clear();
   vHistos.resize(0);
 
-  h1_RawYield_DataOmegaTGPSPS_Pol2_EG2->SetMaximum(h1_RawYield_DataOmegaTGPSPS_Pol2_EG2->GetMaximum()*100.);
-  h1_RawYield_DataOmegaTGPSPS_Pol2_EG2->SetMinimum(h1_RawYield_DataOmegaTGPSPS_Pol2_EG2->GetMinimum()*0.1);
+  // h1_CorrYield_DataOmegaTGPSPS_Pol2_EG2_Copy->SetMaximum(h1_CorrYield_DataOmegaTGPSPS_Pol2_EG2_Copy->GetMaximum()*100.);
+  // h1_CorrYield_DataOmegaTGPSPS_Pol2_EG2_Copy->SetMinimum(h1_CorrYield_DataOmegaTGPSPS_Pol2_EG2_Copy->GetMinimum()*0.1);
   h1_Systematic_PeakExtraction_EG2->SetFillColorAlpha(kBlack, 0.4);
 
-  h1_RawYield_DataOmegaTGPSPS_Pol2_EG2->SetTitle("statatistical");
+  h1_CorrYield_DataOmegaTGPSPS_Pol2_EG2_Copy->SetTitle("statatistical");
   h1_Systematic_PeakExtraction_EG2->SetTitle("systematical");
-  vHistos.push_back(h1_RawYield_DataOmegaTGPSPS_Pol2_EG2.get());
+  vHistos.push_back(h1_CorrYield_DataOmegaTGPSPS_Pol2_EG2_Copy.get());
   vHistos.push_back(h1_Systematic_PeakExtraction_EG2);
-  vHistos.push_back(h1_RawYield_DataOmegaTGPSPS_Pol2_EG2.get());
-  PlotYieldWithSys(vHistos, legYields_Data_EG2.get(), "Data/EG2/CorrectedYieldWithSys.svg", "uncertrainties:", arrPtBinning_EG2[0], arrPtBinning_EG2.back());
+  vHistos.push_back(h1_CorrYield_DataOmegaTGPSPS_Pol2_EG2_Copy.get());
+  PlotYieldWithSys(vHistos, legYields_Data_EG2.get(), "Data/EG2/CorrectedYieldWithSys.svg", "uncertrainties:", arrPtBinning_EG2[0], 18.);
   vHistos.clear();
   vHistos.resize(0);
 
@@ -14839,18 +14957,22 @@ void plotting()
   // EG1 + EG2
   //
   // ---------------------------------------------------------------------------
-
+  std::unique_ptr<TH1D> h1_dummy (new TH1D("h1_dummy", "trigger", nBinsPt_EG2-1, &arrPtBinning_EG2[0]));
+  h1_dummy->GetXaxis()->SetRangeUser(6., 40.);
+  h1_dummy->SetBinContent(1, 50);
+  h1_dummy->SetBinContent(nBinsPt_EG2-1, 150);
   h1_Systematic_PeakExtraction_EG1->SetTitle("EG1");
   h1_Systematic_PeakExtraction_EG2->SetTitle("EG2");
-  h1_Systematic_PeakExtraction_EG1->SetMaximum(h1_Systematic_PeakExtraction_EG2->GetBinContent(h1_Systematic_PeakExtraction_EG2->FindBin(7.) )*100. );
-  h1_Systematic_PeakExtraction_EG1->SetMinimum(h1_Systematic_PeakExtraction_EG1->GetBinContent(h1_Systematic_PeakExtraction_EG1->FindBin(35.) )*0.1);
+  h1_dummy->SetMaximum(h1_Systematic_PeakExtraction_EG2->GetBinContent(h1_Systematic_PeakExtraction_EG2->FindBin(7.) )*100. );
+  h1_dummy->SetMinimum(h1_Systematic_PeakExtraction_EG1->GetBinContent(h1_Systematic_PeakExtraction_EG1->FindBin(35.) )*0.1);
   h1_Systematic_PeakExtraction_EG1->SetFillColorAlpha(kOrange+9, 0.4);
   h1_Systematic_PeakExtraction_EG2->SetFillColorAlpha(kViolet+9, 0.4);
+  vHistos.push_back(h1_dummy.get());
   vHistos.push_back(h1_Systematic_PeakExtraction_EG1);
   vHistos.push_back(h1_Systematic_PeakExtraction_EG2);
-  vHistos.push_back(h1_RawYield_DataOmegaTGPSPS_Pol2_EG1.get());
-  vHistos.push_back(h1_RawYield_DataOmegaTGPSPS_Pol2_EG2.get());
-  PlotYieldsWithSys(vHistos, legYields_Comp.get(), "Data/CorrectedYieldsWithSys.svg", "trigger", arrPtBinning_EG2[0], arrPtBinning_EG1.back());
+  vHistos.push_back(h1_CorrYield_DataOmegaTGPSPS_Pol2_EG1_Copy.get());
+  vHistos.push_back(h1_CorrYield_DataOmegaTGPSPS_Pol2_EG2_Copy.get());
+  PlotYieldsWithSys(vHistos, legYields_Data_Comb.get(), "Data/CorrectedYieldsWithSys.svg", "", 6., 40.);
   vHistos.clear();
   vHistos.resize(0);
 

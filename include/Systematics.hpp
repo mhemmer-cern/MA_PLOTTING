@@ -7,30 +7,36 @@ void SingleSysCalc(std::vector<TH1D*> v)
 {
   int n = v.size();
   Double_t diff = 0.;
-  for (int bin = 1; bin <= v.at(1)->GetNbinsX(); bin++)
+  for (int bin = 1; bin <= v.at(0)->GetNbinsX(); bin++)
   {
-    if(v.at(0)->GetBinContent(bin) <= 0.)
-    {
-      v.at(n-3)->SetBinContent(bin, 0.0);
-      v.at(n-3)->SetBinError(bin, 0.0);
-      v.at(n-2)->SetBinContent(bin, 0.0);
-      v.at(n-2)->SetBinError(bin, 0.0);
-      v.at(n-1)->SetBinContent(bin, 0.0);
-      v.at(n-1)->SetBinError(bin, 0.0);
-      continue;
-    }
+    // if(v.at(0)->GetBinContent(bin) <= 0.)
+    // {
+    //   v.at(n-3)->SetBinContent(bin, 0.0);
+    //   v.at(n-3)->SetBinError(bin, 0.0);
+    //   v.at(n-2)->SetBinContent(bin, 0.0);
+    //   v.at(n-2)->SetBinError(bin, 0.0);
+    //   v.at(n-1)->SetBinContent(bin, 0.0);
+    //   v.at(n-1)->SetBinError(bin, 0.0);
+    //   continue;
+    // }
     for(int vi = 1; vi < n-3; vi++)
     {
-      if( TMath::Abs(v.at(0)->GetBinContent(bin)-v.at(vi)->GetBinContent(bin)) > diff ) diff = TMath::Abs(v.at(0)->GetBinContent(bin)-v.at(vi)->GetBinContent(bin));
+      if( TMath::Abs(v.at(0)->GetBinContent(bin)-v.at(vi)->GetBinContent(bin)) > diff )
+      {
+        diff = TMath::Abs(v.at(0)->GetBinContent(bin)-v.at(vi)->GetBinContent(bin));
+      }
     }
     v.at(n-3)->SetBinContent(bin, diff);
     v.at(n-3)->SetBinError(bin, 0.0);
-    v.at(n-2)->SetBinContent(bin, diff/v.at(0)->GetBinContent(bin)*100.);
+    v.at(n-2)->SetBinContent(bin, (diff*1.E2/v.at(0)->GetBinContent(bin) ) );
+    std::cout << "relative diff = " << (diff*1.E2/v.at(0)->GetBinContent(bin) ) << std::endl;
     v.at(n-2)->SetBinError(bin, 0.0);
     v.at(n-1)->SetBinContent(bin, v.at(0)->GetBinContent(bin));
     v.at(n-1)->SetBinError(bin, diff);
     diff = 0.;
   }
+  v.at(n-2)->SetMinimum(0.0);
+  v.at(n-2)->SetMaximum(120.);
   return;
 }
 
@@ -78,7 +84,7 @@ void PlotYieldWithSys(std::vector<TH1D*> v, TPaveText* lSys, TString outname,
 
   std::vector< std::string > optns = {"P E", "SAME E2", "SAME P E", "SAME", "SAME"};
   // --- Canvasses -------------------------------------------------------------
-  Legend::SetPosition(l.get(), 0.5, 0.9, 0.875-(3*0.03), 0.875);
+  Legend::SetPosition(l.get(), 0.6, 0.9, 0.875-(3*0.03), 0.875);
 
   SquarePlot square = SquarePlot(main.get(), pt_str, rawyield);
   square.SetMode(Plot::Thesis);
@@ -99,7 +105,8 @@ void PlotYieldsWithSys(std::vector<TH1D*> v, TPaveText* lSys, TString outname,
   // --- Create TObjArrays -----------------------------------------------------
   std::unique_ptr<TObjArray> main (new TObjArray);
   TString legString = "";
-  for (int i = 0; i < v.size(); i++)
+  main->Add((TLegend*) 0x0);
+  for (int i = 1; i < v.size(); i++)
   {
     main->Add(v.at(i));
     if(i < v.size()-1) legString += TString(v.at(i)->GetTitle()) + "\n ";
@@ -108,18 +115,20 @@ void PlotYieldsWithSys(std::vector<TH1D*> v, TPaveText* lSys, TString outname,
   // --- Legends ---------------------------------------------------------------
 
   main->Add(lSys);
-  std::unique_ptr<Legend> l (new Legend(main.get(), legString.Data(), "lpf lpf", legHead.Data(), 2) );
+  std::unique_ptr<Legend> l (new Legend(main.get(), legString.Data(), "lpf lpf", legHead.Data(), 3) );
+
+  main->AddFirst(v.at(0));
 
   // --- Marker ----------------------------------------------------------------
-  std::vector<Color_t> colors = {kOrange+9, kViolet+9, kOrange+9, kViolet+9, 1, 1};
-  std::vector<Style_t> markers = {1, 1, kFullCircle, kFullCircle, 1, 1};
-  std::vector<Size_t>  sizes = {1, 1, 3, 3, 1, 1};
-  std::vector<Style_t> linestyle  = {1, 1, 1, 1, 1, 1};
-  std::vector<Size_t> linewidth   = {3., 3., 3., 3., 1, 1};
+  std::vector<Color_t> colors = {kWhite, kOrange+9, kViolet+9, kOrange+9, kViolet+9, 1, 1};
+  std::vector<Style_t> markers = {1, 1, 1, kFullCircle, kFullCircle, 1, 1};
+  std::vector<Size_t>  sizes = {1, 1, 1, 3, 3, 1, 1};
+  std::vector<Style_t> linestyle  = {1, 1, 1, 1, 1, 1, 1};
+  std::vector<Size_t> linewidth   = {1, 3., 3., 3., 3., 1, 1};
 
-  std::vector< std::string > optns = {"E2", "E2 SAME", "P E SAME", "P E SAME", "SAME", "SAME"};
+  std::vector< std::string > optns = {"AXIS", "E2 SAME", "E2 SAME", "P E SAME", "P E SAME", "SAME", "SAME"};
   // --- Canvasses -------------------------------------------------------------
-  Legend::SetPosition(l.get(), 0.5, 0.9, 0.875-(3*0.03), 0.875);
+  Legend::SetPosition(l.get(), 0.6, 0.9, 0.875-(3*0.03), 0.875);
 
   SquarePlot square = SquarePlot(main.get(), pt_str, rawyield);
   square.SetMode(Plot::Thesis);
@@ -159,7 +168,7 @@ void PlotYieldRelSys(std::vector<TH1D*> v, TPaveText* lSys, TString outname,
   std::vector<Style_t> linestyle  = {1, 2, 3, 1, 1};
   std::vector<Size_t> linewidth   = {3., 3., 3., 1, 1};
   // --- Canvasses -------------------------------------------------------------
-  Legend::SetPosition(l.get(), 0.5, 0.9, 0.875-((v.size()+1)*0.03), 0.875);
+  Legend::SetPosition(l.get(), 0.55, 0.9, 0.875-((v.size()+1)*0.03), 0.875);
 
   SquarePlot square = SquarePlot(main.get(), pt_str, "rel. uncer. (%)");
   square.SetMode(Plot::Thesis);
