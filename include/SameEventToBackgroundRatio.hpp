@@ -45,7 +45,7 @@ void SameEventToBackgroundRatio(TH1D* Background, TH1D* Peak, TF1* Background1,
   SquarePlot square = SquarePlot(main.get(), minv_str, "#frac{same event}{background}");
   square.SetMode(Plot::Thesis);
   square.SetStyle(colors, markers, sizes, linestyle, linewidth);
-  square.SetRanges(0.0, 1.6, Background->GetMinimum(), Background->GetMaximum());
+  square.SetRanges(0.5, 1.4, Background->GetMinimum(), Background->GetMaximum());
   square.SetCanvasMargins(0.025, .12, 0.03, .1);
 
   square.Draw(outname);

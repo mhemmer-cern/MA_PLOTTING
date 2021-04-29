@@ -25,12 +25,12 @@ void BeforeScaling(TH1D* SE, TH1D* Background, TPaveText* lSys, TString outname)
 
   // --- Canvasses -------------------------------------------------------------
 
-  Legend::SetPosition((Legend*) l.get(), 0.15, 0.5, 0.65, 0.75);
+  Legend::SetPosition(l.get(), 0.55, 0.9, 0.815, 0.875);
 
   SquarePlot square = SquarePlot(main.get(), minv_str, count_str);
   square.SetMode(Plot::Thesis);
   square.SetStyle(colors, markers, sizes);
-  square.SetRanges(0.0, 1.6, SE->GetMinimum(), Background->GetMaximum()*1.8);
+  square.SetRanges(0.5, 1.4, SE->GetMinimum(), Background->GetMaximum());
   square.SetCanvasMargins(0.025, .1, 0.03, .1);
 
   square.Draw(outname);
@@ -65,7 +65,7 @@ void BeforeScalingAC(TH1D* SE, TH1D* AngleCut, TH1D* Background, TPaveText* lSys
   SquarePlot square = SquarePlot(main.get(), minv_str, count_str);
   square.SetMode(Plot::Thesis);
   square.SetStyle(colors, markers, sizes);
-  square.SetRanges(0.0, 1.6, SE->GetMinimum(), Background->GetMaximum()*1.8);
+  square.SetRanges(0.5, 1.4, SE->GetMinimum(), Background->GetMaximum()*1.8);
   square.SetCanvasMargins(0.025, .1, 0.03, .1);
 
   square.Draw(outname);

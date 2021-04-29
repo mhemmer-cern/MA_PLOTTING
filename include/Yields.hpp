@@ -43,7 +43,7 @@ void Yields(std::vector<TH1D*> v, TPaveText* lSys, TString outname, TString legH
   vector<Size_t>  sizes = {3., 3., 3., 3., 3., 2.5, 2.5, 1, 1};
 
   // --- Canvasses -------------------------------------------------------------
-  Legend::SetPosition(l.get(), 0.55, 0.9, 0.875-((v.size()+1)*0.03), 0.875);
+  Legend::SetPosition(l.get(), 0.6, 0.9, 0.875-((v.size()+1)*0.03), 0.875);
 
   SquarePlot square = SquarePlot(main.get(), pt_str, strCorrectedYield);
   square.SetMode(Plot::Thesis);
@@ -153,7 +153,7 @@ void CorrYields(std::vector<TH1D*> v, TPaveText* lSys, TString outname, TString 
 
   // --- Canvasses -------------------------------------------------------------
 
-  Legend::SetPosition(l.get(), 0.55, 0.9, 0.875-((v.size()+1)*0.03), 0.875);
+  Legend::SetPosition(l.get(), 0.6, 0.9, 0.875-((v.size()+1)*0.03), 0.875);
 
   SquarePlot square = SquarePlot(main.get(), pt_str, strCorrectedYield);
   square.SetMode(Plot::Thesis);
@@ -230,7 +230,7 @@ void MeanPlotPol(std::vector<TH1D*> v, TPaveText* lSys, TString outname, TString
 
   // --- Canvasses -------------------------------------------------------------
 
-  Legend::SetPosition(l.get(), 0.5, 0.9, 0.875-((v.size()+1)*0.03), 0.875);
+  Legend::SetPosition(l.get(), 0.55, 0.9, 0.875-((v.size()+1)*0.03), 0.875);
   SquarePlot square = SquarePlot(main.get(), pt_str, "#mu (GeV/#it{c}^{2})");
   square.SetMode(Plot::Thesis);
   square.SetStyle(colors, markers, sizes);
@@ -306,7 +306,7 @@ void SigmaPlotPol(std::vector<TH1D*> v, TPaveText* lSys, TString outname, TStrin
 
   // --- Canvasses -------------------------------------------------------------
 
-  Legend::SetPosition(l.get(), 0.5, 0.9, 0.875-((v.size()+1)*0.03), 0.875);
+  Legend::SetPosition(l.get(), 0.55, 0.9, 0.875-((v.size()+1)*0.03), 0.875);
   SquarePlot square = SquarePlot(main.get(), pt_str, "#sigma (GeV/#it{c}^{2})");
   square.SetMode(Plot::Thesis);
   square.SetStyle(colors, markers, sizes);
@@ -477,7 +477,7 @@ void Chi2Comp(TH1D* h1, TPaveText* lSys, TString outname, TString legHead)
 
   // --- Canvasses -------------------------------------------------------------
 
-  Legend::SetPosition(l.get(), 0.5, 0.9, 0.7, 0.8);
+  Legend::SetPosition(l.get(), 0.6, 0.9, 0.81, 0.9);
 
   SquarePlot square = SquarePlot(main.get(), "", "mean#left(#frac{#chi^{2}}{NDF}#right)");
   square.SetMode(Plot::Thesis);
@@ -653,7 +653,7 @@ void PlotSignificanceYield(std::vector<TH1D*> v, TPaveText* lSys, TString outnam
 
   // --- Canvasses -------------------------------------------------------------
 
-  Legend::SetPosition(l.get(), 0.5, 0.9, 0.85-(v.size()+1)*0.03, 0.85);
+  Legend::SetPosition(l.get(), 0.6, 0.9, 0.9-(v.size()+1)*0.03, 0.9);
 
   SquarePlot square = SquarePlot(main.get(), pt_str, "significance");
   square.SetMode(Plot::Thesis);
@@ -691,7 +691,7 @@ void PlotStoBYield(std::vector<TH1D*> v, TPaveText* lSys, TString outname, TStri
 
   // --- Canvasses -------------------------------------------------------------
 
-  Legend::SetPosition(l.get(), 0.5, 0.9, 0.85-(v.size()+1)*0.03, 0.85);
+  Legend::SetPosition(l.get(), 0.6, 0.9, 0.9-(v.size()+1)*0.03, 0.9);
 
   SquarePlot square = SquarePlot(main.get(), pt_str, "S/B");
   square.SetMode(Plot::Thesis);

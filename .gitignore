@@ -14,3 +14,4 @@ build/liblibC.so
 build/libtestLib.so
 build/Makefile
 build/plot
+*.root

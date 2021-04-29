@@ -29,7 +29,6 @@ void SingleSysCalc(std::vector<TH1D*> v)
     v.at(n-3)->SetBinContent(bin, diff);
     v.at(n-3)->SetBinError(bin, 0.0);
     v.at(n-2)->SetBinContent(bin, (diff*1.E2/v.at(0)->GetBinContent(bin) ) );
-    std::cout << "relative diff = " << (diff*1.E2/v.at(0)->GetBinContent(bin) ) << std::endl;
     v.at(n-2)->SetBinError(bin, 0.0);
     v.at(n-1)->SetBinContent(bin, v.at(0)->GetBinContent(bin));
     v.at(n-1)->SetBinError(bin, diff);

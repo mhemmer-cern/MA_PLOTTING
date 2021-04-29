@@ -20,6 +20,7 @@ mkdir -p "Data/EG1/OmegaPS2Sig/"
 mkdir -p "Data/EG1/OmegaPS3Sig/"
 mkdir -p "Data/EG1/OmegaPS4Sig/"
 mkdir -p "Data/EG1/Vari/"
+mkdir -p "Data/EG1/DirectFit"
 
 mkdir -p "Data/EG2/OmegaRotPS/"
 mkdir -p "Data/EG2/OmegaTGPSPS/"
