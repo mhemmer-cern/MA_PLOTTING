@@ -136,7 +136,7 @@ void PlotYieldsWithSys(std::vector<TH1D*> v, TPaveText* lSys, TString outname,
   square.SetLog();
   square.SetOptions(optns);
   square.SetCanvasMargins(0.025, .15, 0.03, .1);
-  square.SetCanvasOffsets(1.2, 1.8);
+  square.SetCanvasOffsets(1.2, 1.9);
   square.Draw(outname);
   return;
 }

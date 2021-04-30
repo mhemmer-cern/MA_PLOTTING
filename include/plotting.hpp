@@ -2816,7 +2816,7 @@ void plotting()
   std::unique_ptr<TF1> f1Back_MCOmegaTGPSPS_HighFitVari_Pol2_EG2   (new TF1("f1Back_MCOmegaTGPSPS_HighFitVari_Pol2_EG2", "pol2", 0.1, 1.6, ""));
   std::unique_ptr<TF1> f1Back_MCOmegaTGPSPS_Pol3_EG2               (new TF1("f1Back_MCOmegaTGPSPS_Pol3_EG2", "pol3", 0.1, 1.6, ""));
 
-  std::unique_ptr<TF1> f1_SingleFit               (new TF1("f1_SingleFit", "pol3(0)+gaus(4)", 0.1, 1.6, ""));
+  std::unique_ptr<TF1> f1_SingleFit               (new TF1("f1_SingleFit", "pol3(0)+gaus(4)", 0.4, 1.6, ""));
   f1_SingleFit->SetParameters(1., 1., 1., 1., 1., 0.782, 0.04);
   f1_SingleFit->SetParLimits(4, 0.0, 10000.);
   f1_SingleFit->SetParLimits(5, 0.7, 0.85);
@@ -4636,7 +4636,7 @@ void plotting()
   std::unique_ptr<TPaveText> legYields_Data_EG1  (new TPaveText(0.2, 0.75, 0.88, 0.93, "NDC"));
   legYields_Data_EG1->SetMargin(0.01);
   legYields_Data_EG1->AddText("pp #sqrt{#it{s}} = 13 TeV, EG1, data");
-  legYields_Data_EG1->AddText("#omega #rightarrow #pi^{0}#gamma #rightarrow #gamma#gamma#gamma with EMC");
+  legYields_Data_EG1->AddText("#omega #rightarrow #pi^{0}#gamma #rightarrow #gamma#gamma#gamma with EMCal");
   legYields_Data_EG1->AddText("ALICE work in progress");
   legYields_Data_EG1->SetTextAlign(11);
   legYields_Data_EG1->SetFillStyle(0);
@@ -4644,7 +4644,7 @@ void plotting()
   std::unique_ptr<TPaveText> legEffi_Data_EG1  (new TPaveText(0.15, 0.75, 0.88, 0.93, "NDC"));
   legEffi_Data_EG1->SetMargin(0.01);
   legEffi_Data_EG1->AddText("pp #sqrt{#it{s}} = 13 TeV, EG1, data");
-  legEffi_Data_EG1->AddText("#omega #rightarrow #pi^{0}#gamma #rightarrow #gamma#gamma#gamma with EMC");
+  legEffi_Data_EG1->AddText("#omega #rightarrow #pi^{0}#gamma #rightarrow #gamma#gamma#gamma with EMCal");
   legEffi_Data_EG1->AddText("ALICE work in progress");
   legEffi_Data_EG1->SetTextAlign(11);
   legEffi_Data_EG1->SetFillStyle(0);
@@ -4652,7 +4652,7 @@ void plotting()
   std::unique_ptr<TPaveText> legYields_MC_EG1  (new TPaveText(0.2, 0.75, 0.88, 0.93, "NDC"));
   legYields_MC_EG1->SetMargin(0.01);
   legYields_MC_EG1->AddText("pp #sqrt{#it{s}} = 13 TeV, EG1, MC");
-  legYields_MC_EG1->AddText("#omega #rightarrow #pi^{0}#gamma #rightarrow #gamma#gamma#gamma with EMC");
+  legYields_MC_EG1->AddText("#omega #rightarrow #pi^{0}#gamma #rightarrow #gamma#gamma#gamma with EMCal");
   legYields_MC_EG1->AddText("ALICE work in progress");
   legYields_MC_EG1->SetTextAlign(11);
   legYields_MC_EG1->SetFillStyle(0);
@@ -4660,7 +4660,7 @@ void plotting()
   std::unique_ptr<TPaveText> legEffi_MC_EG1  (new TPaveText(0.15, 0.75, 0.88, 0.93, "NDC"));
   legEffi_MC_EG1->SetMargin(0.01);
   legEffi_MC_EG1->AddText("pp #sqrt{#it{s}} = 13 TeV, EG1, MC");
-  legEffi_MC_EG1->AddText("#omega #rightarrow #pi^{0}#gamma #rightarrow #gamma#gamma#gamma with EMC");
+  legEffi_MC_EG1->AddText("#omega #rightarrow #pi^{0}#gamma #rightarrow #gamma#gamma#gamma with EMCal");
   legEffi_MC_EG1->AddText("ALICE work in progress");
   legEffi_MC_EG1->SetTextAlign(11);
   legEffi_MC_EG1->SetFillStyle(0);
@@ -4668,7 +4668,7 @@ void plotting()
   std::unique_ptr<TPaveText> legYields_Comp_EG1  (new TPaveText(0.2, 0.75, 0.88, 0.93, "NDC"));
   legYields_Comp_EG1->SetMargin(0.01);
   legYields_Comp_EG1->AddText("pp #sqrt{#it{s}} = 13 TeV, EG1, MC - data comparison");
-  legYields_Comp_EG1->AddText("#omega #rightarrow #pi^{0}#gamma #rightarrow #gamma#gamma#gamma with EMC");
+  legYields_Comp_EG1->AddText("#omega #rightarrow #pi^{0}#gamma #rightarrow #gamma#gamma#gamma with EMCal");
   legYields_Comp_EG1->AddText("ALICE work in progress");
   legYields_Comp_EG1->SetTextAlign(11);
   legYields_Comp_EG1->SetFillStyle(0);
@@ -4676,7 +4676,7 @@ void plotting()
   std::unique_ptr<TLegend> legAlpha  (new TLegend(0.15, 0.75, 0.88, 0.93, "NDC"));
   legAlpha->SetMargin(0.01);
   legAlpha->AddEntry((TObject*) 0x0, "pp #sqrt{#it{s}} = 13 TeV, EG1", "");
-  legAlpha->AddEntry((TObject*) 0x0, "#omega #rightarrow #pi^{0}#gamma #rightarrow #gamma#gamma#gamma with EMC", "");
+  legAlpha->AddEntry((TObject*) 0x0, "#omega #rightarrow #pi^{0}#gamma #rightarrow #gamma#gamma#gamma with EMCal", "");
   legAlpha->AddEntry((TObject*) 0x0, "ALICE work in progress", "");
   legAlpha->SetTextAlign(11);
   legAlpha->SetFillStyle(0);
@@ -4684,7 +4684,7 @@ void plotting()
   std::unique_ptr<TLegend> legPi0  (new TLegend(0.15, 0.75, 0.88, 0.93, "NDC"));
   legPi0->SetMargin(0.01);
   legPi0->AddEntry((TObject*) 0x0, "pp #sqrt{#it{s}} = 13 TeV, EG1", "");
-  legPi0->AddEntry((TObject*) 0x0, "#pi^{0} #rightarrow #gamma#gamma with EMC", "");
+  legPi0->AddEntry((TObject*) 0x0, "#pi^{0} #rightarrow #gamma#gamma with EMCal", "");
   legPi0->AddEntry((TObject*) 0x0, "ALICE work in progress", "");
   legPi0->SetTextAlign(11);
   legPi0->SetFillStyle(0);
@@ -4692,7 +4692,7 @@ void plotting()
   std::unique_ptr<TPaveText> legYields_Data_EG2  (new TPaveText(0.2, 0.75, 0.88, 0.93, "NDC"));
   legYields_Data_EG2->SetMargin(0.01);
   legYields_Data_EG2->AddText("pp #sqrt{#it{s}} = 13 TeV, EG2, data");
-  legYields_Data_EG2->AddText("#omega #rightarrow #pi^{0}#gamma #rightarrow #gamma#gamma#gamma with EMC");
+  legYields_Data_EG2->AddText("#omega #rightarrow #pi^{0}#gamma #rightarrow #gamma#gamma#gamma with EMCal");
   legYields_Data_EG2->AddText("ALICE work in progress");
   legYields_Data_EG2->SetTextAlign(11);
   legYields_Data_EG2->SetFillStyle(0);
@@ -4700,7 +4700,7 @@ void plotting()
   std::unique_ptr<TPaveText> legEffi_Data_EG2  (new TPaveText(0.15, 0.75, 0.88, 0.93, "NDC"));
   legEffi_Data_EG2->SetMargin(0.01);
   legEffi_Data_EG2->AddText("pp #sqrt{#it{s}} = 13 TeV, EG2, data");
-  legEffi_Data_EG2->AddText("#omega #rightarrow #pi^{0}#gamma #rightarrow #gamma#gamma#gamma with EMC");
+  legEffi_Data_EG2->AddText("#omega #rightarrow #pi^{0}#gamma #rightarrow #gamma#gamma#gamma with EMCal");
   legEffi_Data_EG2->AddText("ALICE work in progress");
   legEffi_Data_EG2->SetTextAlign(11);
   legEffi_Data_EG2->SetFillStyle(0);
@@ -4708,7 +4708,7 @@ void plotting()
   std::unique_ptr<TPaveText> legYields_MC_EG2  (new TPaveText(0.2, 0.75, 0.88, 0.93, "NDC"));
   legYields_MC_EG2->SetMargin(0.01);
   legYields_MC_EG2->AddText("pp #sqrt{#it{s}} = 13 TeV, EG2, MC");
-  legYields_MC_EG2->AddText("#omega #rightarrow #pi^{0}#gamma #rightarrow #gamma#gamma#gamma with EMC");
+  legYields_MC_EG2->AddText("#omega #rightarrow #pi^{0}#gamma #rightarrow #gamma#gamma#gamma with EMCal");
   legYields_MC_EG2->AddText("ALICE work in progress");
   legYields_MC_EG2->SetTextAlign(11);
   legYields_MC_EG2->SetFillStyle(0);
@@ -4716,7 +4716,7 @@ void plotting()
   std::unique_ptr<TPaveText> legEffi_MC_EG2  (new TPaveText(0.15, 0.75, 0.88, 0.93, "NDC"));
   legEffi_MC_EG2->SetMargin(0.01);
   legEffi_MC_EG2->AddText("pp #sqrt{#it{s}} = 13 TeV, EG2, MC");
-  legEffi_MC_EG2->AddText("#omega #rightarrow #pi^{0}#gamma #rightarrow #gamma#gamma#gamma with EMC");
+  legEffi_MC_EG2->AddText("#omega #rightarrow #pi^{0}#gamma #rightarrow #gamma#gamma#gamma with EMCal");
   legEffi_MC_EG2->AddText("ALICE work in progress");
   legEffi_MC_EG2->SetTextAlign(11);
   legEffi_MC_EG2->SetFillStyle(0);
@@ -4724,7 +4724,7 @@ void plotting()
   std::unique_ptr<TPaveText> legYields_Comp_EG2  (new TPaveText(0.2, 0.75, 0.88, 0.93, "NDC"));
   legYields_Comp_EG2->SetMargin(0.01);
   legYields_Comp_EG2->AddText("pp #sqrt{#it{s}} = 13 TeV, EG2, MC - data comparison");
-  legYields_Comp_EG2->AddText("#omega #rightarrow #pi^{0}#gamma #rightarrow #gamma#gamma#gamma with EMC");
+  legYields_Comp_EG2->AddText("#omega #rightarrow #pi^{0}#gamma #rightarrow #gamma#gamma#gamma with EMCal");
   legYields_Comp_EG2->AddText("ALICE work in progress");
   legYields_Comp_EG2->SetTextAlign(11);
   legYields_Comp_EG2->SetFillStyle(0);
@@ -4732,7 +4732,7 @@ void plotting()
   std::unique_ptr<TPaveText> legYields_Data_Comb  (new TPaveText(0.2, 0.75, 0.88, 0.93, "NDC"));
   legYields_Data_Comb->SetMargin(0.01);
   legYields_Data_Comb->AddText("pp #sqrt{#it{s}} = 13 TeV, data");
-  legYields_Data_Comb->AddText("#omega #rightarrow #pi^{0}#gamma #rightarrow #gamma#gamma#gamma with EMC");
+  legYields_Data_Comb->AddText("#omega #rightarrow #pi^{0}#gamma #rightarrow #gamma#gamma#gamma with EMCal");
   legYields_Data_Comb->AddText("ALICE work in progress");
   legYields_Data_Comb->SetTextAlign(11);
   legYields_Data_Comb->SetFillStyle(0);
@@ -4740,7 +4740,7 @@ void plotting()
   std::unique_ptr<TPaveText> legYields_MC_Comb  (new TPaveText(0.2, 0.75, 0.88, 0.93, "NDC"));
   legYields_MC_Comb->SetMargin(0.01);
   legYields_MC_Comb->AddText("pp #sqrt{#it{s}} = 13 TeV, EG1 & EG2, MC");
-  legYields_MC_Comb->AddText("#omega #rightarrow #pi^{0}#gamma #rightarrow #gamma#gamma#gamma with EMC");
+  legYields_MC_Comb->AddText("#omega #rightarrow #pi^{0}#gamma #rightarrow #gamma#gamma#gamma with EMCal");
   legYields_MC_Comb->AddText("ALICE work in progress");
   legYields_MC_Comb->SetTextAlign(11);
   legYields_MC_Comb->SetFillStyle(0);
@@ -4748,7 +4748,7 @@ void plotting()
   std::unique_ptr<TPaveText> legYields_MB1  (new TPaveText(0.15, 0.75, 0.88, 0.93, "NDC"));
   legYields_MB1->SetMargin(0.01);
   legYields_MB1->AddText("pp #sqrt{#it{s}} = 13 TeV MB1");
-  legYields_MB1->AddText("#omega #rightarrow #pi^{0}#gamma #rightarrow #gamma#gamma#gamma with EMC");
+  legYields_MB1->AddText("#omega #rightarrow #pi^{0}#gamma #rightarrow #gamma#gamma#gamma with EMCal");
   legYields_MB1->AddText("ALICE work in progress");
   legYields_MB1->SetTextAlign(11);
   legYields_MB1->SetFillStyle(0);
@@ -4756,7 +4756,7 @@ void plotting()
   std::unique_ptr<TPaveText> legYields_MB2  (new TPaveText(0.15, 0.75, 0.88, 0.93, "NDC"));
   legYields_MB2->SetMargin(0.01);
   legYields_MB2->AddText("pp #sqrt{#it{s}} = 13 TeV MB2");
-  legYields_MB2->AddText("#omega #rightarrow #pi^{0}#gamma #rightarrow #gamma#gamma#gamma with EMC");
+  legYields_MB2->AddText("#omega #rightarrow #pi^{0}#gamma #rightarrow #gamma#gamma#gamma with EMCal");
   legYields_MB2->AddText("ALICE work in progress");
   legYields_MB2->SetTextAlign(11);
   legYields_MB2->SetFillStyle(0);
@@ -4764,7 +4764,7 @@ void plotting()
   std::unique_ptr<TPaveText> legYields_Comp (new TPaveText(0.2, 0.75, 0.88, 0.93, "NDC"));
   legYields_Comp->SetMargin(0.01);
   legYields_Comp->AddText("pp #sqrt{#it{s}} = 13 TeV, EG1 & EG2, MC - data comparison");
-  legYields_Comp->AddText("#omega #rightarrow #pi^{0}#gamma #rightarrow #gamma#gamma#gamma with EMC");
+  legYields_Comp->AddText("#omega #rightarrow #pi^{0}#gamma #rightarrow #gamma#gamma#gamma with EMCal");
   legYields_Comp->AddText("ALICE work in progress");
   legYields_Comp->SetTextAlign(11);
   legYields_Comp->SetFillStyle(0);
@@ -4832,7 +4832,7 @@ void plotting()
     std::unique_ptr<TPaveText> legSystem  (new TPaveText(0.15, 0.75, 0.86, 0.9, "NDC"));
     legSystem->SetMargin(0.01);
     legSystem->AddText("pp #sqrt{#it{s}} = 13 TeV, EG1");
-    legSystem->AddText("#omega #rightarrow #pi^{0}#gamma #rightarrow #gamma#gamma#gamma with EMC");
+    legSystem->AddText("#omega #rightarrow #pi^{0}#gamma #rightarrow #gamma#gamma#gamma with EMCal");
     legSystem->AddText("ALICE work in progress");
     legSystem->AddText(str);
     legSystem->SetTextAlign(11);
@@ -6322,6 +6322,31 @@ void plotting()
     h1_MixedEventSamePi0DiffGamma_MCOmegaPS3Sig_EG1->SetTitle("OmegaPS3Sig"),
     h1_MixedEventSamePi0DiffGamma_MCOmegaPS4Sig_EG1->SetTitle("OmegaPS4Sig"),
 
+
+    // DirectFit ***************************************************************
+    h1_SameEvent_MCOmegaPS_EG1->SetMaximum(h1_SameEvent_MCOmegaPS_EG1->GetMaximum()*1.6);
+    h1_SameEvent_MCOmegaPS_EG1->Fit(f1_SingleFit.get(),  "QM0EB", "", fitLower_Pol2, fitHigher_Pol2);
+    f1_SingleFit_Gaus->SetParameter(0, f1_SingleFit->GetParameter(4));
+    f1_SingleFit_Gaus->SetParameter(1, f1_SingleFit->GetParameter(5));
+    f1_SingleFit_Gaus->SetParameter(2, f1_SingleFit->GetParameter(6));
+
+    f1_SingleFit_Back->SetParameter(0, f1_SingleFit->GetParameter(0));
+    f1_SingleFit_Back->SetParameter(1, f1_SingleFit->GetParameter(1));
+    f1_SingleFit_Back->SetParameter(2, f1_SingleFit->GetParameter(2));
+    f1_SingleFit_Back->SetParameter(3, f1_SingleFit->GetParameter(3));
+
+    TH1D* h1_Peak_DirectFit_MC = (TH1D*) h1_SameEvent_MCOmegaPS_EG1->Clone("h1_Peak_DirectFit_MC");
+    h1_Peak_DirectFit_MC->Add(f1_SingleFit_Back.get(), -1, "I");
+
+    h1_Peak_DirectFit_MC->SetMaximum(h1_Peak_DirectFit_MC->GetMaximum()*1.6);
+    h1_Peak_DirectFit_MC->SetMinimum(h1_Peak_DirectFit_MC->GetMaximum()*-0.3);
+
+    DirectFit(h1_SameEvent_MCOmegaPS_EG1, f1_SingleFit.get(), f1_SingleFit_Gaus.get(), legSystem.get(), Form("MC/EG1/DirectFit/SameEventWithFit_%02d.svg", pTBin_EG1));
+    PeakDirectFitMC(h1_Peak_DirectFit_MC, h1_TrueOmega_MCPS_EG1, f1_SingleFit_Gaus.get(), legSystem.get(), Form("MC/EG1/DirectFit/PeakWithFit_%02d.svg", pTBin_EG1) );
+    // DirectFit Ende***********************************************************
+
+
+
     // -------------------------------------------------------------------------
     //
     // MC: Draw the SameEvent and Background onto one Canvas
@@ -7290,22 +7315,22 @@ void plotting()
 
 
     h1_TrueOmega_MCPS_EG1->SetMinimum(h1_TrueOmega_MCPS_EG1->GetMaximum()*-0.5);
-    h1_TrueOmega_MCPS_EG1->SetMaximum(h1_TrueOmega_MCPS_EG1->GetMaximum()*2.5);
+    h1_TrueOmega_MCPS_EG1->SetMaximum(h1_TrueOmega_MCPS_EG1->GetMaximum()*1.2);
     h1_TrueOmega_MCWOPS_EG1->SetMinimum(h1_TrueOmega_MCWOPS_EG1->GetMaximum()*-0.5);
-    h1_TrueOmega_MCWOPS_EG1->SetMaximum(h1_TrueOmega_MCWOPS_EG1->GetMaximum()*2.5);
+    h1_TrueOmega_MCWOPS_EG1->SetMaximum(h1_TrueOmega_MCWOPS_EG1->GetMaximum()*1.2);
     h1_TrueOmega_MCPSNCell_EG1->SetMinimum(h1_TrueOmega_MCPSNCell_EG1->GetMaximum()*-0.5);
-    h1_TrueOmega_MCPSNCell_EG1->SetMaximum(h1_TrueOmega_MCPSNCell_EG1->GetMaximum()*2.5);
+    h1_TrueOmega_MCPSNCell_EG1->SetMaximum(h1_TrueOmega_MCPSNCell_EG1->GetMaximum()*1.2);
 
     h1_TrueOmega_MCPSNCell_EG1->SetMinimum(h1_TrueOmega_MCPSNCell_EG1->GetMaximum()*-0.5);
-    h1_TrueOmega_MCPSNCell_EG1->SetMaximum(h1_TrueOmega_MCPSNCell_EG1->GetMaximum()*2.5);
+    h1_TrueOmega_MCPSNCell_EG1->SetMaximum(h1_TrueOmega_MCPSNCell_EG1->GetMaximum()*1.2);
     h1_TrueOmega_MCOmegaPS1Sig_EG1->SetMinimum(h1_TrueOmega_MCOmegaPS1Sig_EG1->GetMaximum()*-0.5);
-    h1_TrueOmega_MCOmegaPS1Sig_EG1->SetMaximum(h1_TrueOmega_MCOmegaPS1Sig_EG1->GetMaximum()*2.5);
+    h1_TrueOmega_MCOmegaPS1Sig_EG1->SetMaximum(h1_TrueOmega_MCOmegaPS1Sig_EG1->GetMaximum()*2.1);
     h1_TrueOmega_MCOmegaPS2Sig_EG1->SetMinimum(h1_TrueOmega_MCOmegaPS2Sig_EG1->GetMaximum()*-0.5);
-    h1_TrueOmega_MCOmegaPS2Sig_EG1->SetMaximum(h1_TrueOmega_MCOmegaPS2Sig_EG1->GetMaximum()*2.5);
+    h1_TrueOmega_MCOmegaPS2Sig_EG1->SetMaximum(h1_TrueOmega_MCOmegaPS2Sig_EG1->GetMaximum()*2.1);
     h1_TrueOmega_MCOmegaPS3Sig_EG1->SetMinimum(h1_TrueOmega_MCOmegaPS3Sig_EG1->GetMaximum()*-0.5);
-    h1_TrueOmega_MCOmegaPS3Sig_EG1->SetMaximum(h1_TrueOmega_MCOmegaPS3Sig_EG1->GetMaximum()*2.5);
+    h1_TrueOmega_MCOmegaPS3Sig_EG1->SetMaximum(h1_TrueOmega_MCOmegaPS3Sig_EG1->GetMaximum()*2.1);
     h1_TrueOmega_MCOmegaPS4Sig_EG1->SetMinimum(h1_TrueOmega_MCOmegaPS4Sig_EG1->GetMaximum()*-0.5);
-    h1_TrueOmega_MCOmegaPS4Sig_EG1->SetMaximum(h1_TrueOmega_MCOmegaPS4Sig_EG1->GetMaximum()*2.5);
+    h1_TrueOmega_MCOmegaPS4Sig_EG1->SetMaximum(h1_TrueOmega_MCOmegaPS4Sig_EG1->GetMaximum()*2.1);
 
     SetYRange(h1_Peak_MCOmegaRotPS_Pol1_EG1);
     SetYRange(h1_Peak_MCOmegaTGPSPS_Pol1_EG1);
@@ -8365,7 +8390,7 @@ void plotting()
 
     std::unique_ptr<TPaveText> legSystem (new TPaveText(0.15, 0.75, 0.9, 0.94, "NDC"));
     legSystem->SetMargin(0.01);
-    legSystem->AddText("pp #sqrt{#it{s}} = 13 TeV (MB1), #omega #rightarrow #pi^{0}#gamma #rightarrow #gamma#gamma#gamma with EMC");
+    legSystem->AddText("pp #sqrt{#it{s}} = 13 TeV (MB1), #omega #rightarrow #pi^{0}#gamma #rightarrow #gamma#gamma#gamma with EMCal");
     legSystem->AddText("ALICE work in progress");
     legSystem->AddText(str);
     legSystem->SetTextAlign(11);
@@ -8786,7 +8811,7 @@ void plotting()
     std::unique_ptr<TPaveText> legSystem  (new TPaveText(0.15, 0.75, 0.9, 0.94, "NDC"));
     legSystem->SetMargin(0.01);
     legSystem->AddText("pp #sqrt{#it{s}} = 13 TeV, EG2");
-    legSystem->AddText("#omega #rightarrow #pi^{0}#gamma #rightarrow #gamma#gamma#gamma with EMC");
+    legSystem->AddText("#omega #rightarrow #pi^{0}#gamma #rightarrow #gamma#gamma#gamma with EMCal");
     legSystem->AddText("ALICE work in progress");
     legSystem->AddText(str);
     legSystem->SetTextAlign(11);
@@ -12317,7 +12342,7 @@ void plotting()
 
     std::unique_ptr<TPaveText> legSystem (new TPaveText(0.15, 0.75, 0.9, 0.94, "NDC"));
     legSystem->SetMargin(0.01);
-    legSystem->AddText("pp #sqrt{#it{s}} = 13 TeV (MB2), #omega #rightarrow #pi^{0}#gamma #rightarrow #gamma#gamma#gamma with EMC");
+    legSystem->AddText("pp #sqrt{#it{s}} = 13 TeV (MB2), #omega #rightarrow #pi^{0}#gamma #rightarrow #gamma#gamma#gamma with EMCal");
     legSystem->AddText("ALICE work in progress");
     legSystem->AddText(str);
     legSystem->SetTextAlign(11);
@@ -13705,7 +13730,7 @@ void plotting()
   vHistos.push_back(h1_RawYield_DataPi0TGPSPS_Pol1_EG1.get());
   vHistos.push_back(h1_RawYield_DataOmegaRotWOPS_Pol1_EG1.get());
   vHistos.push_back(h1_RawYield_DataOmegaTGPSWOPS_Pol1_EG1.get());
-  CorrYields(vHistos, legYields_Data_EG2.get(), "Data/EG1/CorrectedYields_Pol1.svg", "corrected yield pol1", arrPtBinning_EG1[0], arrPtBinning_EG1.back());
+  CorrYields(vHistos, legYields_Data_EG1.get(), "Data/EG1/CorrectedYields_Pol1.svg", "corrected yield pol1", arrPtBinning_EG1[0], arrPtBinning_EG1.back());
   vHistos.clear();
   vHistos.resize(0);
 
@@ -13714,7 +13739,7 @@ void plotting()
   h1_CorrYield_DataOmegaTGPSPS_Pol1_EG1_Copy->SetMaximum(h1_CorrYield_DataOmegaTGPSPS_Pol1_EG1_Copy->GetMaximum()*50);
   h1_CorrYield_DataOmegaTGPSPS_Pol1_EG1_Copy->SetMinimum(h1_CorrYield_DataOmegaTGPSPS_Pol1_EG1_Copy->GetMinimum()*0.4);
   vHistos.push_back(h1_CorrYield_DataOmegaTGPSPS_Pol1_EG1_Copy.get());
-  CorrYields(vHistos, legYields_Data_EG2.get(), "Data/EG1/OmegaTGPSPS/CorrectedYields_Pol1.svg", "corrected yield", arrPtBinning_EG1[0], arrPtBinning_EG1.back());
+  CorrYields(vHistos, legYields_Data_EG1.get(), "Data/EG1/OmegaTGPSPS/CorrectedYields_Pol1.svg", "corrected yield", arrPtBinning_EG1[0], arrPtBinning_EG1.back());
   vHistos.clear();
   vHistos.resize(0);
 
@@ -13725,7 +13750,7 @@ void plotting()
   vHistos.push_back(h1_RawYield_DataPi0TGPSPS_Pol1_EG1.get());
   vHistos.push_back(h1_RawYield_DataOmegaPS2Sig_Pol1_EG1.get());
   vHistos.push_back(h1_RawYield_DataOmegaPS3Sig_Pol1_EG1.get());
-  CorrYields(vHistos, legYields_Data_EG2.get(), "Data/EG1/CorrectedYieldsWithMixedEvent_Pol1.svg", "corrected yield pol1", arrPtBinning_EG1[0], arrPtBinning_EG1.back());
+  CorrYields(vHistos, legYields_Data_EG1.get(), "Data/EG1/CorrectedYieldsWithMixedEvent_Pol1.svg", "corrected yield pol1", arrPtBinning_EG1[0], arrPtBinning_EG1.back());
   vHistos.clear();
   vHistos.resize(0);
 
@@ -13736,7 +13761,7 @@ void plotting()
   vHistos.push_back(h1_RawYield_DataPi0TGPSPS_Pol2_EG1.get());
   vHistos.push_back(h1_RawYield_DataOmegaRotWOPS_Pol2_EG1.get());
   vHistos.push_back(h1_RawYield_DataOmegaTGPSWOPS_Pol2_EG1.get());
-  CorrYields(vHistos, legYields_Data_EG2.get(), "Data/EG1/CorrectedYields_Pol2.svg", "corrected yield pol2", arrPtBinning_EG1[0], arrPtBinning_EG1.back());
+  CorrYields(vHistos, legYields_Data_EG1.get(), "Data/EG1/CorrectedYields_Pol2.svg", "corrected yield pol2", arrPtBinning_EG1[0], arrPtBinning_EG1.back());
   vHistos.clear();
   vHistos.resize(0);
 
@@ -13745,7 +13770,7 @@ void plotting()
   h1_CorrYield_DataOmegaTGPSPS_Pol2_EG1_Copy->SetMaximum(h1_CorrYield_DataOmegaTGPSPS_Pol2_EG1_Copy->GetMaximum()*50);
   h1_CorrYield_DataOmegaTGPSPS_Pol2_EG1_Copy->SetMinimum(h1_CorrYield_DataOmegaTGPSPS_Pol2_EG1_Copy->GetMinimum()*0.4);
   vHistos.push_back(h1_CorrYield_DataOmegaTGPSPS_Pol2_EG1_Copy.get());
-  CorrYields(vHistos, legYields_Data_EG2.get(), "Data/EG1/OmegaTGPSPS/CorrectedYields_Pol2.svg", "corrected yield", arrPtBinning_EG1[0], arrPtBinning_EG1.back());
+  CorrYields(vHistos, legYields_Data_EG1.get(), "Data/EG1/OmegaTGPSPS/CorrectedYields_Pol2.svg", "corrected yield", arrPtBinning_EG1[0], arrPtBinning_EG1.back());
   vHistos.clear();
   vHistos.resize(0);
 
@@ -13754,7 +13779,7 @@ void plotting()
   vHistos.push_back(h1_RawYield_DataOmegaTGPSPS_Pol3_EG1.get());
   vHistos.push_back(h1_RawYield_DataOmegaTGPSPS_LowFitVari_Pol2_EG1.get());
   vHistos.push_back(h1_RawYield_DataOmegaTGPSPS_HighFitVari_Pol2_EG1.get());
-  CorrYields(vHistos, legYields_Data_EG2.get(), "Data/EG1/Vari/CorrectedYields_Pol2.svg", "corrected yield variations", arrPtBinning_EG1[0], arrPtBinning_EG1.back());
+  CorrYields(vHistos, legYields_Data_EG1.get(), "Data/EG1/Vari/CorrectedYields_Pol2.svg", "corrected yield variations", arrPtBinning_EG1[0], arrPtBinning_EG1.back());
   vHistos.clear();
   vHistos.resize(0);
 
@@ -13765,7 +13790,7 @@ void plotting()
   vHistos.push_back(h1_RawYield_DataPi0TGPSPS_Pol2_EG1.get());
   vHistos.push_back(h1_RawYield_DataOmegaPS2Sig_Pol2_EG1.get());
   vHistos.push_back(h1_RawYield_DataOmegaPS3Sig_Pol2_EG1.get());
-  CorrYields(vHistos, legYields_Data_EG2.get(), "Data/EG1/CorrectedYieldsWithMixedEvent_Pol2.svg", "corrected yield pol2", arrPtBinning_EG1[0], arrPtBinning_EG1.back());
+  CorrYields(vHistos, legYields_Data_EG1.get(), "Data/EG1/CorrectedYieldsWithMixedEvent_Pol2.svg", "corrected yield pol2", arrPtBinning_EG1[0], arrPtBinning_EG1.back());
   vHistos.clear();
   vHistos.resize(0);
 
@@ -13776,7 +13801,7 @@ void plotting()
   vHistos.push_back(h1_RawYield_MCPi0TGPSPS_Pol1_EG1.get());
   vHistos.push_back(h1_RawYield_MCOmegaRotWOPS_Pol1_EG1.get());
   vHistos.push_back(h1_RawYield_MCOmegaTGPSWOPS_Pol1_EG1.get());
-  CorrYields(vHistos, legYields_MC_EG2.get(), "MC/EG1/CorrectedYields_Pol1.svg", "corrected yield pol1", arrPtBinning_EG1[0], arrPtBinning_EG1.back());
+  CorrYields(vHistos, legYields_MC_EG1.get(), "MC/EG1/CorrectedYields_Pol1.svg", "corrected yield pol1", arrPtBinning_EG1[0], arrPtBinning_EG1.back());
   vHistos.clear();
   vHistos.resize(0);
 
@@ -13787,7 +13812,7 @@ void plotting()
   vHistos.push_back(h1_RawYield_MCPi0TGPSPS_Pol1_EG1.get());
   vHistos.push_back(h1_RawYield_MCOmegaPS2Sig_Pol1_EG1.get());
   vHistos.push_back(h1_RawYield_MCOmegaPS3Sig_Pol1_EG1.get());
-  CorrYields(vHistos, legYields_MC_EG2.get(), "MC/EG1/CorrectedYieldsWithMixedEvent_Pol1.svg", "corrected yield pol1", arrPtBinning_EG1[0], arrPtBinning_EG1.back());
+  CorrYields(vHistos, legYields_MC_EG1.get(), "MC/EG1/CorrectedYieldsWithMixedEvent_Pol1.svg", "corrected yield pol1", arrPtBinning_EG1[0], arrPtBinning_EG1.back());
   vHistos.clear();
   vHistos.resize(0);
 
@@ -13798,7 +13823,7 @@ void plotting()
   vHistos.push_back(h1_RawYield_MCPi0TGPSPS_Pol2_EG1.get());
   vHistos.push_back(h1_RawYield_MCOmegaRotWOPS_Pol2_EG1.get());
   vHistos.push_back(h1_RawYield_MCOmegaTGPSWOPS_Pol2_EG1.get());
-  CorrYields(vHistos, legYields_MC_EG2.get(), "MC/EG1/CorrectedYields_Pol2.svg", "corrected yield pol2", arrPtBinning_EG1[0], arrPtBinning_EG1.back());
+  CorrYields(vHistos, legYields_MC_EG1.get(), "MC/EG1/CorrectedYields_Pol2.svg", "corrected yield pol2", arrPtBinning_EG1[0], arrPtBinning_EG1.back());
   vHistos.clear();
   vHistos.resize(0);
 
@@ -13807,7 +13832,7 @@ void plotting()
   vHistos.push_back(h1_RawYield_MCOmegaTGPSPS_Pol3_EG1.get());
   vHistos.push_back(h1_RawYield_MCOmegaTGPSPS_LowFitVari_Pol2_EG1.get());
   vHistos.push_back(h1_RawYield_MCOmegaTGPSPS_HighFitVari_Pol2_EG1.get());
-  CorrYields(vHistos, legYields_MC_EG2.get(), "MC/EG1/Vari/CorrectedYields_Pol2.svg", "corrected yield variations", arrPtBinning_EG1[0], arrPtBinning_EG1.back());
+  CorrYields(vHistos, legYields_MC_EG1.get(), "MC/EG1/Vari/CorrectedYields_Pol2.svg", "corrected yield variations", arrPtBinning_EG1[0], arrPtBinning_EG1.back());
   vHistos.clear();
   vHistos.resize(0);
 
@@ -13818,7 +13843,7 @@ void plotting()
   vHistos.push_back(h1_RawYield_MCPi0TGPSPS_Pol2_EG1.get());
   vHistos.push_back(h1_RawYield_MCOmegaPS2Sig_Pol2_EG1.get());
   vHistos.push_back(h1_RawYield_MCOmegaPS3Sig_Pol2_EG1.get());
-  CorrYields(vHistos, legYields_MC_EG2.get(), "MC/EG1/CorrectedYieldsWithMixedEvent_Pol2.svg", "corrected yield pol2", arrPtBinning_EG1[0], arrPtBinning_EG1.back());
+  CorrYields(vHistos, legYields_MC_EG1.get(), "MC/EG1/CorrectedYieldsWithMixedEvent_Pol2.svg", "corrected yield pol2", arrPtBinning_EG1[0], arrPtBinning_EG1.back());
   vHistos.clear();
   vHistos.resize(0);
 
@@ -14704,7 +14729,7 @@ void plotting()
   vHistos.clear();
   vHistos.resize(0);
 
-  std::unique_ptr<TH1D> h1_CorrYield_DataOmegaTGPSPS_Pol2_EG2_Copy(new TH1D("h1_CorrYield_DataOmegaTGPSPS_Pol2_EG2_Copy", "pol1", 6, &arrPtBinning_EG2[0]));
+  std::unique_ptr<TH1D> h1_CorrYield_DataOmegaTGPSPS_Pol2_EG2_Copy(new TH1D("h1_CorrYield_DataOmegaTGPSPS_Pol2_EG2_Copy", "pol2", 6, &arrPtBinning_EG2[0]));
   CopyInRange(h1_RawYield_DataOmegaTGPSPS_Pol2_EG2.get(), h1_CorrYield_DataOmegaTGPSPS_Pol2_EG2_Copy.get(), 6., 18.);
   h1_CorrYield_DataOmegaTGPSPS_Pol2_EG2_Copy->SetMaximum(h1_CorrYield_DataOmegaTGPSPS_Pol2_EG2_Copy->GetMaximum()*50);
   h1_CorrYield_DataOmegaTGPSPS_Pol2_EG2_Copy->SetMinimum(h1_CorrYield_DataOmegaTGPSPS_Pol2_EG2_Copy->GetMinimum()*0.4);

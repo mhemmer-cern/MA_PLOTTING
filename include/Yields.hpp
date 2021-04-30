@@ -51,7 +51,7 @@ void Yields(std::vector<TH1D*> v, TPaveText* lSys, TString outname, TString legH
   square.SetRanges(lowX, highX, v.at(0)->GetMinimum(), v.at(0)->GetMaximum());
   square.SetLog();
   square.SetCanvasMargins(0.025, .15, 0.03, .1);
-  square.SetCanvasOffsets(1.2, 1.8);
+  square.SetCanvasOffsets(1.2, 1.9);
   square.Draw(outname);
   return;
 
@@ -161,7 +161,7 @@ void CorrYields(std::vector<TH1D*> v, TPaveText* lSys, TString outname, TString 
   square.SetRanges(lowX, highX, v.at(0)->GetMinimum(), v.at(0)->GetMaximum());
   square.SetLog();
   square.SetCanvasMargins(0.025, .15, 0.03, .1);
-  square.SetCanvasOffsets(1.2, 1.8);
+  square.SetCanvasOffsets(1.2, 1.9);
   square.Draw(outname);
   return;
 }
@@ -230,7 +230,7 @@ void MeanPlotPol(std::vector<TH1D*> v, TPaveText* lSys, TString outname, TString
 
   // --- Canvasses -------------------------------------------------------------
 
-  Legend::SetPosition(l.get(), 0.55, 0.9, 0.875-((v.size()+1)*0.03), 0.875);
+  Legend::SetPosition(l.get(), 0.55, 0.9, 0.9-((v.size()+1)*0.035), 0.9);
   SquarePlot square = SquarePlot(main.get(), pt_str, "#mu (GeV/#it{c}^{2})");
   square.SetMode(Plot::Thesis);
   square.SetStyle(colors, markers, sizes);
@@ -306,7 +306,7 @@ void SigmaPlotPol(std::vector<TH1D*> v, TPaveText* lSys, TString outname, TStrin
 
   // --- Canvasses -------------------------------------------------------------
 
-  Legend::SetPosition(l.get(), 0.55, 0.9, 0.875-((v.size()+1)*0.03), 0.875);
+  Legend::SetPosition(l.get(), 0.55, 0.9, 0.9-((v.size()+1)*0.035), 0.9);
   SquarePlot square = SquarePlot(main.get(), pt_str, "#sigma (GeV/#it{c}^{2})");
   square.SetMode(Plot::Thesis);
   square.SetStyle(colors, markers, sizes);
@@ -649,11 +649,11 @@ void PlotSignificanceYield(std::vector<TH1D*> v, TPaveText* lSys, TString outnam
   // --- Marker ----------------------------------------------------------------
   vector<Color_t> colors = {kOrange+9, kPink+9, kBlack, kAzure+9, kTeal+9, 1, 1};
   vector<Style_t> markers = {24, kOpenCircle, 25, 27, 28, 1, 1};
-  vector<Size_t>  sizes = {3.5, 4., 3.5, 4., 4., 1, 1};
+  vector<Size_t>  sizes = {3., 3.5, 3., 3.5, 3.5, 1, 1};
 
   // --- Canvasses -------------------------------------------------------------
 
-  Legend::SetPosition(l.get(), 0.6, 0.9, 0.9-(v.size()+1)*0.03, 0.9);
+  Legend::SetPosition(l.get(), 0.6, 0.9, 0.9-(v.size()+1)*0.035, 0.9);
 
   SquarePlot square = SquarePlot(main.get(), pt_str, "significance");
   square.SetMode(Plot::Thesis);
@@ -687,11 +687,11 @@ void PlotStoBYield(std::vector<TH1D*> v, TPaveText* lSys, TString outname, TStri
   // --- Marker ----------------------------------------------------------------
   vector<Color_t> colors = {kOrange+9, kPink+9, kBlack, kAzure+9, kTeal+9, 1, 1};
   vector<Style_t> markers = {24, kOpenCircle, 25, 27, 28, 1, 1};
-  vector<Size_t>  sizes = {3.5, 4., 3.5, 4., 4., 1, 1};
+  vector<Size_t>  sizes = {3., 3.5, 3., 3.5, 3.5, 1, 1};
 
   // --- Canvasses -------------------------------------------------------------
 
-  Legend::SetPosition(l.get(), 0.6, 0.9, 0.9-(v.size()+1)*0.03, 0.9);
+  Legend::SetPosition(l.get(), 0.6, 0.9, 0.9-(v.size()+1)*0.035, 0.9);
 
   SquarePlot square = SquarePlot(main.get(), pt_str, "S/B");
   square.SetMode(Plot::Thesis);

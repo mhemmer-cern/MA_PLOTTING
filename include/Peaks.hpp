@@ -22,7 +22,7 @@ void PeaksMC(TH1D* TruePeak, TH1D* Background1, TH1D* Background2, TPaveText* lS
   std::vector<Size_t>  sizes = {3., 2., 2., 1, 1};
 
   // --- Canvasses -------------------------------------------------------------
-  Legend::SetPosition(l.get(), 0.55, 0.9, 0.67, 0.875);
+  Legend::SetPosition(l.get(), 0.55, 0.9, 0.9-3.*0.035, 0.9);
 
   SquarePlot square = SquarePlot(main.get(), minv_str, count_str);
   square.SetMode(Plot::Thesis);
