@@ -6930,10 +6930,10 @@ void plotting()
     h1_Ratio_BackToSame_MCOmegaRotPSNCell_EG1->SetMaximum(h1_Ratio_BackToSame_MCOmegaRotPSNCell_EG1->GetMaximum()*1.6);
     h1_Ratio_BackToSame_MCOmegaTGPSPSNCell_EG1->SetMaximum(h1_Ratio_BackToSame_MCOmegaTGPSPSNCell_EG1->GetMaximum()*1.6);
     h1_Ratio_BackToSame_MCOmegaTGPSPlusPSNCell_EG1->SetMaximum(h1_Ratio_BackToSame_MCOmegaTGPSPlusPSNCell_EG1->GetMaximum()*1.6);
-    h1_Ratio_BackToSame_MCOmegaPS1Sig_EG1->SetMaximum(h1_Ratio_BackToSame_MCOmegaPS1Sig_EG1->GetMaximum()*1.6);
-    h1_Ratio_BackToSame_MCOmegaPS2Sig_EG1->SetMaximum(h1_Ratio_BackToSame_MCOmegaPS2Sig_EG1->GetMaximum()*1.6);
-    h1_Ratio_BackToSame_MCOmegaPS3Sig_EG1->SetMaximum(h1_Ratio_BackToSame_MCOmegaPS3Sig_EG1->GetMaximum()*1.6);
-    h1_Ratio_BackToSame_MCOmegaPS4Sig_EG1->SetMaximum(h1_Ratio_BackToSame_MCOmegaPS4Sig_EG1->GetMaximum()*1.6);
+    h1_Ratio_BackToSame_MCOmegaPS1Sig_EG1->SetMaximum(h1_Ratio_BackToSame_MCOmegaPS1Sig_EG1->GetMaximum()*1.8);
+    h1_Ratio_BackToSame_MCOmegaPS2Sig_EG1->SetMaximum(h1_Ratio_BackToSame_MCOmegaPS2Sig_EG1->GetMaximum()*1.8);
+    h1_Ratio_BackToSame_MCOmegaPS3Sig_EG1->SetMaximum(h1_Ratio_BackToSame_MCOmegaPS3Sig_EG1->GetMaximum()*1.8);
+    h1_Ratio_BackToSame_MCOmegaPS4Sig_EG1->SetMaximum(h1_Ratio_BackToSame_MCOmegaPS4Sig_EG1->GetMaximum()*1.8);
 
     SameEventToBackgroundRatio(h1_Ratio_BackToSame_MCOmegaRotPS_EG1, h1_Peak_BackToSame_MCOmegaRotPS_EG1, f1Back_MCOmegaRotPS_Pol1_EG1.get(), f1Back_MCOmegaRotPS_Pol2_EG1.get(), legSystem.get(), Form("MC/EG1/OmegaRotPS/SameEventToBackgroundRatio_%02d.svg", pTBin_EG1), fitLower_Pol1, fitHigher_Pol1, fitLower_Pol2, fitHigher_Pol2);
 
@@ -7324,13 +7324,13 @@ void plotting()
     h1_TrueOmega_MCPSNCell_EG1->SetMinimum(h1_TrueOmega_MCPSNCell_EG1->GetMaximum()*-0.5);
     h1_TrueOmega_MCPSNCell_EG1->SetMaximum(h1_TrueOmega_MCPSNCell_EG1->GetMaximum()*1.2);
     h1_TrueOmega_MCOmegaPS1Sig_EG1->SetMinimum(h1_TrueOmega_MCOmegaPS1Sig_EG1->GetMaximum()*-0.5);
-    h1_TrueOmega_MCOmegaPS1Sig_EG1->SetMaximum(h1_TrueOmega_MCOmegaPS1Sig_EG1->GetMaximum()*2.1);
+    h1_TrueOmega_MCOmegaPS1Sig_EG1->SetMaximum(h1_TrueOmega_MCOmegaPS1Sig_EG1->GetMaximum()*2.3);
     h1_TrueOmega_MCOmegaPS2Sig_EG1->SetMinimum(h1_TrueOmega_MCOmegaPS2Sig_EG1->GetMaximum()*-0.5);
-    h1_TrueOmega_MCOmegaPS2Sig_EG1->SetMaximum(h1_TrueOmega_MCOmegaPS2Sig_EG1->GetMaximum()*2.1);
+    h1_TrueOmega_MCOmegaPS2Sig_EG1->SetMaximum(h1_TrueOmega_MCOmegaPS2Sig_EG1->GetMaximum()*2.3);
     h1_TrueOmega_MCOmegaPS3Sig_EG1->SetMinimum(h1_TrueOmega_MCOmegaPS3Sig_EG1->GetMaximum()*-0.5);
-    h1_TrueOmega_MCOmegaPS3Sig_EG1->SetMaximum(h1_TrueOmega_MCOmegaPS3Sig_EG1->GetMaximum()*2.1);
+    h1_TrueOmega_MCOmegaPS3Sig_EG1->SetMaximum(h1_TrueOmega_MCOmegaPS3Sig_EG1->GetMaximum()*2.3);
     h1_TrueOmega_MCOmegaPS4Sig_EG1->SetMinimum(h1_TrueOmega_MCOmegaPS4Sig_EG1->GetMaximum()*-0.5);
-    h1_TrueOmega_MCOmegaPS4Sig_EG1->SetMaximum(h1_TrueOmega_MCOmegaPS4Sig_EG1->GetMaximum()*2.1);
+    h1_TrueOmega_MCOmegaPS4Sig_EG1->SetMaximum(h1_TrueOmega_MCOmegaPS4Sig_EG1->GetMaximum()*2.3);
 
     SetYRange(h1_Peak_MCOmegaRotPS_Pol1_EG1);
     SetYRange(h1_Peak_MCOmegaTGPSPS_Pol1_EG1);
