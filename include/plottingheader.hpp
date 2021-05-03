@@ -538,3 +538,17 @@ TH1D* h1_Peak_BackToSame_MCOmegaTGPSPlusPS_MB1      = nullptr;
 TH1D* h1_Peak_BackToSame_MCOmegaRotPS_MB2           = nullptr;
 TH1D* h1_Peak_BackToSame_MCOmegaTGPSPS_MB2          = nullptr;
 TH1D* h1_Peak_BackToSame_MCOmegaTGPSPlusPS_MB2      = nullptr;
+
+
+TH1D* h1_OmegaPi0_Angle_DataOmegaPS_EG1           = nullptr;
+TH1D* h1_OmegaGamma_Angle_DataOmegaPS_EG1         = nullptr;
+TH1D* h1_Pi0Gamma_Angle_DataOmegaPS_EG1           = nullptr;
+TH1D* h1_OmegaRestPi0_CosAngle_DataOmegaPS_EG1    = nullptr;
+TH1D* h1_OmegaPi0_Angle_MCOmegaPS_EG1             = nullptr;
+TH1D* h1_OmegaGamma_Angle_MCOmegaPS_EG1           = nullptr;
+TH1D* h1_Pi0Gamma_Angle_MCOmegaPS_EG1             = nullptr;
+TH1D* h1_OmegaRestPi0_CosAngle_MCOmegaPS_EG1      = nullptr;
+TH1D* h1_OmegaPi0_Angle_TrueOmegaPS_EG1           = nullptr;
+TH1D* h1_OmegaGamma_Angle_TrueOmegaPS_EG1         = nullptr;
+TH1D* h1_Pi0Gamma_Angle_TrueOmegaPS_EG1           = nullptr;
+TH1D* h1_OmegaRestPi0_CosAngle_TrueOmegaPS_EG1    = nullptr;

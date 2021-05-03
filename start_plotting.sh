@@ -65,6 +65,7 @@ mkdir -p "MC/EG1/OmegaPS3Sig/"
 mkdir -p "MC/EG1/OmegaPS4Sig/"
 mkdir -p "MC/EG1/Vari/"
 mkdir -p "MC/EG1/DirectFit"
+mkdir -p "MC/EG1/QA"
 
 mkdir -p "MC/EG2/OmegaRotPS/"
 mkdir -p "MC/EG2/OmegaTGPSPS/"

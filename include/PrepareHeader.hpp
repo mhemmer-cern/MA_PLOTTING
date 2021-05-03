@@ -141,7 +141,7 @@ void CorrEffi(std::vector<TH1D*> vYield, std::vector<TH1D*> vEffi)
 {
   for (int vn = 0; vn < vYield.size(); vn++)
   {
-    vYield.at(vn)->Divide(vYield.at(vn), vEffi.at(vn), 1, 1, "B");
+    vYield.at(vn)->Divide(vYield.at(vn), vEffi.at(vn), 1, 1);
   }
   return;
 }

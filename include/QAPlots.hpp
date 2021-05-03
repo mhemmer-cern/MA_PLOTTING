@@ -119,35 +119,74 @@ void DalitzFit(TH1D* h1, TF1* f1, TPaveText* lSys, TString outname, TString legH
   return;
 }
 
-SquarePlot OmegaPiZeroCosTheta(TH1D* hData, TH1D* hTrue, TPaveText* lSys)
+void OmegaPiZeroCosTheta(std::vector<TH1D*> v, TPaveText* lSys, TString outname, TString legHead)
 {
   // --- Create TObjArrays -----------------------------------------------------
-
-  TObjArray* main = new TObjArray();
-  hData->SetMaximum(hData->GetMaximum()*1.8);
-  main->Add(hData);
-  main->Add(hTrue);
+  std::unique_ptr<TObjArray> main (new TObjArray);
+  TString legString = "";
+  TString legOpt = "";
+  for (int i = 0; i < v.size(); i++)
+  {
+    v.at(i)->Scale(1./v.at(i)->Integral());
+    main->Add(v.at(i));
+    legOpt += "lp ";
+    if(i < v.size()-1) legString += TString(v.at(i)->GetTitle()) + "\n ";
+  }
 
   // --- Legends ---------------------------------------------------------------
 
   main->Add(lSys);
-  TLegend l = Legend(main, "data\n MC truth", "lp lp");
+  std::unique_ptr<Legend> l (new Legend(main.get(), legString.Data(), legOpt.Data(), legHead.Data()) );
 
   // --- Marker ----------------------------------------------------------------
-
-  vector<Color_t> colors = {kBlack, kBlue+3};
-  vector<Style_t> markers = {kFullCircle, kOpenSquare};
-  vector<Size_t>  sizes = {2., 2.};
+  vector<Color_t> colors = {kBlack, kOrange-3, kViolet-3, kGreen-3, kRed-3, kBlue-3, 1, 1};
+  vector<Style_t> markers = {kFullSquare, kOpenSquare, kOpenCircle, kOpenDiamond, kOpenDiamond, kOpenDiamond, 1, 1};
+  vector<Size_t>  sizes = {3.0, 3.0, 3.0, 3.0, 3.0, 3.0, 3.0, 1, 1};
 
   // --- Canvasses -------------------------------------------------------------
-
-  Legend::SetPosition(&l, 0.55, 0.9, 0.67, 0.875);
-
-  SquarePlot square = SquarePlot(main, "cos(#theta*)", "#it{count}");
+  Legend::SetPosition(l.get(), 0.55, 0.9, 0.9-((v.size()+1)*0.035), 0.9);
+  SquarePlot square = SquarePlot(main.get(), "cos(#theta^{*})", "norm. #it{count}");
   square.SetMode(Plot::Thesis);
-  square.SetRanges(0.0, 1.0, hData->GetMinimum(), hData->GetMaximum());
   square.SetStyle(colors, markers, sizes);
-  return square;
+  square.SetRanges(-1., 1., v.at(1)->GetMinimum(), v.at(1)->GetMaximum()*1.6);
+  square.SetCanvasMargins(0.025, .1, 0.03, .1);
+  square.Draw(outname);
+  return;
+}
+
+void OpeningAngle(std::vector<TH1D*> v, TPaveText* lSys, TString outname, TString legHead, Double_t lowX, Double_t highX)
+{
+  // --- Create TObjArrays -----------------------------------------------------
+  std::unique_ptr<TObjArray> main (new TObjArray);
+  TString legString = "";
+  TString legOpt = "";
+  for (int i = 0; i < v.size(); i++)
+  {
+    v.at(i)->Scale(1./v.at(i)->Integral());
+    main->Add(v.at(i));
+    legOpt += "lp ";
+    if(i < v.size()-1) legString += TString(v.at(i)->GetTitle()) + "\n ";
+  }
+
+  // --- Legends ---------------------------------------------------------------
+
+  main->Add(lSys);
+  std::unique_ptr<Legend> l (new Legend(main.get(), legString.Data(), legOpt.Data()) );
+
+  // --- Marker ----------------------------------------------------------------
+  vector<Color_t> colors = {kBlack, kOrange-3, kViolet-3, kGreen-3, kRed-3, kBlue-3, 1, 1};
+  vector<Style_t> markers = {kFullSquare, kOpenSquare, kOpenCircle, kOpenDiamond, kOpenDiamond, kOpenDiamond, 1, 1};
+  vector<Size_t>  sizes = {3.0, 3.0, 3.0, 3.0, 3.0, 3.0, 3.0, 1, 1};
+
+  // --- Canvasses -------------------------------------------------------------
+  Legend::SetPosition(l.get(), 0.55, 0.9, 0.9-(v.size()*0.035), 0.9);
+  SquarePlot square = SquarePlot(main.get(), legHead.Data(), "norm. #it{count}");
+  square.SetMode(Plot::Thesis);
+  square.SetStyle(colors, markers, sizes);
+  square.SetRanges(lowX, highX, v.at(0)->GetMinimum(), v.at(0)->GetMaximum()*1.6);
+  square.SetCanvasMargins(0.025, .1, 0.03, .1);
+  square.Draw(outname);
+  return;
 }
 
 SquarePlot OmegaPiZeroCosThetaRatio(TH1D* hRatio, TPaveText* lSys)
