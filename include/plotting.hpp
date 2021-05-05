@@ -15975,6 +15975,19 @@ void plotting()
 
   // ---------------------------------------------------------------------------
   //
+  // OAC Fit
+  //
+  // ---------------------------------------------------------------------------
+
+  std::unique_ptr<TF1> OACFit_low   (new TF1("OACFit_low",  "0.5 * 4.99209 / pow(x + 1.34075, 1.65) + 0.0568024", 0., 50.) );
+  std::unique_ptr<TF1> OACFit_high  (new TF1("OACFit_high", "1.6 * 4.99209 / pow(x + 1.34075, 1.65) + 0.0568024", 0., 50.) );
+  OACFit_low->SetTitle("OACFit_low");
+  OACFit_high->SetTitle("OACFit_high");
+
+  OACPlot(h2_Pi0Gamma_Angle_DataOmegaPS_EG1, OACFit_low, OACFit_high);
+
+  // ---------------------------------------------------------------------------
+  //
   // Garbage collection
   //
   // ---------------------------------------------------------------------------

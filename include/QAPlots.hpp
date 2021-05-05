@@ -247,3 +247,43 @@ void Pi0Plot(TH2D* h2, TLegend* lSys, TString outname)
   plot.Draw(outname);
   return;
 }
+
+void OACPlot(TH1D* h1, TF1* f1, TF1* f2, TPaveText* lSys, TString outname, TString legHead, Double_t lowX, Double_t highX)
+{
+  h1->SetContour(500);
+  // --- Create TObjArrays -----------------------------------------------------
+  std::unique_ptr<TObjArray> main (new TObjArray);
+  TString legString = "";
+  legString += TString(h1->GetTitle()) + "\n ";
+  legString += TString(f1->GetTitle()) + "\n ";
+  legString += TString(f2->GetTitle());
+  main->Add(h1);
+  main->Add(f1);
+  main->Add(f2);
+
+  // --- Legends ---------------------------------------------------------------
+
+  main->Add(lSys);
+  std::unique_ptr<Legend> l (new Legend(main.get(), legString.Data(), "lp l l", legHead.Data()) );
+
+  // --- Marker ----------------------------------------------------------------
+  std::vector<Color_t> colors = {1, kOrange+7, kOrange+7, 1, 1};
+  std::vector<Style_t> markers = {1, 1, 1, 1, 1};
+  std::vector<Size_t>  sizes = {1, 1, 1, 1, 1};
+  std::vector<Style_t> linestyle  = {1, 1, 1, 1, 1};
+  std::vector<Size_t> linewidth   = {1.5, 3., 3. 1., 1.};
+
+  // --- Canvasses -------------------------------------------------------------
+
+  Legend::SetPosition(l.get(), 0.15, 0.5, 0.75-3*0.025, 0.75);
+
+  HeatMapPlot square = HeatMapPlot(h2, lSys, pt_str, "#theta_{#pi^{0}#gamma} (rad)", "#it{count}");
+  square.SetMode(Plot::Thesis);
+  square.SetStyle(colors, markers, sizes, linestyle, linewidth);
+  square.SetRanges(0.0, 50.0, 0.009, h1->GetMaximum()*1.4);
+  square.SetCanvasMargins(0.025, .1, 0.03, .1);
+  square.SetCanvasOffsets(1.2, 1.8);
+  square.SetLog(1, 0);
+  square.Draw(outname);
+  return;
+}
