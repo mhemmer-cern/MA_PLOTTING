@@ -221,9 +221,12 @@ SquarePlot OmegaPiZeroCosThetaRatio(TH1D* hRatio, TPaveText* lSys)
 
 void AlphaPlot(TH2D* h2, TLegend* lSys, TString outname)
 {
+  std::unique_ptr<TObjArray> main (new TObjArray);
   h2->SetContour(500);
+  main->Add(h2);
+  main->Add(lSys);
   // --- Canvasses -------------------------------------------------------------
-  HeatMapPlot plot = HeatMapPlot(h2, lSys, "#it{p}_{T} (GeV/#it{c})", "#alpha", "count");
+  HeatMapPlot plot = HeatMapPlot(main.get(), "#it{p}_{T} (GeV/#it{c})", "#alpha", "count");
   plot.SetMode(Plot::Thesis);
   plot.SetPalette(109);
   plot.SetRanges(h2->GetXaxis()->GetBinLowEdge(1), h2->GetXaxis()->GetBinLowEdge(-1), -1, 1, 0, h2->GetMaximum());
@@ -236,9 +239,13 @@ void AlphaPlot(TH2D* h2, TLegend* lSys, TString outname)
 
 void Pi0Plot(TH2D* h2, TLegend* lSys, TString outname)
 {
+  std::unique_ptr<TObjArray> main (new TObjArray);
   h2->SetContour(500);
+  main->Add(h2);
+  main->Add(lSys);
+
   // --- Canvasses -------------------------------------------------------------
-  HeatMapPlot plot = HeatMapPlot(h2, lSys, minv_str, pt_str, "count");
+  HeatMapPlot plot = HeatMapPlot(main.get(), TString(minv_str), TString(pt_str), TString("count"));
   plot.SetMode(Plot::Thesis);
   plot.SetPalette(109);
   plot.SetRanges(h2->GetXaxis()->GetBinLowEdge(1), h2->GetXaxis()->GetBinLowEdge(-1), h2->GetYaxis()->GetBinLowEdge(1), h2->GetYaxis()->GetBinLowEdge(-1), h2->GetMinimum(), h2->GetMaximum());
@@ -248,7 +255,7 @@ void Pi0Plot(TH2D* h2, TLegend* lSys, TString outname)
   return;
 }
 
-void OACPlot(TH1D* h1, TF1* f1, TF1* f2, TPaveText* lSys, TString outname, TString legHead, Double_t lowX, Double_t highX)
+void OACPlot(TH2D* h1, TF1* f1, TF1* f2, TPaveText* lSys, TString outname)
 {
   h1->SetContour(500);
   // --- Create TObjArrays -----------------------------------------------------
@@ -264,26 +271,25 @@ void OACPlot(TH1D* h1, TF1* f1, TF1* f2, TPaveText* lSys, TString outname, TStri
   // --- Legends ---------------------------------------------------------------
 
   main->Add(lSys);
-  std::unique_ptr<Legend> l (new Legend(main.get(), legString.Data(), "lp l l", legHead.Data()) );
+  std::unique_ptr<Legend> l (new Legend(main.get(), legString.Data(), "p l l") );
 
   // --- Marker ----------------------------------------------------------------
   std::vector<Color_t> colors = {1, kOrange+7, kOrange+7, 1, 1};
   std::vector<Style_t> markers = {1, 1, 1, 1, 1};
   std::vector<Size_t>  sizes = {1, 1, 1, 1, 1};
   std::vector<Style_t> linestyle  = {1, 1, 1, 1, 1};
-  std::vector<Size_t> linewidth   = {1.5, 3., 3. 1., 1.};
+  std::vector<Size_t> linewidth   = {1.5, 3., 3., 1., 1.};
 
   // --- Canvasses -------------------------------------------------------------
 
-  Legend::SetPosition(l.get(), 0.15, 0.5, 0.75-3*0.025, 0.75);
+  Legend::SetPosition(l.get(), 0.55, 0.9, 0.9-3*0.035, 0.9);
 
-  HeatMapPlot square = HeatMapPlot(h2, lSys, pt_str, "#theta_{#pi^{0}#gamma} (rad)", "#it{count}");
+  HeatMapPlot square = HeatMapPlot(main.get(), pt_str, "#theta_{#pi^{0}#gamma} (rad)", "#it{count}");
   square.SetMode(Plot::Thesis);
   square.SetStyle(colors, markers, sizes, linestyle, linewidth);
-  square.SetRanges(0.0, 50.0, 0.009, h1->GetMaximum()*1.4);
-  square.SetCanvasMargins(0.025, .1, 0.03, .1);
-  square.SetCanvasOffsets(1.2, 1.8);
-  square.SetLog(1, 0);
+  square.SetRanges(0.0, 50.0, 0.009, 5., h1->GetMinimum(), h1->GetMaximum());
+  square.SetCanvasMargins(0.1, .1, 0.03, .1);
+  square.SetLog(0, 1, 0);
   square.Draw(outname);
   return;
 }
