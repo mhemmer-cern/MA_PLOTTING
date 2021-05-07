@@ -15979,14 +15979,45 @@ void plotting()
   //
   // ---------------------------------------------------------------------------
 
-  std::unique_ptr<TF1> OACFit_low   (new TF1("OACFit_low",  "0.4 * 4.99209 / pow(x + 1.34075, 1.65) + 0.0568024", 0., 50.) );
+  std::unique_ptr<TF1> OACFit_low   (new TF1("OACFit_low",  "0.5 * 4.99209 / pow(x + 1.34075, 1.65) + 0.0568024", 0., 50.) );
   std::unique_ptr<TF1> OACFit_high  (new TF1("OACFit_high", "1.6 * 4.99209 / pow(x + 1.34075, 1.65) + 0.0568024", 0., 50.) );
   OACFit_low->SetTitle("OACFit_low");
   OACFit_high->SetTitle("OACFit_high");
 
+  const int n_PtBins = 24;
+  double x[n_PtBins];
+  double yu[n_PtBins];
+  double yd[n_PtBins];
+  TH1D* dummy_proj = nullptr;
+
+  for (int i_PtBin = 6; i_PtBin <= 29; i_PtBin++)
+  {
+    dummy_proj = (TH1D*) h2_Pi0Gamma_Angle_TrueOmegaPS_EG1->ProjectionY(Form("dummy_proj_%02d", i_PtBin), i_PtBin, i_PtBin+1);
+    x[i_PtBin-6]  = h2_Pi0Gamma_Angle_TrueOmegaPS_EG1->GetXaxis()->GetBinCenter(i_PtBin);
+    yu[i_PtBin-6] = dummy_proj->GetMean() + 2.0 * dummy_proj->GetStdDev();
+    yd[i_PtBin-6] = dummy_proj->GetMean() - 2.0 * dummy_proj->GetStdDev();
+    std::cout << "up = " << yu[i_PtBin-6] << std::endl;
+    std::cout << "down = " << yd[i_PtBin-6] << std::endl;
+  }
+
+  std::unique_ptr<TGraph> gr_up   (new TGraph(n_PtBins, x, yu) );
+  std::unique_ptr<TGraph> gr_down (new TGraph(n_PtBins, x, yd) );
+
+  std::unique_ptr<TF1> OACFit_up    (new TF1("OACFit_up",   "[0]+[1]*(x)^[2]", 3., 50.) );
+  std::unique_ptr<TF1> OACFit_down  (new TF1("OACFit_down", "[0]+[1]*(x)^[2]", 3., 50.) );
+  OACFit_up->SetParameters(1, 1, -1.);
+  OACFit_up->SetParLimits(2, -100., 0.0);
+  OACFit_down->SetParameters(1, 1, -1.);
+  OACFit_down->SetParLimits(2, -100., 0.0);
+  gr_up->Fit(OACFit_up.get(), "M0B");
+  gr_down->Fit(OACFit_down.get(), "M0B");
+
   OACPlot(h2_Pi0Gamma_Angle_DataOmegaPS_EG1, OACFit_low.get(), OACFit_high.get(), legYields_Data_EG1.get(), "Data/EG1/OAC.svg");
+  OACPlot(h2_Pi0Gamma_Angle_DataOmegaPS_EG1, OACFit_up.get(), OACFit_down.get(), legYields_Data_EG1.get(), "Data/EG1/OACNewFit.svg");
 
   OACPlot(h2_Pi0Gamma_Angle_TrueOmegaPS_EG1, OACFit_low.get(), OACFit_high.get(), legYields_Data_EG1.get(), "MC/EG1/TrueOAC.svg");
+
+  OACPlot(h2_Pi0Gamma_Angle_TrueOmegaPS_EG1, OACFit_up.get(), OACFit_down.get(), legYields_Data_EG1.get(), "MC/EG1/TrueOACNewFit.svg");
 
   // ---------------------------------------------------------------------------
   //
