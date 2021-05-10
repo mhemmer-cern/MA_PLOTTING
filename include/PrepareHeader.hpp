@@ -54,7 +54,7 @@ void FitPeak(std::vector<TH1D*> vSignal, std::vector<TH1D*> vBack, std::vector<T
 }
 
 
-void CalcYieldWithEffi(std::vector<TH1D*> vSignal, std::vector<TH1D*> vYield, std::vector<TH1D*> vEffi, std::vector<TF1*> vFunction, Int_t pTBin, Double_t yield_acc, Double_t uncer_acc)
+void CalcYieldWithEffi(std::vector<TH1D*> vSignal, std::vector<TH1D*> vYield, std::vector<TH1D*> vEffi, std::vector<TF1*> vFunction, Int_t pTBin, Double_t yield_acc, Double_t uncer_acc, Double_t sigma)
 {
   Double_t YieldVal = 0.0;
   Double_t YieldUnc = 0.0;
@@ -62,7 +62,7 @@ void CalcYieldWithEffi(std::vector<TH1D*> vSignal, std::vector<TH1D*> vYield, st
   {
     YieldVal = 0.0;
     YieldUnc = 0.0;
-    YieldVal = vSignal.at(vn)->IntegralAndError(vSignal.at(vn)->FindBin(vFunction.at(vn)->GetParameter(1)-2.*vFunction.at(vn)->GetParameter(2)), vSignal.at(vn)->FindBin(vFunction.at(vn)->GetParameter(1)+2.*vFunction.at(vn)->GetParameter(2)), YieldUnc);
+    YieldVal = vSignal.at(vn)->IntegralAndError(vSignal.at(vn)->FindBin(vFunction.at(vn)->GetParameter(1) - sigma *vFunction.at(vn)->GetParameter(2)), vSignal.at(vn)->FindBin(vFunction.at(vn)->GetParameter(1) + sigma *vFunction.at(vn)->GetParameter(2)), YieldUnc);
 
     if(YieldVal > 0.)
     {
@@ -80,8 +80,7 @@ void CalcYieldWithEffi(std::vector<TH1D*> vSignal, std::vector<TH1D*> vYield, st
   return;
 }
 
-
-void CalcYield(std::vector<TH1D*> vSignal, std::vector<TH1D*> vYield, std::vector<TF1*> vFunction, Int_t pTBin)
+void CalcYield(std::vector<TH1D*> vSignal, std::vector<TH1D*> vYield, std::vector<TF1*> vFunction, Int_t pTBin, Double_t sigma)
 {
   Double_t YieldVal = 0.0;
   Double_t YieldUnc = 0.0;
@@ -89,7 +88,7 @@ void CalcYield(std::vector<TH1D*> vSignal, std::vector<TH1D*> vYield, std::vecto
   {
     YieldVal = 0.0;
     YieldUnc = 0.0;
-    YieldVal = vSignal.at(vn)->IntegralAndError(vSignal.at(vn)->FindBin(vFunction.at(vn)->GetParameter(1)-2.*vFunction.at(vn)->GetParameter(2)), vSignal.at(vn)->FindBin(vFunction.at(vn)->GetParameter(1)+2.*vFunction.at(vn)->GetParameter(2)), YieldUnc);
+    YieldVal = vSignal.at(vn)->IntegralAndError(vSignal.at(vn)->FindBin(vFunction.at(vn)->GetParameter(1) - sigma * vFunction.at(vn)->GetParameter(2)), vSignal.at(vn)->FindBin(vFunction.at(vn)->GetParameter(1) + sigma * vFunction.at(vn)->GetParameter(2)), YieldUnc);
 
     if(YieldVal > 0.)
     {

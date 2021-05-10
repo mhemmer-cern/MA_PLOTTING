@@ -6134,40 +6134,40 @@ void plotting()
     vSignal.push_back(h1_Peak_DataOmegaTGPSPS_LowFitVari_Pol2_EG1);
     vSignal.push_back(h1_Peak_DataOmegaTGPSPS_HighFitVari_Pol2_EG1);
 
-    vFunctions.push_back(f1Gaus_DataOmegaRotPS_Pol1_EG1.get());
-    vFunctions.push_back(f1Gaus_DataOmegaTGPSPS_Pol1_EG1.get());
-    vFunctions.push_back(f1Gaus_DataOmegaTGPSPlusPS_Pol1_EG1.get());
-    vFunctions.push_back(f1Gaus_DataPi0RotPS_Pol1_EG1.get());
-    vFunctions.push_back(f1Gaus_DataPi0TGPSPS_Pol1_EG1.get());
-    vFunctions.push_back(f1Gaus_DataOmegaRotWOPS_Pol1_EG1.get());
-    vFunctions.push_back(f1Gaus_DataOmegaTGPSWOPS_Pol1_EG1.get());
-    vFunctions.push_back(f1Gaus_DataOmegaTGPSPlusWOPS_Pol1_EG1.get());
-    vFunctions.push_back(f1Gaus_DataOmegaRotPSNCell_Pol1_EG1.get());
-    vFunctions.push_back(f1Gaus_DataOmegaTGPSPSNCell_Pol1_EG1.get());
-    vFunctions.push_back(f1Gaus_DataOmegaTGPSPlusPSNCell_Pol1_EG1.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCPS_Pol1_EG1.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCPS_Pol1_EG1.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCPS_Pol1_EG1.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCPS_Pol1_EG1.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCPS_Pol1_EG1.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCWOPS_Pol1_EG1.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCWOPS_Pol1_EG1.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCWOPS_Pol1_EG1.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCPSNCell_Pol1_EG1.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCPSNCell_Pol1_EG1.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCPSNCell_Pol1_EG1.get());
     vFunctions.push_back(f1Gaus_DataOmegaPS1Sig_Pol1_EG1.get());
     vFunctions.push_back(f1Gaus_DataOmegaPS2Sig_Pol1_EG1.get());
     vFunctions.push_back(f1Gaus_DataOmegaPS3Sig_Pol1_EG1.get());
     vFunctions.push_back(f1Gaus_DataOmegaPS4Sig_Pol1_EG1.get());
-    vFunctions.push_back(f1Gaus_DataOmegaRotPS_Pol2_EG1.get());
-    vFunctions.push_back(f1Gaus_DataOmegaTGPSPS_Pol2_EG1.get());
-    vFunctions.push_back(f1Gaus_DataOmegaTGPSPlusPS_Pol2_EG1.get());
-    vFunctions.push_back(f1Gaus_DataPi0RotPS_Pol2_EG1.get());
-    vFunctions.push_back(f1Gaus_DataPi0TGPSPS_Pol2_EG1.get());
-    vFunctions.push_back(f1Gaus_DataOmegaRotWOPS_Pol2_EG1.get());
-    vFunctions.push_back(f1Gaus_DataOmegaTGPSWOPS_Pol2_EG1.get());
-    vFunctions.push_back(f1Gaus_DataOmegaTGPSPlusWOPS_Pol2_EG1.get());
-    vFunctions.push_back(f1Gaus_DataOmegaRotPSNCell_Pol2_EG1.get());
-    vFunctions.push_back(f1Gaus_DataOmegaTGPSPSNCell_Pol2_EG1.get());
-    vFunctions.push_back(f1Gaus_DataOmegaTGPSPlusPSNCell_Pol2_EG1.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCPS_Pol1_EG1.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCPS_Pol1_EG1.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCPS_Pol1_EG1.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCPS_Pol1_EG1.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCPS_Pol1_EG1.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCWOPS_Pol1_EG1.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCWOPS_Pol1_EG1.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCWOPS_Pol1_EG1.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCPSNCell_Pol1_EG1.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCPSNCell_Pol1_EG1.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCPSNCell_Pol1_EG1.get());
     vFunctions.push_back(f1Gaus_DataOmegaPS1Sig_Pol2_EG1.get());
     vFunctions.push_back(f1Gaus_DataOmegaPS2Sig_Pol2_EG1.get());
     vFunctions.push_back(f1Gaus_DataOmegaPS3Sig_Pol2_EG1.get());
     vFunctions.push_back(f1Gaus_DataOmegaPS4Sig_Pol2_EG1.get());
 
-    vFunctions.push_back(f1Gaus_DataOmegaTGPSPS_Pol3_EG1.get());
-    vFunctions.push_back(f1Gaus_DataOmegaTGPSPS_LowFitVari_Pol2_EG1.get());
-    vFunctions.push_back(f1Gaus_DataOmegaTGPSPS_HighFitVari_Pol2_EG1.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCPS_Pol1_EG1.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCPS_Pol1_EG1.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCPS_Pol1_EG1.get());
 
     vHistos.push_back(h1_RawYield_DataOmegaRotPS_Pol1_EG1.get());
     vHistos.push_back(h1_RawYield_DataOmegaTGPSPS_Pol1_EG1.get());
@@ -6204,7 +6204,7 @@ void plotting()
     vHistos.push_back(h1_RawYield_DataOmegaTGPSPS_LowFitVari_Pol2_EG1.get());
     vHistos.push_back(h1_RawYield_DataOmegaTGPSPS_HighFitVari_Pol2_EG1.get());
 
-    CalcYield(vSignal, vHistos, vFunctions, pTBin_EG1);
+    CalcYield(vSignal, vHistos, vFunctions, pTBin_EG1, 2.);
     vSignal.clear();
     vSignal.resize(0);
     vHistos.clear();
@@ -7632,41 +7632,41 @@ void plotting()
     vFunctions.push_back(f1Gaus_TrueOmega_MCWOPS_Pol1_EG1.get());
     vFunctions.push_back(f1Gaus_TrueOmega_MCPSNCell_Pol1_EG1.get());
 
-    vFunctions.push_back(f1Gaus_MCOmegaRotPS_Pol1_EG1.get());
-    vFunctions.push_back(f1Gaus_MCOmegaTGPSPS_Pol1_EG1.get());
-    vFunctions.push_back(f1Gaus_MCOmegaTGPSPlusPS_Pol1_EG1.get());
-    vFunctions.push_back(f1Gaus_MCPi0RotPS_Pol1_EG1.get());
-    vFunctions.push_back(f1Gaus_MCPi0TGPSPS_Pol1_EG1.get());
-    vFunctions.push_back(f1Gaus_MCOmegaRotWOPS_Pol1_EG1.get());
-    vFunctions.push_back(f1Gaus_MCOmegaTGPSWOPS_Pol1_EG1.get());
-    vFunctions.push_back(f1Gaus_MCOmegaTGPSPlusWOPS_Pol1_EG1.get());
-    vFunctions.push_back(f1Gaus_MCOmegaRotPSNCell_Pol1_EG1.get());
-    vFunctions.push_back(f1Gaus_MCOmegaTGPSPSNCell_Pol1_EG1.get());
-    vFunctions.push_back(f1Gaus_MCOmegaTGPSPlusPSNCell_Pol1_EG1.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCPS_Pol1_EG1.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCPS_Pol1_EG1.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCPS_Pol1_EG1.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCPS_Pol1_EG1.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCPS_Pol1_EG1.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCWOPS_Pol1_EG1.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCWOPS_Pol1_EG1.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCWOPS_Pol1_EG1.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCPSNCell_Pol1_EG1.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCPSNCell_Pol1_EG1.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCPSNCell_Pol1_EG1.get());
     vFunctions.push_back(f1Gaus_MCOmegaPS1Sig_Pol1_EG1.get());
     vFunctions.push_back(f1Gaus_MCOmegaPS2Sig_Pol1_EG1.get());
     vFunctions.push_back(f1Gaus_MCOmegaPS3Sig_Pol1_EG1.get());
     vFunctions.push_back(f1Gaus_MCOmegaPS4Sig_Pol1_EG1.get());
 
-    vFunctions.push_back(f1Gaus_MCOmegaRotPS_Pol2_EG1.get());
-    vFunctions.push_back(f1Gaus_MCOmegaTGPSPS_Pol2_EG1.get());
-    vFunctions.push_back(f1Gaus_MCOmegaTGPSPlusPS_Pol2_EG1.get());
-    vFunctions.push_back(f1Gaus_MCPi0RotPS_Pol2_EG1.get());
-    vFunctions.push_back(f1Gaus_MCPi0TGPSPS_Pol2_EG1.get());
-    vFunctions.push_back(f1Gaus_MCOmegaRotWOPS_Pol2_EG1.get());
-    vFunctions.push_back(f1Gaus_MCOmegaTGPSWOPS_Pol2_EG1.get());
-    vFunctions.push_back(f1Gaus_MCOmegaTGPSPlusWOPS_Pol2_EG1.get());
-    vFunctions.push_back(f1Gaus_MCOmegaRotPSNCell_Pol2_EG1.get());
-    vFunctions.push_back(f1Gaus_MCOmegaTGPSPSNCell_Pol2_EG1.get());
-    vFunctions.push_back(f1Gaus_MCOmegaTGPSPlusPSNCell_Pol2_EG1.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCPS_Pol1_EG1.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCPS_Pol1_EG1.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCPS_Pol1_EG1.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCPS_Pol1_EG1.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCPS_Pol1_EG1.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCWOPS_Pol1_EG1.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCWOPS_Pol1_EG1.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCWOPS_Pol1_EG1.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCPSNCell_Pol1_EG1.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCPSNCell_Pol1_EG1.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCPSNCell_Pol1_EG1.get());
     vFunctions.push_back(f1Gaus_MCOmegaPS1Sig_Pol2_EG1.get());
     vFunctions.push_back(f1Gaus_MCOmegaPS2Sig_Pol2_EG1.get());
     vFunctions.push_back(f1Gaus_MCOmegaPS3Sig_Pol2_EG1.get());
     vFunctions.push_back(f1Gaus_MCOmegaPS4Sig_Pol2_EG1.get());
 
-    vFunctions.push_back(f1Gaus_MCOmegaTGPSPS_Pol3_EG1.get());
-    vFunctions.push_back(f1Gaus_MCOmegaTGPSPS_LowFitVari_Pol2_EG1.get());
-    vFunctions.push_back(f1Gaus_MCOmegaTGPSPS_HighFitVari_Pol2_EG1.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCPS_Pol1_EG1.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCPS_Pol1_EG1.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCPS_Pol1_EG1.get());
 
     vHistos.push_back(h1_RawYieldTrueOmega_MCPS_EG1.get());
     vHistos.push_back(h1_RawYieldTrueOmega_MCWOPS_EG1.get());
@@ -7748,7 +7748,7 @@ void plotting()
     vMean.push_back(h1_Effi_DataOmegaTGPSPS_LowFitVari_Pol2_EG1.get());
     vMean.push_back(h1_Effi_DataOmegaTGPSPS_HighFitVari_Pol2_EG1.get());
 
-    CalcYieldWithEffi(vSignal, vHistos, vMean, vFunctions, pTBin_EG1, yield_acc, uncer_acc);
+    CalcYieldWithEffi(vSignal, vHistos, vMean, vFunctions, pTBin_EG1, yield_acc, uncer_acc, 2.);
     vSignal.clear();
     vSignal.resize(0);
     vHistos.clear();
@@ -8829,12 +8829,12 @@ void plotting()
     vSignal.push_back(h1_Peak_MCOmegaTGPSPlusPS_Pol2_MB1);
 
     vFunctions.push_back(f1Gaus_TrueOmega_MCPS_Pol1_MB1.get());
-    vFunctions.push_back(f1Gaus_MCOmegaRotPS_Pol1_MB1.get());
-    vFunctions.push_back(f1Gaus_MCOmegaTGPSPS_Pol1_MB1.get());
-    vFunctions.push_back(f1Gaus_MCOmegaTGPSPlusPS_Pol1_MB1.get());
-    vFunctions.push_back(f1Gaus_MCOmegaRotPS_Pol2_MB1.get());
-    vFunctions.push_back(f1Gaus_MCOmegaTGPSPS_Pol2_MB1.get());
-    vFunctions.push_back(f1Gaus_MCOmegaTGPSPlusPS_Pol2_MB1.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCPS_Pol1_MB1.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCPS_Pol1_MB1.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCPS_Pol1_MB1.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCPS_Pol1_MB1.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCPS_Pol1_MB1.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCPS_Pol1_MB1.get());
 
     vHistos.push_back(h1_RawYieldTrueOmega_MCPS_MB1.get());
     vHistos.push_back(h1_RawYield_MCOmegaRotPS_Pol1_MB1.get());
@@ -8852,7 +8852,7 @@ void plotting()
     vMean.push_back(h1_Effi_DataOmegaTGPSPS_Pol2_MB2.get());
     vMean.push_back(h1_Effi_DataOmegaTGPSPlusPS_Pol2_MB2.get());
 
-    CalcYieldWithEffi(vSignal, vHistos, vMean, vFunctions, pTBin_MB1, yield_acc, uncer_acc);
+    CalcYieldWithEffi(vSignal, vHistos, vMean, vFunctions, pTBin_MB1, yield_acc, uncer_acc, 2.);
     vSignal.clear();
     vSignal.resize(0);
     vHistos.clear();
@@ -10193,40 +10193,40 @@ void plotting()
     vSignal.push_back(h1_Peak_DataOmegaTGPSPS_LowFitVari_Pol2_EG2);
     vSignal.push_back(h1_Peak_DataOmegaTGPSPS_HighFitVari_Pol2_EG2);
 
-    vFunctions.push_back(f1Gaus_DataOmegaRotPS_Pol1_EG2.get());
-    vFunctions.push_back(f1Gaus_DataOmegaTGPSPS_Pol1_EG2.get());
-    vFunctions.push_back(f1Gaus_DataOmegaTGPSPlusPS_Pol1_EG2.get());
-    vFunctions.push_back(f1Gaus_DataPi0RotPS_Pol1_EG2.get());
-    vFunctions.push_back(f1Gaus_DataPi0TGPSPS_Pol1_EG2.get());
-    vFunctions.push_back(f1Gaus_DataOmegaRotWOPS_Pol1_EG2.get());
-    vFunctions.push_back(f1Gaus_DataOmegaTGPSWOPS_Pol1_EG2.get());
-    vFunctions.push_back(f1Gaus_DataOmegaTGPSPlusWOPS_Pol1_EG2.get());
-    vFunctions.push_back(f1Gaus_DataOmegaRotPSNCell_Pol1_EG2.get());
-    vFunctions.push_back(f1Gaus_DataOmegaTGPSPSNCell_Pol1_EG2.get());
-    vFunctions.push_back(f1Gaus_DataOmegaTGPSPlusPSNCell_Pol1_EG2.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCPS_Pol1_EG2.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCPS_Pol1_EG2.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCPS_Pol1_EG2.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCPS_Pol1_EG2.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCPS_Pol1_EG2.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCWOPS_Pol1_EG2.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCWOPS_Pol1_EG2.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCWOPS_Pol1_EG2.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCPSNCell_Pol1_EG2.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCPSNCell_Pol1_EG2.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCPSNCell_Pol1_EG2.get());
     vFunctions.push_back(f1Gaus_DataOmegaPS1Sig_Pol1_EG2.get());
     vFunctions.push_back(f1Gaus_DataOmegaPS2Sig_Pol1_EG2.get());
     vFunctions.push_back(f1Gaus_DataOmegaPS3Sig_Pol1_EG2.get());
     vFunctions.push_back(f1Gaus_DataOmegaPS4Sig_Pol1_EG2.get());
-    vFunctions.push_back(f1Gaus_DataOmegaRotPS_Pol2_EG2.get());
-    vFunctions.push_back(f1Gaus_DataOmegaTGPSPS_Pol2_EG2.get());
-    vFunctions.push_back(f1Gaus_DataOmegaTGPSPlusPS_Pol2_EG2.get());
-    vFunctions.push_back(f1Gaus_DataPi0RotPS_Pol2_EG2.get());
-    vFunctions.push_back(f1Gaus_DataPi0TGPSPS_Pol2_EG2.get());
-    vFunctions.push_back(f1Gaus_DataOmegaRotWOPS_Pol2_EG2.get());
-    vFunctions.push_back(f1Gaus_DataOmegaTGPSWOPS_Pol2_EG2.get());
-    vFunctions.push_back(f1Gaus_DataOmegaTGPSPlusWOPS_Pol2_EG2.get());
-    vFunctions.push_back(f1Gaus_DataOmegaRotPSNCell_Pol2_EG2.get());
-    vFunctions.push_back(f1Gaus_DataOmegaTGPSPSNCell_Pol2_EG2.get());
-    vFunctions.push_back(f1Gaus_DataOmegaTGPSPlusPSNCell_Pol2_EG2.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCPS_Pol1_EG2.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCPS_Pol1_EG2.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCPS_Pol1_EG2.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCPS_Pol1_EG2.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCPS_Pol1_EG2.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCWOPS_Pol1_EG2.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCWOPS_Pol1_EG2.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCWOPS_Pol1_EG2.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCPSNCell_Pol1_EG2.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCPSNCell_Pol1_EG2.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCPSNCell_Pol1_EG2.get());
     vFunctions.push_back(f1Gaus_DataOmegaPS1Sig_Pol2_EG2.get());
     vFunctions.push_back(f1Gaus_DataOmegaPS2Sig_Pol2_EG2.get());
     vFunctions.push_back(f1Gaus_DataOmegaPS3Sig_Pol2_EG2.get());
     vFunctions.push_back(f1Gaus_DataOmegaPS4Sig_Pol2_EG2.get());
 
-    vFunctions.push_back(f1Gaus_DataOmegaTGPSPS_Pol3_EG2.get());
-    vFunctions.push_back(f1Gaus_DataOmegaTGPSPS_LowFitVari_Pol2_EG2.get());
-    vFunctions.push_back(f1Gaus_DataOmegaTGPSPS_HighFitVari_Pol2_EG2.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCPS_Pol1_EG2.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCPS_Pol1_EG2.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCPS_Pol1_EG2.get());
 
     vHistos.push_back(h1_RawYield_DataOmegaRotPS_Pol1_EG2.get());
     vHistos.push_back(h1_RawYield_DataOmegaTGPSPS_Pol1_EG2.get());
@@ -10263,7 +10263,7 @@ void plotting()
     vHistos.push_back(h1_RawYield_DataOmegaTGPSPS_LowFitVari_Pol2_EG2.get());
     vHistos.push_back(h1_RawYield_DataOmegaTGPSPS_HighFitVari_Pol2_EG2.get());
 
-    CalcYield(vSignal, vHistos, vFunctions, pTBin_EG2);
+    CalcYield(vSignal, vHistos, vFunctions, pTBin_EG2, 2.);
 
     vSignal.clear();
     vSignal.resize(0);
@@ -11660,41 +11660,41 @@ void plotting()
     vFunctions.push_back(f1Gaus_TrueOmega_MCWOPS_Pol1_EG2.get());
     vFunctions.push_back(f1Gaus_TrueOmega_MCPSNCell_Pol1_EG2.get());
 
-    vFunctions.push_back(f1Gaus_MCOmegaRotPS_Pol1_EG2.get());
-    vFunctions.push_back(f1Gaus_MCOmegaTGPSPS_Pol1_EG2.get());
-    vFunctions.push_back(f1Gaus_MCOmegaTGPSPlusPS_Pol1_EG2.get());
-    vFunctions.push_back(f1Gaus_MCPi0RotPS_Pol1_EG2.get());
-    vFunctions.push_back(f1Gaus_MCPi0TGPSPS_Pol1_EG2.get());
-    vFunctions.push_back(f1Gaus_MCOmegaRotWOPS_Pol1_EG2.get());
-    vFunctions.push_back(f1Gaus_MCOmegaTGPSWOPS_Pol1_EG2.get());
-    vFunctions.push_back(f1Gaus_MCOmegaTGPSPlusWOPS_Pol1_EG2.get());
-    vFunctions.push_back(f1Gaus_MCOmegaRotPSNCell_Pol1_EG2.get());
-    vFunctions.push_back(f1Gaus_MCOmegaTGPSPSNCell_Pol1_EG2.get());
-    vFunctions.push_back(f1Gaus_MCOmegaTGPSPlusPSNCell_Pol1_EG2.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCPS_Pol1_EG2.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCPS_Pol1_EG2.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCPS_Pol1_EG2.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCPS_Pol1_EG2.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCPS_Pol1_EG2.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCWOPS_Pol1_EG2.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCWOPS_Pol1_EG2.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCWOPS_Pol1_EG2.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCPSNCell_Pol1_EG2.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCPSNCell_Pol1_EG2.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCPSNCell_Pol1_EG2.get());
     vFunctions.push_back(f1Gaus_MCOmegaPS1Sig_Pol1_EG2.get());
     vFunctions.push_back(f1Gaus_MCOmegaPS2Sig_Pol1_EG2.get());
     vFunctions.push_back(f1Gaus_MCOmegaPS3Sig_Pol1_EG2.get());
     vFunctions.push_back(f1Gaus_MCOmegaPS4Sig_Pol1_EG2.get());
 
-    vFunctions.push_back(f1Gaus_MCOmegaRotPS_Pol2_EG2.get());
-    vFunctions.push_back(f1Gaus_MCOmegaTGPSPS_Pol2_EG2.get());
-    vFunctions.push_back(f1Gaus_MCOmegaTGPSPlusPS_Pol2_EG2.get());
-    vFunctions.push_back(f1Gaus_MCPi0RotPS_Pol2_EG2.get());
-    vFunctions.push_back(f1Gaus_MCPi0TGPSPS_Pol2_EG2.get());
-    vFunctions.push_back(f1Gaus_MCOmegaRotWOPS_Pol2_EG2.get());
-    vFunctions.push_back(f1Gaus_MCOmegaTGPSWOPS_Pol2_EG2.get());
-    vFunctions.push_back(f1Gaus_MCOmegaTGPSPlusWOPS_Pol2_EG2.get());
-    vFunctions.push_back(f1Gaus_MCOmegaRotPSNCell_Pol2_EG2.get());
-    vFunctions.push_back(f1Gaus_MCOmegaTGPSPSNCell_Pol2_EG2.get());
-    vFunctions.push_back(f1Gaus_MCOmegaTGPSPlusPSNCell_Pol2_EG2.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCPS_Pol1_EG2.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCPS_Pol1_EG2.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCPS_Pol1_EG2.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCPS_Pol1_EG2.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCPS_Pol1_EG2.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCWOPS_Pol1_EG2.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCWOPS_Pol1_EG2.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCWOPS_Pol1_EG2.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCPSNCell_Pol1_EG2.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCPSNCell_Pol1_EG2.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCPSNCell_Pol1_EG2.get());
     vFunctions.push_back(f1Gaus_MCOmegaPS1Sig_Pol2_EG2.get());
     vFunctions.push_back(f1Gaus_MCOmegaPS2Sig_Pol2_EG2.get());
     vFunctions.push_back(f1Gaus_MCOmegaPS3Sig_Pol2_EG2.get());
     vFunctions.push_back(f1Gaus_MCOmegaPS4Sig_Pol2_EG2.get());
 
-    vFunctions.push_back(f1Gaus_MCOmegaTGPSPS_Pol3_EG2.get());
-    vFunctions.push_back(f1Gaus_MCOmegaTGPSPS_LowFitVari_Pol2_EG2.get());
-    vFunctions.push_back(f1Gaus_MCOmegaTGPSPS_HighFitVari_Pol2_EG2.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCPS_Pol1_EG2.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCPS_Pol1_EG2.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCPS_Pol1_EG2.get());
 
     vHistos.push_back(h1_RawYieldTrueOmega_MCPS_EG2.get());
     vHistos.push_back(h1_RawYieldTrueOmega_MCWOPS_EG2.get());
@@ -11776,7 +11776,7 @@ void plotting()
     vMean.push_back(h1_Effi_DataOmegaTGPSPS_LowFitVari_Pol2_EG2.get());
     vMean.push_back(h1_Effi_DataOmegaTGPSPS_HighFitVari_Pol2_EG2.get());
 
-    CalcYieldWithEffi(vSignal, vHistos, vMean, vFunctions, pTBin_EG2, yield_acc, uncer_acc);
+    CalcYieldWithEffi(vSignal, vHistos, vMean, vFunctions, pTBin_EG2, yield_acc, uncer_acc, 2.);
     vSignal.clear();
     vSignal.resize(0);
     vHistos.clear();
@@ -12781,12 +12781,12 @@ void plotting()
     vSignal.push_back(h1_Peak_MCOmegaTGPSPlusPS_Pol2_MB2);
 
     vFunctions.push_back(f1Gaus_TrueOmega_MCPS_Pol1_MB2.get());
-    vFunctions.push_back(f1Gaus_MCOmegaRotPS_Pol1_MB2.get());
-    vFunctions.push_back(f1Gaus_MCOmegaTGPSPS_Pol1_MB2.get());
-    vFunctions.push_back(f1Gaus_MCOmegaTGPSPlusPS_Pol1_MB2.get());
-    vFunctions.push_back(f1Gaus_MCOmegaRotPS_Pol2_MB2.get());
-    vFunctions.push_back(f1Gaus_MCOmegaTGPSPS_Pol2_MB2.get());
-    vFunctions.push_back(f1Gaus_MCOmegaTGPSPlusPS_Pol2_MB2.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCPS_Pol1_MB2.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCPS_Pol1_MB2.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCPS_Pol1_MB2.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCPS_Pol1_MB2.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCPS_Pol1_MB2.get());
+    vFunctions.push_back(f1Gaus_TrueOmega_MCPS_Pol1_MB2.get());
 
     vHistos.push_back(h1_RawYieldTrueOmega_MCPS_MB2.get());
     vHistos.push_back(h1_RawYield_MCOmegaRotPS_Pol1_MB2.get());
@@ -12804,7 +12804,7 @@ void plotting()
     vMean.push_back(h1_Effi_DataOmegaTGPSPS_Pol2_MB2.get());
     vMean.push_back(h1_Effi_DataOmegaTGPSPlusPS_Pol2_MB2.get());
 
-    CalcYieldWithEffi(vSignal, vHistos, vMean, vFunctions, pTBin_MB2, yield_acc, uncer_acc);
+    CalcYieldWithEffi(vSignal, vHistos, vMean, vFunctions, pTBin_MB2, yield_acc, uncer_acc, 2.);
     vSignal.clear();
     vSignal.resize(0);
     vHistos.clear();
@@ -15996,8 +15996,6 @@ void plotting()
     x[i_PtBin-6]  = h2_Pi0Gamma_Angle_TrueOmegaPS_EG1->GetXaxis()->GetBinCenter(i_PtBin);
     yu[i_PtBin-6] = dummy_proj->GetMean() + 2.0 * dummy_proj->GetStdDev();
     yd[i_PtBin-6] = dummy_proj->GetMean() - 2.0 * dummy_proj->GetStdDev();
-    std::cout << "up = " << yu[i_PtBin-6] << std::endl;
-    std::cout << "down = " << yd[i_PtBin-6] << std::endl;
   }
 
   std::unique_ptr<TGraph> gr_up   (new TGraph(n_PtBins, x, yu) );
