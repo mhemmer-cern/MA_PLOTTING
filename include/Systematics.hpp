@@ -161,11 +161,11 @@ void PlotYieldRelSys(std::vector<TH1D*> v, TPaveText* lSys, TString outname,
   std::unique_ptr<Legend> l (new Legend(main.get(), legString.Data(), legOpt.Data(), legHead.Data()) );
 
   // --- Marker ----------------------------------------------------------------
-  std::vector<Color_t> colors = {kOrange+9, kViolet+9, kTeal+9, 1, 1};
-  std::vector<Style_t> markers = {kOpenCircle, kOpenCircle, kOpenCircle, 1, 1};
-  std::vector<Size_t>  sizes = {3., 3., 3., 1, 1};
-  std::vector<Style_t> linestyle  = {1, 2, 3, 1, 1};
-  std::vector<Size_t> linewidth   = {3., 3., 3., 1, 1};
+  std::vector<Color_t> colors = {kOrange+9, kViolet+9, kTeal+9, kPink+9, 1, 1};
+  std::vector<Style_t> markers = {kOpenCircle, kOpenCircle, kOpenCircle, kOpenCircle, 1, 1};
+  std::vector<Size_t>  sizes = {3., 3., 3., 3., 1, 1};
+  std::vector<Style_t> linestyle  = {1, 2, 3, 4, 1, 1};
+  std::vector<Size_t> linewidth   = {3., 3., 3., 3., 1, 1};
   // --- Canvasses -------------------------------------------------------------
   Legend::SetPosition(l.get(), 0.55, 0.9, 0.875-((v.size()+1)*0.03), 0.875);
 

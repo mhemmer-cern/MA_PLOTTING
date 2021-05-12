@@ -120,7 +120,7 @@ void Efficiency(std::vector<TH1D*> v, TPaveText* lSys, TString outname, TString 
   SquarePlot square = SquarePlot(main.get(), pt_str, "efficiency");
   square.SetMode(Plot::Thesis);
   square.SetStyle(colors, markers, sizes);
-  square.SetRanges(lowX, highX, v.at(0)->GetMinimum(), v.at(0)->GetMaximum());
+  square.SetRanges(lowX, highX, 0.0, v.at(0)->GetMaximum());
   // square.SetLog();
   square.SetCanvasMargins(0.025, .1, 0.03, .1);
   square.Draw(outname);
