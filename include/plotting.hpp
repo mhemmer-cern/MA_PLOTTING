@@ -15270,7 +15270,13 @@ void plotting()
   std::unique_ptr<TH1D> h1_RawYield_DataOmegaTGPSPS_3Sigma_Pol2_EG1_Copy(new TH1D("h1_RawYield_DataOmegaTGPSPS_3Sigma_Pol2_EG1_Copy", "", nBinsPt_EG1-1, &arrPtBinning_EG1[0]));
   CopyInRange(h1_RawYield_DataOmegaTGPSPS_3Sigma_Pol2_EG1.get(), h1_RawYield_DataOmegaTGPSPS_3Sigma_Pol2_EG1_Copy.get(), 12., 40.);
 
+
+  TH1D* h1_AbsSystematic_PeakExtraction_EG1 = (TH1D*) h1_CorrYield_DataOmegaTGPSPS_Pol2_EG1_Copy->Clone("h1_AbsSystematic_PeakExtraction_EG1");
+  TH1D* h1_RelSystematic_PeakExtraction_EG1 = (TH1D*) h1_CorrYield_DataOmegaTGPSPS_Pol2_EG1_Copy->Clone("h1_RelSystematic_PeakExtraction_EG1");
   TH1D* h1_Systematic_PeakExtraction_EG1 = (TH1D*) h1_CorrYield_DataOmegaTGPSPS_Pol2_EG1_Copy->Clone("h1_Systematic_PeakExtraction_EG1");
+  h1_AbsSystematic_PeakExtraction_EG1->SetTitle("peak extraction");
+  h1_RelSystematic_PeakExtraction_EG1->SetTitle("peak extraction");
+  h1_Systematic_PeakExtraction_EG1->SetTitle("peak extraction");
 
   TH1D* h1_AbsSystematic_PolVari_EG1 = (TH1D*) h1_CorrYield_DataOmegaTGPSPS_Pol2_EG1_Copy->Clone("h1_AbsSystematic_PolVari_EG1");
   TH1D* h1_RelSystematic_PolVari_EG1 = (TH1D*) h1_CorrYield_DataOmegaTGPSPS_Pol2_EG1_Copy->Clone("h1_RelSystematic_PolVari_EG1");
@@ -15300,6 +15306,8 @@ void plotting()
   h1_RelSystematic_CountRangeVari_EG1->SetTitle("signal counting range");
   h1_Systematic_CountRangeVari_EG1->SetTitle("h1_Systematic_CountRangeVari_EG1");
 
+
+  h1_CorrYield_DataOmegaTGPSPS_Pol1_EG1_Copy->SetBinContent(h1_CorrYield_DataOmegaTGPSPS_Pol1_EG1_Copy->FindBin(39.0), h1_CorrYield_DataOmegaTGPSPS_Pol2_EG1_Copy->GetBinContent(h1_CorrYield_DataOmegaTGPSPS_Pol2_EG1_Copy->FindBin(39.0)));
   vHistos.push_back(h1_CorrYield_DataOmegaTGPSPS_Pol2_EG1_Copy.get());
   vHistos.push_back(h1_CorrYield_DataOmegaTGPSPS_Pol3_EG1_Copy.get());
   vHistos.push_back(h1_CorrYield_DataOmegaTGPSPS_Pol1_EG1_Copy.get());
@@ -15346,13 +15354,16 @@ void plotting()
   vHistos.push_back(h1_Systematic_MethodVari_EG1);
   vHistos.push_back(h1_Systematic_FitRangeVari_EG1);
   vHistos.push_back(h1_Systematic_CountRangeVari_EG1);
+  vHistos.push_back(h1_AbsSystematic_PeakExtraction_EG1);
+  vHistos.push_back(h1_RelSystematic_PeakExtraction_EG1);
   vHistos.push_back(h1_Systematic_PeakExtraction_EG1);
   SysCalc(vHistos);
   vHistos.clear();
   vHistos.resize(0);
 
-  h1_RelSystematic_PolVari_EG1->SetMaximum(140.);
-  h1_RelSystematic_PolVari_EG1->SetMinimum(0.);
+  h1_RelSystematic_PeakExtraction_EG1->SetMaximum(140.);
+  h1_RelSystematic_PeakExtraction_EG1->SetMinimum(0.);
+  vHistos.push_back(h1_RelSystematic_PeakExtraction_EG1);
   vHistos.push_back(h1_RelSystematic_PolVari_EG1);
   vHistos.push_back(h1_RelSystematic_MethodVari_EG1);
   vHistos.push_back(h1_RelSystematic_FitRangeVari_EG1);
@@ -15403,7 +15414,12 @@ void plotting()
   std::unique_ptr<TH1D> h1_RawYield_DataOmegaTGPSPS_3Sigma_Pol2_EG2_Copy(new TH1D("h1_RawYield_DataOmegaTGPSPS_3Sigma_Pol2_EG2_Copy", "", 6, &arrPtBinning_EG2[0]));
   CopyInRange(h1_RawYield_DataOmegaTGPSPS_3Sigma_Pol2_EG2.get(), h1_RawYield_DataOmegaTGPSPS_3Sigma_Pol2_EG2_Copy.get(), 6., 18.);
 
+  TH1D* h1_AbsSystematic_PeakExtraction_EG2 = (TH1D*) h1_CorrYield_DataOmegaTGPSPS_Pol2_EG2_Copy->Clone("h1_AbsSystematic_PeakExtraction_EG2");
+  TH1D* h1_RelSystematic_PeakExtraction_EG2 = (TH1D*) h1_CorrYield_DataOmegaTGPSPS_Pol2_EG2_Copy->Clone("h1_RelSystematic_PeakExtraction_EG2");
   TH1D* h1_Systematic_PeakExtraction_EG2 = (TH1D*) h1_CorrYield_DataOmegaTGPSPS_Pol2_EG2_Copy->Clone("h1_Systematic_PeakExtraction_EG2");
+  h1_AbsSystematic_PeakExtraction_EG2->SetTitle("peak extraction");
+  h1_RelSystematic_PeakExtraction_EG2->SetTitle("peak extraction");
+  h1_Systematic_PeakExtraction_EG2->SetTitle("peak extraction");
 
   TH1D* h1_AbsSystematic_PolVari_EG2 = (TH1D*) h1_CorrYield_DataOmegaTGPSPS_Pol2_EG2_Copy->Clone("h1_AbsSystematic_PolVari_EG2");
   TH1D* h1_RelSystematic_PolVari_EG2 = (TH1D*) h1_CorrYield_DataOmegaTGPSPS_Pol2_EG2_Copy->Clone("h1_RelSystematic_PolVari_EG2");
@@ -15463,6 +15479,8 @@ void plotting()
   vHistos.clear();
   vHistos.resize(0);
 
+  h1_RawYield_DataOmegaTGPSPS_3Sigma_Pol2_EG2_Copy->SetBinContent(h1_RawYield_DataOmegaTGPSPS_3Sigma_Pol2_EG2_Copy->FindBin(6.5), h1_CorrYield_DataOmegaTGPSPS_Pol2_EG2_Copy->GetBinContent(h1_CorrYield_DataOmegaTGPSPS_Pol2_EG2_Copy->FindBin(6.5)));
+
   vHistos.push_back(h1_CorrYield_DataOmegaTGPSPS_Pol2_EG2_Copy.get());
   vHistos.push_back(h1_RawYield_DataOmegaTGPSPS_1Sigma_Pol2_EG2_Copy.get());
   vHistos.push_back(h1_RawYield_DataOmegaTGPSPS_3Sigma_Pol2_EG2_Copy.get());
@@ -15477,13 +15495,16 @@ void plotting()
   vHistos.push_back(h1_Systematic_MethodVari_EG2);
   vHistos.push_back(h1_Systematic_FitRangeVari_EG2);
   vHistos.push_back(h1_Systematic_CountRangeVari_EG2);
+  vHistos.push_back(h1_AbsSystematic_PeakExtraction_EG2);
+  vHistos.push_back(h1_RelSystematic_PeakExtraction_EG2);
   vHistos.push_back(h1_Systematic_PeakExtraction_EG2);
   SysCalc(vHistos);
   vHistos.clear();
   vHistos.resize(0);
 
-  h1_RelSystematic_PolVari_EG2->SetMaximum(140.);
-  h1_RelSystematic_PolVari_EG2->SetMinimum(0.);
+  h1_RelSystematic_PeakExtraction_EG2->SetMaximum(140.);
+  h1_RelSystematic_PeakExtraction_EG2->SetMinimum(0.);
+  vHistos.push_back(h1_RelSystematic_PeakExtraction_EG2);
   vHistos.push_back(h1_RelSystematic_PolVari_EG2);
   vHistos.push_back(h1_RelSystematic_MethodVari_EG2);
   vHistos.push_back(h1_RelSystematic_FitRangeVari_EG2);
@@ -15528,6 +15549,118 @@ void plotting()
   PlotYieldsWithSys(vHistos, legYields_Data_Comb.get(), "Data/CorrectedYieldsWithSys.svg", "", 6., 40.);
   vHistos.clear();
   vHistos.resize(0);
+
+  // ---------------------------------------------------------------------------
+  //
+  // omega -> Pi0Gamma + omega -> 3 Pi
+  //
+  // ---------------------------------------------------------------------------
+  const Double_t mass = 0.78265;
+  TString file_name_ts_JENS     = "/media/marvin/Samsung_T5/Analyse/2021_05_14/CombineMesonMeasurements13TeV/InputEMCal.root";
+  const char* cc_file_name_JENS = file_name_ts_JENS.Data();
+  TFile* File_JENS              = SafelyOpenRootfile(cc_file_name_JENS);
+  TDirectoryFile* dir_jens = (TDirectoryFile*) File_JENS->Get("Omega13TeV");
+
+  TH1D* hCorrectedYieldOmega_Jens = (TH1D*) dir_jens->Get("CorrectedYieldOmega");
+
+  std::unique_ptr<TF1>TwoCompModel (new TF1("twoCompModel",Form("x*[0]*TMath::Exp(-(TMath::Sqrt(x*x+%.10f*%.10f)-%.10f)/[1]) + x*[2]/(TMath::Power(1+x*x/([3]*[3]*[4]),[4]) )",mass,mass,mass) ) );
+  TwoCompModel->SetParameters(7.78263e-01, 3.08591e-01, 8.72174e-01, 4.94962e-01, 3.44089e+00); // standard parameter optimize if necessary
+  TwoCompModel->SetRange(4., 60.);
+  hCorrectedYieldOmega_Jens->Fit(TwoCompModel.get(), "M0E", "");
+
+  double x_yieldEG2[6];
+  double y_yieldEG2[6];
+  double dx_yieldEG2[6];
+  double dy_yieldEG2[6];
+
+  double x_yieldEG1[7];
+  double y_yieldEG1[7];
+  double dx_yieldEG1[7];
+  double dy_yieldEG1[7];
+  int jBin = 0;
+
+  for(int k = h1_CorrYield_DataOmegaTGPSPS_Pol2_EG2_Copy->FindBin(6.5); k <= h1_CorrYield_DataOmegaTGPSPS_Pol2_EG2_Copy->FindBin(16.5); k++)
+  {
+    x_yieldEG2[jBin] = h1_CorrYield_DataOmegaTGPSPS_Pol2_EG2_Copy->GetBinCenter(k);
+    y_yieldEG2[jBin] = h1_CorrYield_DataOmegaTGPSPS_Pol2_EG2_Copy->GetBinContent(k);
+    dx_yieldEG2[jBin] = h1_CorrYield_DataOmegaTGPSPS_Pol2_EG2_Copy->GetBinCenter(k) - h1_CorrYield_DataOmegaTGPSPS_Pol2_EG2_Copy->GetBinLowEdge(k);
+    dy_yieldEG2[jBin] = h1_CorrYield_DataOmegaTGPSPS_Pol2_EG2_Copy->GetBinError(k);
+    jBin++;
+  }
+
+  jBin = 0;
+
+  for(int k = h1_CorrYield_DataOmegaTGPSPS_Pol2_EG1_Copy->FindBin(12.5); k <= h1_CorrYield_DataOmegaTGPSPS_Pol2_EG1_Copy->FindBin(38.5); k++)
+  {
+    x_yieldEG1[jBin] = h1_CorrYield_DataOmegaTGPSPS_Pol2_EG1_Copy->GetBinCenter(k);
+    y_yieldEG1[jBin] = h1_CorrYield_DataOmegaTGPSPS_Pol2_EG1_Copy->GetBinContent(k);
+    dx_yieldEG1[jBin] = h1_CorrYield_DataOmegaTGPSPS_Pol2_EG1_Copy->GetBinCenter(k) - h1_CorrYield_DataOmegaTGPSPS_Pol2_EG1_Copy->GetBinLowEdge(k);
+    dy_yieldEG1[jBin] = h1_CorrYield_DataOmegaTGPSPS_Pol2_EG1_Copy->GetBinError(k);
+    jBin++;
+  }
+
+  std::unique_ptr<TF1>TCM_TW (new TF1("TCM_TW",Form("x*[0]*TMath::Exp(-(TMath::Sqrt(x*x+%.10f*%.10f)-%.10f)/[1]) + x*[2]/(TMath::Power(1+x*x/([3]*[3]*[4]),[4]) )",mass,mass,mass) ) );
+  TCM_TW->SetParameters(7.78263e-01, 3.08591e-01, 8.72174e-01, 4.94962e-01, 3.44089e+00); // standard parameter optimize if necessary
+  TCM_TW->SetRange(6., 40.);
+
+  TGraphErrors gr_CorrYieldEG1 = TGraphErrors(7, x_yieldEG1, y_yieldEG1, dx_yieldEG1, dy_yieldEG1);
+  TGraphErrors gr_CorrYieldEG2 = TGraphErrors(6, x_yieldEG2, y_yieldEG2, dx_yieldEG2, dy_yieldEG2);
+  TGraphErrors gr_Jens = TGraphErrors(hCorrectedYieldOmega_Jens);
+
+  TMultiGraph* mg = new TMultiGraph();
+
+  mg->Add(&gr_CorrYieldEG1);
+  mg->Add(&gr_CorrYieldEG2);
+
+  mg->Fit(TCM_TW.get(), "0", "", 6., 40.);
+
+  std::unique_ptr<TF1>TCM_Combined (new TF1("TCM_Combined",Form("x*[0]*TMath::Exp(-(TMath::Sqrt(x*x+%.10f*%.10f)-%.10f)/[1]) + x*[2]/(TMath::Power(1+x*x/([3]*[3]*[4]),[4]) )",mass,mass,mass) ) );
+  TCM_Combined->SetParameters(7.78263e-01, 3.08591e-01, 8.72174e-01, 4.94962e-01, 3.44089e+00); // standard parameter optimize if necessary
+  TCM_Combined->SetRange(4., 60.);
+
+  mg->Add(&gr_Jens);
+  mg->Fit(TCM_Combined.get(), "0", "", 4., 60.);
+
+  hCorrectedYieldOmega_Jens->SetMaximum(6.e-2);
+  hCorrectedYieldOmega_Jens->SetMinimum(1.e-11);
+  vHistos.push_back(hCorrectedYieldOmega_Jens);
+  vHistos.push_back(h1_Systematic_PeakExtraction_EG1);
+  vHistos.push_back(h1_Systematic_PeakExtraction_EG2);
+  vHistos.push_back(h1_CorrYield_DataOmegaTGPSPS_Pol2_EG1_Copy.get());
+  vHistos.push_back(h1_CorrYield_DataOmegaTGPSPS_Pol2_EG2_Copy.get());
+  vFunctions.push_back(TwoCompModel.get());
+  vFunctions.push_back(TCM_TW.get());
+  vFunctions.push_back(TCM_Combined.get());
+  PlotYieldsMethodComp(vHistos, vFunctions, legYields_Data_Comb.get(), "Data/CorrectedYieldsMethodComp.svg", "corrected yield", 4., 60.);
+  vHistos.clear();
+  vHistos.resize(0);
+  vFunctions.clear();
+  vFunctions.resize(0);
+
+
+  TH1D* h1_Ratio_Jens = (TH1D*) hCorrectedYieldOmega_Jens->Clone("h1_Ratio_Jens");
+  TH1D* h1_Ratio_EG1_stat = (TH1D*) h1_CorrYield_DataOmegaTGPSPS_Pol2_EG1_Copy->Clone("h1_Ratio_EG1_stat");
+  TH1D* h1_Ratio_EG1_sys = (TH1D*) h1_Systematic_PeakExtraction_EG1->Clone("h1_Ratio_EG1_sys");
+  TH1D* h1_Ratio_EG2_stat = (TH1D*) h1_CorrYield_DataOmegaTGPSPS_Pol2_EG2_Copy->Clone("h1_Ratio_EG2_stat");
+  TH1D* h1_Ratio_EG2_sys = (TH1D*) h1_Systematic_PeakExtraction_EG2->Clone("h1_Ratio_EG2_sys");
+
+  h1_Ratio_Jens->Divide(TCM_Combined.get());
+  h1_Ratio_EG1_stat->Divide(TCM_Combined.get());
+  h1_Ratio_EG1_sys->Divide(TCM_Combined.get());
+  h1_Ratio_EG2_stat->Divide(TCM_Combined.get());
+  h1_Ratio_EG2_sys->Divide(TCM_Combined.get());
+
+  vHistos.push_back(h1_Ratio_Jens);
+  vHistos.push_back(h1_Ratio_EG1_sys);
+  vHistos.push_back(h1_Ratio_EG2_sys);
+  vHistos.push_back(h1_Ratio_EG1_stat);
+  vHistos.push_back(h1_Ratio_EG2_stat);
+
+  PlotYieldsMethodCompRatio(vHistos, legYields_Data_Comb.get(), "Data/CorrectedYieldsMethodCompRatio.svg", "ratio to combined TCM fit", 4., 60.);
+  vHistos.clear();
+  vHistos.resize(0);
+
+  delete mg;
 
   /****************************************************************************/
   /*                                                                          */
@@ -15957,11 +16090,6 @@ void plotting()
   h1_RawYield_DataOmegaPS2Sig_Pol2_EG2->Divide(h1_RawYield_DataOmegaPS2Sig_Pol2_EG2.get(), h1_RawYield_DataOmegaTGPSPS_Pol2_EG2.get(), 1, 1, "B");
   h1_RawYield_DataOmegaPS3Sig_Pol2_EG2->Divide(h1_RawYield_DataOmegaPS3Sig_Pol2_EG2.get(), h1_RawYield_DataOmegaTGPSPS_Pol2_EG2.get(), 1, 1, "B");
   h1_RawYield_DataOmegaPS4Sig_Pol2_EG2->Divide(h1_RawYield_DataOmegaPS4Sig_Pol2_EG2.get(), h1_RawYield_DataOmegaTGPSPS_Pol2_EG2.get(), 1, 1, "B");
-
-  // COUT
-  TGraphErrors a = TGraphErrors(h1_RawYield_DataOmegaTGPSPS_Pol2_EG2.get());
-  h1_RawYield_DataOmegaTGPSPS_Pol2_EG2->SaveAs("h1_RawYield_DataOmegaTGPSPS_Pol2_EG2.root");
-  a.Print();
 
   h1_RawYield_DataOmegaTGPSPS_Pol2_EG2->Divide(h1_RawYield_DataOmegaTGPSPS_Pol2_EG2.get(), h1_RawYield_DataOmegaTGPSPS_Pol2_EG2.get(), 1, 1, "B");
 
